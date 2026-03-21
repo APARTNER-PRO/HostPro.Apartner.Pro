@@ -180,6 +180,50 @@ body {
 .legal-toc li { margin-bottom: 4px; }
 .legal-toc a { color: var(--accent); font-size: 13px; text-decoration: none; }
 
+/* ── Nav & Footer hover classes (no JS event handlers) ── */
+.hp-nav-link {
+  color: rgba(240,244,255,.6);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .2s;
+}
+.hp-nav-link:hover { color: #60A5FA; }
+
+.hp-footer-link {
+  color: rgba(240,244,255,.35);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color .2s;
+}
+.hp-footer-link:hover { color: #60A5FA; }
+
+.hp-lang-link {
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 3px 10px;
+  transition: all .2s;
+}
+.hp-lang-link:hover { color: #60A5FA !important; border-color: rgba(96,165,250,.4) !important; }
+
+/* ── Card & plan hover — CSS only ── */
+.hp-feat-card { transition: transform .25s, background .25s; cursor: default; }
+.hp-feat-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.055) !important; }
+
+.hp-plan-card { transition: transform .3s; cursor: default; }
+.hp-plan-card:hover { transform: translateY(-8px); }
+
+.hp-who-card { transition: transform .25s; cursor: default; }
+.hp-who-card:hover { transform: translateY(-4px); }
+
+.hp-plan-btn { transition: all .2s; }
+.hp-plan-btn:hover { transform: scale(1.02); }
+.hp-plan-btn-outline:hover { background: rgba(255,255,255,.12) !important; }
+
+.hp-contact-channel { transition: border-color .2s, transform .2s; cursor: default; }
+.hp-contact-channel:hover { border-color: rgba(96,165,250,.22) !important; transform: translateY(-2px); }
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .hide-mobile { display: none !important; }

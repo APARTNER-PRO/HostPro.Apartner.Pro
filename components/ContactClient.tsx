@@ -30,8 +30,7 @@ export default function ContactClient({ lang }: { lang: Lang }) {
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:18 }}>
             {C.channels.map((ch,i) => (
               <div key={i} style={{ background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.07)',borderRadius:13,padding:22,transition:'border-color .2s,transform .2s',cursor:'default' }}
-                onMouseEnter={e=>{(e.currentTarget as HTMLDivElement).style.borderColor='rgba(96,165,250,.22)';(e.currentTarget as HTMLDivElement).style.transform='translateY(-2px)'}}
-                onMouseLeave={e=>{(e.currentTarget as HTMLDivElement).style.borderColor='rgba(255,255,255,.07)';(e.currentTarget as HTMLDivElement).style.transform=''}}>
+                className="hp-contact-channel">
                 <div style={{ fontSize:26,marginBottom:10 }}>{ch.icon}</div>
                 <div style={{ fontFamily:'Syne,sans-serif',fontSize:15,fontWeight:700,marginBottom:4 }}>{ch.title}</div>
                 <div style={{ fontSize:13,color:'rgba(240,244,255,.4)',marginBottom:10,fontWeight:300 }}>{ch.desc}</div>
