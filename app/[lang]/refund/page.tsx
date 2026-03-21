@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: { lang: string } })
     },
     openGraph: {
       title, description,
-      url: ,
+      url: `https://hostpro.apartner.pro/${params.lang}/refund`,
       siteName: 'HostPro',
       locale,
       type: 'website',

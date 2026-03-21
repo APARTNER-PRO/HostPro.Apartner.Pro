@@ -20,7 +20,7 @@ export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
       '@type': 'ContactPoint',
       contactType: 'customer service',
       availableLanguage: ['English', 'Ukrainian', 'Russian'],
-      email: 'support@hostpro.com',
+      email: 'hostpro@apartner.pro',
     },
     sameAs: [],
   }

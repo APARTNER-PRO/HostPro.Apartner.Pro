@@ -9,7 +9,7 @@ export function generateStaticParams() {
 }
 
 const META: Record<string, [string, string]> = {
-  uk: ['Контакти', 'Зв'яжіться з командою HostPro — підтримка 24/7, відповідь за 5 хвилин.'],
+  uk: ['Контакти', "Зв'яжіться з командою HostPro — підтримка 24/7, відповідь за 5 хвилин."],
   ru: ['Контакты', 'Свяжитесь с командой HostPro — поддержка 24/7, ответ за 5 минут.'],
 }
 
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: { lang: string } })
     },
     openGraph: {
       title, description,
-      url: ,
+      url: `https://hostpro.apartner.pro/${params.lang}/contact`,
       siteName: 'HostPro',
       locale,
       type: 'website',
