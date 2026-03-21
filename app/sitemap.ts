@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { LANGS } from '@/lib/i18n'
 
-const BASE = 'https://hostpro.com'
+const BASE = 'https://hostpro.apartner.pro'
 const PAGES = ['', 'about', 'faq', 'contact', 'status', 'terms', 'privacy', 'refund']
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   return {
     title, description,
     alternates: {
-      canonical: ,
+      canonical: `https://hostpro.apartner.pro/${params.lang}/status`,
       languages: {
-        'en':        'https://hostpro.com/status',
-        'uk':        'https://hostpro.com/uk/status',
-        'ru':        'https://hostpro.com/ru/status',
-        'x-default': 'https://hostpro.com/status',
+        'en':        'https://hostpro.apartner.pro/status',
+        'uk':        'https://hostpro.apartner.pro/uk/status',
+        'ru':        'https://hostpro.apartner.pro/ru/status',
+        'x-default': 'https://hostpro.apartner.pro/status',
       },
     },
     openGraph: {

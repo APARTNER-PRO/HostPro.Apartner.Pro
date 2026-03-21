@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hostpro.com'),
+  metadataBase: new URL('https://hostpro.apartner.pro'),
   title: {
     default: 'HostPro — Fast & Reliable Web Hosting',
     template: '%s — HostPro',

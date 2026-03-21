@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   return {
     title, description,
     alternates: {
-      canonical: ,
+      canonical: `https://hostpro.apartner.pro/${params.lang}/refund`,
       languages: {
-        'en':        'https://hostpro.com/refund',
-        'uk':        'https://hostpro.com/uk/refund',
-        'ru':        'https://hostpro.com/ru/refund',
-        'x-default': 'https://hostpro.com/refund',
+        'en':        'https://hostpro.apartner.pro/refund',
+        'uk':        'https://hostpro.apartner.pro/uk/refund',
+        'ru':        'https://hostpro.apartner.pro/ru/refund',
+        'x-default': 'https://hostpro.apartner.pro/refund',
       },
     },
     openGraph: {

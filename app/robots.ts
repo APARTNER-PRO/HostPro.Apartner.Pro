@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://hostpro.com/sitemap.xml',
-    host: 'https://hostpro.com',
+    sitemap: 'https://hostpro.apartner.pro/sitemap.xml',
+    host: 'https://hostpro.apartner.pro',
   }
 }

@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   return {
     title, description,
     alternates: {
-      canonical: ,
+      canonical: `https://hostpro.apartner.pro/${params.lang}/privacy`,
       languages: {
-        'en':        'https://hostpro.com/privacy',
-        'uk':        'https://hostpro.com/uk/privacy',
-        'ru':        'https://hostpro.com/ru/privacy',
-        'x-default': 'https://hostpro.com/privacy',
+        'en':        'https://hostpro.apartner.pro/privacy',
+        'uk':        'https://hostpro.apartner.pro/uk/privacy',
+        'ru':        'https://hostpro.apartner.pro/ru/privacy',
+        'x-default': 'https://hostpro.apartner.pro/privacy',
       },
     },
     openGraph: {

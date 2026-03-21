@@ -1,6 +1,6 @@
 import { Lang } from '@/lib/i18n'
 
-const SITE_URL = 'https://hostpro.com'
+const SITE_URL = 'https://hostpro.apartner.pro'
 
 interface JsonLdProps {
   lang: Lang
