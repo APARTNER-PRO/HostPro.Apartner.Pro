@@ -3,10 +3,10 @@ import { useEffect, useRef } from 'react'
 import { Lang, getT } from '@/lib/i18n'
 import { useFadeIn } from './useFadeIn'
 
-function FadeIn({ children, delay=0 }: { children:React.ReactNode;delay?:number }) {
+function FadeIn({ children, delay=0, style }: { children:React.ReactNode;delay?:number;style?:React.CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null!)
   const inView = useFadeIn(ref)
-  return <div ref={ref} style={{ opacity:inView?1:0,transform:inView?'translateY(0)':'translateY(24px)',transition:`opacity .6s ease ${delay}ms,transform .6s ease ${delay}ms` }}>{children}</div>
+  return <div ref={ref} style={{ opacity:inView?1:0,transform:inView?'translateY(0)':'translateY(24px)',transition:`opacity .6s ease ${delay}ms,transform .6s ease ${delay}ms`,...style }}>{children}</div>
 }
 
 const MG = ['linear-gradient(135deg,#60A5FA,#A78BFA)','linear-gradient(135deg,#A78BFA,#F472B6)','linear-gradient(135deg,#6EE7B7,#60A5FA)']

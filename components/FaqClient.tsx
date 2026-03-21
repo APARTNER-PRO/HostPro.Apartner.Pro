@@ -3,10 +3,10 @@ import { useState, useRef } from 'react'
 import { Lang, getT } from '@/lib/i18n'
 import { useFadeIn } from './useFadeIn'
 
-function FadeIn({ children }: { children: React.ReactNode }) {
+function FadeIn({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null!)
   const inView = useFadeIn(ref)
-  return <div ref={ref} style={{ opacity:inView?1:0,transform:inView?'translateY(0)':'translateY(24px)',transition:'opacity .6s ease,transform .6s ease' }}>{children}</div>
+  return <div ref={ref} style={{ opacity:inView?1:0,transform:inView?'translateY(0)':'translateY(24px)',transition:'opacity .6s ease,transform .6s ease',...style }}>{children}</div>
 }
 
 export default function FaqClient({ lang }: { lang: Lang }) {
