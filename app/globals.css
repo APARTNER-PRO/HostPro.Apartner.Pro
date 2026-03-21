@@ -229,3 +229,9 @@ body {
   .hide-mobile { display: none !important; }
   .page-title { font-size: 30px; }
 }
+
+/* ── Plans grid: 5 columns on desktop, fewer on smaller screens ── */
+.hp-plans-grid { grid-template-columns: repeat(5, 1fr) !important; }
+@media (max-width: 1100px) { .hp-plans-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (max-width: 720px)  { .hp-plans-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 480px)  { .hp-plans-grid { grid-template-columns: 1fr !important; } }

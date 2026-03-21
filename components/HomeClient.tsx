@@ -32,7 +32,7 @@ const DISC: Record<string, number> = { monthly: 1, quarterly: 0.9, yearly: 0.8 }
 const CSS = `
   .hp-feat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px;transition:transform .25s,background .25s;cursor:default}
   .hp-feat-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.055)}
-  .hp-plan-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:32px 28px;position:relative;transition:transform .3s;cursor:default}
+  .hp-plan-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;position:relative;transition:transform .3s;cursor:default}
   .hp-plan-card:hover{transform:translateY(-8px)}
   .hp-plan-card.popular{background:linear-gradient(160deg,rgba(96,165,250,.1),rgba(139,92,246,.08));border-color:rgba(96,165,250,.35);box-shadow:0 0 60px rgba(59,130,246,.12)}
   .hp-plan-btn{width:100%;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.07);color:#fff;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-bottom:24px}
@@ -128,26 +128,26 @@ export default function HomeClient({ lang }: { lang: Lang }) {
             </div>
           </FadeIn>
           <FadeIn>
-            <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(250px,1fr))',gap:20,alignItems:'start' }}>
+            <div className="hp-plans-grid" style={{ display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:14,alignItems:'start' }}>
               {T.pricing.plans.map((plan,i)=>(
                 <div key={i} className={`hp-plan-card${plan.popular?' popular':''}`}>
-                  {plan.popular&&<div style={{ position:'absolute',top:-14,left:'50%',transform:'translateX(-50%)',background:'linear-gradient(135deg,#3B82F6,#8B5CF6)',color:'#fff',fontSize:12,fontWeight:700,padding:'5px 16px',borderRadius:100,whiteSpace:'nowrap' }}>{T.pricing.popular}</div>}
-                  <div style={{ display:'flex',alignItems:'center',gap:10,marginBottom:8 }}>
+                  {plan.popular&&<div style={{ position:'absolute',top:-12,left:'50%',transform:'translateX(-50%)',background:'linear-gradient(135deg,#3B82F6,#8B5CF6)',color:'#fff',fontSize:11,fontWeight:700,padding:'4px 12px',borderRadius:100,whiteSpace:'nowrap' }}>{T.pricing.popular}</div>}
+                  <div style={{ display:'flex',alignItems:'center',gap:8,marginBottom:6 }}>
                     <div style={{ width:10,height:10,borderRadius:'50%',background:plan.color,boxShadow:`0 0 12px ${plan.color}`,flexShrink:0 }} />
-                    <h3 style={{ fontFamily:'Syne,sans-serif',fontSize:22,fontWeight:800 }}>{plan.name}</h3>
+                    <h3 style={{ fontFamily:'Syne,sans-serif',fontSize:18,fontWeight:800 }}>{plan.name}</h3>
                   </div>
-                  <p style={{ fontSize:13,color:'rgba(240,244,255,.45)',marginBottom:24,fontWeight:300 }}>{plan.desc}</p>
+                  <p style={{ fontSize:12,color:'rgba(240,244,255,.45)',marginBottom:16,fontWeight:300 }}>{plan.desc}</p>
                   <div style={{ marginBottom:24 }}>
-                    <span style={{ fontFamily:'Syne,sans-serif',fontSize:44,fontWeight:800,color:plan.color }}>${getPrice(plan.price)}</span>
+                    <span style={{ fontFamily:'Syne,sans-serif',fontSize:34,fontWeight:800,color:plan.color }}>${getPrice(plan.price)}</span>
                     <span style={{ fontSize:14,color:'rgba(240,244,255,.4)',fontWeight:300 }}>{T.pricing.mo}</span>
                   </div>
                   <button onClick={()=>setOrder({name:plan.name,price:getPrice(plan.price)})} className={`hp-plan-btn${plan.popular?' primary':''}`}>{T.pricing.cta}</button>
                   <div style={{ borderTop:'1px solid rgba(255,255,255,.07)',paddingTop:20 }}>
-                    <p style={{ fontSize:12,color:'rgba(240,244,255,.35)',marginBottom:12,fontWeight:500,textTransform:'uppercase',letterSpacing:'.08em' }}>{T.pricing.featLabel}</p>
+                    <p style={{ fontSize:11,color:'rgba(240,244,255,.35)',marginBottom:8,fontWeight:500,textTransform:'uppercase',letterSpacing:'.08em' }}>{T.pricing.featLabel}</p>
                     {plan.extras.map((ex,j)=>(
-                      <div key={j} style={{ display:'flex',alignItems:'center',gap:8,marginBottom:10 }}>
+                      <div key={j} style={{ display:'flex',alignItems:'center',gap:6,marginBottom:7 }}>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill={plan.color} fillOpacity="0.15"/><path d="M4 7l2 2 4-4" stroke={plan.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        <span style={{ fontSize:13,color:'rgba(240,244,255,.7)',fontWeight:400 }}>{ex}</span>
+                        <span style={{ fontSize:12,color:'rgba(240,244,255,.7)',fontWeight:400 }}>{ex}</span>
                       </div>
                     ))}
                   </div>
