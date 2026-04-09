@@ -55,7 +55,7 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
         </Link>
 
         {/* Desktop links */}
-        <div className="hide-mobile" style={{ display: 'flex', gap: 26, alignItems: 'center', minWidth: '111px' }}>
+        <div className="hide-mobile" style={{ display: 'flex', gap: 26, alignItems: 'center' }}>
           {navLinks.map((l) => (
             <Link key={l.href} href={l.href} className="hp-nav-link">
               {l.label}
