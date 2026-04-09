@@ -130,9 +130,9 @@ export default function HomeClient({ lang }: { lang: Lang }) {
             <p style={{ fontSize:18,color:'rgba(240,244,255,.5)',fontWeight:300 }}>{T.pricing.sub}</p>
           </FadeIn>
           <FadeIn style={{ display:'flex',justifyContent:'center',marginBottom:60 }}>
-            <div style={{ display:'flex',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.08)',borderRadius:12,padding:4,gap:4 }}>
+            <div style={{ display:'flex',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.08)',borderRadius:12,padding:4,gap:4,overflowX:'auto',maxWidth:'100%',minWidth:'fit-content',WebkitOverflowScrolling:'touch' }}>
               {(['monthly','quarterly','yearly'] as const).map((b)=>(
-                <button key={b} onClick={()=>setBilling(b)} className="hp-billing-btn" style={{ background:billing===b?'rgba(96,165,250,.2)':'transparent',color:billing===b?'#60A5FA':'rgba(240,244,255,.5)',border:billing===b?'1px solid rgba(96,165,250,.3)':'1px solid transparent' }}>
+                <button key={b} onClick={()=>setBilling(b)} className="hp-billing-btn" style={{ background:billing===b?'rgba(96,165,250,.2)':'transparent',color:billing===b?'#60A5FA':'rgba(240,244,255,.5)',border:billing===b?'1px solid rgba(96,165,250,.3)':'1px solid transparent',whiteSpace:'nowrap' }}>
                   {T.billing[b==='monthly'?'monthly':b==='quarterly'?'quarterly':'yearly']}
                   {b==='quarterly'&&<span style={{ background:'rgba(251,146,60,.2)',color:'#FB923C',fontSize:11,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save10}</span>}
                   {b==='yearly'&&<span style={{ background:'rgba(110,231,183,.2)',color:'#6EE7B7',fontSize:11,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save20}</span>}
