@@ -65,6 +65,16 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
 
         {/* Right: lang bar + CTA */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+
+          {/* CTA */}
+          <Link
+            href={`${p}/#pricing`}
+            className="hide-mobile"
+            style={{ background: 'linear-gradient(135deg,#3B82F6,#8B5CF6)', color: '#fff', padding: '8px 18px', borderRadius: 8, fontSize: 13, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}
+          >
+            {T.nav.cta}
+          </Link>
+
           {/* Lang switcher */}
           <div style={{ display: 'flex', gap: 2, background: 'rgba(255,255,255,.05)', borderRadius: 8, padding: 3 }}>
             {langLinks.map((l) => (
@@ -83,15 +93,6 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
               </Link>
             ))}
           </div>
-
-          {/* CTA */}
-          <Link
-            href={`${p}/#pricing`}
-            className="hide-mobile"
-            style={{ background: 'linear-gradient(135deg,#3B82F6,#8B5CF6)', color: '#fff', padding: '8px 18px', borderRadius: 8, fontSize: 13, fontWeight: 700, textDecoration: 'none', transition: 'all .2s' }}
-          >
-            {T.nav.cta}
-          </Link>
 
           {/* Mobile burger */}
           <button
