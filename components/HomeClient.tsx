@@ -53,6 +53,10 @@ const CSS = `
     display: flex;
     flex-direction: column;
   }
+
+  .section-container {
+    padding: 0;
+  }
 `
 
 export default function HomeClient({ lang }: { lang: Lang }) {
