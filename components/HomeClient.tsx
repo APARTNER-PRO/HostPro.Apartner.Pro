@@ -49,9 +49,11 @@ const CSS = `
   .hp-badge{animation:floatBadge 3s ease-in-out infinite}
   .hp-orb-pulse{animation:pulseGlow 4s ease-in-out infinite}
 
-  .price__wrapper {
-    display: flex;
-    flex-direction: column;
+  @media (max-width: 767px) {
+    .price__wrapper {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `
 
