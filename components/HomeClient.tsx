@@ -60,6 +60,10 @@ export default function HomeClient({ lang }: { lang: Lang }) {
     const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : 12
     return (base * months * DISC[billing]).toFixed(2)
   }
+  const getRenewalPrice = (base: number) => {
+    const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : 12
+    return (base * months).toFixed(2)
+  }
   const getBillingText = () => {
     if (billing === 'monthly') return { term: T.billing.monthTerm, period: T.billing.monthly.toLowerCase() }
     if (billing === 'quarterly') return { term: T.billing.quarterTerm, period: T.billing.quarterly.toLowerCase() }
@@ -151,6 +155,11 @@ export default function HomeClient({ lang }: { lang: Lang }) {
                     <span style={{ fontSize:14,color:'rgba(240,244,255,.4)',fontWeight:300 }}>{T.pricing.mo}</span>
                     <div style={{ fontSize:12,color:'rgba(240,244,255,.5)',marginTop:8,fontWeight:300 }}>
                       {T.billing.for} {getBillingText().term}. {T.billing.payToday} <span style={{fontWeight:600}}>${getTotalPrice(plan.price)}</span> {T.billing.today}
+                      {billing !== 'monthly' && (
+                        <div style={{ marginTop:6,fontSize:11,color:'rgba(240,244,255,.4)' }}>
+                          {T.billing.then} <span style={{fontWeight:600}}>${getRenewalPrice(plan.price)}</span> {T.billing.onRenewal}
+                        </div>
+                      )}
                     </div>
                   </div>
                   <button onClick={()=>setOrder({name:plan.name,price:getPrice(plan.price)})} className={`hp-plan-btn${plan.popular?' primary':''}`}>{T.pricing.cta}</button>
