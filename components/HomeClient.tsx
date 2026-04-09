@@ -56,6 +56,15 @@ export default function HomeClient({ lang }: { lang: Lang }) {
   const [billing, setBilling] = useState('monthly')
   const [order, setOrder] = useState<{ name: string; price: string } | null>(null)
   const getPrice = (base: number) => (base * DISC[billing]).toFixed(2)
+  const getTotalPrice = (base: number) => {
+    const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : 12
+    return (base * months * DISC[billing]).toFixed(2)
+  }
+  const getBillingText = () => {
+    if (billing === 'monthly') return { term: T.billing.monthTerm, period: T.billing.monthly.toLowerCase() }
+    if (billing === 'quarterly') return { term: T.billing.quarterTerm, period: T.billing.quarterly.toLowerCase() }
+    return { term: T.billing.yearTerm, period: T.billing.yearly.toLowerCase() }
+  }
   const statGrads = ['linear-gradient(135deg,#60A5FA,#A78BFA)','linear-gradient(135deg,#A78BFA,#F472B6)','linear-gradient(135deg,#6EE7B7,#60A5FA)','linear-gradient(135deg,#FB923C,#F472B6)']
 
   return (
@@ -140,6 +149,9 @@ export default function HomeClient({ lang }: { lang: Lang }) {
                   <div style={{ marginBottom:24 }}>
                     <span style={{ fontFamily:'Syne,sans-serif',fontSize:34,fontWeight:800,color:plan.color }}>${getPrice(plan.price)}</span>
                     <span style={{ fontSize:14,color:'rgba(240,244,255,.4)',fontWeight:300 }}>{T.pricing.mo}</span>
+                    <div style={{ fontSize:12,color:'rgba(240,244,255,.5)',marginTop:8,fontWeight:300 }}>
+                      {T.billing.for} {getBillingText().term}. {T.billing.payToday} <span style={{fontWeight:600}}>${getTotalPrice(plan.price)}</span> {T.billing.today}
+                    </div>
                   </div>
                   <button onClick={()=>setOrder({name:plan.name,price:getPrice(plan.price)})} className={`hp-plan-btn${plan.popular?' primary':''}`}>{T.pricing.cta}</button>
                   <div style={{ borderTop:'1px solid rgba(255,255,255,.07)',paddingTop:20 }}>
