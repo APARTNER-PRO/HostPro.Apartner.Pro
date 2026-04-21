@@ -55,14 +55,42 @@ export default function ContactClient({ lang }: { lang: Lang }) {
       <div className="page-container" style={{ paddingBottom:80 }}>
         <FadeIn>
           <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:18 }}>
-            {C.channels.map((ch,i) => (
-              <div key={i} className="hp-contact-channel" style={{ background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.07)',borderRadius:13,padding:22 }}>
-                <div style={{ fontSize:26,marginBottom:10 }}>{ch.icon}</div>
-                <div style={{ fontFamily:'Syne,sans-serif',fontSize:15,fontWeight:700,marginBottom:4 }}>{ch.title}</div>
-                <div style={{ fontSize:13,color:'rgba(240,244,255,.4)',marginBottom:10,fontWeight:300 }}>{ch.desc}</div>
-                <a href={ch.href} style={{ color:'#60A5FA',fontSize:13,fontWeight:600,textDecoration:'none' }}>{ch.link}</a>
-              </div>
-            ))}
+            {C.channels.map((ch,i) => {
+              const isChat = ch.title === 'Live Chat';
+              const handleClick = (e: React.MouseEvent) => {
+                if (isChat) {
+                  e.preventDefault();
+                  if (typeof window !== 'undefined' && (window as any).Tawk_API) {
+                    (window as any).Tawk_API.maximize();
+                  }
+                }
+              };
+              return (
+                <div 
+                  key={i} 
+                  className="hp-contact-channel" 
+                  onClick={handleClick}
+                  style={{ 
+                    background:'rgba(255,255,255,.03)', 
+                    border:'1px solid rgba(255,255,255,.07)', 
+                    borderRadius:13, 
+                    padding:22,
+                    cursor: isChat ? 'pointer' : 'default'
+                  }}
+                >
+                  <div style={{ fontSize:26,marginBottom:10 }}>{ch.icon}</div>
+                  <div style={{ fontFamily:'Syne,sans-serif',fontSize:15,fontWeight:700,marginBottom:4 }}>{ch.title}</div>
+                  <div style={{ fontSize:13,color:'rgba(240,244,255,.4)',marginBottom:10,fontWeight:300 }}>{ch.desc}</div>
+                  <a 
+                    href={ch.href} 
+                    onClick={handleClick}
+                    style={{ color:'#60A5FA',fontSize:13,fontWeight:600,textDecoration:'none' }}
+                  >
+                    {ch.link}
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </FadeIn>
         <FadeIn delay={100}>
