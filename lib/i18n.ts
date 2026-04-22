@@ -361,6 +361,27 @@ export const t = {
       ],
       pricingSub: 'Scale your applications with dedicated resources and peak performance.',
     },
+    kb: {
+      meta: 'Knowledge Base — find guides, tutorials and answers to your hosting questions.',
+      title: 'Knowledge Base',
+      sub: 'Search our library of help articles and tutorials.',
+      searchPh: 'Search for articles...',
+      categories: [
+        { title: 'Getting Started', count: 12, icon: '🚀' },
+        { title: 'cPanel & Hosting', count: 24, icon: '📋' },
+        { title: 'Domains & DNS', count: 15, icon: '🌐' },
+        { title: 'Email Setup', count: 18, icon: '📧' },
+        { title: 'WordPress Guides', count: 21, icon: '📝' },
+        { title: 'Security & SSL', count: 10, icon: '🔒' },
+      ],
+      popular: 'Popular Articles',
+      popularItems: [
+        'How to login to cPanel',
+        'Changing your nameservers',
+        'Setting up email on iPhone',
+        'Installing WordPress via Softaculous',
+      ],
+    },
   },
 
   // ── UKRAINIAN ──────────────────────────────────────────────────────────────
@@ -440,6 +461,27 @@ t.uk = {
     ],
     pricingSub: 'Масштабуйте свої додатки з виділеними ресурсами та максимальною швидкістю.',
   },
+  kb: {
+    meta: 'База знань — інструкції, посібники та відповіді на питання про хостинг.',
+    title: 'База знань',
+    sub: 'Шукайте відповіді у нашій бібліотеці інструкцій.',
+    searchPh: 'Шукати статті...',
+    categories: [
+      { title: 'З чого почати', count: 12, icon: '🚀' },
+      { title: 'cPanel та хостинг', count: 24, icon: '📋' },
+      { title: 'Домени та DNS', count: 15, icon: '🌐' },
+      { title: 'Налаштування пошти', count: 18, icon: '📧' },
+      { title: 'WordPress інструкції', count: 21, icon: '📝' },
+      { title: 'Безпека та SSL', count: 10, icon: '🔒' },
+    ],
+    popular: 'Популярні статті',
+    popularItems: [
+      'Як увійти в cPanel',
+      'Як змінити DNS сервери',
+      'Налаштування пошти на iPhone',
+      'Встановлення WordPress через Softaculous',
+    ],
+  },
 }
 
 // Populate RU
@@ -499,6 +541,27 @@ t.ru = {
       { icon: '🔒', title: 'SSH и Composer', desc: 'Полный SSH доступ, Composer и Artisan команды уже установлены.' },
     ],
     pricingSub: 'Масштабируйте свои приложения с выделенными ресурсами и максимальной скоростью.',
+  },
+  kb: {
+    meta: 'База знаний — инструкции, руководства и ответы на вопросы о хостинге.',
+    title: 'База знаний',
+    sub: 'Ищите ответы в нашей библиотеке инструкций.',
+    searchPh: 'Искать статьи...',
+    categories: [
+      { title: 'С чего начать', count: 12, icon: '🚀' },
+      { title: 'cPanel и хостинг', count: 24, icon: '📋' },
+      { title: 'Домены и DNS', count: 15, icon: '🌐' },
+      { title: 'Настройка почты', count: 18, icon: '📧' },
+      { title: 'WordPress инструкции', count: 21, icon: '📝' },
+      { title: 'Безопасность и SSL', count: 10, icon: '🔒' },
+    ],
+    popular: 'Популярные статьи',
+    popularItems: [
+      'Как войти в cPanel',
+      'Как сменить DNS серверы',
+      'Настройка почты на iPhone',
+      'Установка WordPress через Softaculous',
+    ],
   },
 }
 
