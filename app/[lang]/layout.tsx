@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { LANGS } from '@/lib/i18n'
 import '../globals.css'
+
+export function generateStaticParams() {
+  return LANGS.filter(l => l !== 'en').map(l => ({ lang: l }))
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hostpro.apartner.pro'),

@@ -39,14 +39,27 @@ export const t = {
     footer: {
       tagline: 'Modern hosting for modern projects.',
       copy: '© 2025 HostPro. All rights reserved.',
+      cols: {
+        products: 'Products',
+        services: 'Services',
+        resources: 'Resources',
+        legal: 'Legal',
+      },
       links: {
-        about: 'About',
+        pricing: 'Pricing',
         faq: 'FAQ',
+        status: 'System Status',
+        wpHosting: 'WordPress Hosting',
+        vpsHosting: 'VPS Hosting',
+        dedicated: 'Dedicated Servers',
+        laravelHosting: 'Laravel Hosting',
+        kb: 'Knowledge Base',
+        blog: 'Blog',
+        about: 'About Us',
         contact: 'Contact',
-        status: 'Status',
-        terms: 'Terms',
-        privacy: 'Privacy',
-        refund: 'Refund',
+        terms: 'Terms of Service',
+        privacy: 'Privacy Policy',
+        refund: 'Refund Policy',
       },
     },
 
@@ -320,6 +333,34 @@ export const t = {
       acceptEssential: 'Essential only',
       more: 'Privacy Policy',
     },
+    wp: {
+      meta: 'Managed WordPress hosting — fast, secure and reliable. Optimized servers, auto-updates and staging.',
+      badge: '⚡ WordPress Optimized · auto-updates · staging',
+      title1: 'WordPress hosting',
+      title2: 'that is actually fast',
+      sub: 'Everything you need to build and scale your WordPress site with ease. Pre-configured for peak performance.',
+      features: [
+        { icon: '🚀', title: 'Speed Optimized', desc: 'Pre-configured LiteSpeed caching and NVMe SSD for blazing fast load times.' },
+        { icon: '🔒', title: 'Secure by Default', desc: 'Auto SSL, malware scanning and web application firewall (WAF) included.' },
+        { icon: '🔄', title: 'Auto Updates', desc: 'Keep your WordPress core, themes and plugins up to date automatically.' },
+        { icon: '🛠️', title: 'Staging Environment', desc: 'Test changes on a clone of your site before pushing to live in one click.' },
+      ],
+      pricingSub: 'WordPress specific plans with extra resources and support.',
+    },
+    laravel: {
+      meta: 'High-performance Laravel hosting — optimized for PHP 8+, Redis, and Meilisearch. Git integration and SSH access.',
+      badge: '🚀 Laravel Optimized · Git · Redis · SSH',
+      title1: 'Hosting built for',
+      title2: 'Laravel apps',
+      sub: 'The perfect environment for your Laravel projects. High performance, developer-friendly tools, and instant deployment.',
+      features: [
+        { icon: '🛠️', title: 'PHP 8.x Optimized', desc: 'Pre-configured for the latest PHP versions with OPcache and JIT enabled.' },
+        { icon: '💾', title: 'Redis & Memcached', desc: 'Ultra-fast in-memory caching for sessions, queues, and performance.' },
+        { icon: '🌿', title: 'Git Integration', desc: 'Deploy directly from GitHub, GitLab or Bitbucket. Easy CI/CD workflows.' },
+        { icon: '🔒', title: 'SSH & Composer', desc: 'Full SSH access, Composer, and Artisan commands pre-installed for developers.' },
+      ],
+      pricingSub: 'Scale your applications with dedicated resources and peak performance.',
+    },
   },
 
   // ── UKRAINIAN ──────────────────────────────────────────────────────────────
@@ -332,7 +373,7 @@ t.uk = {
   siteName: 'HostPro',
   siteTagline: 'Сучасний хостинг для сучасних проєктів.',
   nav: { features: 'Переваги', pricing: 'Тарифи', about: 'Про нас', faq: 'FAQ', contact: 'Контакти', status: 'Статус', cta: 'Розпочати' },
-  footer: { tagline: 'Сучасний хостинг для сучасних проєктів.', copy: '© 2025 HostPro. Усі права захищені.', links: { about: 'Про нас', faq: 'FAQ', contact: 'Контакти', status: 'Статус', terms: 'Умови', privacy: 'Конфіденційність', refund: 'Повернення' } },
+  footer: { tagline: 'Сучасний хостинг для сучасних проєктів.', copy: '© 2025 HostPro. Усі права захищені.', cols: { products: 'Продукти', services: 'Послуги', resources: 'Ресурси', legal: 'Юридична інформація' }, links: { pricing: 'Тарифи', faq: 'FAQ', status: 'Статус системи', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Виділені сервери', laravelHosting: 'Laravel хостинг', kb: 'База знань', blog: 'Блог', about: 'Про нас', contact: 'Контакти', terms: 'Умови використання', privacy: 'Конфіденційність', refund: 'Повернення коштів' } },
   hero: { badge: '⚡ NVMe SSD · 99.9% Uptime · cPanel', title1: 'Хостинг, який', title2: 'просто працює', sub: 'Швидкі SSD-сервери, безкоштовний SSL, cPanel та підтримка 24/7. Запустіть свій сайт за хвилини.', cta: 'Почати зараз', ctaSub: 'Без прихованих платежів · Скасування в будь-який час', stat1: 'Активних сайтів', stat2: 'Час завантаження', stat3: 'Uptime SLA' },
   features: { title: 'Все, що потрібно для успіху', sub: 'Ми подбали про інфраструктуру — ви зосередьтесь на бізнесі', items: [
     { icon: '⚡', title: 'NVMe SSD', desc: 'Швидкість у 3× швидша за звичайний SSD. Ваш сайт завантажується миттєво.' },
@@ -371,6 +412,34 @@ t.uk = {
   refund: { meta: 'Умови повернення коштів HostPro. 30-денна гарантія.', label: 'Повернення коштів', title: 'Політика повернення коштів', date: 'Останнє оновлення: 1 січня 2025', sections: [{ title: '30-денна гарантія повернення', body: 'Якщо протягом перших 30 днів ви незадоволені — повертаємо 100% без жодних питань. Тільки для нових акаунтів, один раз на клієнта.' }, { title: 'Кредити при зміні тарифу', body: 'При апгрейді залишок зараховується як кредит. При даунгрейді різниця зараховується як кредит на майбутні платежі.' }, { title: 'Поновлення підписки', body: 'Автоматичні поновлення не підлягають поверненню, якщо послуга використовувалась. Скасуйте за 24 години до дати поновлення.' }, { title: 'Випадки без повернення', body: 'Порушення Умов використання, акаунт призупинений через зловживання, домени та SSL-сертифікати після реєстрації, запити після 30-денного терміну.' }, { title: 'Процес повернення', body: 'Напишіть на hostpro@apartner.pro. Обробляємо за 1 робочий день; кошти повертаються за 3–7 банківських днів.' }, { title: 'Кредити на акаунт', body: 'Замість повернення на картку можна обрати миттєвий кредит на акаунт.' }, { title: 'Суперечки', body: 'Якщо вважаєте відмову несправедливою: hostpro@apartner.pro' }] },
   notFound: { title: 'Сторінку не знайдено', sub: 'Здається, цієї сторінки не існує або вона була переміщена. Повернімось на потрібний шлях.', home: '← На головну', back: 'Назад' },
   cookies: { title: 'Ми використовуємо cookies', desc: 'Ми використовуємо необхідні cookies для роботи сайту та аналітичні cookies, щоб розуміти як ви ним користуєтесь.', acceptAll: 'Прийняти всі', acceptEssential: 'Лише необхідні', more: 'Конфіденційність' },
+  wp: {
+    meta: 'Керований WordPress хостинг — швидкий, безпечний та надійний. Оптимізовані сервери, автооновлення та стейджинг.',
+    badge: '⚡ WordPress Optimized · автооновлення · стейджинг',
+    title1: 'WordPress хостинг,',
+    title2: 'який дійсно літає',
+    sub: 'Все необхідне для легкого створення та масштабування вашого сайту на WordPress. Оптимізовано для максимальної швидкості.',
+    features: [
+      { icon: '🚀', title: 'Максимальна швидкість', desc: 'Попередньо налаштоване кешування LiteSpeed та NVMe SSD для миттєвого завантаження.' },
+      { icon: '🔒', title: 'Безпека з коробки', desc: 'Автоматичний SSL, сканування на віруси та брандмауер (WAF) включені.' },
+      { icon: '🔄', title: 'Автооновлення', desc: 'Підтримуйте ядро WordPress, теми та плагіни в актуальному стані автоматично.' },
+      { icon: '🛠️', title: 'Стейджинг (Staging)', desc: 'Тестуйте зміни на клоні сайту перед публікацією в один клік.' },
+    ],
+    pricingSub: 'Спеціальні тарифи для WordPress з додатковими ресурсами.',
+  },
+  laravel: {
+    meta: 'Високопродуктивний Laravel хостинг — оптимізовано для PHP 8+, Redis та Git. SSH доступ та Composer.',
+    badge: '🚀 Laravel Optimized · Git · Redis · SSH',
+    title1: 'Хостинг, створений для',
+    title2: 'Laravel проєктів',
+    sub: 'Ідеальне середовище для ваших Laravel проєктів. Висока швидкість, інструменти для розробників та миттєве розгортання.',
+    features: [
+      { icon: '🛠️', title: 'Оптимізація PHP 8.x', desc: 'Попередньо налаштовано для останніх версій PHP з OPcache та JIT.' },
+      { icon: '💾', title: 'Redis & Memcached', desc: 'Надшвидке кешування в пам\'яті для сесій, черг та продуктивності.' },
+      { icon: '🌿', title: 'Інтеграція з Git', desc: 'Деплой напряму з GitHub, GitLab або Bitbucket. Прості CI/CD процеси.' },
+      { icon: '🔒', title: 'SSH та Composer', desc: 'Повний SSH доступ, Composer та Artisan команди вже встановлені.' },
+    ],
+    pricingSub: 'Масштабуйте свої додатки з виділеними ресурсами та максимальною швидкістю.',
+  },
 }
 
 // Populate RU
@@ -378,7 +447,7 @@ t.ru = {
   siteName: 'HostPro',
   siteTagline: 'Современный хостинг для современных проектов.',
   nav: { features: 'Преимущества', pricing: 'Тарифы', about: 'О нас', faq: 'FAQ', contact: 'Контакты', status: 'Статус', cta: 'Начать' },
-  footer: { tagline: 'Современный хостинг для современных проектов.', copy: '© 2025 HostPro. Все права защищены.', links: { about: 'О нас', faq: 'FAQ', contact: 'Контакты', status: 'Статус', terms: 'Условия', privacy: 'Конфиденциальность', refund: 'Возврат' } },
+  footer: { tagline: 'Современный хостинг для современных проектов.', copy: '© 2025 HostPro. Все права защищены.', cols: { products: 'Продукты', services: 'Услуги', resources: 'Ресурсы', legal: 'Юридическая информация' }, links: { pricing: 'Тарифы', faq: 'FAQ', status: 'Статус системы', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Выделенные серверы', laravelHosting: 'Laravel хостинг', kb: 'База знаний', blog: 'Блог', about: 'О нас', contact: 'Контакты', terms: 'Условия использования', privacy: 'Конфиденциальность', refund: 'Возврат средств' } },
   hero: { badge: '⚡ NVMe SSD · 99.9% Uptime · cPanel', title1: 'Хостинг, который', title2: 'просто работает', sub: 'Быстрые SSD-серверы, бесплатный SSL, cPanel и поддержка 24/7. Запустите сайт за минуты.', cta: 'Начать сейчас', ctaSub: 'Без скрытых платежей · Отмена в любое время', stat1: 'Активных сайтов', stat2: 'Время загрузки', stat3: 'Uptime SLA' },
   features: { title: 'Всё, что нужно для успеха', sub: 'Мы позаботились об инфраструктуре — вы сосредоточьтесь на бизнесе', items: [{ icon: '⚡', title: 'NVMe SSD', desc: 'Скорость в 3× быстрее обычного SSD. Ваш сайт загружается мгновенно.' }, { icon: '🔒', title: 'SSL бесплатно', desc: "Let's Encrypt SSL для каждого домена. Автоматически и без доплат." }, { icon: '📋', title: 'cPanel', desc: 'Удобная панель управления для всех сайтов и почтовых ящиков.' }, { icon: '💾', title: 'Ежедневный бекап', desc: 'Автоматические резервные копии каждый день. Восстановление в один клик.' }, { icon: '🌐', title: '99.9% Uptime', desc: 'Гарантированная доступность. SLA-соглашение с каждым тарифом.' }, { icon: '🎧', title: 'Поддержка 24/7', desc: 'Живые специалисты каждый день. Среднее время ответа — 5 минут.' }, { icon: '📧', title: 'Почтовые ящики', desc: 'Создавайте профессиональные email-адреса на вашем домене. Полная поддержка IMAP/POP3/SMTP.' }, { icon: '🚀', title: 'Установка в 1 клик', desc: 'Автоматическая установка WordPress, Joomla и еще 400+ скриптов через Softaculous.' }] },
   billing: { monthly: 'Ежемесячно', quarterly: 'Ежеквартально', yearly: 'Ежегодно', save10: '−5%', save20: '−10%', monthTerm: '1 месяц', quarterTerm: '3 месяца', yearTerm: '1 год', payToday: 'Оплатить', today: 'сегодня', for: 'На', then: 'затем', onRenewal: 'при возобновлении' },
@@ -403,6 +472,34 @@ t.ru = {
   refund: { meta: 'Условия возврата средств HostPro. 30-дневная гарантия.', label: 'Возврат средств', title: 'Политика возврата средств', date: 'Последнее обновление: 1 января 2025', sections: [{ title: '30-дневная гарантия возврата', body: 'Если в течение первых 30 дней вы недовольны — возвращаем 100% без лишних вопросов. Только для новых аккаунтов, один раз на клиента.' }, { title: 'Кредиты при смене тарифа', body: 'При апгрейде остаток зачисляется как кредит. При даунгрейде разница зачисляется как кредит на будущие платежи.' }, { title: 'Продление подписки', body: 'Автоматические продления не возвращаются, если услуга использовалась. Отмените за 24 часа до даты продления.' }, { title: 'Случаи без возврата', body: 'Нарушение Условий использования, аккаунт заблокирован из-за злоупотреблений, домены и SSL-сертификаты после регистрации, запросы после 30-дневного срока.' }, { title: 'Процесс возврата', body: 'Напишите на hostpro@apartner.pro. Обрабатываем за 1 рабочий день; средства возвращаются за 3–7 банковских дней.' }, { title: 'Кредиты на аккаунт', body: 'Вместо возврата на карту можно выбрать мгновенный кредит на аккаунт.' }, { title: 'Споры', body: 'Если считаете отказ несправедливым: hostpro@apartner.pro' }] },
   notFound: { title: 'Страница не найдена', sub: 'Похоже, этой страницы не существует или она была перемещена. Вернёмся на нужный путь.', home: '← На главную', back: 'Назад' },
   cookies: { title: 'Мы используем cookies', desc: 'Мы используем необходимые cookies для работы сайта и аналитические cookies, чтобы понимать как вы им пользуетесь.', acceptAll: 'Принять все', acceptEssential: 'Только необходимые', more: 'Конфиденциальность' },
+  wp: {
+    meta: 'Управляемый WordPress хостинг — быстрый, безопасный и надежный. Оптимизированные серверы, автообновления и стейджинг.',
+    badge: '⚡ WordPress Optimized · автообновления · стейджинг',
+    title1: 'WordPress хостинг,',
+    title2: 'который реально летает',
+    sub: 'Все необходимое для легкого создания и масштабирования вашего сайта на WordPress. Оптимизировано для максимальной скорости.',
+    features: [
+      { icon: '🚀', title: 'Максимальная скорость', desc: 'Предустановленное кэширование LiteSpeed и NVMe SSD для мгновенной загрузки.' },
+      { icon: '🔒', title: 'Безопасность из коробки', desc: 'Автоматический SSL, сканирование на вирусы и брандмауэр (WAF) включены.' },
+      { icon: '🔄', title: 'Автообновления', desc: 'Поддерживайте ядро WordPress, темы и плагины в актуальном состоянии автоматически.' },
+      { icon: '🛠️', title: 'Стейджинг (Staging)', desc: 'Тестируйте изменения на клоне сайта перед публикацией в один клик.' },
+    ],
+    pricingSub: 'Специальные тарифы для WordPress с дополнительными ресурсами.',
+  },
+  laravel: {
+    meta: 'Высокопроизводительный Laravel хостинг — оптимизирован для PHP 8+, Redis и Git. SSH доступ и Composer.',
+    badge: '🚀 Laravel Optimized · Git · Redis · SSH',
+    title1: 'Хостинг, созданный для',
+    title2: 'Laravel проектов',
+    sub: 'Идеальная среда для ваших Laravel проектов. Высокая скорость, инструменты для разработчиков и мгновенное развертывание.',
+    features: [
+      { icon: '🛠️', title: 'Оптимизация PHP 8.x', desc: 'Предварительно настроено для последних версий PHP с OPcache и JIT.' },
+      { icon: '💾', title: 'Redis & Memcached', desc: 'Сверхбыстрое кэширование в памяти для сессий, очередей и производительности.' },
+      { icon: '🌿', title: 'Интеграция с Git', desc: 'Деплой напрямую из GitHub, GitLab или Bitbucket. Простые CI/CD процессы.' },
+      { icon: '🔒', title: 'SSH и Composer', desc: 'Полный SSH доступ, Composer и Artisan команды уже установлены.' },
+    ],
+    pricingSub: 'Масштабируйте свои приложения с выделенными ресурсами и максимальной скоростью.',
+  },
 }
 
 export type Translations = typeof t.en
