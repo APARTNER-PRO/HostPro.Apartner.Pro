@@ -72,6 +72,8 @@ export const t = {
         { icon: '💾', title: 'Daily Backups', desc: 'Automatic daily backups. One-click restore whenever you need it.' },
         { icon: '🌐', title: '99.9% Uptime', desc: 'Guaranteed uptime with SLA agreement included in every plan.' },
         { icon: '🎧', title: '24/7 Support', desc: 'Real humans every day. Average response time under 5 minutes.' },
+        { icon: '📧', title: 'Email Accounts', desc: 'Create professional email addresses on your own domain. Full IMAP/POP3/SMTP support.' },
+        { icon: '🚀', title: '1-Click Install', desc: 'Instantly install WordPress, Joomla, and 400+ other apps via Softaculous auto-installer.' },
       ],
     },
 
@@ -339,6 +341,8 @@ t.uk = {
     { icon: '💾', title: 'Щоденний бекап', desc: 'Автоматичні резервні копії щодня. Відновлення в один клік.' },
     { icon: '🌐', title: '99.9% Uptime', desc: 'Гарантована доступність. SLA-угода з кожним тарифом.' },
     { icon: '🎧', title: 'Підтримка 24/7', desc: 'Живі спеціалісти щодня. Середній час відповіді — 5 хвилин.' },
+    { icon: '📧', title: 'Поштові скриньки', desc: 'Створюйте професійні email-адреси на вашому домені. Безлімітний доступ по IMAP/POP3/SMTP.' },
+    { icon: '🚀', title: 'Встановлення в 1 клік', desc: 'Автоматичне встановлення WordPress, Joomla та ще 400+ скриптів через Softaculous.' },
   ]},
   billing: { monthly: 'Щомісяця', quarterly: 'Щоквартально', yearly: 'Щорічно', save10: '−5%', save20: '−10%', monthTerm: '1 місяць', quarterTerm: '3 місяці', yearTerm: '1 рік', payToday: 'Оплатити', today: 'сьогодні', for: 'На', then: 'потім', onRenewal: 'при поновленні' },
   pricing: { title: 'Прозорі тарифи', sub: 'Оберіть план і масштабуйтесь без обмежень', popular: 'Найпопулярніший', mo: '/міс', cta: 'Обрати план', featLabel: 'Включено:', customTitle: 'Не знайшли потрібний тариф?', customSub: 'Напишіть нам — ми підберемо індивідуальне рішення під ваші потреби та бюджет.', customBtn: '✉️ Написати нам',
@@ -376,7 +380,7 @@ t.ru = {
   nav: { features: 'Преимущества', pricing: 'Тарифы', about: 'О нас', faq: 'FAQ', contact: 'Контакты', status: 'Статус', cta: 'Начать' },
   footer: { tagline: 'Современный хостинг для современных проектов.', copy: '© 2025 HostPro. Все права защищены.', links: { about: 'О нас', faq: 'FAQ', contact: 'Контакты', status: 'Статус', terms: 'Условия', privacy: 'Конфиденциальность', refund: 'Возврат' } },
   hero: { badge: '⚡ NVMe SSD · 99.9% Uptime · cPanel', title1: 'Хостинг, который', title2: 'просто работает', sub: 'Быстрые SSD-серверы, бесплатный SSL, cPanel и поддержка 24/7. Запустите сайт за минуты.', cta: 'Начать сейчас', ctaSub: 'Без скрытых платежей · Отмена в любое время', stat1: 'Активных сайтов', stat2: 'Время загрузки', stat3: 'Uptime SLA' },
-  features: { title: 'Всё, что нужно для успеха', sub: 'Мы позаботились об инфраструктуре — вы сосредоточьтесь на бизнесе', items: [{ icon: '⚡', title: 'NVMe SSD', desc: 'Скорость в 3× быстрее обычного SSD. Ваш сайт загружается мгновенно.' }, { icon: '🔒', title: 'SSL бесплатно', desc: "Let's Encrypt SSL для каждого домена. Автоматически и без доплат." }, { icon: '📋', title: 'cPanel', desc: 'Удобная панель управления для всех сайтов и почтовых ящиков.' }, { icon: '💾', title: 'Ежедневный бекап', desc: 'Автоматические резервные копии каждый день. Восстановление в один клик.' }, { icon: '🌐', title: '99.9% Uptime', desc: 'Гарантированная доступность. SLA-соглашение с каждым тарифом.' }, { icon: '🎧', title: 'Поддержка 24/7', desc: 'Живые специалисты каждый день. Среднее время ответа — 5 минут.' }] },
+  features: { title: 'Всё, что нужно для успеха', sub: 'Мы позаботились об инфраструктуре — вы сосредоточьтесь на бизнесе', items: [{ icon: '⚡', title: 'NVMe SSD', desc: 'Скорость в 3× быстрее обычного SSD. Ваш сайт загружается мгновенно.' }, { icon: '🔒', title: 'SSL бесплатно', desc: "Let's Encrypt SSL для каждого домена. Автоматически и без доплат." }, { icon: '📋', title: 'cPanel', desc: 'Удобная панель управления для всех сайтов и почтовых ящиков.' }, { icon: '💾', title: 'Ежедневный бекап', desc: 'Автоматические резервные копии каждый день. Восстановление в один клик.' }, { icon: '🌐', title: '99.9% Uptime', desc: 'Гарантированная доступность. SLA-соглашение с каждым тарифом.' }, { icon: '🎧', title: 'Поддержка 24/7', desc: 'Живые специалисты каждый день. Среднее время ответа — 5 минут.' }, { icon: '📧', title: 'Почтовые ящики', desc: 'Создавайте профессиональные email-адреса на вашем домене. Полная поддержка IMAP/POP3/SMTP.' }, { icon: '🚀', title: 'Установка в 1 клик', desc: 'Автоматическая установка WordPress, Joomla и еще 400+ скриптов через Softaculous.' }] },
   billing: { monthly: 'Ежемесячно', quarterly: 'Ежеквартально', yearly: 'Ежегодно', save10: '−5%', save20: '−10%', monthTerm: '1 месяц', quarterTerm: '3 месяца', yearTerm: '1 год', payToday: 'Оплатить', today: 'сегодня', for: 'На', then: 'затем', onRenewal: 'при возобновлении' },
   pricing: { title: 'Прозрачные тарифы', sub: 'Выберите план и масштабируйтесь без ограничений', popular: 'Самый популярный', mo: '/мес', cta: 'Выбрать план', featLabel: 'Включено:', customTitle: 'Не нашли нужный тариф?', customSub: 'Напишите нам — мы подберём индивидуальное решение под ваши нужды и бюджет.', customBtn: '✉️ Написать нам',
     plans: [
