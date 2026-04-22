@@ -4,6 +4,8 @@ import { LANGS } from '@/lib/i18n'
 const BASE = 'https://hostpro.apartner.pro'
 const PAGES = ['', 'about', 'faq', 'contact', 'status', 'terms', 'privacy', 'refund']
 
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = []
 
