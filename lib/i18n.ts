@@ -411,8 +411,8 @@ t.uk = {
     plans: [
       { name: 'Personal',   desc: 'Ідеально для першого сайту',          price: 1.99,  color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email акаунт', 'Безкоштовний SSL', 'cPanel', 'Звичайна підтримка'] },
       { name: 'Starter',    desc: 'Для зростаючих проєктів',             price: 4.99,  color: '#60A5FA', popular: false,  extras: ['до 5 сайтів', '5 GB NVMe SSD', '10 Email акаунтів', 'Безкоштовний SSL', 'Бекапи', 'cPanel'] },
-      { name: 'Business',   desc: 'Для серйозних проєктів',              price: 14.99, color: '#A78BFA', popular: true, extras: ['до 15 сайтів', '15 GB NVMe SSD', 'Необмежено Email', 'Безкоштовний SSL', 'Пріоритетний бекап', 'Пріоритетна підтримка'] },
-      { name: 'Agency',     desc: 'Для агентств і розробників',          price: 19.99, color: '#FB923C', popular: false, extras: ['до 30 сайтів', '30 GB NVMe SSD', 'Необмежено Email', 'Wildcard SSL', 'Пріоритетний бекап', 'VIP підтримка 24/7'] },
+      { name: 'Business',   desc: 'Для серйозних проєктів',              price: 14.99, color: '#A78BFA', popular: false, extras: ['до 15 сайтів', '15 GB NVMe SSD', 'Необмежено Email', 'Безкоштовний SSL', 'Пріоритетний бекап', 'Пріоритетна підтримка'] },
+      { name: 'Agency',     desc: 'Для агентств і розробників',          price: 19.99, color: '#FB923C', popular: true, extras: ['до 30 сайтів', '30 GB NVMe SSD', 'Необмежено Email', 'Wildcard SSL', 'Пріоритетний бекап', 'VIP підтримка 24/7'] },
       { name: 'Agency Pro', desc: 'Максимум ресурсів і можливостей',     price: 29.99, color: '#F472B6', popular: false, extras: ['Необмежено сайтів', '50 GB NVMe SSD', 'Необмежено Email', 'Wildcard SSL', 'Виділений менеджер', 'VIP підтримка 24/7'] },
     ],
   },
@@ -497,8 +497,8 @@ t.ru = {
     plans: [
       { name: 'Personal',   desc: 'Идеально для первого сайта',        price: 1.99,  color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email аккаунт', 'Бесплатный SSL', 'cPanel', 'Обычная поддержка'] },
       { name: 'Starter',    desc: 'Для растущих проектов',             price: 4.99,  color: '#60A5FA', popular: false,  extras: ['до 5 сайтов', '5 GB NVMe SSD', '10 Email аккаунтов', 'Бесплатный SSL', 'Бекапы', 'cPanel'] },
-      { name: 'Business',   desc: 'Для серьёзных проектов',            price: 14.99, color: '#A78BFA', popular: true, extras: ['до 15 сайтов', '15 GB NVMe SSD', 'Безлимитный Email', 'Бесплатный SSL', 'Приоритетный бекап', 'Приоритетная поддержка'] },
-      { name: 'Agency',     desc: 'Для агентств и разработчиков',      price: 19.99, color: '#FB923C', popular: false, extras: ['до 30 сайтов', '30 GB NVMe SSD', 'Безлимитный Email', 'Wildcard SSL', 'Приоритетный бекап', 'VIP поддержка 24/7'] },
+      { name: 'Business',   desc: 'Для серьёзных проектов',            price: 14.99, color: '#A78BFA', popular: false, extras: ['до 15 сайтов', '15 GB NVMe SSD', 'Безлимитный Email', 'Бесплатный SSL', 'Приоритетный бекап', 'Приоритетная поддержка'] },
+      { name: 'Agency',     desc: 'Для агентств и разработчиков',      price: 19.99, color: '#FB923C', popular: true, extras: ['до 30 сайтов', '30 GB NVMe SSD', 'Безлимитный Email', 'Wildcard SSL', 'Приоритетный бекап', 'VIP поддержка 24/7'] },
       { name: 'Agency Pro', desc: 'Максимум ресурсов и возможностей',  price: 29.99, color: '#F472B6', popular: false, extras: ['Безлимитно сайтов', '50 GB NVMe SSD', 'Безлимитный Email', 'Wildcard SSL', 'Персональный менеджер', 'VIP поддержка 24/7'] },
     ],
   },
