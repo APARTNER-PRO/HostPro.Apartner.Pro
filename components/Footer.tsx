@@ -21,10 +21,10 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
     {
       title: T.footer.cols?.services || 'Services',
       links: [
+        { href: 'laravel-hosting', label: T.footer.links.laravelHosting },
         { href: 'wordpress-hosting', label: T.footer.links.wpHosting },
         { href: 'vps-hosting', label: T.footer.links.vpsHosting },
         { href: 'dedicated-servers', label: T.footer.links.dedicated },
-        { href: 'reseller-hosting', label: T.footer.links.reseller },
       ]
     },
     {
@@ -48,7 +48,8 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .hp-footer-link { color: rgba(240,244,255,.35); text-decoration: none; font-size: 14px; transition: color .2s; }
         .hp-footer-link:hover { color: #60A5FA; }
         .hp-lang-link { font-size: 12px; text-decoration: none; border-radius: 6px; padding: 3px 10px; transition: all .2s; }
@@ -58,7 +59,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
 
       <footer style={{ borderTop: '1px solid rgba(255,255,255,.06)', padding: '60px 24px 40px', marginTop: 80 }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 60 }}>
-          
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 40 }}>
             <div style={{ maxWidth: 300 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
@@ -66,7 +67,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
                 <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 16 }}>HostPro</span>
               </div>
               <p style={{ fontSize: 14, color: 'rgba(240,244,255,.4)', lineHeight: 1.6, marginBottom: 24 }}>{T.footer.tagline}</p>
-              
+
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 {(['en', 'uk', 'ru'] as Lang[]).map((l) => (
                   <Link
