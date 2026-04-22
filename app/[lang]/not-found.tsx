@@ -8,19 +8,15 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=DM+Sans:wght@300;400;700&display=swap" rel="stylesheet"/>
-        <style>{`
-          *{box-sizing:border-box;margin:0;padding:0}
-          body{font-family:'DM Sans',sans-serif;background:#050810;color:#F0F4FF;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;overflow:hidden}
-          .orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none}
-          @keyframes pulse{0%,100%{opacity:.8}50%{opacity:1}}
-          @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        `}</style>
-      </head>
-      <body>
+    <>
+      <style>{`
+        .not-found-main { font-family:'DM Sans',sans-serif;background:#050810;color:#F0F4FF;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px;overflow:hidden }
+        .not-found-main * { box-sizing:border-box;margin:0;padding:0 }
+        .not-found-main .orb { position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none }
+        @keyframes pulse { 0%,100%{opacity:.8} 50%{opacity:1} }
+        @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+      `}</style>
+      <main className="not-found-main">
         <div className="orb" style={{width:500,height:500,background:'radial-gradient(circle,rgba(59,130,246,.18),transparent)',top:-100,left:'50%',transform:'translateX(-50%)'}}/>
         <div className="orb" style={{width:300,height:300,background:'radial-gradient(circle,rgba(139,92,246,.12),transparent)',bottom:0,right:0}}/>
 
@@ -45,7 +41,7 @@ export default function NotFound() {
             ))}
           </div>
         </div>
-      </body>
-    </html>
+      </main>
+    </>
   )
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 import FaqClient from '@/components/FaqClient'
+import JsonLd from '@/components/JsonLd'
 
 export const metadata: Metadata = {
   title: 'FAQ',
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <PageWrapper lang="en" slug="faq">
+      <JsonLd lang="en" page="faq" />
       <FaqClient lang="en" />
     </PageWrapper>
   )

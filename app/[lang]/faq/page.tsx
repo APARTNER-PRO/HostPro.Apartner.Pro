@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 import FaqClient from '@/components/FaqClient'
+import JsonLd from '@/components/JsonLd'
 import { LANGS, Lang, LANG_META } from '@/lib/i18n'
 
 export function generateStaticParams() {
@@ -44,6 +45,7 @@ export default function LangPage({ params }: { params: { lang: string } }) {
   if (!LANGS.includes(lang) || lang === 'en') notFound()
   return (
     <PageWrapper lang={lang} slug="faq">
+      <JsonLd lang={lang} page="faq" />
       <FaqClient lang={lang} />
     </PageWrapper>
   )

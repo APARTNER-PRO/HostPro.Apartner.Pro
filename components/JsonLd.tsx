@@ -1,4 +1,4 @@
-import { Lang } from '@/lib/i18n'
+import { Lang, getT } from '@/lib/i18n'
 
 const SITE_URL = 'https://hostpro.apartner.pro'
 
@@ -61,7 +61,20 @@ export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
     ],
   } : null
 
-  const schemas = [organization, website, breadcrumb, hosting].filter(Boolean)
+  const faqSchema = page === 'faq' ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: getT(lang).faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  } : null
+
+  const schemas = [organization, website, breadcrumb, hosting, faqSchema].filter(Boolean)
 
   return (
     <>

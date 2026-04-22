@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import './globals.css'
+import '../globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hostpro.apartner.pro'),
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children, params }: { children: React.ReactNode, params: { lang: string } }) {
   return (
-    <html suppressHydrationWarning>
+    <html lang={params.lang} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

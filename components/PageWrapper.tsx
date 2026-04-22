@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import CookieBanner from './CookieBanner'
@@ -12,6 +13,10 @@ interface PageWrapperProps {
 }
 
 export default function PageWrapper({ lang, slug = '', children }: PageWrapperProps) {
+  useEffect(() => {
+    document.documentElement.lang = lang
+  }, [lang])
+
   return (
     <>
       <Navbar lang={lang} slug={slug} />
