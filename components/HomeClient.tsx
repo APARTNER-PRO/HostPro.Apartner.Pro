@@ -50,16 +50,19 @@ const CSS = `
   .hp-orb-pulse{animation:pulseGlow 4s ease-in-out infinite}
 
   @media (max-width: 767px) {
-    .price__wrapper {
-      display: flex;
-      flex-direction: column;
-    }
+    .price__wrapper { display: flex; flex-direction: column; }
+    .hp-features-grid, .hp-who-grid, .hp-stats-flex { grid-template-columns: 1fr !important; }
+    .hp-stats-flex { flex-direction: column !important; align-items: center !important; gap: 32px !important; }
   }
 
-  .hp-plans-grid { grid-template-columns: repeat(5, 1fr); }
+  .hp-plans-grid { display: grid; gap: 14px; grid-template-columns: repeat(5, 1fr); }
   @media (max-width: 1100px) { .hp-plans-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 720px)  { .hp-plans-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px)  { .hp-plans-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px)  { .hp-plans-grid { grid-template-columns: 1fr; } }
+
+  .hp-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .hp-who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .hp-stats-flex { display: flex; gap: 48px; justify-content: center; margin-top: 64px; flex-wrap: wrap; }
 `
 
 export default function HomeClient({ lang }: { lang: Lang }) {
@@ -101,7 +104,7 @@ export default function HomeClient({ lang }: { lang: Lang }) {
           <p style={{ fontSize:'clamp(16px,2vw,20px)',color:'rgba(240,244,255,.6)',lineHeight:1.7,maxWidth:600,margin:'0 auto 40px',fontWeight:300 }}>{T.hero.sub}</p>
           <Link href={`${p}/#pricing`} className="btn-primary hp-cta-link" style={{ boxShadow:'0 0 40px rgba(59,130,246,.3)',fontSize:17,padding:'16px 36px' }}>{T.hero.cta} →</Link>
           <p style={{ fontSize:13,color:'rgba(240,244,255,.35)',fontWeight:400,marginTop:16 }}>{T.hero.ctaSub}</p>
-          <div style={{ display:'flex',gap:48,justifyContent:'center',marginTop:64,flexWrap:'wrap' }}>
+          <div className="hp-stats-flex">
             {[{val:'12K+',label:T.hero.stat1},{val:'0.3s',label:T.hero.stat2},{val:'99.9%',label:T.hero.stat3}].map((s,i)=>(
               <div key={i} style={{ textAlign:'center' }}>
                 <div style={{ fontFamily:'Syne,sans-serif',fontSize:36,fontWeight:800,background:statGrads[i],WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent' }}>{s.val}</div>
@@ -120,7 +123,7 @@ export default function HomeClient({ lang }: { lang: Lang }) {
             <p style={{ fontSize:18,color:'rgba(240,244,255,.5)',fontWeight:300 }}>{T.features.sub}</p>
           </FadeIn>
           <FadeIn>
-            <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:20 }}>
+            <div className="hp-features-grid">
               {T.features.items.map((f,i)=>(
                 <div key={i} className="hp-feat-card">
                   <div style={{ fontSize:32,marginBottom:16 }}>{f.icon}</div>
@@ -153,7 +156,7 @@ export default function HomeClient({ lang }: { lang: Lang }) {
             </div>
           </FadeIn>
           <FadeIn>
-            <div className="hp-plans-grid" style={{ display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:14,alignItems:'start' }}>
+            <div className="hp-plans-grid" style={{ alignItems:'start' }}>
               {T.pricing.plans.map((plan,i)=>(
                 <div key={i} className={`hp-plan-card${plan.popular?' popular':''}`}>
                   {plan.popular&&<div style={{ position:'absolute',top:-12,left:'50%',transform:'translateX(-50%)',background:'linear-gradient(135deg,#3B82F6,#8B5CF6)',color:'#fff',fontSize:11,fontWeight:700,padding:'4px 12px',borderRadius:100,whiteSpace:'nowrap' }}>{T.pricing.popular}</div>}
@@ -208,7 +211,7 @@ export default function HomeClient({ lang }: { lang: Lang }) {
             <p style={{ fontSize:18,color:'rgba(240,244,255,.5)',fontWeight:300 }}>{T.who.sub}</p>
           </FadeIn>
           <FadeIn>
-            <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:20 }}>
+            <div className="hp-who-grid">
               {T.who.items.map((w,i)=>(
                 <div key={i} className="hp-who-card">
                   <div style={{ fontSize:40,marginBottom:20,display:'inline-flex',alignItems:'center',justifyContent:'center',background:w.bg,borderRadius:16,width:72,height:72 }}>{w.icon}</div>
