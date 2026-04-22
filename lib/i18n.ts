@@ -4,7 +4,7 @@ export type Lang = typeof LANGS[number]
 export const LANG_META: Record<Lang, { label: string; flag: string; locale: string }> = {
   en: { label: 'English',     flag: '🇬🇧', locale: 'en_US' },
   uk: { label: 'Українська', flag: '🇺🇦', locale: 'uk_UA' },
-  ru: { label: 'Русский',    flag: '🇷🇺', locale: 'ru_RU' },
+  ru: { label: 'Русский',    flag: 'ua', locale: 'ru_RU' },
 }
 
 export function getLangPath(lang: Lang, slug = '') {
