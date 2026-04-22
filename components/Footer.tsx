@@ -21,14 +21,14 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
 
   return (
     <>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .hp-footer-link { color: rgba(240,244,255,.35); text-decoration: none; font-size: 13px; transition: color .2s; }
         .hp-footer-link:hover { color: #60A5FA; }
         .hp-lang-link { font-size: 12px; text-decoration: none; border-radius: 6px; padding: 3px 10px; transition: all .2s; }
         .hp-lang-link:hover { color: #60A5FA !important; border-color: rgba(96,165,250,.4) !important; }
         .hp-nav-link { color: rgba(240,244,255,.6); font-size: 14px; font-weight: 500; text-decoration: none; transition: color .2s; }
         .hp-nav-link:hover { color: #60A5FA; }
-      `}</style>
+      ` }} />
 
       <footer style={{ borderTop: '1px solid rgba(255,255,255,.06)', padding: '40px 24px', textAlign: 'center', marginTop: 80 }}>
         {/* Logo */}

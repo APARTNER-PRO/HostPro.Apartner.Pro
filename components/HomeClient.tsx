@@ -80,7 +80,7 @@ export default function HomeClient({ lang }: { lang: Lang }) {
 
   return (
     <>
-      <style>{CSS}</style>
+      <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       {/* HERO */}
       <section id="hero" className="grid-bg" style={{ position:'relative',minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden' }}>

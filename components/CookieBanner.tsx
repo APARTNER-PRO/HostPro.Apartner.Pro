@@ -34,7 +34,7 @@ export default function CookieBanner({ lang }: { lang: Lang }) {
         animation: 'slideUp .4s ease',
       }}
     >
-      <style>{`@keyframes slideUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}`}</style>
+      <style dangerouslySetInnerHTML={{ __html: `@keyframes slideUp{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}` }} />
 
       <div style={{ flex: 1, minWidth: 240 }}>
         <p style={{ fontFamily: 'Syne, sans-serif', fontSize: 15, fontWeight: 700, marginBottom: 6, color: '#F0F4FF' }}>
