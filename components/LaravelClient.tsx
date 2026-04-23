@@ -150,7 +150,7 @@ export default function LaravelClient({ lang }: { lang: Lang }) {
                     ))}
                     <div style={{ display:'flex',alignItems:'center',gap:6,marginBottom:7 }}>
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill={i===1?'#FB7185':plan.color} fillOpacity="0.15"/><path d="M4 7l2 2 4-4" stroke={i===1?'#FB7185':plan.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                      <span style={{ fontSize:12,color:'rgba(240,244,255,.7)',fontWeight:600 }}>Optimized PHP 8.3 + Redis</span>
+                      <span style={{ fontSize:12,color:'rgba(240,244,255,.7)',fontWeight:600 }}>Optimized PHP 8.3</span>
                     </div>
                   </div>
                 </div>

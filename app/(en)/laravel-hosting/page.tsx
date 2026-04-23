@@ -4,7 +4,7 @@ import LaravelClient from '@/components/LaravelClient'
 
 export const metadata: Metadata = {
   title: 'High-Performance Laravel Hosting',
-  description: 'Optimized hosting for Laravel applications with PHP 8.3, Redis, Git integration and SSH access.',
+  description: 'Optimized hosting for Laravel applications with PHP 8.3, Git integration and SSH access.',
 }
 
 export default function Page() {
