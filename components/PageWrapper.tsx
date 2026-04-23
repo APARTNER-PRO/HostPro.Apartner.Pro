@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import CookieBanner from './CookieBanner'
+import PaddleRecovery from './PaddleRecovery'
 import { Lang } from '@/lib/i18n'
 
 interface PageWrapperProps {
@@ -19,6 +20,7 @@ export default function PageWrapper({ lang, slug = '', children }: PageWrapperPr
 
   return (
     <>
+      <PaddleRecovery />
       <Navbar lang={lang} slug={slug} />
       <main style={{ paddingTop: 64 }}>{children}</main>
       <Footer lang={lang} slug={slug} />
