@@ -217,13 +217,14 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
                   {T.billing[period]}
                   {discount && (
                     <span style={{ 
-                      fontSize: 10, 
-                      background: billing === period ? 'rgba(244,63,94,0.2)' : 'rgba(110,231,183,0.1)', 
-                      color: billing === period ? '#FB7185' : '#6EE7B7', 
-                      padding: '2px 6px', 
+                      fontSize: period === 'threeYears' ? 11 : 10, 
+                      background: period === 'threeYears' ? 'rgba(244, 63, 94, 0.15)' : (billing === period ? 'rgba(244,63,94,0.2)' : 'rgba(110,231,183,0.1)'), 
+                      color: period === 'threeYears' ? '#F43F5E' : (billing === period ? '#FB7185' : '#6EE7B7'), 
+                      padding: '2px 8px', 
                       borderRadius: 6,
-                      fontWeight: 700,
-                      border: billing === period ? '1px solid rgba(244,63,94,0.3)' : '1px solid rgba(110,231,183,0.2)'
+                      fontWeight: 800,
+                      border: period === 'threeYears' ? '1px solid rgba(244, 63, 94, 0.4)' : (billing === period ? '1px solid rgba(244,63,94,0.3)' : '1px solid rgba(110,231,183,0.2)'),
+                      boxShadow: period === 'threeYears' ? '0 0 12px rgba(244, 63, 94, 0.2)' : 'none'
                     }}>
                       {discount}
                     </span>

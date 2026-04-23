@@ -120,7 +120,7 @@ export default function LaravelClient({ lang }: { lang: Lang }) {
                   {T.billing[b]}
                   {b==='quarterly'&&<span style={{ marginLeft:6,background:'rgba(251,146,60,.2)',color:'#FB923C',fontSize:10,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save10}</span>}
                   {b==='yearly'&&<span style={{ marginLeft:6,background:'rgba(110,231,183,.2)',color:'#6EE7B7',fontSize:10,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save20}</span>}
-                  {b==='threeYears'&&<span style={{ marginLeft:6,background:'rgba(110,231,183,.2)',color:'#6EE7B7',fontSize:10,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save30}</span>}
+                  {b==='threeYears'&&<span style={{ marginLeft:8,background:'rgba(244,63,94,0.15)',color:'#F43F5E',fontSize:11,padding:'2px 8px',borderRadius:100,fontWeight:800,border:'1px solid rgba(244,63,94,0.4)',boxShadow:'0 0 12px rgba(244,63,94,0.2)' }}>{T.billing.save30}</span>}
                 </button>
               ))}
             </div>
