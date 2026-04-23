@@ -33,6 +33,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
         { href: 'kb', label: T.footer.links.kb },
         { href: 'blog', label: T.footer.links.blog },
         { href: 'about', label: T.footer.links.about },
+        { href: '#testimonials', label: T.footer.links.reviews },
         { href: 'contact', label: T.footer.links.contact },
       ]
     },

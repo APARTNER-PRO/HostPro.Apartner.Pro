@@ -18,6 +18,7 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
   const navLinks = [
     { href: `${p}/#features`,    label: T.nav.features },
     { href: `${p}/#pricing`,     label: T.nav.pricing },
+    { href: `${p}/#testimonials`,label: T.nav.reviews },
     { href: `${p}/about`,        label: T.nav.about },
     { href: `${p}/faq`,          label: T.nav.faq },
     { href: `${p}/contact`,      label: T.nav.contact },

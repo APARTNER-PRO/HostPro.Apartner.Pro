@@ -203,6 +203,107 @@ export default function HomeClient({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      {/* TECH STACK */}
+      <section id="tech-stack" style={{ padding:'120px 24px', background:'rgba(255,255,255,.01)', position:'relative', overflow:'hidden' }}>
+        <div className="orb" style={{ width:400,height:400,background:'radial-gradient(circle,rgba(59,130,246,.08),transparent)',top:'20%',left:'-10%' }} />
+        <div className="section-container" style={{ position:'relative', zIndex:1 }}>
+          <FadeIn style={{ textAlign:'center', marginBottom:72 }}>
+            <h2 style={{ fontFamily:'Syne,sans-serif', fontSize:'clamp(32px,5vw,52px)', fontWeight:800, letterSpacing:'-1px', marginBottom:16 }}>{T.tech.title}</h2>
+            <p style={{ fontSize:18, color:'rgba(240,244,255,.5)', fontWeight:300 }}>{T.tech.sub}</p>
+          </FadeIn>
+
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))', gap:24, marginBottom:56 }}>
+            {/* Softaculous */}
+            <FadeIn delay={100} className="hp-feat-card" style={{ border:'1px solid rgba(96,165,250,.2)', background:'rgba(59,130,246,.04)' }}>
+              <div style={{ fontSize:40, marginBottom:20 }}>🚀</div>
+              <h3 style={{ fontFamily:'Syne,sans-serif', fontSize:22, fontWeight:700, marginBottom:12, color:'#60A5FA' }}>{T.tech.softaculous.title}</h3>
+              <p style={{ fontSize:15, color:'rgba(240,244,255,.6)', lineHeight:1.6, fontWeight:300 }}>{T.tech.softaculous.desc}</p>
+            </FadeIn>
+
+            {/* Technical Features */}
+            <FadeIn delay={200} className="hp-feat-card">
+              <h4 style={{ fontSize:11, color:'rgba(240,244,255,.4)', fontWeight:700, letterSpacing:'.15em', marginBottom:24, textTransform:'uppercase' }}>{T.tech.features.title}</h4>
+              <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
+                {T.tech.features.items.map((item, i) => (
+                  <div key={i}>
+                    <div style={{ fontWeight:600, color:'#F0F4FF', fontSize:15, marginBottom:4 }}>{item.title}</div>
+                    <div style={{ fontSize:13, color:'rgba(240,244,255,.5)', fontWeight:300, lineHeight:1.5 }}>{item.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+
+            {/* Server Technologies */}
+            <FadeIn delay={300} className="hp-feat-card">
+              <h4 style={{ fontSize:11, color:'rgba(240,244,255,.4)', fontWeight:700, letterSpacing:'.15em', marginBottom:24, textTransform:'uppercase' }}>{T.tech.server.title}</h4>
+              <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
+                {T.tech.server.items.map((item, i) => (
+                  <div key={i}>
+                    <div style={{ fontWeight:600, color:'#F0F4FF', fontSize:15, marginBottom:4 }}>{item.title}</div>
+                    <div style={{ fontSize:13, color:'rgba(240,244,255,.5)', fontWeight:300, lineHeight:1.5 }}>{item.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+
+            {/* Databases */}
+            <FadeIn delay={400} className="hp-feat-card">
+              <h4 style={{ fontSize:11, color:'rgba(240,244,255,.4)', fontWeight:700, letterSpacing:'.15em', marginBottom:24, textTransform:'uppercase' }}>{T.tech.databases.title}</h4>
+              <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
+                {T.tech.databases.items.map((item, i) => (
+                  <div key={i}>
+                    <div style={{ fontWeight:600, color:'#F0F4FF', fontSize:15, marginBottom:4 }}>{item.title}</div>
+                    <div style={{ fontSize:13, color:'rgba(240,244,255,.5)', fontWeight:300, lineHeight:1.5 }}>{item.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+
+          <FadeIn style={{ textAlign:'center' }}>
+            <div style={{ display:'inline-flex', alignItems:'center', flexWrap:'wrap', justifyContent:'center', gap:16, padding:'20px 32px', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.07)', borderRadius:20, maxWidth:800 }}>
+              <span style={{ fontSize:24 }}>🛠️</span>
+              <div style={{ textAlign:'left' }}>
+                <div style={{ fontSize:15, color:'#F0F4FF', fontWeight:700, marginBottom:2 }}>{T.tech.dev.title}</div>
+                <div style={{ fontSize:14, color:'rgba(240,244,255,.5)', fontWeight:300 }}>{T.tech.dev.desc}</div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="testimonials" style={{ padding:'120px 24px', position: 'relative', overflow: 'hidden' }}>
+        <div className="orb" style={{ width:400,height:400,background:'radial-gradient(circle,rgba(59,130,246,.1),transparent)',bottom:'-10%',left:'-10%' }} />
+        <div className="section-container">
+          <FadeIn style={{ textAlign:'center',marginBottom:72 }}>
+            <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,52px)',fontWeight:800,letterSpacing:'-1px',marginBottom:16 }}>{T.testimonials.title}</h2>
+            <p style={{ fontSize:18,color:'rgba(240,244,255,.5)',fontWeight:300 }}>{T.testimonials.sub}</p>
+          </FadeIn>
+          <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:24 }}>
+            {T.testimonials.items.map((t: any,i: number)=>(
+              <FadeIn key={i} delay={i*150} className="hp-feat-card" style={{ display:'flex',flexDirection:'column',justifyContent:'space-between' }}>
+                <div>
+                  <div style={{ display:'flex',gap:4,marginBottom:20 }}>
+                    {[...Array(t.stars)].map((_,s)=>(
+                      <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#FBBF24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    ))}
+                  </div>
+                  <p style={{ fontSize:16,color:'rgba(240,244,255,.8)',lineHeight:1.7,fontStyle:'italic',marginBottom:24 }}>"{t.text}"</p>
+                </div>
+                <div style={{ display:'flex',alignItems:'center',gap:16 }}>
+                  <div style={{ width:48,height:48,borderRadius:'50%',background:'linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.05))',display:'flex',alignItems:'center',justifyContent:'center',fontSize:20,border:'1px solid rgba(255,255,255,.1)' }}>👤</div>
+                  <div>
+                    <div style={{ fontWeight:700,fontSize:16,color:'#fff' }}>{t.name}</div>
+                    <div style={{ fontSize:13,color:'rgba(240,244,255,.45)' }}>{t.role}</div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* WHO */}
       <section id="who" style={{ padding:'120px 24px' }}>
         <div className="section-container">

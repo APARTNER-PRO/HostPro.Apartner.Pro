@@ -29,6 +29,7 @@ export const t = {
     nav: {
       features: 'Features',
       pricing: 'Pricing',
+      reviews: 'Reviews',
       about: 'About',
       faq: 'FAQ',
       contact: 'Contact',
@@ -56,6 +57,7 @@ export const t = {
         kb: 'Knowledge Base',
         blog: 'Blog',
         about: 'About Us',
+        reviews: 'Reviews',
         contact: 'Contact',
         terms: 'Terms of Service',
         privacy: 'Privacy Policy',
@@ -88,6 +90,44 @@ export const t = {
         { icon: '📧', title: 'Email Accounts', desc: 'Create professional email addresses on your own domain. Full IMAP/POP3/SMTP support.' },
         { icon: '🚀', title: '1-Click Install', desc: 'Instantly install WordPress, Joomla, and 400+ other apps via Softaculous auto-installer.' },
       ],
+    },
+    tech: {
+      title: 'Built with Modern Technology',
+      sub: 'Every plan includes premium features and the latest server stack for maximum performance.',
+      softaculous: {
+        title: 'Softaculous Auto-installer',
+        desc: '300+ one-click software installers including WordPress, Joomla, and more.',
+      },
+      features: {
+        title: 'TECHNICAL FEATURES',
+        items: [
+          { title: 'Performance', desc: 'LiteSpeed WebServer, LSCache, and NVMe SSD storage.' },
+          { title: 'Reliability', desc: 'Anycast DNS and CloudLinux for account isolation.' },
+          { title: 'Security', desc: 'Free SSL certificates and daily backups for everyone.' },
+          { title: 'Support', desc: '24/7 technical assistance and free migrations.' },
+        ],
+      },
+      server: {
+        title: 'SERVER TECHNOLOGIES',
+        items: [
+          { title: 'LiteSpeed Web Server', desc: 'Significantly faster than Apache, optimized for WordPress.' },
+          { title: 'CloudLinux (LVE)', desc: 'Ensures dedicated resources and total account isolation.' },
+          { title: 'NVMe SSD Storage', desc: 'Next-gen storage for ultra-fast data read/write speeds.' },
+          { title: 'Anycast DNS', desc: 'Global network for lightning-fast domain resolution.' },
+        ],
+      },
+      databases: {
+        title: 'DATABASES',
+        items: [
+          { title: 'MySQL / MariaDB', desc: 'Industry standard for WordPress and PHP applications.' },
+          { title: 'phpMyAdmin', desc: 'Powerful database management tool in every cPanel.' },
+          { title: 'Remote MySQL', desc: 'Connect to your databases from external applications.' },
+        ],
+      },
+      dev: {
+        title: 'Coding & Development',
+        desc: 'We support PHP (multiple versions), Python, and Node.js. Every account includes auto-renewing SSL certificates.',
+      }
     },
 
     billing: {
@@ -193,6 +233,16 @@ export const t = {
         { avatar: '👨‍🎨', name: 'Denis K.',   role: 'Lead Developer' },
         { avatar: '👩‍💼', name: 'Maria L.',   role: 'Customer Success' },
       ],
+    },
+
+    testimonials: {
+      title: 'What our clients say',
+      sub: 'Trusted by over 12,000 customers worldwide',
+      items: [
+        { name: 'Sarah J.', role: 'E-commerce Owner', text: 'Switching to HostPro was the best decision for my store. The speed is incredible and the support team is always there when I need them.', stars: 5 },
+        { name: 'Michael R.', role: 'Full-stack Developer', text: 'Finally a hosting that understands developers. SSH access, Node.js support, and NVMe SSD make my workflow so much smoother.', stars: 5 },
+        { name: 'Elena B.', role: 'Marketing Agency', text: 'We manage dozens of client sites here. The Agency Pro plan with the dedicated manager has been a game-changer for us.', stars: 5 }
+      ]
     },
 
     faq: {
@@ -393,8 +443,8 @@ export const t = {
 t.uk = {
   siteName: 'HostPro',
   siteTagline: 'Сучасний хостинг для сучасних проєктів.',
-  nav: { features: 'Переваги', pricing: 'Тарифи', about: 'Про нас', faq: 'FAQ', contact: 'Контакти', status: 'Статус', cta: 'Розпочати' },
-  footer: { tagline: 'Сучасний хостинг для сучасних проєктів.', copy: '© 2025 HostPro. Усі права захищені.', cols: { products: 'Продукти', services: 'Послуги', resources: 'Ресурси', legal: 'Юридична інформація' }, links: { pricing: 'Тарифи', faq: 'FAQ', status: 'Статус системи', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Виділені сервери', laravelHosting: 'Laravel хостинг', kb: 'База знань', blog: 'Блог', about: 'Про нас', contact: 'Контакти', terms: 'Умови використання', privacy: 'Конфіденційність', refund: 'Повернення коштів' } },
+  nav: { features: 'Переваги', pricing: 'Тарифи', reviews: 'Відгуки', about: 'Про нас', faq: 'FAQ', contact: 'Контакти', status: 'Статус', cta: 'Розпочати' },
+  footer: { tagline: 'Сучасний хостинг для сучасних проєктів.', copy: '© 2025 HostPro. Усі права захищені.', cols: { products: 'Продукти', services: 'Послуги', resources: 'Ресурси', legal: 'Юридична інформація' }, links: { pricing: 'Тарифи', faq: 'FAQ', status: 'Статус системи', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Виділені сервери', laravelHosting: 'Laravel хостинг', kb: 'База знань', blog: 'Блог', about: 'Про нас', reviews: 'Відгуки', contact: 'Контакти', terms: 'Умови використання', privacy: 'Конфіденційність', refund: 'Повернення коштів' } },
   hero: { badge: '⚡ NVMe SSD · Node.js · 99.9% Uptime · cPanel', title1: 'Хостинг, який', title2: 'просто працює', sub: 'Швидкі SSD-сервери, безкоштовний SSL, cPanel та підтримка 24/7. Запустіть свій сайт за хвилини.', cta: 'Почати зараз', ctaSub: 'Без прихованих платежів · Скасування в будь-який час', stat1: 'Активних сайтів', stat2: 'Час завантаження', stat3: 'Uptime SLA' },
   features: { title: 'Все, що потрібно для успіху', sub: 'Ми подбали про інфраструктуру — ви зосередьтесь на бізнесі', items: [
     { icon: '⚡', title: 'NVMe SSD', desc: 'Швидкість у 3× швидша за звичайний SSD. Ваш сайт завантажується миттєво.' },
@@ -406,6 +456,44 @@ t.uk = {
     { icon: '📧', title: 'Поштові скриньки', desc: 'Створюйте професійні email-адреси на вашому домені. Безлімітний доступ по IMAP/POP3/SMTP.' },
     { icon: '🚀', title: 'Встановлення в 1 клік', desc: 'Автоматичне встановлення WordPress, Joomla та ще 400+ скриптів через Softaculous.' },
   ]},
+    tech: {
+      title: 'Побудовано на сучасних технологіях',
+      sub: 'Кожен тариф включає преміальні функції та найсучасніший серверний стек для максимальної продуктивності.',
+      softaculous: {
+        title: 'Softaculous: Встановлення в 1 клік',
+        desc: '300+ автоінсталяторів програм (WordPress, Joomla та ін.).',
+      },
+      features: {
+        title: 'ТЕХНІЧНІ ОСОБЛИВОСТІ',
+        items: [
+          { title: 'Продуктивність', desc: 'LiteSpeed WebServer, LSCache та NVMe SSD сховище.' },
+          { title: 'Надійність', desc: 'Anycast DNS та CloudLinux для ізоляції акаунтів.' },
+          { title: 'Безпека', desc: 'Безкоштовні SSL-сертифікати та щоденні бекапи для всіх.' },
+          { title: 'Підтримка', desc: '24/7 технічна допомога та безкоштовні міграції.' },
+        ],
+      },
+      server: {
+        title: 'СЕРВЕРНІ ТЕХНОЛОГІЇ',
+        items: [
+          { title: 'LiteSpeed Web Server', desc: 'Значно швидший за Apache, оптимізований для WordPress.' },
+          { title: 'CloudLinux (LVE)', desc: 'Гарантує виділені ресурси та повну ізоляцію акаунту.' },
+          { title: 'NVMe SSD Storage', desc: 'Сховище нового покоління для надшвидкого читання/запису.' },
+          { title: 'Anycast DNS', desc: 'Глобальна мережа для миттєвого розв\'язання доменів.' },
+        ],
+      },
+      databases: {
+        title: 'БАЗИ ДАНИХ',
+        items: [
+          { title: 'MySQL / MariaDB', desc: 'Стандарт індустрії для WordPress та PHP додатків.' },
+          { title: 'phpMyAdmin', desc: 'Потужний інструмент керування базами в кожній cPanel.' },
+          { title: 'Remote MySQL', desc: 'Можливість підключення до баз із зовнішніх додатків.' },
+        ],
+      },
+      dev: {
+        title: 'Кодування та розробка',
+        desc: 'Ми підтримуємо PHP (різні версії), Python та Node.js. Безкоштовні SSL з автооновленням для кожного акаунту.',
+      }
+    },
   billing: { monthly: 'Щомісяця', quarterly: 'Щоквартально', yearly: 'Щорічно', save10: '−5%', save20: '−10%', monthTerm: '1 місяць', quarterTerm: '3 місяці', yearTerm: '1 рік', payToday: 'Оплатити', today: 'сьогодні', for: 'На', then: 'потім', onRenewal: 'при поновленні' },
   pricing: { title: 'Прозорі тарифи', sub: 'Оберіть план і масштабуйтесь без обмежень', popular: 'Найпопулярніший', mo: '/міс', cta: 'Обрати план', featLabel: 'Включено:', customTitle: 'Не знайшли потрібний тариф?', customSub: 'Напишіть нам — ми підберемо індивідуальне рішення під ваші потреби та бюджет.', customBtn: '✉️ Написати нам',
     plans: [
@@ -425,6 +513,15 @@ t.uk = {
   cta: { title: 'Готові розпочати?', sub: 'Запустіть перший сайт вже сьогодні — без технічних знань.', btn: 'Розпочати →' },
   order: { label: 'Замовлення плану', nameLbl: "Ваше ім'я", namePh: "Ваше ім'я", domainLbl: 'Домен / сайт (необов\'язково)', domainPh: 'yourdomain.com', msgLbl: 'Повідомлення (необов\'язково)', msgPh: 'Будь-які питання або побажання...', send: 'Надіслати замовлення →', note: 'Ми зв\'яжемось з вами протягом 5 хвилин.', success: '✅ Замовлення відправлено! Ми зв\'яжемось з вами невдовзі.' },
   about: { meta: 'Дізнайтесь більше про команду HostPro — хто ми, наша місія та цінності.', label: 'Про нас', title: 'Про нас', h1p1: 'Ми будуємо', h1p2: 'надійний інтернет', sub: 'Команда ентузіастів, яка вірить що якісний хостинг має бути доступним кожному.', stats: [{ val: '12K+', label: 'Активних сайтів' }, { val: '99.9%', label: 'Uptime SLA' }, { val: '5 хв', label: 'Серед. відповідь' }, { val: '2019', label: 'Рік заснування' }], missionLabel: 'Наша місія', missionTitle: 'Хостинг, який просто працює', mission1: 'Ми починали як невелика команда розробників, яка втомилася від ненадійних хостинг-провайдерів. Замість скарг — вирішили зробити краще. Сьогодні HostPro обслуговує тисячі клієнтів.', mission2: 'Наші сервери в сертифікованих Tier III дата-центрах з резервним живленням та подвійним підключенням до інтернету.', valuesLabel: 'Наші цінності', valuesTitle: 'Що нас рухає', values: [{ icon: '⚡', title: 'Швидкість понад усе', desc: 'NVMe SSD, оптимізовані конфігурації та CDN — сайт завантажується миттєво.' }, { icon: '🔒', title: 'Безпека без компромісів', desc: 'Автоматичний SSL, щоденні бекапи, захист від DDoS та моніторинг 24/7.' }, { icon: '🤝', title: 'Чесність і прозорість', desc: 'Без прихованих платежів. Те що на сайті — те ви й отримуєте.' }, { icon: '🚀', title: 'Зростання разом з вами', desc: 'Починаєте з малого — чудово. Масштабуємось разом без переїздів.' }], teamLabel: 'Команда', teamTitle: 'Люди за HostPro', team: [{ avatar: '👨‍💻', name: 'Олексій М.', role: 'Засновник & CEO' }, { avatar: '👩‍🔧', name: 'Наталія В.', role: 'Head of Infrastructure' }, { avatar: '👨‍🎨', name: 'Денис К.', role: 'Lead Developer' }, { avatar: '👩‍💼', name: 'Марія Л.', role: 'Customer Success' }] },
+  testimonials: {
+    title: 'Що кажуть наші клієнти',
+    sub: 'Нам довіряють понад 12,000 клієнтів по всьому світу',
+    items: [
+      { name: 'Олександр П.', role: 'Власник інтернет-магазину', text: 'Перехід на HostPro став найкращим рішенням для мого бізнесу. Швидкість вражає, а техпідтримка завжди на зв’язку.', stars: 5 },
+      { name: 'Дмитро К.', role: 'Full-stack розробник', text: 'Нарешті хостинг, який розуміє розробників. SSH, підтримка Node.js та NVMe SSD роблять роботу значно приємнішою.', stars: 5 },
+      { name: 'Ольга С.', role: 'Маркетингова агенція', text: 'Ми керуємо десятками сайтів клієнтів тут. Тариф Agency Pro з персональним менеджером став справжнім проривом для нас.', stars: 5 }
+    ]
+  },
   faq: { meta: 'Відповіді на найчастіші питання про хостинг HostPro.', label: 'FAQ', title: 'FAQ', h1p1: 'Часті', h1p2: 'запитання', sub: 'Відповіді на найпоширеніші питання про наш хостинг.', items: [{ q: 'Що таке cPanel і навіщо він потрібен?', a: 'cPanel — найпоширеніша панель керування хостингом. Через неї керуєте файлами, базами даних, поштою, SSL та статистикою. Інтуїтивний інтерфейс навіть для початківців.' }, { q: 'Як швидко активується мій акаунт?', a: 'Після оплати акаунт активується автоматично за 1–3 хвилини. Ви отримаєте email з даними для входу в cPanel.' }, { q: 'Чи є гарантія повернення коштів?', a: 'Так — 30 днів. Якщо незадоволені — повертаємо 100% без зайвих питань. Тільки для нових акаунтів.' }, { q: 'Чи можу я перенести свій поточний сайт?', a: 'Так, міграція безкоштовна. Напишіть у підтримку з даними поточного хостингу — ми зробимо все самі за 24 години.' }, { q: 'Що входить до безкоштовного SSL?', a: "Let's Encrypt SSL для кожного домену та субдомену, оновлюється кожні 90 днів. На Agency тарифах — Wildcard SSL." }, { q: 'Як часто робляться бекапи?', a: 'На тарифах Business та вище — щоденні бекапи зберігаються 7 днів. Відновлення в один клік через cPanel.' }, { q: 'Чи підтримуєте WordPress?', a: 'Так, повністю. Встановлення в один клік через Softaculous в cPanel. Також WooCommerce, PrestaShop, Joomla, Drupal.' }, { q: 'Що буде якщо я перевищу ліміти?', a: 'Ми попередимо по email заздалегідь. Сайт не відключиться одразу — буде час оптимізувати або перейти на вищий тариф.' }, { q: 'Чи можу я змінити тариф?', a: 'Звісно. Апгрейд миттєво, дані збережено. Платите лише різницю до кінця поточного циклу.' }, { q: 'Де знаходяться ваші сервери?', a: 'Сертифіковані Tier III дата-центри в кількох географічних локаціях для резервування та мінімальних затримок.' }] },
   contact: { meta: "Зв'яжіться з командою HostPro — підтримка 24/7, відповідь за 5 хвилин.", label: 'Контакти', title: 'Контакти', h1p1: 'Ми тут,', h1p2: 'щоб допомогти', sub: 'Середній час відповіді — 5 хвилин. Підтримка доступна 24/7.', channels: [{ icon: '✉️', title: 'Email', desc: 'Загальні питання та пропозиції', link: 'hostpro@apartner.pro', href: 'mailto:hostpro@apartner.pro' }, { icon: '🛠️', title: 'Технічна підтримка', desc: 'Проблеми з сайтом, cPanel, налаштування', link: 'hostpro@apartner.pro', href: 'mailto:hostpro@apartner.pro' }, { icon: '💬', title: 'Live Chat', desc: 'Найшвидший спосіб отримати відповідь', link: 'Відкрити чат →', href: '#' }, { icon: '🤝', title: 'Партнерство', desc: 'Реселери, корпоративні рішення', link: 'hostpro@apartner.pro', href: 'mailto:hostpro@apartner.pro' }], formLabel: "Форма зворотнього зв'язку", formTitle: 'Напишіть нам', nameLbl: "Ім'я", namePh: "Ваше ім'я", emailLbl: 'Email', emailPh: 'your@email.com', topicLbl: 'Тема', msgLbl: 'Повідомлення', msgPh: 'Опишіть ваше питання або проблему...', sendBtn: 'Надіслати повідомлення →', topics: ['Загальне питання', 'Технічна підтримка', 'Білінг та оплата', 'Міграція сайту', 'Партнерство', 'Інше'], success: '✅ Дякуємо! Ми відповімо протягом 5 хвилин.' },
   status: { meta: 'Реальний стан серверів та сервісів HostPro. Uptime 99.9%.', label: 'Статус системи', title: 'Статус системи', h1p1: 'Все', h1p2: 'працює', okText: 'Всі системи працюють нормально', okSub: 'Жодних активних інцидентів · Uptime 99.98% за 90 днів', metrics: [{ val: '99.98%', label: 'Uptime (90 днів)' }, { val: '0.3s', label: 'Серед. відповідь' }, { val: '0', label: 'Активних інцидентів' }], svcTitle: 'Статус сервісів', svcSub: 'Реальний час · оновлюється щохвилини', services: ['🌐 Web Servers', '📋 cPanel / WHM', '🗄️ MySQL Databases', '📧 Mail Servers', '🔒 SSL Provisioning', '💾 Backup System', '🌍 DNS'], badge: 'Operational', incTitle: 'Журнал інцидентів', incSub: 'Останні 90 днів', incidents: [{ date: '12 лютого 2025, 03:14 UTC', title: 'Уповільнення Mail Server EU-1', badge: 'Вирішено', desc: 'Підвищене навантаження. Усунено за 18 хв. Жодного втраченого листа.' }, { date: '28 січня 2025, 11:40 UTC', title: 'Планове обслуговування', badge: 'Завершено', desc: 'Оновлення ядра. Вікно 23 хв. Всі сервіси відновлено за планом.' }], noMore: 'Більше інцидентів не зафіксовано за цей період' },
@@ -488,10 +585,48 @@ t.uk = {
 t.ru = {
   siteName: 'HostPro',
   siteTagline: 'Современный хостинг для современных проектов.',
-  nav: { features: 'Преимущества', pricing: 'Тарифы', about: 'О нас', faq: 'FAQ', contact: 'Контакты', status: 'Статус', cta: 'Начать' },
-  footer: { tagline: 'Современный хостинг для современных проектов.', copy: '© 2025 HostPro. Все права защищены.', cols: { products: 'Продукты', services: 'Услуги', resources: 'Ресурсы', legal: 'Юридическая информация' }, links: { pricing: 'Тарифы', faq: 'FAQ', status: 'Статус системы', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Выделенные серверы', laravelHosting: 'Laravel хостинг', kb: 'База знаний', blog: 'Блог', about: 'О нас', contact: 'Контакты', terms: 'Условия использования', privacy: 'Конфиденциальность', refund: 'Возврат средств' } },
+  nav: { features: 'Преимущества', pricing: 'Тарифы', reviews: 'Отзывы', about: 'О нас', faq: 'FAQ', contact: 'Контакты', status: 'Статус', cta: 'Начать' },
+  footer: { tagline: 'Современный хостинг для современных проектов.', copy: '© 2025 HostPro. Все права защищены.', cols: { products: 'Продукты', services: 'Услуги', resources: 'Ресурсы', legal: 'Юридическая информация' }, links: { pricing: 'Тарифы', faq: 'FAQ', status: 'Статус системы', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Выделенные серверы', laravelHosting: 'Laravel хостинг', kb: 'База знаний', blog: 'Блог', about: 'О нас', reviews: 'Отзывы', contact: 'Контакты', terms: 'Условия использования', privacy: 'Конфиденциальность', refund: 'Возврат средств' } },
   hero: { badge: '⚡ NVMe SSD · Node.js · 99.9% Uptime · cPanel', title1: 'Хостинг, который', title2: 'просто работает', sub: 'Быстрые SSD-серверы, бесплатный SSL, cPanel и поддержка 24/7. Запустите сайт за минуты.', cta: 'Начать сейчас', ctaSub: 'Без скрытых платежей · Отмена в любое время', stat1: 'Активных сайтов', stat2: 'Время загрузки', stat3: 'Uptime SLA' },
   features: { title: 'Всё, что нужно для успеха', sub: 'Мы позаботились об инфраструктуре — вы сосредоточьтесь на бизнесе', items: [{ icon: '⚡', title: 'NVMe SSD', desc: 'Скорость в 3× быстрее обычного SSD. Ваш сайт загружается мгновенно.' }, { icon: '🔒', title: 'SSL бесплатно', desc: "Let's Encrypt SSL для каждого домена. Автоматически и без доплат." }, { icon: '📋', title: 'cPanel', desc: 'Удобная панель управления для всех сайтов и почтовых ящиков.' }, { icon: '💾', title: 'Ежедневный бекап', desc: 'Автоматические резервные копии каждый день. Восстановление в один клик.' }, { icon: '🌐', title: '99.9% Uptime', desc: 'Гарантированная доступность. SLA-соглашение с каждым тарифом.' }, { icon: '🎧', title: 'Поддержка 24/7', desc: 'Живые специалисты каждый день. Среднее время ответа — 5 минут.' }, { icon: '📧', title: 'Почтовые ящики', desc: 'Создавайте профессиональные email-адреса на вашем домене. Полная поддержка IMAP/POP3/SMTP.' }, { icon: '🚀', title: 'Установка в 1 клик', desc: 'Автоматическая установка WordPress, Joomla и еще 400+ скриптов через Softaculous.' }] },
+    tech: {
+      title: 'Построено на современных технологиях',
+      sub: 'Каждый тариф включает премиальные функции и современный серверный стек для максимальной производительности.',
+      softaculous: {
+        title: 'Softaculous: Установка в 1 клик',
+        desc: '300+ автоинсталляторов программ (WordPress, Joomla и др.).',
+      },
+      features: {
+        title: 'ТЕХНИЧЕСКИЕ ОСОБЕННОСТИ',
+        items: [
+          { title: 'Производительность', desc: 'LiteSpeed WebServer, LSCache и NVMe SSD хранилище.' },
+          { title: 'Надежность', desc: 'Anycast DNS и CloudLinux для изоляции аккаунтов.' },
+          { title: 'Безопасность', desc: 'Бесплатные SSL-сертификаты и ежедневные бекапы для всех.' },
+          { title: 'Поддержка', desc: '24/7 техническая помощь и бесплатные миграции.' },
+        ],
+      },
+      server: {
+        title: 'СЕРВЕРНЫЕ ТЕХНОЛОГИИ',
+        items: [
+          { title: 'LiteSpeed Web Server', desc: 'Значительно быстрее Apache, оптимизирован для WordPress.' },
+          { title: 'CloudLinux (LVE)', desc: 'Гарантирует выделенные ресурсы и полную изоляцию аккаунта.' },
+          { title: 'NVMe SSD Storage', desc: 'Хранилище нового поколения для сверхбыстрого чтения/записи.' },
+          { title: 'Anycast DNS', desc: 'Глобальная сеть для мгновенного разрешения доменов.' },
+        ],
+      },
+      databases: {
+        title: 'БАЗЫ ДАННЫХ',
+        items: [
+          { title: 'MySQL / MariaDB', desc: 'Стандарт индустрии для WordPress и PHP приложений.' },
+          { title: 'phpMyAdmin', desc: 'Мощный инструмент управления базами в каждой cPanel.' },
+          { title: 'Remote MySQL', desc: 'Возможность подключения к базам из внешних приложений.' },
+        ],
+      },
+      dev: {
+        title: 'Кодирование и разработка',
+        desc: 'Мы поддерживаем PHP (разные версии), Python и Node.js. Бесплатные SSL с автообновлением для каждого аккаунта.',
+      }
+    },
   billing: { monthly: 'Ежемесячно', quarterly: 'Ежеквартально', yearly: 'Ежегодно', save10: '−5%', save20: '−10%', monthTerm: '1 месяц', quarterTerm: '3 месяца', yearTerm: '1 год', payToday: 'Оплатить', today: 'сегодня', for: 'На', then: 'затем', onRenewal: 'при возобновлении' },
   pricing: { title: 'Прозрачные тарифы', sub: 'Выберите план и масштабируйтесь без ограничений', popular: 'Самый популярный', mo: '/мес', cta: 'Выбрать план', featLabel: 'Включено:', customTitle: 'Не нашли нужный тариф?', customSub: 'Напишите нам — мы подберём индивидуальное решение под ваши нужды и бюджет.', customBtn: '✉️ Написать нам',
     plans: [
@@ -506,6 +641,15 @@ t.ru = {
   cta: { title: 'Готовы начать?', sub: 'Запустите первый сайт уже сегодня — без технических знаний.', btn: 'Начать →' },
   order: { label: 'Заказ плана', nameLbl: 'Ваше имя', namePh: 'Ваше имя', domainLbl: 'Домен / сайт (необязательно)', domainPh: 'yourdomain.com', msgLbl: 'Сообщение (необязательно)', msgPh: 'Любые вопросы или пожелания...', send: 'Отправить заказ →', note: 'Мы свяжемся с вами в течение 5 минут.', success: '✅ Заказ отправлен! Мы свяжемся с вами в ближайшее время.' },
   about: { meta: 'Узнайте больше о команде HostPro — кто мы, наша миссия и ценности.', label: 'О нас', title: 'О нас', h1p1: 'Мы строим', h1p2: 'надёжный интернет', sub: 'Команда энтузиастов, которая верит что качественный хостинг должен быть доступен каждому.', stats: [{ val: '12K+', label: 'Активных сайтов' }, { val: '99.9%', label: 'Uptime SLA' }, { val: '5 мин', label: 'Среднее время ответа' }, { val: '2019', label: 'Год основания' }], missionLabel: 'Наша миссия', missionTitle: 'Хостинг, который просто работает', mission1: 'Мы начинали как небольшая команда разработчиков, уставших от ненадёжных провайдеров. Вместо жалоб — решили сделать лучше. Сегодня HostPro обслуживает тысячи клиентов.', mission2: 'Наши серверы в сертифицированных Tier III датацентрах с резервным питанием и двойным интернет-подключением.', valuesLabel: 'Наши ценности', valuesTitle: 'Что нас движет', values: [{ icon: '⚡', title: 'Скорость прежде всего', desc: 'NVMe SSD, оптимизированные конфигурации и CDN — сайт загружается мгновенно.' }, { icon: '🔒', title: 'Безопасность без компромиссов', desc: 'Авто-SSL, ежедневные бекапы, защита от DDoS и мониторинг 24/7.' }, { icon: '🤝', title: 'Честность и прозрачность', desc: 'Без скрытых платежей. То что на сайте — то вы и получаете.' }, { icon: '🚀', title: 'Рост вместе с вами', desc: 'Начинаете с малого — отлично. Масштабируемся вместе без переездов.' }], teamLabel: 'Команда', teamTitle: 'Люди за HostPro', team: [{ avatar: '👨‍💻', name: 'Алексей М.', role: 'Основатель & CEO' }, { avatar: '👩‍🔧', name: 'Наталья В.', role: 'Head of Infrastructure' }, { avatar: '👨‍🎨', name: 'Денис К.', role: 'Lead Developer' }, { avatar: '👩‍💼', name: 'Мария Л.', role: 'Customer Success' }] },
+  testimonials: {
+    title: 'Что говорят наши клиенты',
+    sub: 'Нам доверяют более 12,000 клиентов по всему миру',
+    items: [
+      { name: 'Александр П.', role: 'Владелец интернет-магазина', text: 'Переход на HostPro стал лучшим решением для моего бизнеса. Скорость впечатляет, а техподдержка всегда на связи.', stars: 5 },
+      { name: 'Дмитрий К.', role: 'Full-stack разработчик', text: 'Наконец-то хостинг, который понимает разработчиков. SSH, поддержка Node.js и НVМе SSD делают работу намного приятнее.', stars: 5 },
+      { name: 'Ольга С.', role: 'Маркетинговое агентство', text: 'Мы управляем десятками сайтов клиентов здесь. Тариф Agency Pro с персональным менеджером стал настоящим прорывом для нас.', stars: 5 }
+    ]
+  },
   faq: { meta: 'Ответы на самые частые вопросы о хостинге HostPro.', label: 'FAQ', title: 'FAQ', h1p1: 'Частые', h1p2: 'вопросы', sub: 'Ответы на самые распространённые вопросы о нашем хостинге.', items: [{ q: 'Что такое cPanel и зачем он нужен?', a: 'cPanel — самая популярная панель управления хостингом. Управляйте файлами, базами данных, почтой, SSL и статистикой. Интуитивный интерфейс даже для новичков.' }, { q: 'Как быстро активируется аккаунт?', a: 'После оплаты аккаунт активируется автоматически за 1–3 минуты. Вы получите email с данными для входа в cPanel.' }, { q: 'Есть ли гарантия возврата денег?', a: 'Да — 30 дней. Если недовольны — возвращаем 100% без лишних вопросов. Только для новых аккаунтов.' }, { q: 'Можно ли перенести существующий сайт?', a: 'Да, миграция бесплатна. Напишите в поддержку с данными текущего хостинга — сделаем всё сами за 24 часа.' }, { q: 'Что входит в бесплатный SSL?', a: "Let's Encrypt SSL для каждого домена и субдомена, обновляется каждые 90 дней. На тарифах Agency — Wildcard SSL." }, { q: 'Как часто делаются бекапы?', a: 'На тарифах Business и выше — ежедневные бекапы хранятся 7 дней. Восстановление одним кликом в cPanel.' }, { q: 'Поддерживаете ли WordPress?', a: 'Да, полностью. Установка в один клик через Softaculous в cPanel. Также WooCommerce, PrestaShop, Joomla, Drupal.' }, { q: 'Что будет если я превышу лимиты?', a: 'Предупредим по email заранее. Сайт не отключится сразу — будет время оптимизировать или перейти на тариф выше.' }, { q: 'Можно ли изменить тариф?', a: 'Конечно. Апгрейд мгновенно, данные сохраняются. Платите только разницу до конца текущего цикла.' }, { q: 'Где находятся серверы?', a: 'Сертифицированные Tier III датацентры в нескольких географических локациях для резервирования и минимальных задержек.' }] },
   contact: { meta: 'Свяжитесь с командой HostPro — поддержка 24/7, ответ за 5 минут.', label: 'Контакты', title: 'Контакты', h1p1: 'Мы здесь,', h1p2: 'чтобы помочь', sub: 'Среднее время ответа — 5 минут. Поддержка доступна 24/7.', channels: [{ icon: '✉️', title: 'Email', desc: 'Общие вопросы и предложения', link: 'hostpro@apartner.pro', href: 'mailto:hostpro@apartner.pro' }, { icon: '🛠️', title: 'Техническая поддержка', desc: 'Проблемы с сайтом, cPanel, настройка', link: 'hostpro@apartner.pro', href: 'mailto:hostpro@apartner.pro' }, { icon: '💬', title: 'Live Chat', desc: 'Самый быстрый способ получить ответ', link: 'Открыть чат →', href: '#' }, { icon: '🤝', title: 'Партнёрство', desc: 'Реселеры, корпоративные решения', link: 'hostpro@apartner.pro', href: 'mailto:hostpro@apartner.pro' }], formLabel: 'Форма обратной связи', formTitle: 'Напишите нам', nameLbl: 'Имя', namePh: 'Ваше имя', emailLbl: 'Email', emailPh: 'your@email.com', topicLbl: 'Тема', msgLbl: 'Сообщение', msgPh: 'Опишите ваш вопрос или проблему...', sendBtn: 'Отправить сообщение →', topics: ['Общий вопрос', 'Техническая поддержка', 'Биллинг и оплата', 'Миграция сайта', 'Партнёрство', 'Другое'], success: '✅ Спасибо! Мы ответим в течение 5 минут.' },
   status: { meta: 'Реальное состояние серверов и сервисов HostPro. Uptime 99.9%.', label: 'Статус системы', title: 'Статус системы', h1p1: 'Всё', h1p2: 'работает', okText: 'Все системы работают нормально', okSub: 'Нет активных инцидентов · Uptime 99.98% за 90 дней', metrics: [{ val: '99.98%', label: 'Uptime (90 дней)' }, { val: '0.3s', label: 'Среднее время ответа' }, { val: '0', label: 'Активных инцидентов' }], svcTitle: 'Статус сервисов', svcSub: 'Реальное время · обновляется каждую минуту', services: ['🌐 Web Servers', '📋 cPanel / WHM', '🗄️ MySQL Databases', '📧 Mail Servers', '🔒 SSL Provisioning', '💾 Backup System', '🌍 DNS'], badge: 'Operational', incTitle: 'Журнал инцидентов', incSub: 'Последние 90 дней', incidents: [{ date: '12 февраля 2025, 03:14 UTC', title: 'Замедление Mail Server EU-1', badge: 'Решено', desc: 'Повышенная нагрузка. Устранено за 18 мин. Ни одного потерянного письма.' }, { date: '28 января 2025, 11:40 UTC', title: 'Плановое обслуживание', badge: 'Завершено', desc: 'Обновление ядра. Окно 23 мин. Все сервисы восстановлены по плану.' }], noMore: 'Больше инцидентов не зафиксировано за этот период' },
