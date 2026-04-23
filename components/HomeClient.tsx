@@ -27,7 +27,7 @@ function FadeIn({ children, delay = 0, className = '', style }: {
   )
 }
 
-const DISC: Record<string, number> = { monthly: 1, quarterly: 0.9, yearly: 0.8 }
+const DISC: Record<string, number> = { monthly: 1, quarterly: 0.9, yearly: 0.8, threeYears: 0.75 }
 
 const CSS = `
   .hp-feat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px;transition:transform .25s,background .25s;cursor:default}
@@ -72,17 +72,18 @@ export default function HomeClient({ lang }: { lang: Lang }) {
   const [order, setOrder] = useState<{ name: string; price: string } | null>(null)
   const getPrice = (base: number) => (base * DISC[billing]).toFixed(2)
   const getTotalPrice = (base: number) => {
-    const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : 12
+    const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : billing === 'yearly' ? 12 : 36
     return (base * months * DISC[billing]).toFixed(2)
   }
   const getRenewalPrice = (base: number) => {
-    const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : 12
+    const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : billing === 'yearly' ? 12 : 36
     return (base * months).toFixed(2)
   }
   const getBillingText = () => {
     if (billing === 'monthly') return { term: T.billing.monthTerm, period: T.billing.monthly.toLowerCase() }
     if (billing === 'quarterly') return { term: T.billing.quarterTerm, period: T.billing.quarterly.toLowerCase() }
-    return { term: T.billing.yearTerm, period: T.billing.yearly.toLowerCase() }
+    if (billing === 'yearly') return { term: T.billing.yearTerm, period: T.billing.yearly.toLowerCase() }
+    return { term: T.billing.threeYearTerm, period: T.billing.threeYears.toLowerCase() }
   }
   const statGrads = ['linear-gradient(135deg,#60A5FA,#A78BFA)','linear-gradient(135deg,#A78BFA,#F472B6)','linear-gradient(135deg,#6EE7B7,#60A5FA)','linear-gradient(135deg,#FB923C,#F472B6)']
 
@@ -146,11 +147,12 @@ export default function HomeClient({ lang }: { lang: Lang }) {
           </FadeIn>
           <FadeIn style={{ display:'flex',justifyContent:'center',marginBottom:60,overflowX:'auto',WebkitOverflowScrolling:'touch',width:'100%' }}>
             <div className="price__wrapper" style={{ display:'flex',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.08)',borderRadius:12,padding:4,gap:4,minWidth:'fit-content' }}>
-              {(['monthly','quarterly','yearly'] as const).map((b)=>(
+              {(['monthly','quarterly','yearly', 'threeYears'] as const).map((b)=>(
                 <button key={b} onClick={()=>setBilling(b)} className="hp-billing-btn" style={{ background:billing===b?'rgba(96,165,250,.2)':'transparent',color:billing===b?'#60A5FA':'rgba(240,244,255,.5)',border:billing===b?'1px solid rgba(96,165,250,.3)':'1px solid transparent',whiteSpace:'nowrap',flexShrink:0 }}>
-                  {T.billing[b==='monthly'?'monthly':b==='quarterly'?'quarterly':'yearly']}
+                  {T.billing[b]}
                   {b==='quarterly'&&<span style={{ background:'rgba(251,146,60,.2)',color:'#FB923C',fontSize:11,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save10}</span>}
                   {b==='yearly'&&<span style={{ background:'rgba(110,231,183,.2)',color:'#6EE7B7',fontSize:11,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save20}</span>}
+                  {b==='threeYears'&&<span style={{ background:'rgba(110,231,183,.2)',color:'#6EE7B7',fontSize:11,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save30}</span>}
                 </button>
               ))}
             </div>

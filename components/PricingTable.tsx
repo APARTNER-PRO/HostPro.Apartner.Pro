@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Script from 'next/script'
 import { Lang, getT } from '@/lib/i18n'
 
-type BillingPeriod = 'monthly' | 'quarterly' | 'yearly'
+type BillingPeriod = 'monthly' | 'quarterly' | 'yearly' | 'threeYears'
 
 interface PricingTableProps {
   lang: Lang;
@@ -12,6 +12,7 @@ interface PricingTableProps {
     monthly: any;
     quarterly: any;
     yearly: any;
+    threeYears: any;
   }
 }
 
@@ -55,6 +56,7 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
   }
 
   const getBillingLabel = () => {
+    if (billing === 'threeYears') return T.billing.threeYearTerm;
     if (billing === 'yearly') return T.billing.yearTerm;
     if (billing === 'quarterly') return T.billing.quarterTerm;
     return T.billing.monthTerm;
@@ -188,8 +190,8 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
       <div className="pricing-section">
         <div className="billing-toggle">
           <div className="toggle-wrapper">
-            {(['monthly', 'quarterly', 'yearly'] as const).map((period) => {
-              const discount = period === 'quarterly' ? T.billing.save10 : period === 'yearly' ? T.billing.save20 : null;
+            {(['monthly', 'quarterly', 'yearly', 'threeYears'] as const).map((period) => {
+              const discount = period === 'quarterly' ? T.billing.save10 : period === 'yearly' ? T.billing.save20 : period === 'threeYears' ? T.billing.save30 : null;
               
               return (
                 <button
@@ -198,7 +200,7 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
                   className={`toggle-btn ${billing === period ? 'active' : ''}`}
                   style={{ display: 'flex', alignItems: 'center', gap: 8 }}
                 >
-                  {T.billing[period === 'monthly' ? 'monthly' : period === 'quarterly' ? 'quarterly' : 'yearly']}
+                  {T.billing[period]}
                   {discount && (
                     <span style={{ 
                       fontSize: 10, 
@@ -228,7 +230,7 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
             const color = isFeatured ? '#FB7185' : plan.color;
 
             // Calculate totals
-            const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : 12;
+            const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : billing === 'yearly' ? 12 : 36;
             const totalAmount = (parseInt(price.unit_price.amount) * months) / 100;
             const renewalAmount = (totalAmount * 1.25).toFixed(2); // Example renewal logic if needed, or just use total
 

@@ -24,13 +24,14 @@ async function getPaddleProduct(id: string) {
 
 export default async function PricingPage({ params }: { params: { lang: Lang } }) {
   const T = getT(params.lang);
-  const [monthly, quarterly, yearly] = await Promise.all([
+  const [monthly, quarterly, yearly, threeYears] = await Promise.all([
     getPaddleProduct('pro_01kpxjt0dtczpta4vxtdbp73zf'),
     getPaddleProduct('pro_01kpxksj5m2wsdr9tqj914m1ak'),
     getPaddleProduct('pro_01kpxjmzrcerj9a7caj6qkzgtv'),
+    getPaddleProduct('pro_01kpy2h3epqjbc4fq2tyhz6esg'),
   ]);
 
-  const plansData = { monthly, quarterly, yearly };
+  const plansData = { monthly, quarterly, yearly, threeYears };
 
   return (
     <PageWrapper lang={params.lang} slug="pricing">

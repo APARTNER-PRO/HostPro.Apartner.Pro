@@ -134,11 +134,14 @@ export const t = {
       monthly: 'Monthly',
       quarterly: 'Quarterly',
       yearly: 'Yearly',
+      threeYears: '3 Years',
       save10: '−5%',
       save20: '−10%',
+      save30: '−15%',
       monthTerm: '1 month',
       quarterTerm: '3 months',
       yearTerm: '1 year',
+      threeYearTerm: '3 years',
       payToday: 'Pay',
       today: 'today',
       for: 'For',
@@ -494,7 +497,7 @@ t.uk = {
         desc: 'Ми підтримуємо PHP (різні версії), Python та Node.js. Безкоштовні SSL з автооновленням для кожного акаунту.',
       }
     },
-  billing: { monthly: 'Щомісяця', quarterly: 'Щоквартально', yearly: 'Щорічно', save10: '−5%', save20: '−10%', monthTerm: '1 місяць', quarterTerm: '3 місяці', yearTerm: '1 рік', payToday: 'Оплатити', today: 'сьогодні', for: 'На', then: 'потім', onRenewal: 'при поновленні' },
+  billing: { monthly: 'Щомісяця', quarterly: 'Щоквартально', yearly: 'Щорічно', threeYears: 'На 3 роки', save10: '−5%', save20: '−10%', save30: '−15%', monthTerm: '1 місяць', quarterTerm: '3 місяці', yearTerm: '1 рік', threeYearTerm: '3 роки', payToday: 'Оплатити', today: 'сьогодні', for: 'На', then: 'потім', onRenewal: 'при поновленні' },
   pricing: { title: 'Прозорі тарифи', sub: 'Оберіть план і масштабуйтесь без обмежень', popular: 'Найпопулярніший', mo: '/міс', cta: 'Обрати план', featLabel: 'Включено:', customTitle: 'Не знайшли потрібний тариф?', customSub: 'Напишіть нам — ми підберемо індивідуальне рішення під ваші потреби та бюджет.', customBtn: '✉️ Написати нам',
     plans: [
       { name: 'Personal',   desc: 'Ідеально для першого сайту',          price: 1.99,  color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email акаунт', 'Безкоштовний SSL', 'cPanel', 'Node.js', 'Звичайна підтримка'] },
@@ -627,7 +630,7 @@ t.ru = {
         desc: 'Мы поддерживаем PHP (разные версии), Python и Node.js. Бесплатные SSL с автообновлением для каждого аккаунта.',
       }
     },
-  billing: { monthly: 'Ежемесячно', quarterly: 'Ежеквартально', yearly: 'Ежегодно', save10: '−5%', save20: '−10%', monthTerm: '1 месяц', quarterTerm: '3 месяца', yearTerm: '1 год', payToday: 'Оплатить', today: 'сегодня', for: 'На', then: 'затем', onRenewal: 'при возобновлении' },
+  billing: { monthly: 'Ежемесячно', quarterly: 'Ежеквартально', yearly: 'Ежегодно', threeYears: 'На 3 года', save10: '−5%', save20: '−10%', save30: '−15%', monthTerm: '1 месяц', quarterTerm: '3 месяца', yearTerm: '1 год', threeYearTerm: '3 года', payToday: 'Оплатить', today: 'сегодня', for: 'На', then: 'затем', onRenewal: 'при возобновлении' },
   pricing: { title: 'Прозрачные тарифы', sub: 'Выберите план и масштабируйтесь без ограничений', popular: 'Самый популярный', mo: '/мес', cta: 'Выбрать план', featLabel: 'Включено:', customTitle: 'Не нашли нужный тариф?', customSub: 'Напишите нам — мы подберём индивидуальное решение под ваши нужды и бюджет.', customBtn: '✉️ Написать нам',
     plans: [
       { name: 'Personal',   desc: 'Идеально для первого сайта',        price: 1.99,  color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email аккаунт', 'Бесплатный SSL', 'cPanel', 'Node.js', 'Обычная поддержка'] },
