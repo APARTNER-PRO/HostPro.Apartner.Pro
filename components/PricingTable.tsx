@@ -188,15 +188,33 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
       <div className="pricing-section">
         <div className="billing-toggle">
           <div className="toggle-wrapper">
-            {(['monthly', 'quarterly', 'yearly'] as const).map((period) => (
-              <button
-                key={period}
-                onClick={() => setBilling(period)}
-                className={`toggle-btn ${billing === period ? 'active' : ''}`}
-              >
-                {T.billing[period === 'monthly' ? 'monthly' : period === 'quarterly' ? 'quarterly' : 'yearly']}
-              </button>
-            ))}
+            {(['monthly', 'quarterly', 'yearly'] as const).map((period) => {
+              const discount = period === 'quarterly' ? T.billing.save10 : period === 'yearly' ? T.billing.save20 : null;
+              
+              return (
+                <button
+                  key={period}
+                  onClick={() => setBilling(period)}
+                  className={`toggle-btn ${billing === period ? 'active' : ''}`}
+                  style={{ display: 'flex', alignItems: 'center', gap: 8 }}
+                >
+                  {T.billing[period === 'monthly' ? 'monthly' : period === 'quarterly' ? 'quarterly' : 'yearly']}
+                  {discount && (
+                    <span style={{ 
+                      fontSize: 10, 
+                      background: billing === period ? 'rgba(244,63,94,0.2)' : 'rgba(110,231,183,0.1)', 
+                      color: billing === period ? '#FB7185' : '#6EE7B7', 
+                      padding: '2px 6px', 
+                      borderRadius: 6,
+                      fontWeight: 700,
+                      border: billing === period ? '1px solid rgba(244,63,94,0.3)' : '1px solid rgba(110,231,183,0.2)'
+                    }}>
+                      {discount}
+                    </span>
+                  )}
+                </button>
+              )
+            })}
           </div>
         </div>
 
