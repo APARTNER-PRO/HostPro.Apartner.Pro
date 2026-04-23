@@ -185,6 +185,20 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
           borderRadius: 100,
           whiteSpace: 'nowrap'
         }
+        @media (max-width: 767px) {
+          .billing-toggle {
+            padding: 0 20px;
+            margin-bottom: 40px;
+          }
+          .toggle-wrapper {
+            flex-direction: column;
+            width: 100%;
+          }
+          .toggle-btn {
+            width: 100%;
+            justify-content: center;
+          }
+        }
       ` }} />
 
       <div className="pricing-section">

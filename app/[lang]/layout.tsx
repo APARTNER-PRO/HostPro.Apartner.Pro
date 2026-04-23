@@ -36,15 +36,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, params }: { children: React.ReactNode, params: { lang: string } }) {
   return (
-    <html lang={params.lang} suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#050810" />
-      </head>
-      <body>
+    <>
         {children}
         <Script id="tawk-to" strategy="afterInteractive">
           {`
@@ -59,7 +51,6 @@ export default function RootLayout({ children, params }: { children: React.React
             })();
           `}
         </Script>
-      </body>
-    </html>
+    </>
   )
 }
