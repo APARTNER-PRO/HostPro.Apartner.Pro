@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import Script from 'next/script'
 import { Lang, getT } from '@/lib/i18n'
 import OrderModal from './OrderModal'
 
@@ -65,11 +66,22 @@ const CSS = `
   .hp-stats-flex { display: flex; gap: 48px; justify-content: center; margin-top: 64px; flex-wrap: wrap; }
 `
 
-export default function HomeClient({ lang }: { lang: Lang }) {
+interface HomeClientProps {
+  lang: Lang
+  initialData?: {
+    monthly: any
+    quarterly: any
+    yearly: any
+    threeYears: any
+  }
+}
+
+export default function HomeClient({ lang, initialData }: HomeClientProps) {
   const T = getT(lang)
   const p = lang === 'en' ? '' : `/${lang}`
   const [billing, setBilling] = useState('monthly')
   const [order, setOrder] = useState<{ name: string; price: string } | null>(null)
+  const [paddleLoaded, setPaddleLoaded] = useState(false)
   const getPrice = (base: number) => (base * DISC[billing]).toFixed(2)
   const getTotalPrice = (base: number) => {
     const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : billing === 'yearly' ? 12 : 36
@@ -87,8 +99,39 @@ export default function HomeClient({ lang }: { lang: Lang }) {
   }
   const statGrads = ['linear-gradient(135deg,#60A5FA,#A78BFA)','linear-gradient(135deg,#A78BFA,#F472B6)','linear-gradient(135deg,#6EE7B7,#60A5FA)','linear-gradient(135deg,#FB923C,#F472B6)']
 
+  // Get Paddle priceId for a plan by name and current billing period
+  const getPriceId = (planName: string): string | null => {
+    if (!initialData) return null
+    const currentProduct = initialData[billing as keyof typeof initialData]
+    if (!currentProduct?.prices) return null
+    const prices: any[] = currentProduct.prices
+    const match = prices.find((price: any) =>
+      price.description?.toLowerCase().includes(planName.toLowerCase())
+    )
+    return match?.id || null
+  }
+
+  const handleBuy = (priceId: string) => {
+    if (!priceId) return
+    if (!(window as any).Paddle) {
+      alert('Paddle is still loading...')
+      return
+    }
+    const Paddle = (window as any).Paddle
+    Paddle.Initialize({
+      token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'live_5479fe94fca51b60d7791b81725'
+    })
+    Paddle.Checkout.open({
+      items: [{ priceId, quantity: 1 }]
+    })
+  }
+
   return (
     <>
+      <Script
+        src="https://cdn.paddle.com/paddle/v2/paddle.js"
+        onLoad={() => setPaddleLoaded(true)}
+      />
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       {/* HERO */}
@@ -179,7 +222,32 @@ export default function HomeClient({ lang }: { lang: Lang }) {
                       )}
                     </div>
                   </div>
+                  {/* OLD BUTTON (order modal) — збережено для повернення:
                   <button onClick={()=>setOrder({name:plan.name,price:getPrice(plan.price)})} className={`hp-plan-btn${plan.popular?' primary':''}`}>{T.pricing.cta}</button>
+                  */}
+                  {(() => {
+                    const priceId = getPriceId(plan.name)
+                    if (priceId) {
+                      return (
+                        <button
+                          onClick={() => handleBuy(priceId)}
+                          className={`hp-plan-btn${plan.popular?' primary':''}`}
+                        >
+                          {T.pricing.cta}
+                        </button>
+                      )
+                    }
+                    // Fallback: redirect to /pricing/ page if no priceId available
+                    return (
+                      <Link
+                        href={`${p}/pricing`}
+                        className={`hp-plan-btn${plan.popular?' primary':''}`}
+                        style={{ display:'block',textAlign:'center',textDecoration:'none' }}
+                      >
+                        {T.pricing.cta}
+                      </Link>
+                    )
+                  })()}
                   <div style={{ borderTop:'1px solid rgba(255,255,255,.07)',paddingTop:20 }}>
                     <p style={{ fontSize:11,color:'rgba(240,244,255,.35)',marginBottom:8,fontWeight:500,textTransform:'uppercase',letterSpacing:'.08em' }}>{T.pricing.featLabel}</p>
                     {plan.extras.map((ex,j)=>(

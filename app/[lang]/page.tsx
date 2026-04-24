@@ -46,13 +46,39 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   }
 }
 
-export default function LangHomePage({ params }: { params: { lang: string } }) {
+async function getPaddleProduct(id: string) {
+  try {
+    const res = await fetch(`https://api.paddle.com/products/${id}?include=prices`, {
+      headers: {
+        'Authorization': `Bearer ${process.env.PADDLE_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      next: { revalidate: 3600 },
+    })
+    if (!res.ok) return null
+    const json = await res.json()
+    return json.data
+  } catch {
+    return null
+  }
+}
+
+export default async function LangHomePage({ params }: { params: { lang: string } }) {
   const lang = params.lang as Lang
   if (!LANGS.includes(lang) || lang === 'en') notFound()
 
+  const [monthly, quarterly, yearly, threeYears] = await Promise.all([
+    getPaddleProduct('pro_01kpxjt0dtczpta4vxtdbp73zf'),
+    getPaddleProduct('pro_01kpxksj5m2wsdr9tqj914m1ak'),
+    getPaddleProduct('pro_01kpxjmzrcerj9a7caj6qkzgtv'),
+    getPaddleProduct('pro_01kpy2h3epqjbc4fq2tyhz6esg'),
+  ])
+
+  const plansData = { monthly, quarterly, yearly, threeYears }
+
   return (
     <PageWrapper lang={lang} slug="">
-      <HomeClient lang={lang} />
+      <HomeClient lang={lang} initialData={plansData} />
     </PageWrapper>
   )
 }
