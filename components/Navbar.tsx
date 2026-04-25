@@ -1,9 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useState } from 'react'
 import { Lang, LANG_META, getLangPath, getT } from '@/lib/i18n'
+import { useState, useEffect } from 'react'
 
 interface NavProps {
   lang: Lang
@@ -13,6 +12,10 @@ interface NavProps {
 export default function Navbar({ lang, slug = '' }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const T = getT(lang)
+
+  useEffect(() => {
+    document.cookie = `NEXT_LOCALE=${lang}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+  }, [lang]);
   const p = lang === 'en' ? '' : `/${lang}`
 
   const navLinks = [
