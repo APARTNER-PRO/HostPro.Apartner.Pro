@@ -72,7 +72,7 @@ Agency Pro includes: Dedicated account manager.
 - **Money-back**: 30-day full refund for new accounts
 - **Backups**: Daily (Business plan and above), 7-day retention
 - **Migration**: Free website migration within 24 hours
-- **Billing**: Monthly, Quarterly (−5%), Yearly (−10%), 3 Years (−15%)
+- **Billing**: Monthly, Quarterly (−10%), Yearly (−20%), 3 Years (−25%)
 
 ## Sitemap
 

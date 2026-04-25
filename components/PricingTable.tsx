@@ -50,7 +50,7 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
     if (desc.includes('personal')) return T.pricing.plans[0];
     if (desc.includes('starter')) return T.pricing.plans[1];
     if (desc.includes('business')) return T.pricing.plans[2];
-    if (desc.includes('agency pro')) return T.pricing.plans[4];
+    if (desc.includes('agency pro') || desc.includes('agencypro')) return T.pricing.plans[4];
     if (desc.includes('agency')) return T.pricing.plans[3];
     return null;
   }
@@ -240,8 +240,9 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
             const plan = getPlanDetails(price.description);
             if (!plan) return null;
 
-            const isAgency = price.description?.toLowerCase().includes('agency');
-            const isFeatured = isAgency && !price.description?.toLowerCase().includes('pro');
+            const desc = price.description?.toLowerCase() || '';
+            const isAgency = desc.includes('agency');
+            const isFeatured = isAgency && !desc.includes('pro');
             const color = isFeatured ? '#FB7185' : plan.color;
 
             // Calculate totals

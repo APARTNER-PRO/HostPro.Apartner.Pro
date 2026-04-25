@@ -105,9 +105,15 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
     const currentProduct = initialData[billing as keyof typeof initialData]
     if (!currentProduct?.prices) return null
     const prices: any[] = currentProduct.prices
-    const match = prices.find((price: any) =>
-      price.description?.toLowerCase().includes(planName.toLowerCase())
-    )
+    const target = planName.toLowerCase()
+    const match = prices.find((price: any) => {
+      const desc = price.description?.toLowerCase() || ''
+      if (target === 'agency') {
+        // Strict check: must have 'agency' but NOT 'pro'
+        return desc.includes('agency') && !desc.includes('pro')
+      }
+      return desc.includes(target)
+    })
     return match?.id || null
   }
 
