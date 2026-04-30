@@ -53,7 +53,7 @@ export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
     description: 'Fast NVMe SSD web hosting with cPanel, free SSL and 24/7 support.',
     brand: { '@type': 'Brand', name: 'HostPro' },
     offers: [
-      { '@type': 'Offer', name: 'Starter', price: '3.99', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Starter', price: '1.99', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
       { '@type': 'Offer', name: 'Business', price: '11.99', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
       { '@type': 'Offer', name: 'Pro', price: '22.99', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
       { '@type': 'Offer', name: 'Agency', price: '45.99', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },

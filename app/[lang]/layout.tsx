@@ -10,10 +10,10 @@ export function generateStaticParams() {
 export const metadata: Metadata = {
   metadataBase: new URL('https://hostpro.apartner.pro'),
   title: {
-    default: 'HostPro — Fast & Reliable Web Hosting',
-    template: '%s — HostPro',
+    default: 'HostPro - Fast & Reliable Web Hosting',
+    template: '%s - HostPro',
   },
-  description: 'Fast NVMe SSD hosting with cPanel, free SSL and 24/7 support. Plans from $3.99/mo.',
+  description: 'Fast NVMe SSD hosting with cPanel, free SSL and 24/7 support. Plans from $1.99/mo.',
   keywords: ['web hosting', 'NVMe SSD hosting', 'cPanel hosting', 'cheap hosting', 'WordPress hosting'],
   authors: [{ name: 'HostPro' }],
   creator: 'HostPro',
