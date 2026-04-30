@@ -37,9 +37,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, params }: { children: React.ReactNode, params: { lang: string } }) {
   return (
     <>
-        {children}
-        <Script id="tawk-to" strategy="afterInteractive">
-          {`
+      {children}
+      <Script id="tawk-to" strategy="afterInteractive">
+        {`
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
               var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -50,7 +50,7 @@ export default function RootLayout({ children, params }: { children: React.React
               s0.parentNode.insertBefore(s1,s0);
             })();
           `}
-        </Script>
+      </Script>
     </>
   )
 }
