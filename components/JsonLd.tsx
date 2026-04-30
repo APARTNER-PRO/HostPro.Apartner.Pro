@@ -4,11 +4,12 @@ const SITE_URL = 'https://hostpro.apartner.pro'
 
 interface JsonLdProps {
   lang: Lang
-  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing'
+  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing' | 'reviews'
 }
 
 export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
   const langPath = lang === 'en' ? '' : `/${lang}`
+  const T = getT(lang)
 
   const organization = {
     '@context': 'https://schema.org',
@@ -46,12 +47,19 @@ export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
     ],
   } : null
 
-  const hosting = page === 'home' || page === 'pricing' ? {
+  const hosting = page === 'home' || page === 'pricing' || page === 'reviews' ? {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: 'HostPro Web Hosting',
     description: 'Fast NVMe SSD web hosting with cPanel, free SSL and 24/7 support.',
     brand: { '@type': 'Brand', name: 'HostPro' },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '847',
+      bestRating: '5',
+      worstRating: '1',
+    },
     offers: [
       { '@type': 'Offer', name: 'Starter', price: '1.99', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
       { '@type': 'Offer', name: 'Business', price: '11.99', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
@@ -61,10 +69,26 @@ export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
     ],
   } : null
 
+  const localBusiness = page === 'home' ? {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'HostPro',
+    url: SITE_URL,
+    description: 'Fast NVMe SSD web hosting with cPanel, free SSL, daily backups and 24/7 support.',
+    email: 'hostpro@apartner.pro',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '847',
+      bestRating: '5',
+      worstRating: '1',
+    },
+  } : null
+
   const faqSchema = page === 'faq' ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: getT(lang).faq.items.map((item) => ({
+    mainEntity: T.faq.items.map((item) => ({
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: {
@@ -74,7 +98,25 @@ export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
     })),
   } : null
 
-  const schemas = [organization, website, breadcrumb, hosting, faqSchema].filter(Boolean)
+  const reviewsSchema = page === 'reviews' ? T.testimonials.items.map((r: any) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: {
+      '@type': 'Product',
+      name: 'HostPro Web Hosting',
+    },
+    author: {
+      '@type': 'Person',
+      name: r.name,
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: r.stars,
+    },
+    reviewBody: r.text,
+  })) : null
+
+  const schemas = [organization, website, breadcrumb, hosting, localBusiness, faqSchema, ...(Array.isArray(reviewsSchema) ? reviewsSchema : [reviewsSchema])].filter(Boolean)
 
   return (
     <>

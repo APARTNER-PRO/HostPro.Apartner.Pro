@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 import HomeClient from '@/components/HomeClient'
+import JsonLd from '@/components/JsonLd'
 import { LANGS, Lang, LANG_META, getT } from '@/lib/i18n'
 
 export function generateStaticParams() {
@@ -78,6 +79,7 @@ export default async function LangHomePage({ params }: { params: { lang: string 
 
   return (
     <PageWrapper lang={lang} slug="">
+      <JsonLd lang={lang} page="home" />
       <HomeClient lang={lang} initialData={plansData} />
     </PageWrapper>
   )

@@ -356,7 +356,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,52px)',fontWeight:800,letterSpacing:'-1px',marginBottom:16 }}>{T.testimonials.title}</h2>
             <p style={{ fontSize:18,color:'rgba(240,244,255,.5)',fontWeight:300 }}>{T.testimonials.sub}</p>
           </FadeIn>
-          <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:24 }}>
+          <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:24,marginBottom:48 }}>
             {T.testimonials.items.map((t: any,i: number)=>(
               <FadeIn key={i} delay={i*150} className="hp-feat-card" style={{ display:'flex',flexDirection:'column',justifyContent:'space-between' }}>
                 <div>
@@ -377,6 +377,36 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
               </FadeIn>
             ))}
           </div>
+
+          <FadeIn style={{ textAlign:'center' }}>
+            <Link 
+              href={`${p}/reviews`} 
+              style={{ 
+                fontSize: 16, 
+                color: 'rgba(96,165,250,1)', 
+                fontWeight: 600, 
+                textDecoration: 'none', 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: 8,
+                transition: 'all 0.3s ease',
+                padding: '10px 20px',
+                borderRadius: '12px',
+                background: 'rgba(59,130,246,.05)',
+                border: '1px solid rgba(59,130,246,.1)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(59,130,246,.1)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(59,130,246,.05)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              {T.testimonials.reviewsLink}
+            </Link>
+          </FadeIn>
         </div>
       </section>
 
