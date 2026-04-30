@@ -51,7 +51,10 @@ export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: 'HostPro Web Hosting',
+    image: [`${SITE_URL}/favicon.svg`],
     description: 'Fast NVMe SSD web hosting with cPanel, free SSL and 24/7 support.',
+    sku: 'HP-HOST-2025',
+    mpn: 'HP-HOST-2025',
     brand: { '@type': 'Brand', name: 'HostPro' },
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -73,6 +76,7 @@ export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'HostPro',
+    image: [`${SITE_URL}/favicon.svg`],
     url: SITE_URL,
     description: 'Fast NVMe SSD web hosting with cPanel, free SSL, daily backups and 24/7 support.',
     email: 'hostpro@apartner.pro',
