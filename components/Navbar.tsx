@@ -19,14 +19,14 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
   const p = lang === 'en' ? '' : `/${lang}`
 
   const navLinks = [
-    { href: `${p}/#features`,    label: T.nav.features },
-    { href: `${p}/#pricing`,     label: T.nav.pricing },
-    { href: `${p}/#testimonials`,label: T.nav.reviews },
-    { href: `${p}/about`,        label: T.nav.about },
-    { href: `${p}/faq`,          label: T.nav.faq },
-    { href: `${p}/contact`,      label: T.nav.contact },
-    { href: `${p}/blog`,         label: T.footer.links.blog },
-    { href: `${p}/status`,       label: T.nav.status },
+    { href: `${p}/#features`, label: T.nav.features },
+    { href: `${p}/#pricing`, label: T.nav.pricing },
+    { href: `${p}/#testimonials`, label: T.nav.reviews },
+    { href: `${p}/about`, label: T.nav.about },
+    { href: `${p}/faq`, label: T.nav.faq },
+    { href: `${p}/contact`, label: T.nav.contact },
+    { href: `${p}/blog`, label: T.footer.links.blog },
+    { href: `${p}/status`, label: T.nav.status },
   ]
 
   const langLinks = (
@@ -35,7 +35,7 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
     lang: l,
     label: l.toUpperCase(),
     flag: LANG_META[l].flag,
-    href: getLangPath(l, slug) + (l === 'en' ? '?lang=en' : ''),
+    href: getLangPath(l, slug),
     current: l === lang,
   }))
 

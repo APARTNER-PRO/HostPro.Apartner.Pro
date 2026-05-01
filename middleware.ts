@@ -23,9 +23,8 @@ export function middleware(request: NextRequest) {
   if (pathname === '/') {
     const referer = request.headers.get('referer')
     const isInternal = referer && new URL(referer).origin === request.nextUrl.origin
-    const isExplicitEn = request.nextUrl.searchParams.get('lang') === 'en'
 
-    if (!isInternal && !isExplicitEn && cookieLocale && cookieLocale !== 'en' && supportedLocales.includes(cookieLocale)) {
+    if (!isInternal && cookieLocale && cookieLocale !== 'en' && supportedLocales.includes(cookieLocale)) {
       return NextResponse.redirect(new URL(`/${cookieLocale}/`, request.url))
     }
   }
