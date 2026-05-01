@@ -10,8 +10,8 @@ export default function KBArticleClient({ lang, slug }: { lang: Lang, slug: stri
   if (!article) return (
     <div style={{ color: '#F0F4FF', background: '#050810', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
       <div style={{ textAlign: 'center' }}>
-        <h1 style={{ fontSize: 32, marginBottom: 16 }}>Article not found</h1>
-        <Link href={`${p}/kb`} style={{ color: '#60A5FA', textDecoration: 'none' }}>← Back to Knowledge Base</Link>
+        <h1 style={{ fontSize: 32, marginBottom: 16 }}>{T.kb.notFound}</h1>
+        <Link href={`${p}/kb`} style={{ color: '#60A5FA', textDecoration: 'none' }}>{T.kb.backToKb}</Link>
       </div>
     </div>
   )
@@ -23,7 +23,7 @@ export default function KBArticleClient({ lang, slug }: { lang: Lang, slug: stri
         <div className="orb" style={{ width: 600, height: 600, background: 'radial-gradient(circle,rgba(96,165,250,.12),transparent)', top: '-20%', left: '50%', transform: 'translateX(-50%)' }} />
         <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
           <Link href={`${p}/kb`} style={{ color: 'rgba(240,244,255,.5)', textDecoration: 'none', fontSize: 14, display: 'inline-block', marginBottom: 32, fontWeight: 500, transition: 'color 0.2s' }}>
-            ← Back to Knowledge Base
+            {T.kb.backToKb}
           </Link>
           <div style={{ maxWidth: 800 }}>
             <div style={{ fontSize: 14, color: '#60A5FA', fontWeight: 700, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '1px' }}>
