@@ -35,9 +35,9 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
   useEffect(() => {
     if (isLoading) {
       scrollToBottom();
-    } else if (messages.length > 0) {
+    } else if (messages.length > 1) {
       const lastMessage = messages[messages.length - 1];
-      if (lastMessage.role === 'assistant' && messages.length > 1) {
+      if (lastMessage.role === 'assistant') {
         assistantMessageRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         scrollToBottom();
