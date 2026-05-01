@@ -53,7 +53,12 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
       const target = (e.target as HTMLElement).closest('a');
       if (target) {
         const href = target.getAttribute('href');
+        // Detect payment links
         if (href && (href.includes('plan=') && href.includes('billing='))) {
+          // Prevent immediate redirection
+          e.preventDefault();
+          e.stopPropagation();
+
           confetti({
             particleCount: 150,
             spread: 70,
@@ -61,12 +66,18 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
             colors: ['#60A5FA', '#A78BFA', '#FB923C', '#F472B6'],
             zIndex: 9999
           });
+
+          // Open in new tab after a short delay so user sees confetti
+          setTimeout(() => {
+            window.open(href, '_blank');
+          }, 700);
         }
       }
     };
 
-    document.addEventListener('click', handleGlobalClick);
-    return () => document.removeEventListener('click', handleGlobalClick);
+    // Use capture phase to intercept the click before other handlers
+    document.addEventListener('click', handleGlobalClick, true);
+    return () => document.removeEventListener('click', handleGlobalClick, true);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent, overrideInput?: string) => {
