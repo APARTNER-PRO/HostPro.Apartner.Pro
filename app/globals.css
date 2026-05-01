@@ -241,3 +241,105 @@ select option { background: #1a1f2e; color: #F0F4FF; padding: 8px 4px; }
 
 /* ── Plans grid ── */
 .hp-plans-grid { display: grid; gap: 14px; align-items: start; }
+
+/* ── Chat Markdown Styling ── */
+.chat-markdown p {
+  margin-bottom: 12px;
+}
+.chat-markdown p:last-child {
+  margin-bottom: 0;
+}
+.chat-markdown ul, .chat-markdown ol {
+  margin-bottom: 12px;
+  padding-left: 20px;
+}
+.chat-markdown li {
+  margin-bottom: 6px;
+}
+.chat-markdown strong {
+  color: #fff;
+  font-weight: 700;
+}
+.chat-markdown h1, .chat-markdown h2, .chat-markdown h3 {
+  color: #fff;
+  font-weight: 800;
+  margin: 16px 0 8px;
+}
+.chat-markdown h1 { font-size: 1.3em; }
+.chat-markdown h2 { font-size: 1.15em; }
+.chat-markdown h3 { font-size: 1.05em; }
+.chat-markdown code {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+.chat-markdown a {
+  display: inline-block;
+  background: var(--grad);
+  color: #fff !important;
+  padding: 10px 22px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  font-weight: 700;
+  margin: 10px 0;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.chat-markdown a:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* ── Typing Animation ── */
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 6px;
+  height: 6px;
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 9999px 0 0 0 var(--accent);
+  animation: dotPulse 1.5s infinite linear;
+  margin-left: 10px;
+}
+
+@keyframes dotPulse {
+  0% { box-shadow: 9999px 0 0 -5px var(--accent); }
+  30% { box-shadow: 9999px 0 0 2px var(--accent); }
+  60%, 100% { box-shadow: 9999px 0 0 -5px var(--accent); }
+}
+
+/* ── Chat Form Responsive ── */
+.chat-form {
+  display: flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .chat-form {
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 16px;
+  }
+  .chat-form input {
+    padding: 10px 14px !important;
+  }
+  .chat-form button {
+    width: 100%;
+    justify-content: center;
+    padding: 12px !important;
+  }
+}

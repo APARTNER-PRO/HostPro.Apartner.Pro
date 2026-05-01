@@ -35,6 +35,7 @@ export const t = {
       contact: 'Contact',
       status: 'Status',
       cta: 'Get Started',
+      chat: 'AI Assistant',
     },
 
     footer: {
@@ -198,6 +199,18 @@ export const t = {
       title: 'Ready to launch?',
       sub: 'Launch your first site today — no technical skills required.',
       btn: 'Get Started →',
+    },
+    chat: {
+      title: 'AI Chat Assistant',
+      sub: 'Powered by OpenRouter Models. Knows everything about HostPro!',
+      welcome: 'Hello! I am the HostPro AI assistant. How can I help you with our hosting?',
+      inputPlaceholder: 'Ask something about hosting...',
+      send: 'Send',
+      typing: 'HostPro AI is typing...',
+      error: 'Error',
+      homeTitle: 'Meet your new AI Assistant',
+      homeSub: 'Get instant answers to technical questions, help with migrations, or plan selection advice. Available 24/7.',
+      homeBtn: 'Try AI Chat →',
     },
 
     order: {
@@ -641,7 +654,7 @@ export const t = {
   uk: {
     siteName: 'HostPro',
     siteTagline: 'Сучасний хостинг для сучасних проєктів.',
-    nav: { features: 'Переваги', pricing: 'Тарифи', reviews: 'Відгуки', about: 'Про нас', faq: 'FAQ', contact: 'Контакти', status: 'Статус', cta: 'Розпочати' },
+    nav: { features: 'Переваги', pricing: 'Тарифи', reviews: 'Відгуки', about: 'Про нас', faq: 'FAQ', contact: 'Контакти', status: 'Статус', cta: 'Розпочати', chat: 'AI Асистент' },
     footer: { tagline: 'Сучасний хостинг для сучасних проєктів.', copy: '© 2025 HostPro. Усі права захищені.', cols: { products: 'Продукти', services: 'Послуги', resources: 'Ресурси', legal: 'Юридична інформація' }, links: { pricing: 'Тарифи', faq: 'FAQ', status: 'Статус системи', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Виділені сервери', laravelHosting: 'Laravel хостинг', kb: 'База знань', blog: 'Блог', about: 'Про нас', reviews: 'Відгуки', contact: 'Контакти', terms: 'Умови використання', privacy: 'Конфіденційність', refund: 'Повернення коштів' } },
     hero: { badge: '⚡ NVMe SSD · Node.js · 99.9% Uptime · cPanel', title1: 'Хостинг, який', title2: 'просто працює', sub: 'Швидкі SSD-сервери, безкоштовний SSL, cPanel та підтримка 24/7. Запустіть свій сайт за хвилини.', cta: 'Почати зараз', ctaSub: 'Без прихованих платежів · Скасування в будь-який час', stat1: 'Активних сайтів', stat2: 'Час завантаження', stat3: 'Uptime SLA' },
     features: {
@@ -971,14 +984,26 @@ export const t = {
           `
           }
         ]
-      }
+      },
+      chat: {
+        title: 'AI Чат-асистент',
+        sub: 'Працює на моделях OpenRouter. Знає все про HostPro!',
+        welcome: 'Привіт! Я AI-асистент HostPro. Чим можу допомогти вам з нашим хостингом?',
+        inputPlaceholder: 'Запитайте щось про хостинг...',
+        send: 'Надіслати',
+        typing: 'HostPro AI друкує...',
+        error: 'Помилка',
+      homeTitle: 'Зустрічайте вашого AI-асистента',
+      homeSub: 'Отримуйте миттєві відповіді на технічні питання, допомогу з міграцією або пораду щодо вибору тарифу. Доступний 24/7.',
+      homeBtn: 'Спробувати AI Чат →',
+      },
     },
 
   // ── RUSSIAN ────────────────────────────────────────────────────────────────
   ru: {
     siteName: 'HostPro',
     siteTagline: 'Современный хостинг для современных проектов.',
-    nav: { features: 'Преимущества', pricing: 'Тарифы', reviews: 'Отзывы', about: 'О нас', faq: 'FAQ', contact: 'Контакты', status: 'Статус', cta: 'Начать' },
+    nav: { features: 'Преимущества', pricing: 'Тарифы', reviews: 'Отзывы', about: 'О нас', faq: 'FAQ', contact: 'Контакты', status: 'Статус', cta: 'Начать', chat: 'AI Ассистент' },
     footer: { tagline: 'Современный хостинг для современных проектов.', copy: '© 2025 HostPro. Все права защищены.', cols: { products: 'Продукты', services: 'Услуги', resources: 'Ресурсы', legal: 'Юридическая информация' }, links: { pricing: 'Тарифы', faq: 'FAQ', status: 'Статус системы', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Выделенные серверы', laravelHosting: 'Laravel хостинг', kb: 'База знаний', blog: 'Блог', about: 'О нас', reviews: 'Отзывы', contact: 'Контакты', terms: 'Условия использования', privacy: 'Конфиденциальность', refund: 'Возврат средств' } },
     hero: { badge: '⚡ NVMe SSD · Node.js · 99.9% Uptime · cPanel', title1: 'Хостинг, который', title2: 'просто работает', sub: 'Быстрые SSD-серверы, бесплатный SSL, cPanel и поддержка 24/7. Запустите сайт за минуты.', cta: 'Начать сейчас', ctaSub: 'Без скрытых платежей · Отмена в любое время', stat1: 'Активных сайтов', stat2: 'Время загрузки', stat3: 'Uptime SLA' },
     features: { title: 'Всё, что нужно для успеха', sub: 'Мы позаботились об инфраструктуре — вы сосредоточьтесь на бизнесе', items: [{ icon: '⚡', title: 'NVMe SSD', desc: 'Скорость в 3× быстрее обычного SSD. Ваш сайт загружается мгновенно.' }, { icon: '🔒', title: 'SSL бесплатно', desc: "Let's Encrypt SSL для каждого домена. Автоматически и без доплат." }, { icon: '📋', title: 'cPanel', desc: 'Удобная панель управления для всех сайтов и почтовых ящиков.' }, { icon: '💾', title: 'Ежедневный бекап', desc: 'Автоматические резервные копии каждый день. Восстановление в один клик.' }, { icon: '🌐', title: '99.9% Uptime', desc: 'Гарантированная доступность. SLA-соглашение с каждым тарифом.' }, { icon: '🎧', title: 'Поддержка 24/7', desc: 'Живые специалисты каждый день. Среднее время ответа — 5 минут.' }, { icon: '📧', title: 'Почтовые ящики', desc: 'Создавайте профессиональные email-адреса на вашем домене. Полная поддержка IMAP/POP3/SMTP.' }, { icon: '🚀', title: 'Установка в 1 клик', desc: 'Автоматическая установка WordPress, Joomla и еще 400+ скриптов через Softaculous.' }] },
@@ -1290,7 +1315,19 @@ export const t = {
           `
           }
         ]
-      }
+      },
+      chat: {
+        title: 'AI Чат-ассистент',
+        sub: 'Работает на моделях OpenRouter. Знает всё о HostPro!',
+        welcome: 'Привет! Я AI-ассистент HostPro. Чем могу помочь вам с нашим хостингом?',
+        inputPlaceholder: 'Спросите что-то о хостинге...',
+        send: 'Отправить',
+        typing: 'HostPro AI печатает...',
+        error: 'Ошибка',
+        homeTitle: 'Встречайте вашего AI-ассистента',
+        homeSub: 'Получайте мгновенные ответы на технические вопросы, помощь с миграцией или совет по выбору тарифа. Доступен 24/7.',
+        homeBtn: 'Попробовать AI Чат →',
+      },
     }
   }
 

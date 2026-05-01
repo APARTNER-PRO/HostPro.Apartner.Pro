@@ -64,6 +64,10 @@ const CSS = `
   .hp-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .hp-who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
   .hp-stats-flex { display: flex; gap: 48px; justify-content: center; margin-top: 64px; flex-wrap: wrap; }
+  .hp-ai-promo { background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.06); border-radius:32px; padding:60px; display:flex; align-items:center; gap:60px; position:relative; overflow:hidden; flex-wrap:wrap; }
+  @media (max-width: 767px) {
+    .hp-ai-promo { padding: 32px 20px; gap: 40px; border-radius: 24px; }
+  }
 `
 
 interface HomeClientProps {
@@ -99,17 +103,16 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
   }
   const statGrads = ['linear-gradient(135deg,#60A5FA,#A78BFA)','linear-gradient(135deg,#A78BFA,#F472B6)','linear-gradient(135deg,#6EE7B7,#60A5FA)','linear-gradient(135deg,#FB923C,#F472B6)']
 
-  // Get Paddle priceId for a plan by name and current billing period
-  const getPriceId = (planName: string): string | null => {
+  // Get Paddle priceId for a plan by name and a specific billing period
+  const getPriceId = (planName: string, billingPeriod: string = billing): string | null => {
     if (!initialData) return null
-    const currentProduct = initialData[billing as keyof typeof initialData]
+    const currentProduct = initialData[billingPeriod as keyof typeof initialData]
     if (!currentProduct?.prices) return null
     const prices: any[] = currentProduct.prices
     const target = planName.toLowerCase()
     const match = prices.find((price: any) => {
       const desc = price.description?.toLowerCase() || ''
       if (target === 'agency') {
-        // Strict check: must have 'agency' but NOT 'pro'
         return desc.includes('agency') && !desc.includes('pro')
       }
       return desc.includes(target)
@@ -120,7 +123,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
   const handleBuy = (priceId: string) => {
     if (!priceId) return
     if (!(window as any).Paddle) {
-      alert('Paddle is still loading...')
+      console.warn('Paddle not loaded yet')
       return
     }
     const Paddle = (window as any).Paddle
@@ -131,6 +134,27 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
       items: [{ priceId, quantity: 1 }]
     })
   }
+
+  // Auto-checkout from URL params
+  useEffect(() => {
+    if (typeof window === 'undefined' || !paddleLoaded || !initialData) return;
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const plan = urlParams.get('plan');
+    const bParam = urlParams.get('billing');
+
+    if (plan && bParam) {
+      const validB = ['monthly', 'quarterly', 'yearly', 'threeYears'];
+      if (validB.includes(bParam)) {
+        setBilling(bParam);
+        const pid = getPriceId(plan, bParam);
+        if (pid) {
+          // Small timeout to ensure everything is ready
+          setTimeout(() => handleBuy(pid), 1000);
+        }
+      }
+    }
+  }, [paddleLoaded, initialData]);
 
   return (
     <>
@@ -429,6 +453,49 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             </div>
           </FadeIn>
         </div>
+      </section>
+
+      {/* AI ASSISTANT SECTION */}
+      <section id="ai-assistant-promo" style={{ padding:'80px 24px' }}>
+        <FadeIn style={{ maxWidth:1000, margin:'0 auto' }}>
+          <div className="hp-ai-promo">
+            <div className="orb" style={{ width:400,height:400,background:'radial-gradient(circle,rgba(59,130,246,0.1),transparent)',top:'-50%',right:'-10%' }} />
+            
+            <div style={{ flex: 1, minWidth: 300, position: 'relative', zIndex: 1 }}>
+              <div style={{ display:'inline-flex',alignItems:'center',gap:8,background:'rgba(139,92,246,.1)',border:'1px solid rgba(139,92,246,.2)',borderRadius:100,padding:'6px 14px',fontSize:12,color:'#C084FC',marginBottom:24,fontWeight:600 }}>✨ AI Powered</div>
+              <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,4vw,48px)',fontWeight:800,letterSpacing:'-1.5px',marginBottom:20,lineHeight:1.1 }}>{T.chat.homeTitle}</h2>
+              <p style={{ fontSize:17,color:'rgba(240,244,255,.5)',marginBottom:32,fontWeight:300,lineHeight:1.6 }}>{T.chat.homeSub}</p>
+              <Link href={`${p}/ai-assistant`} className="btn-primary hp-cta-link" style={{ background:'linear-gradient(135deg,#8B5CF6,#D946EF)', boxShadow:'0 0 40px rgba(139,92,246,.3)' }}>{T.chat.homeBtn}</Link>
+            </div>
+
+            <div style={{ flex: 1, minWidth: 300, position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'center' }}>
+              <div style={{ 
+                width: '100%', 
+                maxWidth: 400, 
+                aspectRatio: '1/1', 
+                background: 'rgba(255,255,255,0.03)', 
+                borderRadius: 24, 
+                border: '1px solid rgba(255,255,255,0.08)',
+                padding: 24,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 16,
+                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                transform: 'perspective(1000px) rotateY(-5deg) rotateX(5deg)',
+              }}>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ff5f56' }}></div>
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ffbd2e' }}></div>
+                  <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#27c93f' }}></div>
+                </div>
+                <div style={{ background: 'rgba(255,255,255,0.05)', height: 20, width: '60%', borderRadius: 4 }}></div>
+                <div style={{ background: 'rgba(255,255,255,0.05)', height: 20, width: '80%', borderRadius: 4 }}></div>
+                <div style={{ background: 'rgba(59,130,246,0.1)', height: 60, width: '90%', borderRadius: 12, alignSelf: 'flex-end', border: '1px solid rgba(59,130,246,0.2)' }}></div>
+                <div style={{ background: 'rgba(139,92,246,0.1)', height: 80, width: '90%', borderRadius: 12, alignSelf: 'flex-start', border: '1px solid rgba(139,92,246,0.2)' }}></div>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
       </section>
 
       {/* CTA */}
