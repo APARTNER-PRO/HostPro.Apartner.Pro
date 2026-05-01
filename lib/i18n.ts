@@ -567,7 +567,8 @@ export const t = {
 <p>This ensures your live site stays functional while you experiment with new features or designs.</p>`
         }
       ],
-      blog: {
+    },
+    blog: {
         meta: 'HostPro Blog — insights on web hosting, security, and performance.',
         title: 'Our Blog',
         sub: 'Expert advice and industry insights to help you grow your online presence.',
@@ -634,8 +635,7 @@ export const t = {
           }
         ]
       }
-    }
-  },
+    },
 
   // ── UKRAINIAN ──────────────────────────────────────────────────────────────
   uk: {
@@ -904,7 +904,8 @@ export const t = {
 <p>Це гарантує стабільну роботу основного сайту, поки ви експериментуєте з новим дизайном чи функціями.</p>`
         }
       ],
-      blog: {
+    },
+    blog: {
         meta: 'Блог HostPro — корисні статті про хостинг, безпеку та продуктивність.',
         title: 'Наш блог',
         sub: 'Поради експертів та інсайти індустрії, які допоможуть вашому бізнесу зростати.',
@@ -971,8 +972,7 @@ export const t = {
           }
         ]
       }
-    }
-  },
+    },
 
   // ── RUSSIAN ────────────────────────────────────────────────────────────────
   ru: {
@@ -1223,7 +1223,8 @@ export const t = {
 <p>Это гарантирует стабильную работу основного сайта, пока вы экспериментируете с новым дизайном или функциями.</p>`
         }
       ],
-      blog: {
+    },
+    blog: {
         meta: 'Блог HostPro — полезные статьи о хостинге, безопасности и производительности.',
         title: 'Наш блог',
         sub: 'Советы экспертов и инсайты индустрии, которые помогут вашему бизнесу расти.',
@@ -1292,7 +1293,6 @@ export const t = {
       }
     }
   }
-}
 
 export type Translations = typeof t.en
 export function getT(lang: Lang): Translations { return t[lang] as Translations }
