@@ -5,6 +5,7 @@ import { getT, Lang } from '@/lib/i18n'
 
 export default function NotFound() {
   const pathname = usePathname()
+  // Extract lang from path (e.g., /ru/something -> ru)
   const segments = pathname.split('/')
   const lang = (segments[1] || 'en') as Lang
   const T = getT(['uk', 'ru', 'en'].includes(lang) ? lang : 'en')
