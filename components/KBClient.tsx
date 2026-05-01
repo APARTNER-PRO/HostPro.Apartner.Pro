@@ -69,7 +69,7 @@ export default function KBClient({ lang }: { lang: Lang }) {
               <FadeIn key={i} delay={i * 50} className="kb-cat-card">
                 <div style={{ fontSize: 32, marginBottom: 24 }}>{cat.icon}</div>
                 <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 20, fontWeight: 700, marginBottom: 8 }}>{cat.title}</h3>
-                <div style={{ fontSize: 14, color: 'rgba(240,244,255,.4)', fontWeight: 300 }}>{cat.count} articles</div>
+                <div style={{ fontSize: 14, color: 'rgba(240,244,255,.4)', fontWeight: 300 }}>{cat.count} {T.kb.articleCount}</div>
               </FadeIn>
             ))}
           </div>
@@ -88,9 +88,9 @@ export default function KBClient({ lang }: { lang: Lang }) {
             <FadeIn delay={200}>
               <div style={{ background: 'linear-gradient(135deg, rgba(96,165,250,.08), rgba(167,139,250,.08))', borderRadius: 24, padding: 40, border: '1px solid rgba(96,165,250,.15)', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
                 <div style={{ fontSize: 40, marginBottom: 20 }}>💬</div>
-                <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 22, fontWeight: 800, marginBottom: 12 }}>Still need help?</h3>
-                <p style={{ fontSize: 15, color: 'rgba(240,244,255,.5)', marginBottom: 24, lineHeight: 1.6 }}>Our support team is available 24/7 to help you with any issues.</p>
-                <Link href={`${p}/contact`} className="btn-primary" style={{ alignSelf: 'center' }}>Contact Support</Link>
+                <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 22, fontWeight: 800, marginBottom: 12 }}>{T.kb.supportTitle}</h3>
+                <p style={{ fontSize: 15, color: 'rgba(240,244,255,.5)', marginBottom: 24, lineHeight: 1.6 }}>{T.kb.supportSub}</p>
+                <Link href={`${p}/contact`} className="btn-primary" style={{ alignSelf: 'center' }}>{T.kb.supportBtn}</Link>
               </div>
             </FadeIn>
           </div>
