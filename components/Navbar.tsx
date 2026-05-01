@@ -35,9 +35,13 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
     lang: l,
     label: l.toUpperCase(),
     flag: LANG_META[l].flag,
-    href: getLangPath(l, slug),
+    href: getLangPath(l, slug) + (l === 'en' ? '?lang=en' : ''),
     current: l === lang,
   }))
+
+  const handleLangClick = (l: Lang) => {
+    document.cookie = `NEXT_LOCALE=${l}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+  };
 
   return (
     <nav
@@ -86,6 +90,7 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
               <Link
                 key={l.lang}
                 href={l.href}
+                onClick={() => handleLangClick(l.lang)}
                 style={{
                   color: l.current ? '#60A5FA' : 'rgba(240,244,255,.4)',
                   fontSize: 11, fontWeight: 700, textTransform: 'uppercase',

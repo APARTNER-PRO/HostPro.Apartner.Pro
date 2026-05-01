@@ -21,7 +21,11 @@ export function middleware(request: NextRequest) {
   
   // 1. Redirect if hitting root and have a preferred locale
   if (pathname === '/') {
-    if (cookieLocale && cookieLocale !== 'en' && supportedLocales.includes(cookieLocale)) {
+    const referer = request.headers.get('referer')
+    const isInternal = referer && new URL(referer).origin === request.nextUrl.origin
+    const isExplicitEn = request.nextUrl.searchParams.get('lang') === 'en'
+
+    if (!isInternal && !isExplicitEn && cookieLocale && cookieLocale !== 'en' && supportedLocales.includes(cookieLocale)) {
       return NextResponse.redirect(new URL(`/${cookieLocale}/`, request.url))
     }
   }
