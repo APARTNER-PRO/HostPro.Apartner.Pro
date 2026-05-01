@@ -14,6 +14,7 @@ export default function NotFound() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
+        body { margin: 0; padding: 0; }
         .not-found-main {
           font-family: 'DM Sans', sans-serif;
           background: #050810;
