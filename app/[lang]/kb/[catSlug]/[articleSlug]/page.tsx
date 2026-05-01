@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 import KBArticleClient from '@/components/KBArticleClient'
+import JsonLd from '@/components/JsonLd'
 import { LANGS, Lang, getT } from '@/lib/i18n'
 
 export function generateStaticParams() {
