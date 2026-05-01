@@ -87,6 +87,11 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
   const [billing, setBilling] = useState('monthly')
   const [order, setOrder] = useState<{ name: string; price: string } | null>(null)
   const [paddleLoaded, setPaddleLoaded] = useState(false)
+  
+  useEffect(() => {
+    if ((window as any).Paddle) setPaddleLoaded(true);
+  }, []);
+
   const searchParams = useSearchParams()
   const getPrice = (base: number) => (base * DISC[billing]).toFixed(2)
   const getTotalPrice = (base: number) => {
@@ -141,8 +146,15 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
   useEffect(() => {
     if (!paddleLoaded || !initialData) return;
     
-    const plan = searchParams.get('plan');
-    const bParam = searchParams.get('billing');
+    // Use searchParams from hook, fallback to manual parsing if hook is empty (for some edge cases)
+    let plan = searchParams.get('plan');
+    let bParam = searchParams.get('billing');
+
+    if (!plan && typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      plan = urlParams.get('plan');
+      bParam = urlParams.get('billing');
+    }
 
     if (plan && bParam) {
       const validB = ['monthly', 'quarterly', 'yearly', 'threeYears'];
@@ -150,8 +162,20 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
         setBilling(bParam);
         const pid = getPriceId(plan, bParam);
         if (pid) {
-          // Small timeout to ensure everything is ready
-          setTimeout(() => handleBuy(pid), 800);
+          // Ensure Paddle is initialized and ready
+          const openCheckout = () => {
+            if ((window as any).Paddle) {
+              const Paddle = (window as any).Paddle;
+              Paddle.Initialize({
+                token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'live_5479fe94fca51b60d7791b81725'
+              });
+              Paddle.Checkout.open({
+                items: [{ priceId: pid, quantity: 1 }]
+              });
+            }
+          };
+          // Slight delay to ensure UI has settled
+          setTimeout(openCheckout, 500);
         }
       }
     }

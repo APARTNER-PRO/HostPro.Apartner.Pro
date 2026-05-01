@@ -69,8 +69,8 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
 
           // Open in new tab after a short delay so user sees confetti
           setTimeout(() => {
-            window.open(href, '_blank');
-          }, 700);
+            window.open(href, '_blank', 'noopener,noreferrer');
+          }, 500);
         }
       }
     };
@@ -235,7 +235,10 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
                             {chips.map(chip => (
                               <button 
                                 key={chip}
-                                onClick={() => handleSubmit({ preventDefault: () => {} } as any, chip)}
+                                onClick={() => {
+                                  handleSubmit({ preventDefault: () => {} } as any, chip);
+                                  setTimeout(scrollToBottom, 50);
+                                }}
                                 className="hp-chat-chip"
                               >
                                 {chip}
