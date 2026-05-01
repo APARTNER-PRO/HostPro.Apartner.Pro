@@ -1,7 +1,10 @@
 'use client';
 
 import { useState, useRef, useEffect, useMemo } from 'react';
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import confetti from 'canvas-confetti';
 import { Lang, getT } from '@/lib/i18n';
 
 type Message = {
@@ -45,13 +48,35 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
     }
   }, [messages, isLoading]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || isLoading) return;
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest('a');
+      if (target) {
+        const href = target.getAttribute('href');
+        if (href && (href.includes('plan=') && href.includes('billing='))) {
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.7 },
+            colors: ['#60A5FA', '#A78BFA', '#FB923C', '#F472B6'],
+            zIndex: 9999
+          });
+        }
+      }
+    };
 
-    const userMessage: Message = { role: 'user', content: input };
+    document.addEventListener('click', handleGlobalClick);
+    return () => document.removeEventListener('click', handleGlobalClick);
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent, overrideInput?: string) => {
+    if (e) e.preventDefault();
+    const messageContent = overrideInput || input;
+    if (!messageContent.trim() || isLoading) return;
+
+    const userMessage: Message = { role: 'user', content: messageContent };
     setMessages((prev) => [...prev, userMessage]);
-    setInput('');
+    if (!overrideInput) setInput('');
     setIsLoading(true);
     setError(null);
 
@@ -169,14 +194,46 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
                 backdropFilter: msg.role === 'assistant' ? 'blur(10px)' : 'none',
               }}>
                 {msg.role === 'assistant' ? (
-                  <div className="chat-markdown">
+                  <div className="chat-markdown chat-markdown-container" style={{ fontSize: '15px', lineHeight: '1.6', color: 'rgba(240,244,255,0.9)' }}>
                     <ReactMarkdown
+                      remarkPlugins={[remarkGfm]}
                       components={{
-                        a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" />
+                        a: ({ node, ...props }) => (
+                          <Link 
+                            href={props.href || '#'} 
+                            className="hp-chat-btn"
+                            {...props}
+                          >
+                            {props.children}
+                          </Link>
+                        )
                       }}
                     >
-                      {msg.content}
+                      {(() => {
+                        const chipsRegex = /\[CHIPS:\s*(.*?)\]/i;
+                        return msg.content.replace(chipsRegex, '').trim();
+                      })()}
                     </ReactMarkdown>
+                    {(() => {
+                      const match = msg.content.match(/\[CHIPS:\s*(.*?)\]/i);
+                      if (match) {
+                        const chips = match[1].split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+                        return (
+                          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '12px' }}>
+                            {chips.map(chip => (
+                              <button 
+                                key={chip}
+                                onClick={() => handleSubmit({ preventDefault: () => {} } as any, chip)}
+                                className="hp-chat-chip"
+                              >
+                                {chip}
+                              </button>
+                            ))}
+                          </div>
+                        );
+                      }
+                      return null;
+                    })()}
                   </div>
                 ) : (
                   msg.content
@@ -225,6 +282,33 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
           )}
           <div ref={messagesEndRef} />
         </div>
+        {/* Chips */}
+        {!isLoading && messages.length <= 1 && (T as any).chips && (
+          <div style={{ 
+            display: 'flex', 
+            gap: '8px', 
+            flexWrap: 'wrap', 
+            padding: '0 20px 12px',
+            marginTop: 'auto'
+          }}>
+            {(T as any).chips.map((chip: string) => (
+              <button
+                key={chip}
+                type="button"
+                onClick={() => {
+                  setInput(chip);
+                  setTimeout(() => {
+                    const btn = document.getElementById('chat-submit-btn');
+                    btn?.click();
+                  }, 50);
+                }}
+                className="hp-chat-chip"
+              >
+                {chip}
+              </button>
+            ))}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="chat-form">
           <input
@@ -245,6 +329,7 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
             }}
           />
           <button
+            id="chat-submit-btn"
             type="submit"
             disabled={isLoading || !input.trim()}
             style={{

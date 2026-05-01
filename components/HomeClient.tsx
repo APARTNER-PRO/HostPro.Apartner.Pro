@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Script from 'next/script'
+import { useSearchParams } from 'next/navigation'
 import { Lang, getT } from '@/lib/i18n'
 import OrderModal from './OrderModal'
 
@@ -86,6 +87,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
   const [billing, setBilling] = useState('monthly')
   const [order, setOrder] = useState<{ name: string; price: string } | null>(null)
   const [paddleLoaded, setPaddleLoaded] = useState(false)
+  const searchParams = useSearchParams()
   const getPrice = (base: number) => (base * DISC[billing]).toFixed(2)
   const getTotalPrice = (base: number) => {
     const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : billing === 'yearly' ? 12 : 36
@@ -137,11 +139,10 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
 
   // Auto-checkout from URL params
   useEffect(() => {
-    if (typeof window === 'undefined' || !paddleLoaded || !initialData) return;
+    if (!paddleLoaded || !initialData) return;
     
-    const urlParams = new URLSearchParams(window.location.search);
-    const plan = urlParams.get('plan');
-    const bParam = urlParams.get('billing');
+    const plan = searchParams.get('plan');
+    const bParam = searchParams.get('billing');
 
     if (plan && bParam) {
       const validB = ['monthly', 'quarterly', 'yearly', 'threeYears'];
@@ -150,11 +151,11 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
         const pid = getPriceId(plan, bParam);
         if (pid) {
           // Small timeout to ensure everything is ready
-          setTimeout(() => handleBuy(pid), 1000);
+          setTimeout(() => handleBuy(pid), 800);
         }
       }
     }
-  }, [paddleLoaded, initialData]);
+  }, [searchParams, paddleLoaded, initialData]);
 
   return (
     <>

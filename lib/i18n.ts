@@ -211,6 +211,11 @@ export const t = {
       homeTitle: 'Meet your new AI Assistant',
       homeSub: 'Get instant answers to technical questions, help with migrations, or plan selection advice. Available 24/7.',
       homeBtn: 'Try AI Chat →',
+      chips: [
+        'How to migrate?',
+        'Help me choose a plan',
+        'Are there any discounts?',
+      ],
     },
 
     order: {
@@ -996,6 +1001,11 @@ export const t = {
       homeTitle: 'Зустрічайте вашого AI-асистента',
       homeSub: 'Отримуйте миттєві відповіді на технічні питання, допомогу з міграцією або пораду щодо вибору тарифу. Доступний 24/7.',
       homeBtn: 'Спробувати AI Чат →',
+      chips: [
+        'Як перенести сайт?',
+        'Допоможи обрати тариф',
+        'Чи є знижки?',
+      ],
       },
     },
 
@@ -1327,6 +1337,11 @@ export const t = {
         homeTitle: 'Встречайте вашего AI-ассистента',
         homeSub: 'Получайте мгновенные ответы на технические вопросы, помощь с миграцией или совет по выбору тарифа. Доступен 24/7.',
         homeBtn: 'Попробовать AI Чат →',
+        chips: [
+          'Как перенести сайт?',
+          'Помоги выбрать тариф',
+          'Есть ли скидки?',
+        ],
       },
     }
   }
