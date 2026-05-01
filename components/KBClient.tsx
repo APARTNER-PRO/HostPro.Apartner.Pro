@@ -33,18 +33,39 @@ const CSS = `
   .kb-search-input:focus { outline: none; border-color: #60A5FA; background: rgba(255,255,255,.08); box-shadow: 0 0 20px rgba(96,165,250,.1); }
   .kb-article-link { display: flex; align-items: center; gap: 12px; padding: 16px; border-radius: 12px; background: rgba(255,255,255,.02); border: 1px solid transparent; transition: all .2s; text-decoration: none; color: rgba(240,244,255,.7); font-size: 15px; margin-bottom: 12px; }
   .kb-article-link:hover { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.08); color: #60A5FA; padding-left: 20px; }
+  .kb-search-results { position: absolute; top: calc(100% + 12px); left: 0; right: 0; background: #0A0F1D; border: 1px solid rgba(255,255,255,.1); border-radius: 16px; z-index: 1000; box-shadow: 0 20px 40px rgba(0,0,0,.4); max-height: 400px; overflow-y: auto; padding: 8px; backdrop-filter: blur(12px); }
+  .kb-search-item { display: block; padding: 16px; border-radius: 12px; text-decoration: none; transition: all .2s; border: 1px solid transparent; text-align: left; }
+  .kb-search-item:hover { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.08); }
 `
 
 export default function KBClient({ lang }: { lang: Lang }) {
   const T = getT(lang)
   const p = lang === 'en' ? '' : `/${lang}`
 
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchResults, setSearchResults] = useState<any[]>([])
+
+  useEffect(() => {
+    const q = searchQuery.trim().toLowerCase()
+    if (!q) {
+      setSearchResults([])
+      return
+    }
+
+    const results = T.kb.articles.filter((a: any) => 
+      a.title.toLowerCase().includes(q) || 
+      a.content.toLowerCase().includes(q) ||
+      a.cat.toLowerCase().includes(q)
+    )
+    setSearchResults(results)
+  }, [searchQuery, T.kb.articles])
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       {/* HERO / SEARCH */}
-      <section className="grid-bg" style={{ padding: '140px 24px 80px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <section className="grid-bg" style={{ padding: '140px 24px 80px', textAlign: 'center', position: 'relative' }}>
         <div className="orb" style={{ width: 500, height: 500, background: 'radial-gradient(circle, rgba(96,165,250,.12), transparent)', top: '-10%', left: '50%', transform: 'translateX(-50%)' }} />
         <div style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <FadeIn>
@@ -54,8 +75,32 @@ export default function KBClient({ lang }: { lang: Lang }) {
           
           <FadeIn delay={100} style={{ maxWidth: 600, margin: '0 auto' }}>
             <div style={{ position: 'relative' }}>
-              <input type="text" className="kb-search-input" placeholder={T.kb.searchPh} />
+              <input 
+                type="text" 
+                className="kb-search-input" 
+                placeholder={T.kb.searchPh} 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
               <div style={{ position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)', opacity: 0.4 }}>🔍</div>
+              
+              {/* Search Results Dropdown */}
+              {searchQuery.trim() && (
+                <div className="kb-search-results">
+                  {searchResults.length > 0 ? (
+                    searchResults.map((res: any, idx: number) => (
+                      <Link key={idx} href={`${p}/kb/${res.slug}`} className="kb-search-item">
+                        <div style={{ fontWeight: 700, color: '#fff', marginBottom: 4 }}>{res.title}</div>
+                        <div style={{ fontSize: 12, color: 'rgba(240,244,255,.4)' }}>{res.cat}</div>
+                      </Link>
+                    ))
+                  ) : (
+                    <div style={{ padding: '20px', textAlign: 'center', color: 'rgba(240,244,255,.4)' }}>
+                      {lang === 'uk' ? 'Нічого не знайдено' : lang === 'ru' ? 'Ничего не найдено' : 'No results found'}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </FadeIn>
         </div>
@@ -66,10 +111,12 @@ export default function KBClient({ lang }: { lang: Lang }) {
         <div className="section-container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, marginBottom: 80 }}>
             {T.kb.categories.map((cat: any, i: number) => (
-              <FadeIn key={i} delay={i * 50} className="kb-cat-card">
-                <div style={{ fontSize: 32, marginBottom: 24 }}>{cat.icon}</div>
-                <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 20, fontWeight: 700, marginBottom: 8 }}>{cat.title}</h3>
-                <div style={{ fontSize: 14, color: 'rgba(240,244,255,.4)', fontWeight: 300 }}>{cat.count} {T.kb.articleCount}</div>
+              <FadeIn key={i} delay={i * 50}>
+                <Link href={`${p}/kb/category/${cat.slug}`} className="kb-cat-card">
+                  <div style={{ fontSize: 32, marginBottom: 24 }}>{cat.icon}</div>
+                  <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 20, fontWeight: 700, marginBottom: 8 }}>{cat.title}</h3>
+                  <div style={{ fontSize: 14, color: 'rgba(240,244,255,.4)', fontWeight: 300 }}>{cat.count} {T.kb.articleCount}</div>
+                </Link>
               </FadeIn>
             ))}
           </div>

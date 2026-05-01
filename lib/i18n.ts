@@ -432,12 +432,12 @@ export const t = {
       backToKb: '← Back to Knowledge Base',
       articleCount: 'articles',
       categories: [
-        { title: 'Getting Started', count: 12, icon: '🚀' },
-        { title: 'cPanel & Hosting', count: 24, icon: '📋' },
-        { title: 'Domains & DNS', count: 15, icon: '🌐' },
-        { title: 'Email Setup', count: 18, icon: '📧' },
-        { title: 'WordPress Guides', count: 21, icon: '📝' },
-        { title: 'Security & SSL', count: 10, icon: '🔒' },
+        { title: 'Getting Started', count: 12, icon: '🚀', slug: 'getting-started' },
+        { title: 'cPanel & Hosting', count: 24, icon: '📋', slug: 'cpanel' },
+        { title: 'Domains & DNS', count: 15, icon: '🌐', slug: 'dns' },
+        { title: 'Email Setup', count: 18, icon: '📧', slug: 'email' },
+        { title: 'WordPress Guides', count: 21, icon: '📝', slug: 'wordpress' },
+        { title: 'Security & SSL', count: 10, icon: '🔒', slug: 'security' },
       ],
       popular: 'Popular Articles',
       popularItems: [
@@ -445,6 +445,7 @@ export const t = {
         { title: 'Changing your nameservers', slug: 'changing-your-nameservers' },
         { title: 'Setting up email on iPhone', slug: 'setting-up-email-on-iphone' },
         { title: 'Installing WordPress via Softaculous', slug: 'installing-wordpress-via-softaculous' },
+        { title: 'Optimizing WordPress with LiteSpeed Cache', slug: 'wordpress-optimization-litespeed' },
       ],
       articles: [
         {
@@ -469,6 +470,20 @@ export const t = {
   <li>Scroll down and click <strong>"Install"</strong>.</li>
 </ol>
 <p>Wait for the progress bar to finish. Once completed, you will receive links to your new website and the admin dashboard (/wp-admin).</p>`
+        },
+        {
+          slug: 'wordpress-optimization-litespeed',
+          title: 'Optimizing WordPress with LiteSpeed Cache',
+          cat: 'WordPress Guides',
+          content: `<p>LiteSpeed Cache (LSCache) is a high-performance caching plugin built specifically for the LiteSpeed Web Server used at HostPro. Here is how to set it up:</p>
+<ol>
+  <li><strong>Install the Plugin:</strong> Login to your WordPress admin dashboard, go to <strong>Plugins > Add New</strong>, and search for "LiteSpeed Cache". Install and Activate it.</li>
+  <li><strong>Presets:</strong> We recommend starting with a Preset. Go to <strong>LiteSpeed Cache > Presets</strong> and select "Advanced (Recommended)". Click <strong>Apply Preset</strong>.</li>
+  <li><strong>Image Optimization:</strong> Go to <strong>LiteSpeed Cache > Image Optimization</strong>. Click "Gather Image Data" and then "Send Optimization Request". This will compress your images without losing quality.</li>
+  <li><strong>Minification:</strong> Under <strong>Page Optimization > CSS Settings</strong>, turn on CSS Minify. Do the same for JS and HTML in their respective tabs.</li>
+  <li><strong>CDN:</strong> If you use Cloudflare or QUIC.cloud, you can configure it under the <strong>CDN</strong> tab for even better global performance.</li>
+</ol>
+<p>After applying these settings, your website should load significantly faster. You can verify this using tools like PageSpeed Insights or GTmetrix.</p>`
         }
       ]
     },
@@ -683,12 +698,12 @@ t.uk = {
     backToKb: '← Назад до бази знань',
     articleCount: 'статей',
     categories: [
-      { title: 'З чого почати', count: 12, icon: '🚀' },
-      { title: 'cPanel та хостинг', count: 24, icon: '📋' },
-      { title: 'Домени та DNS', count: 15, icon: '🌐' },
-      { title: 'Налаштування пошти', count: 18, icon: '📧' },
-      { title: 'WordPress інструкції', count: 21, icon: '📝' },
-      { title: 'Безпека та SSL', count: 10, icon: '🔒' },
+      { title: 'З чого почати', count: 12, icon: '🚀', slug: 'getting-started' },
+      { title: 'cPanel та хостинг', count: 24, icon: '📋', slug: 'cpanel' },
+      { title: 'Домени та DNS', count: 15, icon: '🌐', slug: 'dns' },
+      { title: 'Налаштування пошти', count: 18, icon: '📧', slug: 'email' },
+      { title: 'WordPress інструкції', count: 21, icon: '📝', slug: 'wordpress' },
+      { title: 'Безпека та SSL', count: 10, icon: '🔒', slug: 'security' },
     ],
     popular: 'Популярні статті',
     popularItems: [
@@ -696,6 +711,7 @@ t.uk = {
       { title: 'Як змінити DNS сервери', slug: 'changing-your-nameservers' },
       { title: 'Налаштування пошти на iPhone', slug: 'setting-up-email-on-iphone' },
       { title: 'Встановлення WordPress через Softaculous', slug: 'installing-wordpress-via-softaculous' },
+      { title: 'Оптимізація WordPress за допомогою LiteSpeed Cache', slug: 'wordpress-optimization-litespeed' },
     ],
     articles: [
       {
@@ -720,8 +736,22 @@ t.uk = {
   <li>Прокрутіть вниз і натисніть <strong>"Install" (Встановити)</strong>.</li>
 </ol>
 <p>Зачекайте завершення встановлення. Після завершення ви отримаєте посилання на ваш сайт та панель керування (/wp-admin).</p>`
-      }
-    ]
+        },
+        {
+          slug: 'wordpress-optimization-litespeed',
+          title: 'Оптимізація WordPress за допомогою LiteSpeed Cache',
+          cat: 'WordPress інструкції',
+          content: `<p>LiteSpeed Cache (LSCache) — це високоефективний плагін кешування, створений спеціально для веб-сервера LiteSpeed, який використовується в HostPro. Ось як його налаштувати:</p>
+<ol>
+  <li><strong>Встановіть плагін:</strong> Увійдіть в адмін-панель WordPress, перейдіть у розділ <strong>Плагіни > Додати новий</strong>, знайдіть "LiteSpeed Cache". Встановіть та активуйте його.</li>
+  <li><strong>Пресети (Presets):</strong> Ми рекомендуємо почати з готового налаштування. Перейдіть у <strong>LiteSpeed Cache > Presets</strong> і оберіть "Advanced (Recommended)". Натисніть <strong>Apply Preset</strong>.</li>
+  <li><strong>Оптимізація зображень:</strong> Перейдіть у <strong>LiteSpeed Cache > Image Optimization</strong>. Натисніть "Gather Image Data", а потім "Send Optimization Request". Це стисне ваші зображення без втрати якості.</li>
+  <li><strong>Мініфікація:</strong> У розділі <strong>Page Optimization > CSS Settings</strong> увімкніть "CSS Minify". Зробіть те саме для JS та HTML у відповідних вкладках.</li>
+  <li><strong>CDN:</strong> Якщо ви використовуєте Cloudflare або QUIC.cloud, ви можете налаштувати їх у вкладці <strong>CDN</strong> для ще кращої глобальної продуктивності.</li>
+</ol>
+<p>Після застосування цих налаштувань ваш сайт працюватиме значно швидше. Перевірити результат можна за допомогою PageSpeed Insights або GTmetrix.</p>`
+        }
+      ]
   },
   blog: {
     meta: 'Блог HostPro — корисні статті про хостинг, безпеку та продуктивність.',
@@ -915,19 +945,20 @@ t.ru = {
     backToKb: '← Назад к базе знаний',
     articleCount: 'статей',
     categories: [
-      { title: 'С чего начать', count: 12, icon: '🚀' },
-      { title: 'cPanel и хостинг', count: 24, icon: '📋' },
-      { title: 'Домены и DNS', count: 15, icon: '🌐' },
-      { title: 'Настройка почты', count: 18, icon: '📧' },
-      { title: 'WordPress инструкции', count: 21, icon: '📝' },
-      { title: 'Безопасность и SSL', count: 10, icon: '🔒' },
+      { title: 'С чего начать', count: 12, icon: '🚀', slug: 'getting-started' },
+      { title: 'cPanel и хостинг', count: 24, icon: '📋', slug: 'cpanel' },
+      { title: 'Домены и DNS', count: 15, icon: '🌐', slug: 'dns' },
+      { title: 'Настройка почты', count: 18, icon: '📧', slug: 'email' },
+      { title: 'WordPress инструкции', count: 21, icon: '📝', slug: 'wordpress' },
+      { title: 'Безопасность и SSL', count: 10, icon: '🔒', slug: 'security' },
     ],
     popular: 'Популярные статьи',
     popularItems: [
       { title: 'Как войти в cPanel', slug: 'how-to-login-to-cpanel' },
-      { title: 'Как сменить DNS серверы', slug: 'how-to-login-to-server' },
+      { title: 'Как сменить DNS серверы', slug: 'changing-your-nameservers' },
       { title: 'Настройка почты на iPhone', slug: 'setting-up-email-on-iphone' },
       { title: 'Установка WordPress через Softaculous', slug: 'installing-wordpress-via-softaculous' },
+      { title: 'Оптимизация WordPress с помощью LiteSpeed Cache', slug: 'wordpress-optimization-litespeed' },
     ],
     articles: [
       {
@@ -952,8 +983,22 @@ t.ru = {
   <li>Прокрутите вниз и нажмите <strong>"Install" (Установить)</strong>.</li>
 </ol>
 <p>Дождитесь завершения установки. После завершения вы получите ссылки на ваш сайт и панель управления (/wp-admin).</p>`
-      }
-    ]
+        },
+        {
+          slug: 'wordpress-optimization-litespeed',
+          title: 'Оптимизация WordPress с помощью LiteSpeed Cache',
+          cat: 'WordPress инструкции',
+          content: `<p>LiteSpeed Cache (LSCache) — это высокоэффективный плагин кэширования, созданный специально для веб-сервера LiteSpeed, который используется в HostPro. Вот как его настроить:</p>
+<ol>
+  <li><strong>Установите плагин:</strong> Войдите в админ-панель WordPress, перейдите в раздел <strong>Плагины > Добавить новый</strong>, найдите "LiteSpeed Cache". Установите и активируйте его.</li>
+  <li><strong>Пресеты (Presets):</strong> Мы рекомендуем начать с готовой настройки. Перейдите в <strong>LiteSpeed Cache > Presets</strong> и выберите "Advanced (Recommended)". Нажмите <strong>Apply Preset</strong>.</li>
+  <li><strong>Оптимизация изображений:</strong> Перейдите в <strong>LiteSpeed Cache > Image Optimization</strong>. Нажмите "Gather Image Data", а затем "Send Optimization Request". Это сожмет ваши изображения без потери качества.</li>
+  <li><strong>Минификация:</strong> В разделе <strong>Page Optimization > CSS Settings</strong> включите "CSS Minify". Сделайте то же самое для JS и HTML в соответствующих вкладках.</li>
+  <li><strong>CDN:</strong> Если вы используете Cloudflare или QUIC.cloud, вы можете настроить их во вкладке <strong>CDN</strong> для еще лучшей глобальной производительности.</li>
+</ol>
+<p>После применения этих настроек ваш сайт будет работать значительно быстрее. Проверить результат можно с помощью PageSpeed Insights или GTmetrix.</p>`
+        }
+      ]
   },
   blog: {
     meta: 'Блог HostPro — полезные статьи о хостинге, безопасности и производительности.',
