@@ -37,8 +37,8 @@ export default function KBCategoryClient({ lang, categorySlug }: { lang: Lang, c
   const T = getT(lang)
   const p = lang === 'en' ? '' : `/${lang}`
   
-  const category = T.kb.categories.find((c: any) => c.slug === categorySlug)
-  const articles = T.kb.articles.filter((a: any) => a.cat === category?.title)
+  const category = T.kb?.categories?.find((c: any) => c.slug === categorySlug)
+  const articles = T.kb?.articles?.filter((a: any) => a.cat === category?.title) || []
 
   if (!category) return null
 
@@ -65,8 +65,8 @@ export default function KBCategoryClient({ lang, categorySlug }: { lang: Lang, c
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 24 }}>
             {articles.map((article: any, i: number) => (
               <FadeIn key={i} delay={i * 50}>
-                <Link href={`${p}/kb/${article.slug}`} className="kb-article-card">
-                  <div style={{ fontSize: 14, color: '#60A5FA', fontWeight: 700, marginBottom: 12, textTransform: 'uppercase' }}>📄 {T.kb.articleCount.slice(0, -1)}</div>
+                <Link href={`${p}/kb/${categorySlug}/${article.slug}`} className="kb-article-card">
+                  <div style={{ fontSize: 14, color: '#60A5FA', fontWeight: 700, marginBottom: 12, textTransform: 'uppercase' }}>📄 {T.kb.articleSingular}</div>
                   <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 22, fontWeight: 700, marginBottom: 16, color: '#fff' }}>
                     {article.title}
                   </h3>

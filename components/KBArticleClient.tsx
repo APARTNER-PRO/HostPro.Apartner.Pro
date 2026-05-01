@@ -4,14 +4,14 @@ import { Lang, getT } from '@/lib/i18n'
 
 export default function KBArticleClient({ lang, slug }: { lang: Lang, slug: string }) {
   const T = getT(lang)
-  const article = T.kb.articles?.find((a: any) => a.slug === slug)
+  const article = T.kb?.articles?.find((a: any) => a.slug === slug)
   const p = lang === 'en' ? '' : `/${lang}`
 
   if (!article) return (
     <div style={{ color: '#F0F4FF', background: '#050810', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
       <div style={{ textAlign: 'center' }}>
-        <h1 style={{ fontSize: 32, marginBottom: 16 }}>{T.kb.notFound}</h1>
-        <Link href={`${p}/kb`} style={{ color: '#60A5FA', textDecoration: 'none' }}>{T.kb.backToKb}</Link>
+        <h1 style={{ fontSize: 32, marginBottom: 16 }}>{T.notFound?.title || 'Not Found'}</h1>
+        <Link href={`${p}/kb`} style={{ color: '#60A5FA', textDecoration: 'none' }}>{T.kb?.backToKb || 'Back to Knowledge Base'}</Link>
       </div>
     </div>
   )
