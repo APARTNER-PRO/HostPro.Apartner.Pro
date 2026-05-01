@@ -123,7 +123,6 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
               href={l.href}
               onClick={() => setMobileOpen(false)}
               style={{ 
-                display: 'block', 
                 padding: '10px 0', 
                 color: (l as any).isSpecial ? '#FB923C' : 'rgba(240,244,255,.7)', 
                 fontSize: 15, 
