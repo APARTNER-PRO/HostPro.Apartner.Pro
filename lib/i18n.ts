@@ -423,6 +423,9 @@ export const t = {
       title: 'Knowledge Base',
       sub: 'Search our library of help articles and tutorials.',
       searchPh: 'Search for articles...',
+      helpful: 'Was this article helpful?',
+      yes: 'Yes',
+      no: 'No',
       categories: [
         { title: 'Getting Started', count: 12, icon: '🚀' },
         { title: 'cPanel & Hosting', count: 24, icon: '📋' },
@@ -433,11 +436,36 @@ export const t = {
       ],
       popular: 'Popular Articles',
       popularItems: [
-        'How to login to cPanel',
-        'Changing your nameservers',
-        'Setting up email on iPhone',
-        'Installing WordPress via Softaculous',
+        { title: 'How to login to cPanel', slug: 'how-to-login-to-cpanel' },
+        { title: 'Changing your nameservers', slug: 'changing-your-nameservers' },
+        { title: 'Setting up email on iPhone', slug: 'setting-up-email-on-iphone' },
+        { title: 'Installing WordPress via Softaculous', slug: 'installing-wordpress-via-softaculous' },
       ],
+      articles: [
+        {
+          slug: 'installing-wordpress-via-softaculous',
+          title: 'Installing WordPress via Softaculous',
+          cat: 'WordPress Guides',
+          content: `<p>Softaculous is a powerful auto-installer that allows you to install WordPress in just a few clicks. Here is a step-by-step guide:</p>
+<ol>
+  <li><strong>Login to your cPanel account.</strong> You can usually do this by going to yourdomain.com/cpanel.</li>
+  <li>Scroll down to the <strong>"Software"</strong> section and click on <strong>"Softaculous Apps Installer"</strong>.</li>
+  <li>In the Softaculous interface, find <strong>WordPress</strong> and click the <strong>"Install"</strong> button.</li>
+  <li>Choose the <strong>"Quick Install"</strong> or <strong>"Custom Install"</strong>. We recommend Custom Install for more control.</li>
+  <li><strong>Software Setup:</strong>
+    <ul>
+      <li>Choose the protocol (https:// is recommended).</li>
+      <li>Choose your domain.</li>
+      <li>In Directory: leave empty if you want WordPress on the main site (e.g., yourdomain.com).</li>
+    </ul>
+  </li>
+  <li><strong>Site Settings:</strong> Enter your Site Name and Site Description.</li>
+  <li><strong>Admin Account:</strong> Create a strong Admin Username and Password. <em>Do not use "admin" as username for security reasons.</em></li>
+  <li>Scroll down and click <strong>"Install"</strong>.</li>
+</ol>
+<p>Wait for the progress bar to finish. Once completed, you will receive links to your new website and the admin dashboard (/wp-admin).</p>`
+        }
+      ]
     },
     blog: {
       meta: 'HostPro Blog — insights on web hosting, security, and performance.',
@@ -446,6 +474,9 @@ export const t = {
       readMore: 'Read more →',
       backToBlog: '← Back to Blog',
       publishedAt: 'Published on',
+      helpful: 'Was this article helpful?',
+      yes: 'Yes',
+      no: 'No',
       posts: [
         {
           slug: 'why-nvme-ssd-hosting-matters',
@@ -638,6 +669,9 @@ t.uk = {
     title: 'База знань',
     sub: 'Шукайте відповіді у нашій бібліотеці інструкцій.',
     searchPh: 'Шукати статті...',
+    helpful: 'Чи була ця стаття корисною?',
+    yes: 'Так',
+    no: 'Ні',
     categories: [
       { title: 'З чого почати', count: 12, icon: '🚀' },
       { title: 'cPanel та хостинг', count: 24, icon: '📋' },
@@ -648,11 +682,36 @@ t.uk = {
     ],
     popular: 'Популярні статті',
     popularItems: [
-      'Як увійти в cPanel',
-      'Як змінити DNS сервери',
-      'Налаштування пошти на iPhone',
-      'Встановлення WordPress через Softaculous',
+      { title: 'Як увійти в cPanel', slug: 'how-to-login-to-cpanel' },
+      { title: 'Як змінити DNS сервери', slug: 'changing-your-nameservers' },
+      { title: 'Налаштування пошти на iPhone', slug: 'setting-up-email-on-iphone' },
+      { title: 'Встановлення WordPress через Softaculous', slug: 'installing-wordpress-via-softaculous' },
     ],
+    articles: [
+      {
+        slug: 'installing-wordpress-via-softaculous',
+        title: 'Встановлення WordPress через Softaculous',
+        cat: 'WordPress інструкції',
+        content: `<p>Softaculous — це потужний автоінсталятор, який дозволяє встановити WordPress всього за кілька кліків. Ось покрокова інструкція:</p>
+<ol>
+  <li><strong>Увійдіть у свій акаунт cPanel.</strong> Зазвичай це можна зробити за адресою yourdomain.com/cpanel.</li>
+  <li>Прокрутіть вниз до розділу <strong>"Програмне забезпечення"</strong> та натисніть <strong>"Softaculous Apps Installer"</strong>.</li>
+  <li>В інтерфейсі Softaculous знайдіть <strong>WordPress</strong> і натисніть кнопку <strong>"Install" (Встановити)</strong>.</li>
+  <li>Оберіть <strong>"Quick Install"</strong> або <strong>"Custom Install"</strong>. Ми рекомендуємо Custom Install для більшого контролю.</li>
+  <li><strong>Налаштування ПЗ:</strong>
+    <ul>
+      <li>Оберіть протокол (рекомендується https://).</li>
+      <li>Оберіть ваш домен.</li>
+      <li>В полі "Directory" (Директорія): залиште порожнім, якщо хочете встановити WordPress в корінь сайту.</li>
+    </ul>
+  </li>
+  <li><strong>Налаштування сайту:</strong> Введіть назву сайту та його опис.</li>
+  <li><strong>Акаунт адміністратора:</strong> Створіть надійне ім'я користувача та пароль. <em>Не використовуйте "admin" як логін з міркувань безпеки.</em></li>
+  <li>Прокрутіть вниз і натисніть <strong>"Install" (Встановити)</strong>.</li>
+</ol>
+<p>Зачекайте завершення встановлення. Після завершення ви отримаєте посилання на ваш сайт та панель керування (/wp-admin).</p>`
+      }
+    ]
   },
   blog: {
     meta: 'Блог HostPro — корисні статті про хостинг, безпеку та продуктивність.',
@@ -661,6 +720,9 @@ t.uk = {
     readMore: 'Читати далі →',
     backToBlog: '← Назад до блогу',
     publishedAt: 'Опубліковано',
+    helpful: 'Чи була ця стаття корисною?',
+    yes: 'Так',
+    no: 'Ні',
     posts: [
       {
         slug: 'why-nvme-ssd-hosting-matters',
@@ -834,6 +896,9 @@ t.ru = {
     title: 'База знаний',
     sub: 'Ищите ответы в нашей библиотеке инструкций.',
     searchPh: 'Искать статьи...',
+    helpful: 'Была ли эта статья полезной?',
+    yes: 'Да',
+    no: 'Нет',
     categories: [
       { title: 'С чего начать', count: 12, icon: '🚀' },
       { title: 'cPanel и хостинг', count: 24, icon: '📋' },
@@ -844,11 +909,36 @@ t.ru = {
     ],
     popular: 'Популярные статьи',
     popularItems: [
-      'Как войти в cPanel',
-      'Как сменить DNS серверы',
-      'Настройка почты на iPhone',
-      'Установка WordPress через Softaculous',
+      { title: 'Как войти в cPanel', slug: 'how-to-login-to-cpanel' },
+      { title: 'Как сменить DNS серверы', slug: 'how-to-login-to-server' },
+      { title: 'Настройка почты на iPhone', slug: 'setting-up-email-on-iphone' },
+      { title: 'Установка WordPress через Softaculous', slug: 'installing-wordpress-via-softaculous' },
     ],
+    articles: [
+      {
+        slug: 'installing-wordpress-via-softaculous',
+        title: 'Установка WordPress через Softaculous',
+        cat: 'WordPress инструкции',
+        content: `<p>Softaculous — это мощный автоинсталлятор, который позволяет установить WordPress всего за несколько кликов. Вот пошаговая инструкция:</p>
+<ol>
+  <li><strong>Войдите в свой аккаунт cPanel.</strong> Обычно это можно сделать по адресу yourdomain.com/cpanel.</li>
+  <li>Прокрутите вниз до раздела <strong>"Программное обеспечение"</strong> и нажмите <strong>"Softaculous Apps Installer"</strong>.</li>
+  <li>В интерфейсе Softaculous найдите <strong>WordPress</strong> и нажмите кнопку <strong>"Install" (Установить)</strong>.</li>
+  <li>Выберите <strong>"Quick Install"</strong> или <strong>"Custom Install"</strong>. Мы рекомендуем Custom Install для большего контроля.</li>
+  <li><strong>Настройка ПО:</strong>
+    <ul>
+      <li>Выберите протокол (рекомендуется https:// рекомендуется).</li>
+      <li>Выберите ваш домен.</li>
+      <li>В поле "Directory" (Директория): оставьте пустым, если хотите установить WordPress в корень сайта.</li>
+    </ul>
+  </li>
+  <li><strong>Настройки сайта:</strong> Введите название сайта и его описание.</li>
+  <li><strong>Аккаунт администратора:</strong> Создайте надежное имя пользователя и пароль. <em>Не используйте "admin" в качестве логина из соображений безопасности.</em></li>
+  <li>Прокрутите вниз и нажмите <strong>"Install" (Установить)</strong>.</li>
+</ol>
+<p>Дождитесь завершения установки. После завершения вы получите ссылки на ваш сайт и панель управления (/wp-admin).</p>`
+      }
+    ]
   },
   blog: {
     meta: 'Блог HostPro — полезные статьи о хостинге, безопасности и производительности.',
@@ -857,6 +947,9 @@ t.ru = {
     readMore: 'Читать далее →',
     backToBlog: '← Назад в блог',
     publishedAt: 'Опубликовано',
+    helpful: 'Была ли эта статья полезной?',
+    yes: 'Да',
+    no: 'Нет',
     posts: [
       {
         slug: 'why-nvme-ssd-hosting-matters',

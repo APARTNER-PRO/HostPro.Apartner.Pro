@@ -71,7 +71,15 @@ export default function BlogPostClient({ lang, slug }: { lang: Lang, slug: strin
             }
           `}</style>
 
-          <div style={{ marginTop: 80, padding: 40, background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.07)', borderRadius: 24 }}>
+          <div style={{ marginTop: 80, padding: 40, background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.07)', borderRadius: 24, textAlign: 'center' }}>
+            <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 24, fontWeight: 800, marginBottom: 16 }}>{T.blog.helpful}</h3>
+            <div style={{ display: 'flex', gap: 16, justifyContent: 'center' }}>
+              <button className="btn-primary" style={{ padding: '10px 32px', background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)' }}>{T.blog.yes}</button>
+              <button className="btn-primary" style={{ padding: '10px 32px', background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)' }}>{T.blog.no}</button>
+            </div>
+          </div>
+
+          <div style={{ marginTop: 40, padding: 40, background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.07)', borderRadius: 24 }}>
             <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 24, fontWeight: 800, marginBottom: 16 }}>{T.cta.title}</h3>
             <p style={{ color: 'rgba(240,244,255,.5)', marginBottom: 24 }}>{T.cta.sub}</p>
             <Link href={`${p}/#pricing`} className="btn-primary" style={{ padding: '12px 32px' }}>{T.cta.btn}</Link>

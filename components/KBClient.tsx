@@ -77,10 +77,10 @@ export default function KBClient({ lang }: { lang: Lang }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: 48 }}>
             <FadeIn>
               <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 24, fontWeight: 800, marginBottom: 32 }}>{T.kb.popular}</h2>
-              {T.kb.popularItems.map((item: string, i: number) => (
-                <Link key={i} href="#" className="kb-article-link">
+              {T.kb.popularItems.map((item: any, i: number) => (
+                <Link key={i} href={`${p}/kb/${item.slug}`} className="kb-article-link">
                   <span style={{ opacity: 0.3 }}>📄</span>
-                  {item}
+                  {item.title}
                 </Link>
               ))}
             </FadeIn>
