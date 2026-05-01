@@ -1,25 +1,32 @@
-import PageWrapper from '@/components/PageWrapper'
-import { Lang, getT, LANGS } from '@/lib/i18n'
 import { notFound } from 'next/navigation'
-
+import type { Metadata } from 'next'
+import PageWrapper from '@/components/PageWrapper'
+import BlogClient from '@/components/BlogClient'
+import JsonLd from '@/components/JsonLd'
+import { LANGS, Lang, getT } from '@/lib/i18n'
 
 export function generateStaticParams() {
   return LANGS.filter(l => l !== 'en').map(l => ({ lang: l }))
 }
 
-export default function Page({ params }: { params: { lang: string } }) {
+export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
+  const lang = params.lang as Lang
+  if (!LANGS.includes(lang) || lang === 'en') return {}
+  const T = getT(lang)
+  return {
+    title: T.blog.title,
+    description: T.blog.meta,
+  }
+}
+
+export default function LangBlogPage({ params }: { params: { lang: string } }) {
   const lang = params.lang as Lang
   if (!LANGS.includes(lang) || lang === 'en') notFound()
-  const T = getT(lang)
-  
+
   return (
     <PageWrapper lang={lang} slug="blog">
-      <main style={{ padding: '120px 24px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-        <div>
-          <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 800, marginBottom: 16, textTransform: 'capitalize' }}>blog</h1>
-          <p style={{ fontSize: 18, color: 'rgba(240,244,255,.5)' }}>Контент незабаром...</p>
-        </div>
-      </main>
+      <JsonLd lang={lang} page="home" />
+      <BlogClient lang={lang} />
     </PageWrapper>
   )
 }

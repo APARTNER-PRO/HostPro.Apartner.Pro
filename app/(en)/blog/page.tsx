@@ -1,18 +1,18 @@
+import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
-import { getT } from '@/lib/i18n'
+import BlogClient from '@/components/BlogClient'
+import JsonLd from '@/components/JsonLd'
 
-export default function Page() {
-  const lang = 'en'
-  const T = getT(lang)
-  
+export const metadata: Metadata = {
+  title: 'Blog - Expert Hosting Insights',
+  description: 'Stay updated with the latest trends in web hosting, security, and performance. Expert advice to grow your business.',
+}
+
+export default function BlogPage() {
   return (
-    <PageWrapper lang={lang} slug="blog">
-      <main style={{ padding: '120px 24px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-        <div>
-          <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 800, marginBottom: 16, textTransform: 'capitalize' }}>blog</h1>
-          <p style={{ fontSize: 18, color: 'rgba(240,244,255,.5)' }}>Content coming soon...</p>
-        </div>
-      </main>
+    <PageWrapper lang="en" slug="blog">
+      <JsonLd lang="en" page="home" />
+      <BlogClient lang="en" />
     </PageWrapper>
   )
 }

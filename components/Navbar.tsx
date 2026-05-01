@@ -25,6 +25,7 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
     { href: `${p}/about`,        label: T.nav.about },
     { href: `${p}/faq`,          label: T.nav.faq },
     { href: `${p}/contact`,      label: T.nav.contact },
+    { href: `${p}/blog`,         label: T.footer.links.blog },
     { href: `${p}/status`,       label: T.nav.status },
   ]
 
@@ -101,7 +102,7 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
           {/* Mobile burger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            style={{ display: 'none', background: 'rgba(255,255,255,.07)', border: 'none', color: '#F0F4FF', width: 36, height: 36, borderRadius: 8, cursor: 'pointer', fontSize: 18 }}
+            style={{ background: 'rgba(255,255,255,.07)', border: 'none', color: '#F0F4FF', width: 36, height: 36, borderRadius: 8, cursor: 'pointer', fontSize: 18 }}
             className="show-mobile"
           >
             {mobileOpen ? '✕' : '☰'}
