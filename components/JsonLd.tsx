@@ -8,7 +8,7 @@ interface JsonLdProps {
   article?: any
 }
 
-export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
+export default function JsonLd({ lang, page = 'home', article }: JsonLdProps) {
   const langPath = lang === 'en' ? '' : `/${lang}`
   const T = getT(lang)
 

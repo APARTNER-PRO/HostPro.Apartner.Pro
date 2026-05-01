@@ -440,7 +440,7 @@ export const t = {
       supportSub: 'Our support team is available 24/7 to help you with any issues.',
       supportBtn: 'Contact Support',
       backToKb: '← Back to Knowledge Base',
-      articleCount: 'articles',
+      articleCount: 'articles', articleSingular: 'Article',
       categories: [
         { title: 'Getting Started', count: 12, icon: '🚀', slug: 'getting-started' },
         { title: 'cPanel & Hosting', count: 24, icon: '📋', slug: 'cpanel' },
@@ -777,7 +777,7 @@ export const t = {
       supportSub: 'Наша команда підтримки доступна 24/7, щоб допомогти вам з будь-якими питаннями.',
       supportBtn: 'Зв’язатися з підтримкою',
       backToKb: '← Назад до бази знань',
-      articleCount: 'статей',
+      articleCount: 'статей', articleSingular: 'Стаття',
       categories: [
         { title: 'З чого почати', count: 12, icon: '🚀', slug: 'getting-started' },
         { title: 'cPanel та хостинг', count: 24, icon: '📋', slug: 'cpanel' },
@@ -1096,7 +1096,7 @@ export const t = {
       supportSub: 'Наша команда поддержки доступна 24/7, чтобы помочь вам с любыми вопросами.',
       supportBtn: 'Связаться с поддержкой',
       backToKb: '← Назад к базе знаний',
-      articleCount: 'статей',
+      articleCount: 'статей', articleSingular: 'Статья',
       categories: [
         { title: 'С чего начать', count: 12, icon: '🚀', slug: 'getting-started' },
         { title: 'cPanel и хостинг', count: 24, icon: '📋', slug: 'cpanel' },
