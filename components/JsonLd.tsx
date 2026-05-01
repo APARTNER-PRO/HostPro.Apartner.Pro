@@ -4,7 +4,8 @@ const SITE_URL = 'https://hostpro.apartner.pro'
 
 interface JsonLdProps {
   lang: Lang
-  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing' | 'reviews'
+  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing' | 'reviews' | 'kb'
+  article?: any
 }
 
 export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
@@ -123,7 +124,32 @@ export default function JsonLd({ lang, page = 'home' }: JsonLdProps) {
     reviewBody: r.text,
   })) : null
 
-  const schemas = [organization, website, breadcrumb, hosting, localBusiness, faqSchema, ...(Array.isArray(reviewsSchema) ? reviewsSchema : [reviewsSchema])].filter(Boolean)
+  const articleSchema = page === 'kb' && article ? {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.title + ' — HostPro Knowledge Base.',
+    image: [`${SITE_URL}/icon-512.png`],
+    author: {
+      '@type': 'Organization',
+      name: 'HostPro',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'HostPro',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicon.svg`
+      }
+    },
+    datePublished: '2025-01-01',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}${langPath}/kb/${article.catSlug}/${article.slug}`
+    }
+  } : null
+
+  const schemas = [organization, website, breadcrumb, hosting, localBusiness, faqSchema, articleSchema, ...(Array.isArray(reviewsSchema) ? reviewsSchema : [reviewsSchema])].filter(Boolean)
 
   return (
     <>

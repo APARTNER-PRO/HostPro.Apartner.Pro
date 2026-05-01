@@ -50,6 +50,11 @@ export default function LangKBArticlePage({ params }: { params: { lang: string; 
 
   return (
     <PageWrapper lang={lang} slug={`kb/${params.catSlug}/${params.articleSlug}`}>
+      <JsonLd 
+        lang={lang} 
+        page="kb" 
+        article={{ ...article, catSlug: params.catSlug }} 
+      />
       <KBArticleClient lang={lang} slug={params.articleSlug} />
     </PageWrapper>
   )
