@@ -4,7 +4,7 @@ import RefundClient from '@/components/RefundClient'
 
 export const metadata: Metadata = {
   title: 'Refund Policy',
-  description: 'HostPro refund policy — 30-day money-back guarantee.',
+  description: 'HostPro refund policy — 14-day money-back guarantee.',
   alternates: {
     canonical: 'https://hostpro.apartner.pro/refund',
     languages: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Refund Policy',
-    description: 'HostPro refund policy — 30-day money-back guarantee.',
+    description: 'HostPro refund policy — 14-day money-back guarantee.',
     url: 'https://hostpro.apartner.pro/refund',
     siteName: 'HostPro',
     locale: 'en_US',

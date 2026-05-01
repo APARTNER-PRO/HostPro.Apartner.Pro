@@ -8,7 +8,7 @@ const CONTENT = `# HostPro — llms.txt
 
 > HostPro is a professional web hosting provider offering NVMe SSD hosting,
 > cPanel control panel, free SSL certificates, daily backups, and 24/7 support.
-> Hosting plans start from $1.99/mo. 30-day money-back guarantee.
+> Hosting plans start from $1.99/mo. 14-day money-back guarantee.
 
 ## About
 
@@ -69,7 +69,7 @@ Agency Pro includes: Dedicated account manager.
 ## Policies
 
 - **Uptime SLA**: 99.9% guaranteed
-- **Money-back**: 30-day full refund for new accounts
+- **Money-back**: 14-day full refund for new accounts
 - **Backups**: Daily (Business plan and above), 7-day retention
 - **Migration**: Free website migration within 24 hours
 - **Billing**: Monthly, Quarterly (−10%), Yearly (−20%), 3 Years (−25%)
