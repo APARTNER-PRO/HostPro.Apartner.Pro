@@ -23,7 +23,7 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
     { href: `${p}/#pricing`, label: T.nav.pricing },
     { href: `${p}/#testimonials`, label: T.nav.reviews },
     { href: `${p}/blog`, label: T.footer.links.blog },
-    { href: `${p}/ai-assistant`, label: T.nav.chat },
+    { href: `${p}/ai-assistant`, label: T.nav.chat, isSpecial: true },
     { href: `${p}/contact`, label: T.nav.contact },
   ]
 
@@ -63,8 +63,9 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
 
         {/* Desktop links */}
         <div className="hide-mobile" style={{ display: 'flex', gap: 26, alignItems: 'center' }}>
-          {navLinks.map((l) => (
-            <Link key={l.href} href={l.href} className="hp-nav-link">
+          {navLinks.map((l: any) => (
+            <Link key={l.href} href={l.href} className={l.isSpecial ? "hp-nav-special" : "hp-nav-link"}>
+              {l.isSpecial && <span className="hp-nav-dot" />}
               {l.label}
             </Link>
           ))}
@@ -121,8 +122,19 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
               key={l.href}
               href={l.href}
               onClick={() => setMobileOpen(false)}
-              style={{ display: 'block', padding: '10px 0', color: 'rgba(240,244,255,.7)', fontSize: 15, fontWeight: 500, textDecoration: 'none' }}
+              style={{ 
+                display: 'block', 
+                padding: '10px 0', 
+                color: (l as any).isSpecial ? '#FB923C' : 'rgba(240,244,255,.7)', 
+                fontSize: 15, 
+                fontWeight: 500, 
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
             >
+              {(l as any).isSpecial && <span className="hp-nav-dot" />}
               {l.label}
             </Link>
           ))}

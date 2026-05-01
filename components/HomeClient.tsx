@@ -200,7 +200,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             <div className="hp-features-grid">
               {T.features.items.map((f,i)=>(
                 <div key={i} className="hp-feat-card">
-                  <div style={{ fontSize:32,marginBottom:16 }}>{f.icon}</div>
+                  <div className="feat-icon" style={{ fontSize:32,marginBottom:16,transition:'transform .3s ease' }}>{f.icon}</div>
                   <h3 style={{ fontFamily:'Syne,sans-serif',fontSize:18,fontWeight:700,marginBottom:8 }}>{f.title}</h3>
                   <p style={{ fontSize:14,color:'rgba(240,244,255,.55)',lineHeight:1.7,fontWeight:300 }}>{f.desc}</p>
                 </div>
@@ -445,7 +445,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             <div className="hp-who-grid">
               {T.who.items.map((w,i)=>(
                 <div key={i} className="hp-who-card">
-                  <div style={{ fontSize:40,marginBottom:20,display:'inline-flex',alignItems:'center',justifyContent:'center',background:w.bg,borderRadius:16,width:72,height:72 }}>{w.icon}</div>
+                  <div className="feat-icon" style={{ fontSize:40,marginBottom:20,display:'inline-flex',alignItems:'center',justifyContent:'center',background:w.bg,borderRadius:16,width:72,height:72,transition:'transform .3s ease' }}>{w.icon}</div>
                   <h3 style={{ fontFamily:'Syne,sans-serif',fontSize:20,fontWeight:700,marginBottom:10,color:w.color }}>{w.title}</h3>
                   <p style={{ fontSize:14,color:'rgba(240,244,255,.55)',lineHeight:1.7,fontWeight:300 }}>{w.desc}</p>
                 </div>

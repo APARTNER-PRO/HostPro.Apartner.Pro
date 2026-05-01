@@ -1,4 +1,5 @@
 import './globals.css'
+import ScrollProgress from '@/components/ScrollProgress'
 
 export default function RootLayout({
   children,
@@ -14,7 +15,10 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#050810" />
       </head>
-      <body>{children}</body>
+      <body>
+        <ScrollProgress />
+        {children}
+      </body>
     </html>
   )
 }

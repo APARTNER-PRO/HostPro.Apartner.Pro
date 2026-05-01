@@ -6,8 +6,9 @@
 
 :root {
   --bg: #050810;
-  --surface: rgba(255,255,255,0.03);
-  --border: rgba(255,255,255,0.07);
+  --surface: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+  --glass: rgba(255,255,255,0.03);
   --text: #F0F4FF;
   --text-muted: rgba(240,244,255,0.55);
   --text-dim: rgba(240,244,255,0.35);
@@ -75,6 +76,8 @@ body {
   border-radius: 16px;
   padding: 28px 32px;
   margin-bottom: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .card h3 {
   font-family: var(--font-display);
@@ -162,6 +165,8 @@ body {
 @keyframes slideUp    { from { opacity:0; transform: translateX(-50%) translateY(20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
 @keyframes slideDown  { to { opacity:0; transform: translateX(-50%) translateY(20px); } }
 @keyframes fadeUp     { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+@keyframes hp-dot-pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.6); opacity: 0.4; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes hp-bounce    { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
 .animate-float   { animation: floatBadge 3s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
@@ -193,6 +198,30 @@ select option { background: #1a1f2e; color: #F0F4FF; padding: 8px 4px; }
   transition: color .2s;
 }
 .hp-nav-link:hover { color: #60A5FA; }
+ 
+ .hp-nav-special {
+   background: linear-gradient(135deg, #FB923C, #F59E0B);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+   transition: all .3s ease;
+   display: flex;
+   align-items: center;
+   gap: 6px;
+ }
+ .hp-nav-special:hover {
+   filter: brightness(1.2) drop-shadow(0 0 10px rgba(251, 146, 60, 0.4));
+ }
+ 
+ .hp-nav-dot {
+   width: 6px;
+   height: 6px;
+   border-radius: 50%;
+   background-color: #FB923C;
+   box-shadow: 0 0 10px #FB923C;
+   animation: hp-dot-pulse 2s infinite;
+   -webkit-text-fill-color: initial;
+ }
 
 .hp-footer-link {
   color: rgba(240,244,255,.35);
@@ -212,11 +241,12 @@ select option { background: #1a1f2e; color: #F0F4FF; padding: 8px 4px; }
 .hp-lang-link:hover { color: #60A5FA !important; border-color: rgba(96,165,250,.4) !important; }
 
 /* ── Card & plan hover — CSS only ── */
-.hp-feat-card { transition: transform .25s, background .25s; cursor: default; }
-.hp-feat-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.055) !important; }
-
-.hp-plan-card { transition: transform .3s; cursor: default; }
-.hp-plan-card:hover { transform: translateY(-8px); }
+.hp-feat-card { transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); cursor: default; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.hp-feat-card:hover { transform: translateY(-6px) scale(1.02) rotate(1deg); background: rgba(255,255,255,.07) !important; border-color: rgba(96,165,250,.3) !important; }
+.hp-feat-card:hover .feat-icon { transform: scale(1.1); filter: drop-shadow(0 0 12px var(--accent)); }
+ 
+.hp-plan-card { transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); cursor: default; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.hp-plan-card:hover { transform: translateY(-10px); border-color: rgba(96,165,250,.4) !important; }
 
 .hp-who-card { transition: transform .25s; cursor: default; }
 .hp-who-card:hover { transform: translateY(-4px); }

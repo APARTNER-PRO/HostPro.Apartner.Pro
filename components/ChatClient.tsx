@@ -25,6 +25,7 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
+  const assistantMessageRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -32,8 +33,15 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
   };
 
   useEffect(() => {
-    if (messages.length > 1 || isLoading) {
+    if (isLoading) {
       scrollToBottom();
+    } else if (messages.length > 0) {
+      const lastMessage = messages[messages.length - 1];
+      if (lastMessage.role === 'assistant' && messages.length > 1) {
+        assistantMessageRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        scrollToBottom();
+      }
     }
   }, [messages, isLoading]);
 
@@ -112,13 +120,17 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
           paddingRight: '10px'
         }}>
           {messages.map((msg, i) => (
-            <div key={i} style={{
-              alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '8px',
-              maxWidth: '85%',
-            }}>
+            <div 
+              key={i} 
+              ref={i === messages.length - 1 && msg.role === 'assistant' ? assistantMessageRef : null}
+              style={{
+                alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px',
+                maxWidth: '85%',
+                scrollMarginTop: '40px', // Added offset for better scrolling
+              }}>
               {msg.role === 'assistant' && (
                 <div style={{ 
                   display: 'flex', 
@@ -135,7 +147,8 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '12px'
+                    fontSize: '12px',
+                    animation: isLoading ? 'hp-bounce 1s infinite ease-in-out' : 'none'
                   }}>
                     🤖
                   </div>
