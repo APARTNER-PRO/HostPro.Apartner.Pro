@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 import HomeClient from '@/components/HomeClient'
@@ -80,7 +81,9 @@ export default async function LangHomePage({ params }: { params: { lang: string 
   return (
     <PageWrapper lang={lang} slug="">
       <JsonLd lang={lang} page="home" />
-      <HomeClient lang={lang} initialData={plansData} />
+      <Suspense fallback={null}>
+        <HomeClient lang={lang} initialData={plansData} />
+      </Suspense>
     </PageWrapper>
   )
 }

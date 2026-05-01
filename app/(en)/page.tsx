@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 import HomeClient from '@/components/HomeClient'
@@ -62,7 +63,9 @@ export default async function HomePage() {
   return (
     <PageWrapper lang="en" slug="">
       <JsonLd lang="en" page="home" />
-      <HomeClient lang="en" initialData={plansData} />
+      <Suspense fallback={null}>
+        <HomeClient lang="en" initialData={plansData} />
+      </Suspense>
     </PageWrapper>
   )
 }
