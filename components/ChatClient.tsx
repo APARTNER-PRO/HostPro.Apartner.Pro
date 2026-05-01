@@ -202,6 +202,7 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
                           <Link 
                             href={props.href || '#'} 
                             className="hp-chat-btn"
+                            target="_blank"
                             {...props}
                           >
                             {props.children}
