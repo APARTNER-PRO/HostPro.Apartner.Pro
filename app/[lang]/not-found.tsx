@@ -82,25 +82,8 @@ export default function NotFound() {
         .not-found-main p {
           font-size: 18px;
           color: rgba(240, 244, 255, 0.6);
-          margin-bottom: 40px;
+          margin-bottom: 32px;
           line-height: 1.6;
-        }
-
-        .not-found-main .btn-home {
-          display: inline-block;
-          background: linear-gradient(135deg, #3B82F6, #8B5CF6);
-          color: white;
-          padding: 16px 36px;
-          border-radius: 14px;
-          font-weight: 700;
-          text-decoration: none;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
-        }
-
-        .not-found-main .btn-home:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.5);
         }
       ` }} />
       
@@ -113,9 +96,21 @@ export default function NotFound() {
           <h1>{T.notFound?.title || 'Page Not Found'}</h1>
           <p>{T.notFound?.sub || 'The page you are looking for does not exist.'}</p>
           
-          <Link href={homePath} className="btn-home">
-            ← {T.notFound?.back || 'Back to Homepage'}
-          </Link>
+          <div style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap',marginBottom:40}}>
+            <Link href={homePath} style={{background:'linear-gradient(135deg,#3B82F6,#8B5CF6)',color:'#fff',padding:'13px 28px',borderRadius:10,fontSize:15,fontWeight:700,textDecoration:'none',transition:'all .2s'}}>← {T.notFound?.back || 'Back'}</Link>
+            <Link href={`${homePath}#pricing`} style={{background:'rgba(255,255,255,.06)',border:'1px solid rgba(255,255,255,.1)',color:'rgba(240,244,255,.7)',padding:'13px 28px',borderRadius:10,fontSize:15,fontWeight:600,textDecoration:'none'}}>{T.nav?.pricing || 'View Plans'}</Link>
+          </div>
+
+          <div style={{display:'flex',gap:24,justifyContent:'center',flexWrap:'wrap',opacity:0.6}}>
+            {[
+              [T.footer.links.laravelHosting, 'laravel-hosting'],
+              [T.footer.links.wpHosting, 'wordpress-hosting'],
+              [T.footer.links.vpsHosting, 'vps-hosting'],
+              [T.footer.links.dedicated, 'dedicated-servers']
+            ].map(([label, slug]) => (
+              <Link key={slug} href={`${homePath}/${slug}`} style={{fontSize:14,color:'#fff',textDecoration:'none',fontWeight:500}}>{label}</Link>
+            ))}
+          </div>
         </div>
       </main>
     </>
