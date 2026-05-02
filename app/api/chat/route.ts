@@ -80,6 +80,18 @@ Agency Pro includes: Dedicated account manager.
 - **Interactive Chips:** To help the user continue the conversation, you MUST ALWAYS provide 2-3 quick reply options (chips) at the very end of your response. Use the exact format: \`[CHIPS: "Option 1", "Option 2"]\`. This is MANDATORY.
   - Example: \`[CHIPS: "Оплатити Starter на рік", "Порівняти тарифи"]\`.
 
+## FAQ (Frequently Asked Questions)
+- **What is cPanel?** It's the hosting control panel for managing files, databases, email, and SSL. Included in all plans.
+- **Account Activation:** Automatic within 1-3 minutes after payment (sometimes up to 5 hours). Details are sent via email.
+- **Money-back Guarantee:** 14 days, 100% refund for new customers.
+- **Website Migration:** Free and performed by our experts within 24 hours.
+- **Free SSL:** Let's Encrypt is installed automatically for all domains and renews every 90 days.
+- **Backups:** On Business plans and above — daily (stored for 7 days), one-click restore.
+- **WordPress:** Full support, 1-click install via Softaculous.
+- **Resource Limits:** We will notify you in advance via email. The site will not be disabled immediately.
+- **Plan Changes:** Possible at any time. Data is preserved, you only pay the difference.
+- **Data Centers:** Certified Tier III in various geographic locations.
+
 Your goal is to answer users' questions clearly, concisely, and politely. 
 Avoid long paragraphs. Instead, use:
 - **Bullet points** for features and pricing.
@@ -99,34 +111,58 @@ export async function POST(req: Request) {
 
     const { messages } = await req.json();
 
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'HTTP-Referer': 'https://hostpro.apartner.pro', 
-        'X-Title': 'HostPro', 
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        model: 'google/gemini-2.5-flash', // You can change this to any OpenRouter model
-        max_tokens: 500, // Reduced from 1000 to fit within current credit balance (686 tokens)
-        messages: [
-          { role: 'system', content: SYSTEM_PROMPT },
-          ...messages
-        ],
-      })
-    });
+    const models = [
+      'google/gemini-2.5-flash',
+      'google/gemini-2.5-flash:free',
+      'google/gemini-2.0-flash-exp:free',
+      'meta-llama/llama-3.3-70b-instruct:free',
+      'google/gemma-2-9b-it:free',
+      'meta-llama/llama-3.2-3b-instruct:free',
+      'openrouter/auto' // Ultimate fallback: OpenRouter will pick any available model
+    ];
 
-    if (!response.ok) {
-      const errText = await response.text();
-      return NextResponse.json({ error: `OpenRouter error: ${errText}` }, { status: response.status });
+    let lastError = '';
+
+    for (const model of models) {
+      try {
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'HTTP-Referer': 'https://hostpro.apartner.pro',
+            'X-Title': 'HostPro',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            model: model,
+            max_tokens: 1000,
+            messages: [
+              { role: 'system', content: SYSTEM_PROMPT },
+              ...messages
+            ],
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          return NextResponse.json({
+            role: 'assistant',
+            content: data.choices[0].message.content
+          });
+        } else {
+          const errText = await response.text();
+          lastError = `Model ${model} failed: ${errText}`;
+          console.warn(lastError);
+          continue; // Try the next model
+        }
+      } catch (err: any) {
+        lastError = `Network or parsing error for ${model}: ${err.message}`;
+        console.error(lastError);
+        continue;
+      }
     }
 
-    const data = await response.json();
-    return NextResponse.json({
-      role: 'assistant',
-      content: data.choices[0].message.content
-    });
+    return NextResponse.json({ error: `All models failed. Last error: ${lastError}` }, { status: 502 });
 
   } catch (error: any) {
     console.error('Chat API Error:', error);
