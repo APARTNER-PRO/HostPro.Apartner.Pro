@@ -109,7 +109,7 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         model: 'google/gemini-2.5-flash', // You can change this to any OpenRouter model
-        max_tokens: 1000,
+        max_tokens: 500, // Reduced from 1000 to fit within current credit balance (686 tokens)
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           ...messages
