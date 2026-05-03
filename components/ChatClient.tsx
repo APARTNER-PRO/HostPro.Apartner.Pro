@@ -29,6 +29,7 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
   const [error, setError] = useState<string | null>(null);
   
   const assistantMessageRef = useRef<HTMLDivElement>(null);
+  const userMessageRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -37,7 +38,12 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
 
   useEffect(() => {
     if (isLoading) {
-      scrollToBottom();
+      // Scroll to the user's message so it stays in view while AI is "typing"
+      if (userMessageRef.current) {
+        userMessageRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        scrollToBottom();
+      }
     } else if (messages.length > 1) {
       const lastMessage = messages[messages.length - 1];
       if (lastMessage.role === 'assistant') {
@@ -158,7 +164,11 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
           {messages.map((msg, i) => (
             <div 
               key={i} 
-              ref={i === messages.length - 1 && msg.role === 'assistant' ? assistantMessageRef : null}
+              ref={
+                i === messages.length - 1 
+                  ? (msg.role === 'assistant' ? assistantMessageRef : userMessageRef) 
+                  : null
+              }
               style={{
                 alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
                 display: 'flex',
@@ -223,11 +233,14 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
                     >
                       {(() => {
                         const chipsRegex = /\[CHIPS:\s*(.*?)\]/i;
-                        return msg.content.replace(chipsRegex, '').trim();
+                        const contactRegex = /\[CONTACT_FORM\]/i;
+                        const content = msg.content || '';
+                        return content.replace(chipsRegex, '').replace(contactRegex, '').trim();
                       })()}
                     </ReactMarkdown>
                     {(() => {
-                      const match = msg.content.match(/\[CHIPS:\s*(.*?)\]/i);
+                      const content = msg.content || '';
+                      const match = content.match(/\[CHIPS:\s*(.*?)\]/i);
                       if (match) {
                         const chips = match[1].split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
                         return (
@@ -237,13 +250,76 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
                                 key={chip}
                                 onClick={() => {
                                   handleSubmit({ preventDefault: () => {} } as any, chip);
-                                  setTimeout(scrollToBottom, 50);
                                 }}
                                 className="hp-chat-chip"
                               >
                                 {chip}
                               </button>
                             ))}
+                          </div>
+                        );
+                      }
+                      return null;
+                    })()}
+                    {(() => {
+                      const content = msg.content || '';
+                      if (content.includes('[CONTACT_FORM]') && i === messages.length - 1 && !isLoading) {
+                        return (
+                          <div style={{
+                            marginTop: '16px',
+                            padding: '16px',
+                            background: 'rgba(0,0,0,0.2)',
+                            borderRadius: '12px',
+                            border: '1px solid rgba(255,255,255,0.1)'
+                          }}>
+                            <div style={{ fontSize: '14px', marginBottom: '12px', fontWeight: 600 }}>{T.contactFormTitle || 'Leave your contact:'}</div>
+                            <form onSubmit={(e) => {
+                              e.preventDefault();
+                              const inputEl = e.currentTarget.elements.namedItem('contact') as HTMLInputElement;
+                              const contactVal = inputEl.value.trim();
+                              if (contactVal) {
+                                // 1. Send data to backend (Telegram)
+                                fetch('/api/lead', {
+                                  method: 'POST',
+                                  headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify({ contact: contactVal, messages })
+                                }).catch(console.error);
+
+                                // 2. Add to chat flow so AI can acknowledge
+                                handleSubmit(e, `${T.contactFormPrefix || 'My contact for the manager: '}${contactVal}`);
+                              }
+                            }} style={{ display: 'flex', gap: '8px' }}>
+                              <input 
+                                name="contact"
+                                type="text" 
+                                placeholder={T.contactFormPlaceholder || 'Email or Telegram...'} 
+                                style={{
+                                  flex: 1,
+                                  background: 'rgba(255,255,255,0.05)',
+                                  border: '1px solid rgba(255,255,255,0.1)',
+                                  color: '#fff',
+                                  padding: '10px 14px',
+                                  borderRadius: '8px',
+                                  fontSize: '14px',
+                                  outline: 'none'
+                                }}
+                              />
+                              <button 
+                                type="submit"
+                                style={{
+                                  background: 'var(--grad)',
+                                  border: 'none',
+                                  borderRadius: '8px',
+                                  padding: '0 16px',
+                                  color: '#fff',
+                                  fontWeight: 600,
+                                  cursor: 'pointer',
+                                  fontSize: '14px'
+                                }}
+                              >
+                                {T.contactFormSubmit || 'Send'}
+                              </button>
+                            </form>
                           </div>
                         );
                       }
@@ -310,12 +386,9 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
               <button
                 key={chip}
                 type="button"
-                onClick={() => {
-                  setInput(chip);
-                  setTimeout(() => {
-                    const btn = document.getElementById('chat-submit-btn');
-                    btn?.click();
-                  }, 50);
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSubmit(e, chip);
                 }}
                 className="hp-chat-chip"
               >
