@@ -16,6 +16,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
         { href: '#pricing', label: T.footer.links.pricing },
         { href: 'faq', label: T.footer.links.faq },
         { href: 'status', label: T.footer.links.status },
+        { href: 'free-hosting', label: T.footer.links.freeHosting },
         { href: 'https://cpanel.apartner.pro', label: 'cPanel' },
       ]
     },

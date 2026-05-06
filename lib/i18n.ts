@@ -57,6 +57,7 @@ export const t = {
         laravelHosting: 'Laravel Hosting',
         phpHosting: 'PHP Hosting',
         prestashopHosting: 'PrestaShop Hosting',
+        freeHosting: 'Free Hosting',
         kb: 'Knowledge Base',
         blog: 'Blog',
         about: 'About Us',
@@ -480,6 +481,41 @@ export const t = {
       ],
       pricingSub: 'E-commerce optimized plans with the resources your PrestaShop store needs.',
     },
+    freeHosting: {
+      meta: 'Free hosting for partners — bring a client and get free hosting for your website.',
+      badge: '🎁 Partner Program · Free Hosting',
+      title1: 'Free hosting for',
+      title2: 'our partners',
+      sub: 'Bring at least one client to HostPro and get free hosting for your own website as a reward.',
+      howItWorks: 'How it works',
+      steps: [
+        { icon: '🤝', title: 'Recommend Us', desc: 'Tell your friends or clients about HostPro and help them choose a plan.' },
+        { icon: '💳', title: 'Client Signs Up', desc: 'The client must purchase any hosting plan for at least 1 year.' },
+        { icon: '🎁', title: 'Get Your Reward', desc: 'After 14 days of the client using the service, you get free hosting on the same plan and term.' }
+      ],
+      termsTitle: 'Program Terms',
+      terms: [
+        'Client must be new to HostPro.',
+        'Hosting must be purchased for at least 1 year.',
+        'Reward is available after 14 days of client usage.',
+        'If the client requests a refund within 14 days, the reward is canceled.',
+        'The reward plan and duration match the client\'s purchase.',
+        'You can get a reward for every new client you bring.',
+        'General Terms of Service apply to free hosting accounts.',
+        'Self-referrals are not allowed (partner and client must be different).'
+      ],
+      formTitle: 'Apply for Reward',
+      form: {
+        partnerName: 'Your Name',
+        partnerEmail: 'Your Contact Email',
+        clientEmail: 'Referrer Client Email',
+        partnerDomain: 'Your Domain (for free hosting)',
+        notes: 'Additional Notes (optional)',
+        submit: 'Send Application →',
+        success: '✅ Application sent! Our manager will verify it and contact you soon.',
+        error: '❌ Something went wrong. Please try again or contact support.'
+      }
+    },
     kb: {
       meta: 'Knowledge Base — find guides, tutorials and answers to your hosting questions.',
       title: 'Knowledge Base',
@@ -694,7 +730,7 @@ export const t = {
     siteName: 'HostPro',
     siteTagline: 'Сучасний хостинг для сучасних проєктів.',
     nav: { features: 'Переваги', pricing: 'Тарифи', reviews: 'Відгуки', about: 'Про нас', faq: 'FAQ', contact: 'Контакти', status: 'Статус', cta: 'Розпочати', chat: 'AI Асистент' },
-    footer: { tagline: 'Сучасний хостинг для сучасних проєктів.', copy: '© 2025 HostPro. Усі права захищені.', cols: { products: 'Продукти', services: 'Послуги', resources: 'Ресурси', legal: 'Юридична інформація' }, links: { pricing: 'Тарифи', faq: 'FAQ', status: 'Статус системи', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Виділені сервери', laravelHosting: 'Laravel хостинг', phpHosting: 'PHP хостинг', prestashopHosting: 'PrestaShop хостинг', kb: 'База знань', blog: 'Блог', about: 'Про нас', reviews: 'Відгуки', contact: 'Контакти', terms: 'Умови використання', privacy: 'Конфіденційність', refund: 'Повернення коштів' } },
+    footer: { tagline: 'Сучасний хостинг для сучасних проєктів.', copy: '© 2025 HostPro. Усі права захищені.', cols: { products: 'Продукти', services: 'Послуги', resources: 'Ресурси', legal: 'Юридична інформація' }, links: { pricing: 'Тарифи', faq: 'FAQ', status: 'Статус системи', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Виділені сервери', laravelHosting: 'Laravel хостинг', phpHosting: 'PHP хостинг', prestashopHosting: 'PrestaShop хостинг', freeHosting: 'Безкоштовний хостинг', kb: 'База знань', blog: 'Блог', about: 'Про нас', reviews: 'Відгуки', contact: 'Контакти', terms: 'Умови використання', privacy: 'Конфіденційність', refund: 'Повернення коштів' } },
     hero: { badge: '⚡ NVMe SSD · Node.js · 99.9% Uptime · cPanel', title1: 'Хостинг, який', title2: 'просто працює', sub: 'Швидкі SSD-сервери, безкоштовний SSL, cPanel та підтримка 24/7. Запустіть свій сайт за хвилини.', cta: 'Почати зараз', ctaSub: 'Без прихованих платежів · Скасування в будь-який час', stat1: 'Активних сайтів', stat2: 'Час завантаження', stat3: 'Uptime SLA' },
     features: {
       title: 'Все, що потрібно для успіху', sub: 'Ми подбали про інфраструктуру — ви зосередьтесь на бізнесі', items: [
@@ -844,6 +880,41 @@ export const t = {
         { icon: '📈', title: 'Масштабування разом з вами', desc: 'Починайте з бюджетного тарифу та плавно переходьте на вищий по мірі зростання магазину.' },
       ],
       pricingSub: 'Тарифи для e-commerce з ресурсами, що потрібні вашому магазину PrestaShop.',
+    },
+    freeHosting: {
+      meta: 'Безкоштовний хостинг для партнерів — приведіть клієнта та отримайте хостинг для свого сайту безкоштовно.',
+      badge: '🎁 Партнерська програма · Free Hosting',
+      title1: 'Безкоштовний хостинг',
+      title2: 'для наших партнерів',
+      sub: 'Залучіть хоча б одного клієнта на HostPro та отримайте безкоштовний хостинг для свого сайту як винагороду.',
+      howItWorks: 'Як це працює',
+      steps: [
+        { icon: '🤝', title: 'Рекомендуйте нас', desc: 'Розкажіть друзям або клієнтам про HostPro та допоможіть їм обрати тариф.' },
+        { icon: '💳', title: 'Клієнт замовляє', desc: 'Клієнт повинен придбати будь-який тариф хостингу на термін від 1 року.' },
+        { icon: '🎁', title: 'Отримуйте бонус', desc: 'Після 14 днів користування сервісом клієнтом, ви отримуєте хостинг на той самий тариф і термін.' }
+      ],
+      termsTitle: 'Умови програми',
+      terms: [
+        'Клієнт має бути новим для HostPro.',
+        'Хостинг має бути замовлений на термін від 1 року включно.',
+        'Винагорода доступна після 14 днів користування хостингом приведеним клієнтом.',
+        'Нагорода анулюється при поверненні коштів клієнтом протягом перших 14 днів.',
+        'Тариф та термін безкоштовного хостингу відповідають замовленню клієнта.',
+        'Ви отримуєте винагороду за кожного нового залученого клієнта.',
+        'Умови користування безкоштовним хостингом ідентичні загальним умовам надання послуг.',
+        'Рекомендувати самого себе (самореферал) заборонено.'
+      ],
+      formTitle: 'Заявка на отримання',
+      form: {
+        partnerName: 'Ваше ім\'я',
+        partnerEmail: 'Ваш Email для зв\'язку',
+        clientEmail: 'Email клієнта, якого ви привели',
+        partnerDomain: 'Ваш домен (де запустити хостинг)',
+        notes: 'Додаткові нотатки (необов\'язково)',
+        submit: 'Надіслати заявку →',
+        success: '✅ Заявку відправлено! Менеджер перевірить дані та зв\'яжеться з вами найближчим часом.',
+        error: '❌ Щось пішло не так. Спробуйте ще раз або напишіть у підтримку.'
+      }
     },
     kb: {
       meta: 'База знань — інструкції, посібники та відповіді на питання про хостинг.',
@@ -1080,7 +1151,7 @@ export const t = {
     siteName: 'HostPro',
     siteTagline: 'Современный хостинг для современных проектов.',
     nav: { features: 'Преимущества', pricing: 'Тарифы', reviews: 'Отзывы', about: 'О нас', faq: 'FAQ', contact: 'Контакты', status: 'Статус', cta: 'Начать', chat: 'AI Ассистент' },
-    footer: { tagline: 'Современный хостинг для современных проектов.', copy: '© 2025 HostPro. Все права защищены.', cols: { products: 'Продукты', services: 'Услуги', resources: 'Ресурсы', legal: 'Юридическая информация' }, links: { pricing: 'Тарифы', faq: 'FAQ', status: 'Статус системы', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Выделенные серверы', laravelHosting: 'Laravel хостинг', phpHosting: 'PHP хостинг', prestashopHosting: 'PrestaShop хостинг', kb: 'База знаний', blog: 'Блог', about: 'О нас', reviews: 'Отзывы', contact: 'Контакты', terms: 'Условия использования', privacy: 'Конфиденциальность', refund: 'Возврат средств' } },
+    footer: { tagline: 'Современный хостинг для современных проектов.', copy: '© 2025 HostPro. Все права защищены.', cols: { products: 'Продукты', services: 'Услуги', resources: 'Ресурсы', legal: 'Юридическая информация' }, links: { pricing: 'Тарифы', faq: 'FAQ', status: 'Статус системы', wpHosting: 'WordPress хостинг', vpsHosting: 'VPS хостинг', dedicated: 'Выделенные серверы', laravelHosting: 'Laravel хостинг', phpHosting: 'PHP хостинг', prestashopHosting: 'PrestaShop хостинг', freeHosting: 'Бесплатный хостинг', kb: 'База знаний', blog: 'Блог', about: 'О нас', reviews: 'Отзывы', contact: 'Контакты', terms: 'Условия использования', privacy: 'Конфиденциальность', refund: 'Возврат средств' } },
     hero: { badge: '⚡ NVMe SSD · Node.js · 99.9% Uptime · cPanel', title1: 'Хостинг, который', title2: 'просто работает', sub: 'Быстрые SSD-серверы, бесплатный SSL, cPanel и поддержка 24/7. Запустите сайт за минуты.', cta: 'Начать сейчас', ctaSub: 'Без скрытых платежей · Отмена в любое время', stat1: 'Активных сайтов', stat2: 'Время загрузки', stat3: 'Uptime SLA' },
     features: { title: 'Всё, что нужно для успеха', sub: 'Мы позаботились об инфраструктуре — вы сосредоточьтесь на бизнесе', items: [{ icon: '⚡', title: 'NVMe SSD', desc: 'Скорость в 3× быстрее обычного SSD. Ваш сайт загружается мгновенно.' }, { icon: '🔒', title: 'SSL бесплатно', desc: "Let's Encrypt SSL для каждого домена. Автоматически и без доплат." }, { icon: '📋', title: 'cPanel', desc: 'Удобная панель управления для всех сайтов и почтовых ящиков.' }, { icon: '💾', title: 'Ежедневный бекап', desc: 'Автоматические резервные копии каждый день. Восстановление в один клик.' }, { icon: '🌐', title: '99.9% Uptime', desc: 'Гарантированная доступность. SLA-соглашение с каждым тарифом.' }, { icon: '🎧', title: 'Поддержка 24/7', desc: 'Живые специалисты каждый день. Среднее время ответа — 5 минут.' }, { icon: '📧', title: 'Почтовые ящики', desc: 'Создавайте профессиональные email-адреса на вашем домене. Полная поддержка IMAP/POP3/SMTP.' }, { icon: '🚀', title: 'Установка в 1 клик', desc: 'Автоматическая установка WordPress, Joomla и еще 400+ скриптов через Softaculous.' }] },
     tech: {
@@ -1212,6 +1283,41 @@ export const t = {
         { icon: '📈', title: 'Масштабирование вместе с вами', desc: 'Начните с бюджетного тарифа и плавно переходите на более высокий по мере роста магазина.' },
       ],
       pricingSub: 'Тарифы для e-commerce с ресурсами, необходимыми вашему магазину PrestaShop.',
+    },
+    freeHosting: {
+      meta: 'Бесплатный хостинг для партнеров — приведите клиента и получите хостинг для своего сайта бесплатно.',
+      badge: '🎁 Партнерская программа · Free Hosting',
+      title1: 'Бесплатный хостинг',
+      title2: 'для наших партнеров',
+      sub: 'Привлеките хотя бы одного клиента на HostPro и получите бесплатный хостинг для своего сайта в качестве награды.',
+      howItWorks: 'Как это работает',
+      steps: [
+        { icon: '🤝', title: 'Рекомендуйте нас', desc: 'Расскажите друзьям или клиентам о HostPro и помогите им выбрать тариф.' },
+        { icon: '💳', title: 'Клиент заказывает', desc: 'Клиент должен приобрести любой тариф хостинга на срок от 1 года.' },
+        { icon: '🎁', title: 'Получайте бонус', desc: 'Через 14 дней использования сервиса клиентом, вы получаете хостинг на тот же тариф и срок.' }
+      ],
+      termsTitle: 'Условия программы',
+      terms: [
+        'Клиент должен быть новым для HostPro.',
+        'Хостинг должен быть заказан на срок от 1 года включительно.',
+        'Вознаграждение доступно после 14 дней использования хостинга приведенным клиентом.',
+        'Награда аннулируется при возврате средств клиентом в течение первых 14 дней.',
+        'Тариф и срок бесплатного хостинга соответствуют заказу клиента.',
+        'Вы получаете вознаграждение за каждого нового привлеченного клиента.',
+        'Условия использования бесплатного хостинга идентичны общим условиям предоставления услуг.',
+        'Рекомендовать самого себя (самореферал) запрещено.'
+      ],
+      formTitle: 'Заявка на получение',
+      form: {
+        partnerName: 'Ваше имя',
+        partnerEmail: 'Ваш Email для связи',
+        clientEmail: 'Email клиента, которого вы привели',
+        partnerDomain: 'Ваш домен (где запустить хостинг)',
+        notes: 'Дополнительные заметки (необязательно)',
+        submit: 'Отправить заявку →',
+        success: '✅ Заявка отправлена! Менеджер проверит данные и свяжется в ближайшее время.',
+        error: '❌ Что-то пошло не так. Попробуйте еще раз или напишите в поддержку.'
+      }
     },
     kb: {
       meta: 'База знаний — инструкции, руководства и ответы на вопросы о хостинге.',
