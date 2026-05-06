@@ -42,8 +42,10 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
   const formatPrice = (amount: string) => (parseInt(amount) / 100).toFixed(2)
 
   const currentProduct = initialData[billing]
-  // Sort prices by amount to keep them in order (Personal -> Pro)
-  const prices = currentProduct?.prices?.sort((a: any, b: any) => parseInt(a.unit_price.amount) - parseInt(b.unit_price.amount)) || []
+  // Filter for USD only and sort by amount
+  const prices = (currentProduct?.prices || [])
+    .filter((p: any) => p.unit_price.currency_code === 'USD')
+    .sort((a: any, b: any) => parseInt(a.unit_price.amount) - parseInt(b.unit_price.amount))
 
   const getPlanDetails = (priceDesc: string) => {
     const desc = priceDesc.toLowerCase();
@@ -247,8 +249,19 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
 
             // Calculate totals
             const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : billing === 'yearly' ? 12 : 36;
-            const totalAmount = (parseInt(price.unit_price.amount) * months) / 100;
-            const renewalAmount = (totalAmount * 1.25).toFixed(2); // Example renewal logic if needed, or just use total
+            const totalAmount = parseInt(price.unit_price.amount) / 100;
+            const monthlyPrice = totalAmount / months;
+
+            // Get base monthly price for renewal calculation (without discounts)
+            const monthlyPrices = (initialData.monthly?.prices || []).filter((p: any) => p.unit_price.currency_code === 'USD');
+            const basePriceObj = monthlyPrices.find((mp: any) => {
+              const mDesc = mp.description?.toLowerCase() || '';
+              const target = plan.name.toLowerCase();
+              if (target === 'agency') return mDesc.includes('agency') && !mDesc.includes('pro');
+              return mDesc.includes(target);
+            });
+            const baseMonthlyAmount = basePriceObj ? (parseInt(basePriceObj.unit_price.amount) / 100) : monthlyPrice;
+            const renewalAmount = (baseMonthlyAmount * months).toFixed(2);
 
             return (
               <div key={price.id} className={`hp-plan-card ${isFeatured ? 'featured' : ''}`}>
@@ -272,14 +285,18 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
 
                 <div style={{ marginBottom: 24 }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
-                    <span className="price-val">${formatPrice(price.unit_price.amount)}</span>
+                    <span className="price-val">${monthlyPrice.toFixed(2)}</span>
                     <span style={{ fontSize: 14, color: 'rgba(240,244,255,.4)', fontWeight: 300 }}>
                       {T.pricing.mo}
                     </span>
                   </div>
                   <div style={{ fontSize: 12, color: 'rgba(240,244,255,.5)', marginTop: 8, fontWeight: 300, lineHeight: 1.5 }}>
                     {T.billing.for} {getBillingLabel()}. {T.billing.payToday} <span style={{fontWeight:600}}>${totalAmount.toFixed(2)}</span> {T.billing.today}
-                    {billing !== 'monthly' && <div style={{opacity: 0.7}}>then ${renewalAmount} {T.billing.onRenewal}</div>}
+                    {billing !== 'monthly' && (
+                      <div style={{ opacity: 0.7 }}>
+                        {T.billing.then} <span style={{fontWeight:600}}>${renewalAmount}</span> {T.billing.onRenewal}
+                      </div>
+                    )}
                   </div>
                 </div>
 
