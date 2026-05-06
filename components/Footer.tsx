@@ -24,6 +24,8 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
       links: [
         { href: 'laravel-hosting', label: T.footer.links.laravelHosting },
         { href: 'wordpress-hosting', label: T.footer.links.wpHosting },
+        { href: 'php-hosting', label: T.footer.links.phpHosting },
+        { href: 'prestashop-hosting', label: T.footer.links.prestashopHosting },
         { href: 'vps-hosting', label: T.footer.links.vpsHosting },
         { href: 'dedicated-servers', label: T.footer.links.dedicated },
       ]
