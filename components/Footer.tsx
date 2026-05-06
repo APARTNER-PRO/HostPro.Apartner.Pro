@@ -16,6 +16,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
         { href: '#pricing', label: T.footer.links.pricing },
         { href: 'faq', label: T.footer.links.faq },
         { href: 'status', label: T.footer.links.status },
+        { href: 'https://cpanel.apartner.pro', label: 'cPanel' },
       ]
     },
     {
@@ -96,9 +97,10 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
                 <h4 className="hp-footer-col-title">{col.title}</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {col.links.map((link, j) => {
-                    const href = link.href.startsWith('#') ? `${p || '/'}${link.href}` : `${p}/${link.href}`;
+                    const isExternal = link.href.startsWith('http');
+                    const href = isExternal ? link.href : link.href.startsWith('#') ? `${p || '/'}${link.href}` : `${p}/${link.href}`;
                     return (
-                      <Link key={j} href={href} className="hp-footer-link">
+                      <Link key={j} href={href} className="hp-footer-link" {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                         {link.label}
                         {link.href === 'ai-assistant' && <span className="hp-new-badge">NEW</span>}
                       </Link>
