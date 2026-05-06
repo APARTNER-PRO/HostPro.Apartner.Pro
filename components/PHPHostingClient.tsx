@@ -122,7 +122,7 @@ export default function PHPHostingClient({ lang }: { lang: Lang }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40 }}>
             <FadeIn>
-              <h3 style={{ fontFamily: 'Syne,sans-serif', fontSize: 18, fontWeight: 700, marginBottom: 20, color: 'rgba(240,244,255,.7)', textTransform: 'uppercase', letterSpacing: '.08em', fontSize: 13 }}>
+              <h3 style={{ fontFamily: 'Syne,sans-serif', fontSize: 13, fontWeight: 700, marginBottom: 20, color: 'rgba(240,244,255,.7)', textTransform: 'uppercase', letterSpacing: '.08em' }}>
                 {lang === 'uk' ? 'Версії PHP' : lang === 'ru' ? 'Версии PHP' : 'PHP Versions'}
               </h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
