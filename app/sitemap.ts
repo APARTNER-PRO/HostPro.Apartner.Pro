@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next'
 import { LANGS, getT } from '@/lib/i18n'
 
 const BASE = 'https://hostpro.apartner.pro'
-const STATIC_PAGES = ['', 'about', 'faq', 'contact', 'status', 'terms', 'privacy', 'refund']
-const SERVICE_PAGES = ['wordpress-hosting', 'laravel-hosting', 'php-hosting', 'prestashop-hosting', 'free-hosting', 'vps-hosting', 'dedicated-servers']
+const STATIC_PAGES = ['', 'about', 'faq', 'contact', 'status', 'terms', 'privacy', 'refund', 'pricing', 'reviews', 'ai-assistant', 'blog']
+const SERVICE_PAGES = ['wordpress-hosting', 'laravel-hosting', 'php-hosting', 'prestashop-hosting', 'free-hosting', 'vps-hosting', 'dedicated-servers', 'reseller-hosting']
 
 export const dynamic = 'force-static'
 
