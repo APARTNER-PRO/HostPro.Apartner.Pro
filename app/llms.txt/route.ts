@@ -28,13 +28,13 @@ const CONTENT = `# HostPro — llms.txt
 
 ## Hosting Plans
 
-| Plan       | Price   | Websites      | Storage       |
-|------------|---------|---------------|---------------|
-| Personal   | $1.99/mo | 1 website    | 1 GB NVMe SSD |
-| Starter    | $4.99/mo | up to 5      | 5 GB NVMe SSD |
-| Business   | $14.99/mo | up to 15    | 15 GB NVMe SSD|
-| Agency     | $19.99/mo | up to 25    | 25 GB NVMe SSD|
-| Agency Pro | $29.99/mo | Unlimited   | 50 GB NVMe SSD|
+| Plan       | Price   | Websites      | Storage       | Emails        |
+|------------|---------|---------------|---------------|---------------|
+| Personal   | $1.99/mo | 1 website    | 1 GB NVMe SSD | 1             |
+| Starter    | $4.99/mo | up to 5      | 5 GB NVMe SSD | 10            |
+| Business   | $14.99/mo | up to 15    | 15 GB NVMe SSD| 15            |
+| Agency     | $19.99/mo | up to 25    | 25 GB NVMe SSD| Unlimited     |
+| Agency Pro | $29.99/mo | Unlimited   | 50 GB NVMe SSD| Unlimited     |
 
 All plans include: Free SSL, cPanel, Node.js, LiteSpeed WebServer, CloudLinux.
 Agency and above include: Wildcard SSL, VIP 24/7 support.
