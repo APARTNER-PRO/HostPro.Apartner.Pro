@@ -38,7 +38,7 @@ const CONTENT = `# HostPro — llms.txt
 
 All plans include: Free SSL, cPanel, Node.js, LiteSpeed WebServer, CloudLinux.
 Agency and above include: Wildcard SSL, VIP 24/7 support.
-Agency Pro includes: Dedicated account manager.
+Agency Pro includes: Dedicated IP Address, Dedicated account manager.
 
 ## Technology Stack
 

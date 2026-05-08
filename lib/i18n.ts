@@ -182,7 +182,7 @@ export const t = {
         },
         {
           name: 'Agency Pro', desc: 'Maximum resources & capabilities', price: 29.99, color: '#F472B6', popular: false,
-          extras: ['Unlimited Websites', '50 GB NVMe SSD', 'Unlimited Email', 'Unlimited SQL Databases', 'Wildcard SSL', 'Dedicated Manager', 'VIP 24/7 Support', 'Node.js']
+          extras: ['Unlimited Websites', '50 GB NVMe SSD', 'Unlimited Email', 'Unlimited SQL Databases', 'Wildcard SSL', 'Dedicated IP Address', 'Dedicated Manager', 'VIP 24/7 Support', 'Node.js']
         },
       ],
     },
@@ -790,7 +790,7 @@ export const t = {
         { name: 'Starter', desc: 'Для зростаючих проєктів', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 5 сайтів', '5 GB NVMe SSD', '10 Email акаунтів', '5 баз даних SQL', 'Безкоштовний SSL', 'Бекапи', 'cPanel', 'Node.js'] },
         { name: 'Business', desc: 'Для серйозних проєктів', price: 14.99, color: '#A78BFA', popular: false, extras: ['до 15 сайтів', '15 GB NVMe SSD', '20 Email акаунтів', '15 баз даних SQL', 'Безкоштовний SSL', 'Пріоритетний бекап', 'Пріоритетна підтримка', 'Node.js'] },
         { name: 'Agency', desc: 'Для агентств і розробників', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтів', '25 GB NVMe SSD', 'Необмежено Email', '25 баз даних SQL', 'Wildcard SSL', 'Пріоритетний бекап', 'VIP підтримка 24/7', 'Node.js'] },
-        { name: 'Agency Pro', desc: 'Максимум ресурсів і можливостей', price: 29.99, color: '#F472B6', popular: false, extras: ['Необмежено сайтів', '50 GB NVMe SSD', 'Необмежено Email', 'Необмежено баз даних SQL', 'Wildcard SSL', 'Виділений менеджер', 'VIP підтримка 24/7', 'Node.js'] },
+        { name: 'Agency Pro', desc: 'Максимум ресурсів і можливостей', price: 29.99, color: '#F472B6', popular: false, extras: ['Необмежено сайтів', '50 GB NVMe SSD', 'Необмежено Email', 'Необмежено баз даних SQL', 'Wildcard SSL', 'Виділена IP-адреса', 'Виділений менеджер', 'VIP підтримка 24/7', 'Node.js'] },
       ],
     },
     who: {
@@ -1200,7 +1200,7 @@ export const t = {
         { name: 'Starter', desc: 'Для растущих проектов', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 5 сайтов', '5 GB NVMe SSD', '10 Email аккаунтов', '5 баз данных SQL', 'Бесплатный SSL', 'Бекапы', 'cPanel', 'Node.js'] },
         { name: 'Business', desc: 'Для серьёзных проектов', price: 14.99, color: '#A78BFA', popular: false, extras: ['до 15 сайтов', '15 GB NVMe SSD', '20 Email аккаунтов', '15 баз данных SQL', 'Бесплатный SSL', 'Приоритетный бекап', 'Приоритетная поддержка', 'Node.js'] },
         { name: 'Agency', desc: 'Для агентств и разработчиков', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтов', '25 GB NVMe SSD', 'Безлимитный Email', '25 баз данных SQL', 'Wildcard SSL', 'Приоритетный бекап', 'VIP поддержка 24/7', 'Node.js'] },
-        { name: 'Agency Pro', desc: 'Максимум ресурсов и возможностей', price: 29.99, color: '#F472B6', popular: false, extras: ['Безлимитно сайтов', '50 GB NVMe SSD', 'Безлимитный Email', 'Безлимитно баз данных SQL', 'Wildcard SSL', 'Персональный менеджер', 'VIP поддержка 24/7', 'Node.js'] },
+        { name: 'Agency Pro', desc: 'Максимум ресурсов и возможностей', price: 29.99, color: '#F472B6', popular: false, extras: ['Безлимитно сайтов', '50 GB NVMe SSD', 'Безлимитный Email', 'Безлимитно баз данных SQL', 'Wildcard SSL', 'Выделенный IP-адрес', 'Персональный менеджер', 'VIP поддержка 24/7', 'Node.js'] },
       ],
     },
     who: { title: 'Для кого подходит?', sub: 'Масштабируемое решение для любого размера бизнеса', items: [{ icon: '🏢', color: '#6EE7B7', bg: 'rgba(110,231,183,.1)', title: 'Бизнес', desc: 'Корпоративные сайты, лендинги, CRM. Надёжность и скорость для вашего бренда.' }, { icon: '👨‍💻', color: '#60A5FA', bg: 'rgba(96,165,250,.1)', title: 'Разработчики', desc: 'Перепродавайте хостинг клиентам под своим брендом. Мощная инфраструктура для вашего бизнеса.' }, { icon: '🛒', color: '#A78BFA', bg: 'rgba(167,139,250,.1)', title: 'Интернет-магазины', desc: 'WooCommerce, PrestaShop, OpenCart. Быстрый хостинг для e-commerce.' }, { icon: '🚀', color: '#FB923C', bg: 'rgba(251,146,60,.1)', title: 'Стартапы', desc: 'Начните малым и масштабируйтесь мгновенно. Без переездов и простоев.' }] },
