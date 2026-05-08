@@ -37,6 +37,7 @@ const CONTENT = `# HostPro — llms.txt
 | Agency Pro | $29.99/mo | Unlimited   | 50 GB NVMe SSD| Unlimited     | Unlimited     |
 
 All plans include: Free SSL, cPanel, Node.js, LiteSpeed WebServer, CloudLinux.
+Business and above include: Daily backups, Imunify360 Security.
 Agency and above include: Wildcard SSL, VIP 24/7 support.
 Agency Pro includes: Dedicated IP Address, Dedicated account manager.
 
