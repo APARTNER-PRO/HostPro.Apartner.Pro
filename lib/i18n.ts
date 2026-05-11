@@ -166,23 +166,23 @@ export const t = {
       plans: [
         {
           name: 'Personal', desc: 'Perfect for your first website', price: 1.99, color: '#6EE7B7', popular: false,
-          extras: ['1 Website', '1 GB NVMe SSD', '1 Email Account', '1 SQL Database', 'Free SSL', 'cPanel', 'Node.js', 'Standard Support']
+          extras: ['1 Website', '1 GB NVMe SSD', '1 Email Account', '1 MySQL Database', 'Free SSL', 'cPanel', 'Node.js', 'Standard Support']
         },
         {
           name: 'Starter', desc: 'For growing projects', price: 4.99, color: '#60A5FA', popular: false,
-          extras: ['Up to 5 Websites', '5 GB NVMe SSD', '10 Email Accounts', '5 SQL Databases', 'Free SSL', 'Backups', 'cPanel', 'Node.js']
+          extras: ['Up to 5 Websites', '5 GB NVMe SSD', '10 Email Accounts', '5 MySQL Databases', 'Free SSL', 'Backups', 'cPanel', 'Node.js']
         },
         {
           name: 'Business', desc: 'For serious projects', price: 14.99, color: '#A78BFA', popular: false,
-          extras: ['Up to 15 Websites', '15 GB NVMe SSD', '20 Email Accounts', '15 SQL Databases', 'Free SSL', 'cPanel', 'Imunify360 Security', 'Priority Backups', 'Priority Support', 'Node.js']
+          extras: ['Up to 15 Websites', '15 GB NVMe SSD', '20 Email Accounts', '15 MySQL Databases', 'Free SSL', 'cPanel', 'Imunify360 Security', 'Priority Backups', 'Priority Support', 'Node.js']
         },
         {
           name: 'Agency', desc: 'For agencies & developers', price: 19.99, color: '#FB923C', popular: true,
-          extras: ['Up to 25 Websites', '25 GB NVMe SSD', 'Unlimited Email', '25 SQL Databases', 'Wildcard SSL', 'cPanel', 'Imunify360 Security', 'Priority Backups', 'VIP 24/7 Support', 'Node.js']
+          extras: ['Up to 25 Websites', '25 GB NVMe SSD', 'Unlimited Email', '25 MySQL Databases', 'Wildcard SSL', 'cPanel', 'Imunify360 Security', 'Priority Backups', 'VIP 24/7 Support', 'Node.js']
         },
         {
           name: 'Agency Pro', desc: 'Maximum resources & capabilities', price: 29.99, color: '#F472B6', popular: false,
-          extras: ['Unlimited Websites', '50 GB NVMe SSD', 'Unlimited Email', 'Unlimited SQL Databases', 'Wildcard SSL', 'Dedicated IP Address', 'Imunify360 Security', 'Dedicated Manager', 'VIP 24/7 Support', 'Node.js']
+          extras: ['Unlimited Websites', '50 GB NVMe SSD', 'Unlimited Email', 'Unlimited MySQL Databases', 'Wildcard SSL', 'Dedicated IP Address', 'Imunify360 Security', 'Dedicated Manager', 'VIP 24/7 Support', 'Node.js']
         },
       ],
     },
@@ -786,11 +786,11 @@ export const t = {
     pricing: {
       title: 'Прозорі тарифи', sub: 'Оберіть план і масштабуйтесь без обмежень', popular: 'Найпопулярніший', mo: '/міс', cta: 'Обрати план', featLabel: 'Включено:', customTitle: 'Не знайшли потрібний тариф?', customSub: 'Напишіть нам — ми підберемо індивідуальне рішення під ваші потреби та бюджет.', customBtn: '✉️ Написати нам',
       plans: [
-        { name: 'Personal', desc: 'Ідеально для першого сайту', price: 1.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email акаунт', '1 база даних SQL', 'Безкоштовний SSL', 'cPanel', 'Node.js', 'Звичайна підтримка'] },
-        { name: 'Starter', desc: 'Для зростаючих проєктів', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 5 сайтів', '5 GB NVMe SSD', '10 Email акаунтів', '5 баз даних SQL', 'Безкоштовний SSL', 'Бекапи', 'cPanel', 'Node.js'] },
-        { name: 'Business', desc: 'Для серйозних проєктів', price: 14.99, color: '#A78BFA', popular: false, extras: ['до 15 сайтів', '15 GB NVMe SSD', '20 Email акаунтів', '15 баз даних SQL', 'Безкоштовний SSL', 'cPanel', 'Imunify360 Захист', 'Пріоритетний бекап', 'Пріоритетна підтримка', 'Node.js'] },
-        { name: 'Agency', desc: 'Для агентств і розробників', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтів', '25 GB NVMe SSD', 'Необмежено Email', '25 баз даних SQL', 'Wildcard SSL', 'cPanel', 'Imunify360 Захист', 'Пріоритетний бекап', 'VIP підтримка 24/7', 'Node.js'] },
-        { name: 'Agency Pro', desc: 'Максимум ресурсів і можливостей', price: 29.99, color: '#F472B6', popular: false, extras: ['Необмежено сайтів', '50 GB NVMe SSD', 'Необмежено Email', 'Необмежено баз даних SQL', 'Wildcard SSL', 'Виділена IP-адреса', 'Imunify360 Захист', 'Виділений менеджер', 'VIP підтримка 24/7', 'Node.js'] },
+        { name: 'Personal', desc: 'Ідеально для першого сайту', price: 1.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email акаунт', '1 база даних MySQL', 'Безкоштовний SSL', 'cPanel', 'Node.js', 'Звичайна підтримка'] },
+        { name: 'Starter', desc: 'Для зростаючих проєктів', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 5 сайтів', '5 GB NVMe SSD', '10 Email акаунтів', '5 баз даних MySQL', 'Безкоштовний SSL', 'Бекапи', 'cPanel', 'Node.js'] },
+        { name: 'Business', desc: 'Для серйозних проєктів', price: 14.99, color: '#A78BFA', popular: false, extras: ['до 15 сайтів', '15 GB NVMe SSD', '20 Email акаунтів', '15 баз даних MySQL', 'Безкоштовний SSL', 'cPanel', 'Imunify360 Захист', 'Пріоритетний бекап', 'Пріоритетна підтримка', 'Node.js'] },
+        { name: 'Agency', desc: 'Для агентств і розробників', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтів', '25 GB NVMe SSD', 'Необмежено Email', '25 баз даних MySQL', 'Wildcard SSL', 'cPanel', 'Imunify360 Захист', 'Пріоритетний бекап', 'VIP підтримка 24/7', 'Node.js'] },
+        { name: 'Agency Pro', desc: 'Максимум ресурсів і можливостей', price: 29.99, color: '#F472B6', popular: false, extras: ['Необмежено сайтів', '50 GB NVMe SSD', 'Необмежено Email', 'Необмежено баз даних MySQL', 'Wildcard SSL', 'Виділена IP-адреса', 'Imunify360 Захист', 'Виділений менеджер', 'VIP підтримка 24/7', 'Node.js'] },
       ],
     },
     who: {
@@ -1196,11 +1196,11 @@ export const t = {
     pricing: {
       title: 'Прозрачные тарифы', sub: 'Выберите план и масштабируйтесь без ограничений', popular: 'Самый популярный', mo: '/мес', cta: 'Выбрать план', featLabel: 'Включено:', customTitle: 'Не нашли нужный тариф?', customSub: 'Напишите нам — мы подберём индивидуальное решение под ваши нужды и бюджет.', customBtn: '✉️ Написать нам',
       plans: [
-        { name: 'Personal', desc: 'Идеально для первого сайта', price: 1.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email аккаунт', '1 база данных SQL', 'Бесплатный SSL', 'cPanel', 'Node.js', 'Обычная поддержка'] },
-        { name: 'Starter', desc: 'Для растущих проектов', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 5 сайтов', '5 GB NVMe SSD', '10 Email аккаунтов', '5 баз данных SQL', 'Бесплатный SSL', 'Бекапы', 'cPanel', 'Node.js'] },
-        { name: 'Business', desc: 'Для серьёзных проектов', price: 14.99, color: '#A78BFA', popular: false, extras: ['до 15 сайтов', '15 GB NVMe SSD', '20 Email аккаунтов', '15 баз данных SQL', 'Бесплатный SSL', 'cPanel', 'Imunify360 Защита', 'Приоритетный бекап', 'Приоритетная поддержка', 'Node.js'] },
-        { name: 'Agency', desc: 'Для агентств и разработчиков', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтов', '25 GB NVMe SSD', 'Безлимитный Email', '25 баз данных SQL', 'Wildcard SSL', 'cPanel', 'Imunify360 Защита', 'Приоритетный бекап', 'VIP поддержка 24/7', 'Node.js'] },
-        { name: 'Agency Pro', desc: 'Максимум ресурсов и возможностей', price: 29.99, color: '#F472B6', popular: false, extras: ['Безлимитно сайтов', '50 GB NVMe SSD', 'Безлимитный Email', 'Безлимитно баз данных SQL', 'Wildcard SSL', 'Выделенный IP-адрес', 'Imunify360 Защита', 'Персональный менеджер', 'VIP поддержка 24/7', 'Node.js'] },
+        { name: 'Personal', desc: 'Идеально для первого сайта', price: 1.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email аккаунт', '1 база данных MySQL', 'Бесплатный SSL', 'cPanel', 'Node.js', 'Обычная поддержка'] },
+        { name: 'Starter', desc: 'Для растущих проектов', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 5 сайтов', '5 GB NVMe SSD', '10 Email аккаунтов', '5 баз данных MySQL', 'Бесплатный SSL', 'Бекапы', 'cPanel', 'Node.js'] },
+        { name: 'Business', desc: 'Для серьёзных проектов', price: 14.99, color: '#A78BFA', popular: false, extras: ['до 15 сайтов', '15 GB NVMe SSD', '20 Email аккаунтов', '15 баз данных MySQL', 'Бесплатный SSL', 'cPanel', 'Imunify360 Защита', 'Приоритетный бекап', 'Приоритетная поддержка', 'Node.js'] },
+        { name: 'Agency', desc: 'Для агентств и разработчиков', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтов', '25 GB NVMe SSD', 'Безлимитный Email', '25 баз данных MySQL', 'Wildcard SSL', 'cPanel', 'Imunify360 Защита', 'Приоритетный бекап', 'VIP поддержка 24/7', 'Node.js'] },
+        { name: 'Agency Pro', desc: 'Максимум ресурсов и возможностей', price: 29.99, color: '#F472B6', popular: false, extras: ['Безлимитно сайтов', '50 GB NVMe SSD', 'Безлимитный Email', 'Безлимитно баз данных MySQL', 'Wildcard SSL', 'Выделенный IP-адрес', 'Imunify360 Защита', 'Персональный менеджер', 'VIP поддержка 24/7', 'Node.js'] },
       ],
     },
     who: { title: 'Для кого подходит?', sub: 'Масштабируемое решение для любого размера бизнеса', items: [{ icon: '🏢', color: '#6EE7B7', bg: 'rgba(110,231,183,.1)', title: 'Бизнес', desc: 'Корпоративные сайты, лендинги, CRM. Надёжность и скорость для вашего бренда.' }, { icon: '👨‍💻', color: '#60A5FA', bg: 'rgba(96,165,250,.1)', title: 'Разработчики', desc: 'Перепродавайте хостинг клиентам под своим брендом. Мощная инфраструктура для вашего бизнеса.' }, { icon: '🛒', color: '#A78BFA', bg: 'rgba(167,139,250,.1)', title: 'Интернет-магазины', desc: 'WooCommerce, PrestaShop, OpenCart. Быстрый хостинг для e-commerce.' }, { icon: '🚀', color: '#FB923C', bg: 'rgba(251,146,60,.1)', title: 'Стартапы', desc: 'Начните малым и масштабируйтесь мгновенно. Без переездов и простоев.' }] },
