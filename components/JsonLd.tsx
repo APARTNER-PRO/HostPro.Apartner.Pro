@@ -4,7 +4,7 @@ const SITE_URL = 'https://hostpro.apartner.pro'
 
 interface JsonLdProps {
   lang: Lang
-  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing' | 'reviews' | 'kb'
+  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing' | 'reviews' | 'kb' | 'free-php-hosting' | 'free-personal-hosting' | 'free-wordpress-hosting'
   article?: any
 }
 
@@ -90,18 +90,27 @@ export default function JsonLd({ lang, page = 'home', article }: JsonLdProps) {
     },
   } : null
 
-  const faqSchema = page === 'faq' ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: T.faq.items.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.a,
-      },
-    })),
-  } : null
+  let faqSchema = null
+  let faqItems = null
+  if (page === 'faq') faqItems = T.faq.items
+  else if (page === 'free-php-hosting') faqItems = T.freePhp.faq.items
+  else if (page === 'free-personal-hosting') faqItems = T.freePersonal.faq.items
+  else if (page === 'free-wordpress-hosting') faqItems = T.freeWp.faq.items
+
+  if (faqItems) {
+    faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((item: any) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a,
+        },
+      })),
+    }
+  }
 
   const reviewsSchema = page === 'reviews' ? T.testimonials.items.map((r: any) => ({
     '@context': 'https://schema.org',
