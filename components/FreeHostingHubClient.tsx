@@ -37,12 +37,20 @@ export default function FreeHostingHubClient({ lang }: { lang: Lang }) {
 
   const cards = [
     {
-      title: T.freeHostingHub.starter.title,
-      desc: T.freeHostingHub.starter.desc,
-      btn: T.freeHostingHub.starter.btn,
-      href: `${p}/free-starter-hosting`,
+      title: T.freeHostingHub.php.title,
+      desc: T.freeHostingHub.php.desc,
+      btn: T.freeHostingHub.php.btn,
+      href: `${p}/free-php-hosting`,
       icon: '🚀',
       color: '#A855F7'
+    },
+    {
+      title: T.freeHostingHub.personal.title,
+      desc: T.freeHostingHub.personal.desc,
+      btn: T.freeHostingHub.personal.btn,
+      href: `${p}/free-personal-hosting`,
+      icon: '💎',
+      color: '#F43F5E'
     },
     {
       title: T.freeHostingHub.wp.title,

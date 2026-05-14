@@ -31,7 +31,7 @@ function FadeIn({ children, delay = 0, className = '', style }: {
   )
 }
 
-export default function FreeWpClient({ lang }: { lang: Lang }) {
+export default function FreePhpClient({ lang }: { lang: Lang }) {
   const T = getT(lang)
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -52,7 +52,7 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          formType: 'Безкоштовний Стартовий Хостинг'
+          formType: 'Безкоштовний PHP Хостинг'
         })
       })
 
@@ -75,14 +75,14 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
       <section style={{ textAlign: 'center', marginBottom: 120 }}>
         <FadeIn>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.2)', borderRadius: 100, padding: '8px 20px', fontSize: 14, color: '#60A5FA', marginBottom: 32, fontWeight: 600 }}>
-            ✨ {T.freeWp.meta}
+            ✨ {T.freePhp.meta}
           </div>
           <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(40px, 8vw, 72px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.04em', marginBottom: 32 }}>
-            <span style={{ display: 'block', color: '#fff' }}>{T.freeWp.title}</span>
+            <span style={{ display: 'block', color: '#fff' }}>{T.freePhp.title}</span>
             <span style={{ display: 'block', background: 'linear-gradient(90deg, #60A5FA, #A855F7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>від HostPro</span>
           </h1>
           <p style={{ fontSize: 'clamp(18px, 2vw, 22px)', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, maxWidth: 800, margin: '0 auto', fontWeight: 400 }}>
-            {T.freeWp.sub}
+            {T.freePhp.sub}
           </p>
         </FadeIn>
       </section>
@@ -90,21 +90,21 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
       {/* WHO CAN GET & WHAT INCLUDED */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 32, marginBottom: 120 }}>
         <FadeIn delay={100} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 32, padding: 48 }}>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, marginBottom: 24, color: '#fff' }}>{T.freeWp.whoCanGet.title}</h2>
-          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 20 }}>{T.freeWp.whoCanGet.text}</p>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 15, fontStyle: 'italic' }}>{T.freeWp.whoCanGet.target}</p>
+          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, marginBottom: 24, color: '#fff' }}>{T.freePhp.whoCanGet.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 20 }}>{T.freePhp.whoCanGet.text}</p>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 15, fontStyle: 'italic' }}>{T.freePhp.whoCanGet.target}</p>
         </FadeIn>
 
         <FadeIn delay={200} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 32, padding: 48 }}>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, marginBottom: 24, color: '#fff' }}>{T.freeWp.whatIsIncluded.title}</h2>
-          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 20 }}>{T.freeWp.whatIsIncluded.text}</p>
-          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freeWp.whatIsIncluded.domains}</p>
+          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, marginBottom: 24, color: '#fff' }}>{T.freePhp.whatIsIncluded.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 20 }}>{T.freePhp.whatIsIncluded.text}</p>
+          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freePhp.whatIsIncluded.domains}</p>
         </FadeIn>
       </div>
 
       {/* BENEFITS GRID */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24, marginBottom: 120 }}>
-        {T.freeWp.benefits.map((benefit: any, i: number) => (
+        {T.freePhp.benefits.map((benefit: any, i: number) => (
           <FadeIn key={i} delay={i * 100} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 24, padding: 32, textAlign: 'center' }}>
             <div style={{ fontSize: 48, marginBottom: 20 }}>{benefit.icon}</div>
             <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 12, color: '#fff' }}>{benefit.title}</h3>
@@ -117,18 +117,18 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
       <div id="application-form" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 80, alignItems: 'start', marginBottom: 120 }}>
         <FadeIn>
           <div style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 40, padding: 48 }}>
-            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 32, fontWeight: 800, marginBottom: 20 }}>{T.freeWp.application.title}</h2>
-            <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 40 }}>{T.freeWp.application.text}</p>
+            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 32, fontWeight: 800, marginBottom: 20 }}>{T.freePhp.application.title}</h2>
+            <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 40 }}>{T.freePhp.application.text}</p>
 
             {status === 'success' ? (
               <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)', borderRadius: 20, padding: 32, textAlign: 'center' }}>
                 <div style={{ fontSize: 40, marginBottom: 16 }}>✅</div>
-                <h3 style={{ color: '#10B981', fontSize: 20, fontWeight: 700 }}>{T.freeWp.application.form.success}</h3>
+                <h3 style={{ color: '#10B981', fontSize: 20, fontWeight: 700 }}>{T.freePhp.application.form.success}</h3>
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  <label style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>{T.freeWp.application.form.name}</label>
+                  <label style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>{T.freePhp.application.form.name}</label>
                   <input 
                     required
                     type="text" 
@@ -138,7 +138,7 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
                   />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  <label style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>{T.freeWp.application.form.email}</label>
+                  <label style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>{T.freePhp.application.form.email}</label>
                   <input 
                     required
                     type="email" 
@@ -148,7 +148,7 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
                   />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  <label style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>{T.freeWp.application.form.project}</label>
+                  <label style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>{T.freePhp.application.form.project}</label>
                   <textarea 
                     required
                     rows={4}
@@ -159,7 +159,7 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
                 </div>
 
                 {status === 'error' && (
-                  <div style={{ color: '#EF4444', fontSize: 14, fontWeight: 500 }}>{T.freeWp.application.form.error}</div>
+                  <div style={{ color: '#EF4444', fontSize: 14, fontWeight: 500 }}>{T.freePhp.application.form.error}</div>
                 )}
 
                 <button 
@@ -168,7 +168,7 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
                   className="btn-primary" 
                   style={{ width: '100%', padding: '18px', borderRadius: 16, fontSize: 18, fontWeight: 800, background: 'linear-gradient(90deg, #60A5FA, #3B82F6)', border: 'none', color: '#fff', cursor: 'pointer', boxShadow: '0 10px 30px rgba(59,130,246,0.3)', transition: 'transform .3s ease' }}
                 >
-                  {loading ? 'Надсилаємо...' : T.freeWp.application.form.submit}
+                  {loading ? 'Надсилаємо...' : T.freePhp.application.form.submit}
                 </button>
               </form>
             )}
@@ -177,18 +177,18 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
 
         <FadeIn delay={300}>
           <div style={{ marginBottom: 48 }}>
-            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 32, fontWeight: 800, marginBottom: 24 }}>{T.freeWp.conditions.title}</h2>
+            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 32, fontWeight: 800, marginBottom: 24 }}>{T.freePhp.conditions.title}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freeWp.conditions.text1}</p>
-              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freeWp.conditions.text2}</p>
-              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freeWp.conditions.text3}</p>
+              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freePhp.conditions.text1}</p>
+              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freePhp.conditions.text2}</p>
+              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freePhp.conditions.text3}</p>
             </div>
           </div>
 
           <div>
-            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 32, fontWeight: 800, marginBottom: 24 }}>{T.freeWp.features.title}</h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 16 }}>{T.freeWp.features.text}</p>
-            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>💡 {T.freeWp.features.notice}</p>
+            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 32, fontWeight: 800, marginBottom: 24 }}>{T.freePhp.features.title}</h2>
+            <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 16 }}>{T.freePhp.features.text}</p>
+            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>💡 {T.freePhp.features.notice}</p>
           </div>
         </FadeIn>
       </div>
@@ -196,45 +196,45 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
       {/* RESTRICTIONS SECTION */}
       <section style={{ background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.1)', borderRadius: 40, padding: 60, marginBottom: 120 }}>
         <FadeIn>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 32, fontWeight: 800, color: '#F87171', marginBottom: 32 }}>{T.freeWp.restrictions.title}</h2>
-          <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 24 }}>{T.freeWp.restrictions.link}</p>
+          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 32, fontWeight: 800, color: '#F87171', marginBottom: 32 }}>{T.freePhp.restrictions.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 24 }}>{T.freePhp.restrictions.link}</p>
           <div style={{ display: 'grid', gap: 16, marginBottom: 32 }}>
-            {T.freeWp.restrictions.list.map((item: string, i: number) => (
+            {T.freePhp.restrictions.list.map((item: string, i: number) => (
               <div key={i} style={{ display: 'flex', gap: 16 }}>
                 <div style={{ color: '#F87171', fontWeight: 800 }}>•</div>
                 <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
           </div>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontStyle: 'italic', marginBottom: 24 }}>{T.freeWp.restrictions.footer}</p>
-          <p style={{ color: '#fff', fontWeight: 500 }}>{T.freeWp.restrictions.note}</p>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontStyle: 'italic', marginBottom: 24 }}>{T.freePhp.restrictions.footer}</p>
+          <p style={{ color: '#fff', fontWeight: 500 }}>{T.freePhp.restrictions.note}</p>
         </FadeIn>
       </section>
 
       {/* PROMO & UNIQUE DOMAIN */}
       <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 40, marginBottom: 120 }}>
         <FadeIn style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 32, padding: 48 }}>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, marginBottom: 24 }}>{T.freeWp.promo.title}</h2>
-          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 16 }}>{T.freeWp.promo.text1}</p>
-          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 16 }}>{T.freeWp.promo.text2}</p>
-          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freeWp.promo.text3}</p>
+          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, marginBottom: 24 }}>{T.freePhp.promo.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 16 }}>{T.freePhp.promo.text1}</p>
+          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 16 }}>{T.freePhp.promo.text2}</p>
+          <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freePhp.promo.text3}</p>
         </FadeIn>
 
         <FadeIn delay={200} style={{ background: 'rgba(168, 85, 247, 0.1)', border: '1px solid rgba(168, 85, 247, 0.2)', borderRadius: 32, padding: 48, display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
           <div style={{ fontSize: 64, marginBottom: 24 }}>🎁</div>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16 }}>{T.freeWp.uniqueDomain.title}</h2>
-          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 18 }}>{T.freeWp.uniqueDomain.text}</p>
+          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16 }}>{T.freePhp.uniqueDomain.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 18 }}>{T.freePhp.uniqueDomain.text}</p>
         </FadeIn>
       </div>
 
       {/* FAQ SECTION */}
       <section style={{ marginBottom: 120 }}>
         <FadeIn style={{ textAlign: 'center', marginBottom: 60 }}>
-          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 40, fontWeight: 800, marginBottom: 16 }}>{T.freeWp.faq.title}</h2>
-          <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: 700, margin: '0 auto' }}>{T.freeWp.faq.sub}</p>
+          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 40, fontWeight: 800, marginBottom: 16 }}>{T.freePhp.faq.title}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: 700, margin: '0 auto' }}>{T.freePhp.faq.sub}</p>
         </FadeIn>
         <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {T.freeWp.faq.items.map((item: any, i: number) => (
+          {T.freePhp.faq.items.map((item: any, i: number) => (
             <FaqItem key={i} item={item} i={i} />
           ))}
         </div>
@@ -244,10 +244,10 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
       <section style={{ textAlign: 'center', marginBottom: 120 }}>
         <FadeIn>
           <div style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 32, padding: 48, maxWidth: 800, margin: '0 auto' }}>
-            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16 }}>{T.freeWp.interlink.title}</h2>
-            <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 32 }}>{T.freeWp.interlink.desc}</p>
-            <Link href={`/${lang}${T.freeWp.interlink.href}`} style={{ display: 'inline-block', padding: '16px 32px', background: 'rgba(255,255,255,0.1)', color: '#fff', borderRadius: 100, textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.2)', transition: 'background .3s' }}>
-              {T.freeWp.interlink.btn}
+            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16 }}>{T.freePhp.interlink.title}</h2>
+            <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 32 }}>{T.freePhp.interlink.desc}</p>
+            <Link href={`/${lang}${T.freePhp.interlink.href}`} style={{ display: 'inline-block', padding: '16px 32px', background: 'rgba(255,255,255,0.1)', color: '#fff', borderRadius: 100, textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.2)', transition: 'background .3s' }}>
+              {T.freePhp.interlink.btn}
             </Link>
           </div>
         </FadeIn>

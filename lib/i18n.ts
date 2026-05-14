@@ -543,7 +543,7 @@ export const t = {
         error: '❌ Something went wrong. Please try again or contact support.'
       }
     },
-    freeStarter: {
+    freePhp: {
       meta: 'Free Starter hosting for non-profit projects — 6 months free from HostPro.',
       title: 'Free Starter Hosting',
       sub: 'Take advantage of free hosting from HostPro for 6 months, no upfront payments or obligations.',
@@ -554,7 +554,7 @@ export const t = {
       },
       whatIsIncluded: {
         title: 'What is included in this service?',
-        text: 'As part of this free hosting service, you can get a service similar to the "Starter" plan with the cPanel hosting control panel. You can install WordPress or any other system in 1 click, you will have the opportunity to use your own domain name registered earlier, and you can also get a free domain name in the *.apartner.pro zone.',
+        text: 'As part of this free hosting service, you can get a service similar to the "Personal" plan with the cPanel hosting control panel. You can install WordPress or any other system in 1 click, you will have the opportunity to use your own domain name registered earlier, and you can also get a free domain name in the *.apartner.pro zone.',
         domains: 'If you do not have your own domain name yet, and do not want to use a domain in the *.apartner.pro zone, we offer to register a domain with us in one of the many domain zones. Domain name registration will be paid.',
       },
       conditions: {
@@ -565,7 +565,7 @@ export const t = {
       },
       application: {
         title: 'Application for free hosting',
-        text: 'After your application is approved, you will be sent a promo code that must be entered when ordering the "Starter" hosting plan, which gives a 100% discount for 6 months of using the service.',
+        text: 'After your application is approved, you will be sent a promo code that must be entered when ordering the "Personal" hosting plan, which gives a 100% discount for 6 months of using the service.',
         form: {
           name: 'Your Name',
           email: 'Email',
@@ -578,7 +578,7 @@ export const t = {
       features: {
         title: 'Free hosting includes:',
         text: 'The conditions and resources of the free hosting provided do not differ from the conditions of the paid plan: the site will be hosted on powerful servers, guaranteed professional support from our technical service, backups, cPanel, free SSL certificate, and other benefits.',
-        notice: 'Please note, we reserve the right to refuse free hosting without explanation.',
+        notice: 'Please note, we reserve the right to refuse free hosting without explanation. The number of free plans is limited.',
       },
       restrictions: {
         title: 'Restrictions',
@@ -620,6 +620,97 @@ export const t = {
           { q: 'Can I change PHP, what PHP versions are available?', a: 'Of course. You can choose versions from 5.x to 8.x directly in cPanel.' },
           { q: 'What can I host on the site?', a: 'Any legal content for non-commercial purposes that does not contain advertising.' }
         ]
+      },
+      interlink: {
+        title: 'Looking for WordPress hosting specifically?',
+        desc: 'Learn about our special offer for social and volunteer projects built on WordPress.',
+        btn: 'Free WordPress Hosting →',
+        href: '/free-wordpress-hosting'
+      }
+    },
+    freePersonal: {
+      meta: 'Free Starter hosting for non-profit projects — 6 months free from HostPro.',
+      title: 'Free Starter Hosting',
+      sub: 'Take advantage of free hosting from HostPro for 6 months, no upfront payments or obligations.',
+      whoCanGet: {
+        title: 'Who can get free hosting?',
+        text: 'This is a real offer for hosting websites of non-profit projects. Our project HostPro can provide free hosting services for websites that do not aim to make a profit, and also for valid reasons cannot pay for standard hosting services.',
+        target: 'Services are provided to non-profit organizations (charitable foundations, schools, universities, public projects), as well as individuals to support non-profit initiatives and projects related to scientific or social topics (research, education).',
+      },
+      whatIsIncluded: {
+        title: 'What is included in this service?',
+        text: 'As part of this free hosting service, you can get a service similar to the "Personal" plan with the cPanel hosting control panel. You can install WordPress or any other system in 1 click, you will have the opportunity to use your own domain name registered earlier, and you can also get a free domain name in the *.apartner.pro zone.',
+        domains: 'If you do not have your own domain name yet, and do not want to use a domain in the *.apartner.pro zone, we offer to register a domain with us in one of the many domain zones. Domain name registration will be paid.',
+      },
+      conditions: {
+        title: 'Conditions for providing free hosting',
+        text1: 'To get free hosting, first send a request in free form from a non-profit organization asking to provide free hosting through the contact form below.',
+        text2: 'Individuals who have their own scientific or educational projects can also use a similar method to send a request for free hosting.',
+        text3: 'Describe your project in a few words and the reasons why you cannot use paid hosting services.',
+      },
+      application: {
+        title: 'Application for free hosting',
+        text: 'After your application is approved, you will be sent a promo code that must be entered when ordering the "Personal" hosting plan, which gives a 100% discount for 6 months of using the service.',
+        form: {
+          name: 'Your Name',
+          email: 'Email',
+          project: 'Project Description',
+          submit: 'Send Application →',
+          success: '✅ Application successfully sent! We will contact you shortly.',
+          error: '❌ Error sending. Try again later or write to us by email.',
+        }
+      },
+      features: {
+        title: 'Free hosting includes:',
+        text: 'The conditions and resources of the free hosting provided do not differ from the conditions of the paid plan: the site will be hosted on powerful servers, guaranteed professional support from our technical service, backups, cPanel, free SSL certificate, and other benefits.',
+        notice: 'Please note, we reserve the right to refuse free hosting without explanation. The number of free plans is limited.',
+      },
+      restrictions: {
+        title: 'Restrictions',
+        link: 'The service is provided under the conditions described in the public offer:',
+        list: [
+          'The site must not place commercial advertising in any form on its pages;',
+          'The site must not place articles and links of various exchanges on its pages;',
+          'No SPAM mailing should be done from the hosting account;',
+          'On the main page, "about the project" or "contacts", the logo of our project and a mention in free form that the hosting is provided by "HostPro" with a link to the main page of our site HostPro must be placed',
+        ],
+        footer: 'In case of violation of any of the listed conditions, we reserve the right to refuse to provide services without explanation.',
+        note: 'We sincerely root for people who invest their strength, time and talent in the development of socially useful deeds, education, science, engage in charity, so we will happily provide the described hosting service for free.',
+      },
+      benefits: [
+        { icon: '💰', title: 'Truly $0 hosting', desc: 'Use it for free. Everything is transparent, no hidden conditions.' },
+        { icon: '🛡️', title: 'Antivirus scan', desc: 'We regularly check your files with antivirus and notify if necessary' },
+        { icon: '🔒', title: 'Free SSL', desc: 'Free certificate for all your sites and subdomains' },
+        { icon: '⚙️', title: 'Personal of your choice', desc: 'Change Personal version in a couple of clicks. Versions 5.x - 8.x are available' }
+      ],
+      promo: {
+        title: 'Take advantage of promo conditions',
+        text1: 'You can also take advantage of our promotional offers to purchase services on very favorable terms and cancel restrictions on advertising on site pages and links to our project.',
+        text2: 'We regularly hold promotions and sales, offer free domains along with hosting services and low prices for hosting as part of special offers.',
+        text3: 'We also have a 30-day money back guarantee. Check out hosting promotions and choose yours.',
+      },
+      uniqueDomain: {
+        title: 'Unique domain for your site',
+        text: 'We give a .com.ua domain as a gift for hosting orders when paying for a period of 1 year or more.',
+      },
+      faq: {
+        title: 'Questions and answers about free hosting',
+        sub: 'We believe that quality is the main component of any service. That is why we offer Hosting in an optimized technical environment, ideal for installing WordPress or other systems.',
+        items: [
+          { q: 'Is there a test hosting, what are the restrictions?', a: 'Yes, we provide a free trial period. During testing, there may be restrictions on sending mail.' },
+          { q: 'Is this hosting suitable for WordPress?', a: 'Absolutely. Our servers are optimized for fast Personal and database performance.' },
+          { q: 'Are there any additional optimizations?', a: 'Yes, we use LiteSpeed and NVMe SSD drives for maximum speed.' },
+          { q: 'Is an SSL certificate provided?', a: 'Yes, we provide free Let\'s Encrypt certificates.' },
+          { q: 'What software is used?', a: 'We use CloudLinux, LiteSpeed, cPanel, and Softaculous.' },
+          { q: 'Can I change Personal, what Personal versions are available?', a: 'Of course. You can choose versions from 5.x to 8.x directly in cPanel.' },
+          { q: 'What can I host on the site?', a: 'Any legal content for non-commercial purposes that does not contain advertising.' }
+        ]
+      },
+      interlink: {
+        title: 'Looking for WordPress hosting specifically?',
+        desc: 'Learn about our special offer for social and volunteer projects built on WordPress.',
+        btn: 'Free WordPress Hosting →',
+        href: '/free-wordpress-hosting'
       }
     },
     freeWp: {
@@ -633,7 +724,7 @@ export const t = {
       },
       whatIsIncluded: {
         title: 'Technical capabilities and WordPress installation',
-        text: 'You get full access to the "Starter" plan with the intuitive cPanel. Thanks to the built-in Softaculous installer, you can install WordPress or another CMS in 1 click. You can attach your own domain or get a free *.apartner.pro subdomain.',
+        text: 'You get full access to the "Personal" plan with the intuitive cPanel. Thanks to the built-in Softaculous installer, you can install WordPress or another CMS in 1 click. You can attach your own domain or get a free *.apartner.pro subdomain.',
         domains: 'You also have the opportunity to purchase and register a unique domain name with us at standard registration rates if the free *.apartner.pro option does not suit you.',
       },
       conditions: {
@@ -644,7 +735,7 @@ export const t = {
       },
       application: {
         title: 'Request for free hosting',
-        text: 'After a quick check of your application by a manager, we will send you a unique promo code. Use it when ordering the "Starter" plan to get a 100% discount for half a year.',
+        text: 'After a quick check of your application by a manager, we will send you a unique promo code. Use it when ordering the "Personal" plan to get a 100% discount for half a year.',
         form: {
           name: 'Full Name or Organization Name',
           email: 'Contact Email',
@@ -657,7 +748,7 @@ export const t = {
       features: {
         title: 'Advantages of our WP hosting:',
         text: 'Our free plan is not a stripped-down version. Your WordPress site will run on fast servers with NVMe drives, you will get 24/7 technical support, automatic backups, cPanel and a free SSL certificate.',
-        notice: 'HostPro reserves the right to refuse participation in the program without explanation if the project violates the rules.',
+        notice: 'HostPro reserves the right to refuse participation in the program without explanation if the project violates the rules. The number of free plans is limited.',
       },
       restrictions: {
         title: 'Terms of Use',
@@ -691,23 +782,34 @@ export const t = {
         title: 'FAQ: Free WordPress hosting',
         sub: 'Answers to frequently asked questions regarding the deployment of social and charitable projects.',
         items: [
-          { q: 'What resources are allocated for free WordPress?', a: 'You get a full-fledged "Starter" plan with 3 GB of space on ultra-fast NVMe SSDs and the ability to host up to 3 websites.' },
+          { q: 'What resources are allocated for free WordPress?', a: 'You get a full-fledged "Personal" plan with 1 GB of space on ultra-fast NVMe SSDs and the ability to host 1 website.' },
           { q: 'Can I install another CMS instead of WordPress?', a: 'Of course. Although this plan is optimized for WordPress, you can install any other system via Softaculous or manually.' },
           { q: 'How fast is free hosting activated?', a: 'After manual review of your application (usually 1-2 business days), you will receive a promo code for instant activation.' },
           { q: 'Is a free SSL included in the plan?', a: 'Yes, each of your domains and subdomains automatically receives a free Let\'s Encrypt certificate.' },
           { q: 'How to set up mail with your own domain?', a: 'You can create mailboxes right in cPanel and use them via web interface or connect to Gmail/Outlook.' },
           { q: 'What PHP versions are supported for WordPress?', a: 'We support all current versions, including PHP 7.4, 8.0, 8.1, 8.2, and 8.3.' },
-          { q: 'What to do after the end of 6 free months?', a: 'You will be able to continue using it at the standard price of the "Starter" plan or submit a new application for review.' }
+          { q: 'What to do after the end of 6 free months?', a: 'You will be able to continue using it at the standard price of the "Personal" plan or submit a new application for review.' }
         ]
+      },
+      interlink: {
+        title: 'Need hosting for a different CMS?',
+        desc: 'Consider our Free PHP hosting, perfect for any non-profit projects.',
+        btn: 'Free PHP Hosting →',
+        href: '/free-php-hosting'
       }
     },
     freeHostingHub: {
       title: 'Choose a free hosting program',
       sub: 'HostPro offers several options for free hosting for different needs. Choose the one that suits you best.',
-      starter: {
-        title: 'Starter hosting for NPOs',
+      php: {
+        title: 'PHP hosting for NPOs',
         desc: '6 months of free hosting for social projects. cPanel, PHP, any CMS.',
-        btn: 'Starter Plan Details →'
+        btn: 'PHP Plan Details →'
+      },
+      personal: {
+        title: 'Personal hosting for Projects',
+        desc: '6 months of free hosting for personal projects. cPanel, PHP, any CMS.',
+        btn: 'Personal Plan Details →'
       },
       wp: {
         title: 'WordPress hosting for NPOs',
@@ -1121,7 +1223,7 @@ export const t = {
         error: '❌ Щось пішло не так. Спробуйте ще раз або напишіть у підтримку.'
       }
     },
-    freeStarter: {
+    freePhp: {
       meta: 'Безкоштовний Стартовий хостинг для некомерційних проектів — 6 місяців безкоштовно від HostPro.',
       title: 'Безкоштовний Стартовий хостинг',
       sub: 'Скористайтесь безкоштовним хостингом від HostPro протягом 6 місяців, без передплат та зобов\'язань.',
@@ -1132,7 +1234,7 @@ export const t = {
       },
       whatIsIncluded: {
         title: 'Що включено у таку послугу?',
-        text: 'В рамках даної безкоштовної послуги хостингу ви можете отримати послугу аналогічну тарифу “Стартовий” з панеллю керування хостингом cPanel. Ви можете в 1 клік встановити WordPress або будь-яку іншу систему, у Вас буде можливість використовувати власне доменне ім’я, зареєстроване раніше, а також ви можете отримати безкоштовно доменне ім’я в зоні *.apartner.pro.',
+        text: 'В рамках даної безкоштовної послуги хостингу ви можете отримати послугу аналогічну тарифу "Personal" з панеллю керування хостингом cPanel. Ви можете в 1 клік встановити WordPress або будь-яку іншу систему, у Вас буде можливість використовувати власне доменне ім’я, зареєстроване раніше, а також ви можете отримати безкоштовно доменне ім’я в зоні *.apartner.pro.',
         domains: 'Якщо ви ще не маєте власного доменного імені, та не бажаєте використовувати домен в зоні *.apartner.pro – ми пропонуємо зареєструвати домен у нас в одній з багатьох доменних зон (на зразок, .com, .net, .org, .info, .biz, .com.ua, .in.ua, .kiev.ua та інші). Реєстрація доменного імені буде платною.',
       },
       conditions: {
@@ -1143,7 +1245,7 @@ export const t = {
       },
       application: {
         title: 'Заявка на безкоштовний хостинг',
-        text: 'Після схвалення заявки вам буде відправлений промо-код, який необхідно ввести при замовленні послуги хостингу за тарифом “Стартовий”, що дає 100% знижку на 6 місяців користування послугою.',
+        text: 'Після схвалення заявки вам буде відправлений промо-код, який необхідно ввести при замовленні послуги хостингу за тарифом "Personal", що дає 100% знижку на 6 місяців користування послугою.',
         form: {
           name: 'Ваше ім’я',
           email: 'Email',
@@ -1156,7 +1258,7 @@ export const t = {
       features: {
         title: 'Безкоштовний хостинг включає:',
         text: 'Умови та ресурси безкоштовно наданого хостингу нічим не відрізняються від умов платного тарифу: сайт буде розміщено на потужних серверах, гарантована професійна підтримка від нашої технічної служби, резервне копіювання, панель cPanel, безкоштовний SSL сертифікат та інші переваги.',
-        notice: 'Зауважте, ми залишаємо за собою право відмовити в безкоштовному розміщенні без пояснення причин.',
+        notice: 'Зауважте, ми залишаємо за собою право відмовити в безкоштовному розміщенні без пояснення причин. Кількість безкоштовних тарифів обмежена.',
       },
       restrictions: {
         title: 'Обмеження',
@@ -1198,6 +1300,97 @@ export const t = {
           { q: 'Чи можна змінити PHP, які версії PHP достуні?', a: 'Звісно. Ви можете обрати версії від 5.x до 8.x безпосередньо у cPanel.' },
           { q: 'Що я можу розмістити на сайті?', a: 'Будь-який законний контент для некомерційних цілей, що не містить реклами.' }
         ]
+      },
+      interlink: {
+        title: 'Шукаєте хостинг саме для WordPress?',
+        desc: 'Дізнайтесь про нашу спеціальну пропозицію для соціальних та волонтерських проектів, створених на базі WordPress.',
+        btn: 'Безкоштовний WordPress хостинг →',
+        href: '/free-wordpress-hosting'
+      }
+    },
+    freePersonal: {
+      meta: 'Безкоштовний Personal хостинг для некомерційних проектів — 6 місяців безкоштовно від HostPro.',
+      title: 'Безкоштовний Personal хостинг',
+      sub: 'Скористайтесь безкоштовним хостингом від HostPro протягом 6 місяців, без передплат та зобов\'язань.',
+      whoCanGet: {
+        title: 'Хто може отримати безкоштовний хостинг?',
+        text: 'Це реальна пропозиція для розміщення сайтів некомерційних проектів. Наш проект HostPro може надати безкоштовні послуги хостингу для сайтів, що не мають за мету отримання прибутку від самого сайту чи з його допомогою, а також з певних поважних причин не можуть оплачувати стандартні послуги хостингу.',
+        target: 'Послуги надаються як некомерційним організаціям (благодійним фондам, школам, університетам, громадським проектам), так і приватним особам, для підтримки некомерційних ініціатив та проектів, які стосуються зокрема наукової чи соціальної тематики (дослідженням, освіті та вихованню).',
+      },
+      whatIsIncluded: {
+        title: 'Що включено у таку послугу?',
+        text: 'В рамках даної безкоштовної послуги хостингу ви можете отримати послугу аналогічну тарифу "Personal" з панеллю керування хостингом cPanel. Ви можете в 1 клік встановити WordPress або будь-яку іншу систему, у Вас буде можливість використовувати власне доменне ім’я, зареєстроване раніше, а також ви можете отримати безкоштовно доменне ім’я в зоні *.apartner.pro.',
+        domains: 'Якщо ви ще не маєте власного доменного імені, та не бажаєте використовувати домен в зоні *.apartner.pro – ми пропонуємо зареєструвати домен у нас в одній з багатьох доменних зон (на зразок, .com, .net, .org, .info, .biz, .com.ua, .in.ua, .kiev.ua та інші). Реєстрація доменного імені буде платною.',
+      },
+      conditions: {
+        title: 'Умови надання безкоштовного хостингу',
+        text1: 'Для отримання безкоштовного хостингу в першу чергу надішліть запит у вільній формі від некомерційної організації з проханням надати безкоштовний хостинг через форму контактів нижче.',
+        text2: 'Приватним особам, які мають свої наукові або навчально-освітні проекти, можна також скористатися аналогічним способом, аби надіслати запит на надання безкоштовного хостингу.',
+        text3: 'Опишіть в двох словах Ваш проект та причини, з яких Ви не можете використати платні послуги хостингу.',
+      },
+      application: {
+        title: 'Заявка на безкоштовний хостинг',
+        text: 'Після схвалення заявки вам буде відправлений промо-код, який необхідно ввести при замовленні послуги хостингу за тарифом "Personal", що дає 100% знижку на 6 місяців користування послугою.',
+        form: {
+          name: 'Ваше ім’я',
+          email: 'Email',
+          project: 'Опис Вашого проекту',
+          submit: 'Надіслати заявку →',
+          success: '✅ Заявка успішно надіслана! Ми зв\'яжемося з вами найближчим часом.',
+          error: '❌ Помилка при відправці. Спробуйте пізніше або напишіть нам на email.',
+        }
+      },
+      features: {
+        title: 'Безкоштовний хостинг включає:',
+        text: 'Умови та ресурси безкоштовно наданого хостингу нічим не відрізняються від умов платного тарифу: сайт буде розміщено на потужних серверах, гарантована професійна підтримка від нашої технічної служби, резервне копіювання, панель cPanel, безкоштовний SSL сертифікат та інші переваги.',
+        notice: 'Зауважте, ми залишаємо за собою право відмовити в безкоштовному розміщенні без пояснення причин. Кількість безкоштовних тарифів обмежена.',
+      },
+      restrictions: {
+        title: 'Обмеження',
+        link: 'Послуга надається на умовах, описаних в публічній оферті (посилання)',
+        list: [
+          'Сайт не повинен розміщувати на своїх сторінках комерційну рекламу в будь-якому вигляді;',
+          'Сайт не повинен розміщувати на своїх сторінках статті та посилання різних бірж (liex.ru, sape.ru та подібних);',
+          'З хостинг-акаунту не повинно бути зроблено жодної СПАМ-розсилки;',
+          'На перерахованих далі сторінках: на головній, «про проект» або «контакти», має бути розміщено логотип нашого проекту і згадка у вільній формі про те, що хостинг надано «HostPro» з посиланням на головну сторінку нашого сайту HostPro',
+        ],
+        footer: 'При порушенні будь-якого з перерахованих умов ми залишаємо за собою право на відмову від надання послуг без пояснень.',
+        note: 'Ми щиро вболіваємо за людей, які вкладають свої сили, час і талант в розвиток суспільно корисних справ, освіти, науки, займаються благодійністю, тому з радістю надамо у користування описану послугу хостингу безкоштовно.',
+      },
+      benefits: [
+        { icon: '💰', title: 'Дійсно хостинг за 0грн', desc: 'Користуйтесь безкоштовно. Усе прозоро, без прихованих умов.' },
+        { icon: '🛡️', title: 'Антивірусна перевірка', desc: 'Регулярно перевіряємо ваші файли антивірусом і сповіщаємо за потреби' },
+        { icon: '🔒', title: 'SSL безкоштовно', desc: 'Безкоштовний сертифікат для усіх ваших сайтів та піддоменів' },
+        { icon: '⚙️', title: 'Personal на вибір', desc: 'В пару кліків змінюйте версію Personal. Вам доступні на вибір версії 5.x - 8.x' }
+      ],
+      promo: {
+        title: 'Скористайтесь акційними умовами',
+        text1: 'Ви також можете скористатися нашими акційними пропозиціями, аби придбати послуги на дуже вигідних умовах і скасувати обмеження щодо реклами на сторінках сайту та посилань на наш проект.',
+        text2: 'Ми регулярно проводимо акції та розпродажі, пропонуємо безкоштовні домени разом з послугами хостингу та низькі ціни на хостинг в рамках спеціальних пропозицій.',
+        text3: 'Ми маємо також 30-денну гарантію повернення грошей - це наш спосіб забезпечити повне задоволення від наших послуг. Перегляньте акції на хостинг та оберіть свою.',
+      },
+      uniqueDomain: {
+        title: 'Унікальний домен для Вашого сайту',
+        text: 'Ми даруємо домен .com.ua до замовлень хостингу, при оплаті на період від 1 року.',
+      },
+      faq: {
+        title: 'Питання та відповіді про безкоштовний хостинг',
+        sub: 'Ми віримо, що якість - це основна складова будь-яких послуг. Саме тому ми пропонуємо Хостинг у оптимізованому технічному середовищі, ідеальному для встановлення WordPress або інших систем.',
+        items: [
+          { q: 'Чи є тестовий хостинг, які обмеження?', a: 'Так, ми надаємо безкоштовний тестовий період. Під час тестування можуть бути обмеження на відправку пошти.' },
+          { q: 'Чи підходить цей хостинг для WordPress?', a: 'Абсолютно. Наші сервери оптимізовані для швидкої роботи Personal та баз даних.' },
+          { q: 'Чи є якісь додаткові оптимізації?', a: 'Так, ми використовуємо LiteSpeed та NVMe SSD накопичувачі для максимальної швидкості.' },
+          { q: 'SSL сертифікат надається?', a: 'Так, ми надаємо безкоштовні сертифікати Let\'s Encrypt.' },
+          { q: 'Яке програмне забезпечення використовується?', a: 'Ми використовуємо CloudLinux, LiteSpeed, cPanel та Softaculous.' },
+          { q: 'Чи можна змінити Personal, які версії Personal достуні?', a: 'Звісно. Ви можете обрати версії від 5.x до 8.x безпосередньо у cPanel.' },
+          { q: 'Що я можу розмістити на сайті?', a: 'Будь-який законний контент для некомерційних цілей, що не містить реклами.' }
+        ]
+      },
+      interlink: {
+        title: 'Шукаєте хостинг саме для WordPress?',
+        desc: 'Дізнайтесь про нашу спеціальну пропозицію для соціальних та волонтерських проектів, створених на базі WordPress.',
+        btn: 'Безкоштовний WordPress хостинг →',
+        href: '/free-wordpress-hosting'
       }
     },
     freeWp: {
@@ -1211,7 +1404,7 @@ export const t = {
       },
       whatIsIncluded: {
         title: 'Технічні можливості та встановлення WordPress',
-        text: 'Ви отримуєте повноцінний доступ до тарифу "Стартовий" з інтуїтивною панеллю cPanel. Завдяки вбудованому інсталятору Softaculous, ви можете встановити WordPress або іншу CMS в 1 клік. Можна прив\'язати власний домен або безкоштовно отримати субдомен формату *.apartner.pro.',
+        text: 'Ви отримуєте повноцінний доступ до тарифу "Personal" з інтуїтивною панеллю cPanel. Завдяки вбудованому інсталятору Softaculous, ви можете встановити WordPress або іншу CMS в 1 клік. Можна прив\'язати власний домен або безкоштовно отримати субдомен формату *.apartner.pro.',
         domains: 'Також у вас є змога придбати та зареєструвати унікальне доменне ім\'я у нас (наприклад, .com.ua, .org.ua, .net) за стандартними тарифами реєстрації, якщо вас не влаштовує безкоштовний варіант *.apartner.pro.',
       },
       conditions: {
@@ -1222,7 +1415,7 @@ export const t = {
       },
       application: {
         title: 'Запит на безкоштовний хостинг',
-        text: 'Після швидкої перевірки вашої заявки менеджером, ми надішлемо вам унікальний промо-код. Використайте його при замовленні тарифу "Стартовий", щоб отримати 100% знижку на півроку.',
+        text: 'Після швидкої перевірки вашої заявки менеджером, ми надішлемо вам унікальний промо-код. Використайте його при замовленні тарифу "Personal", щоб отримати 100% знижку на півроку.',
         form: {
           name: 'ПІБ або Назва організації',
           email: 'Контактний Email',
@@ -1235,7 +1428,7 @@ export const t = {
       features: {
         title: 'Переваги нашого WP-хостингу:',
         text: 'Наш безкоштовний тариф не є урізаною версією. Ваш WordPress-сайт працюватиме на швидких серверах з NVMe-накопичувачами, ви отримаєте цілодобову технічну підтримку, автоматичні бекапи, cPanel та безкоштовний SSL сертифікат.',
-        notice: 'HostPro залишає за собою право відмовити в участі у програмі без пояснення причин, якщо проект порушує правила.',
+        notice: 'HostPro залишає за собою право відмовити в участі у програмі без пояснення причин, якщо проект порушує правила. Кількість безкоштовних тарифів обмежена.',
       },
       restrictions: {
         title: 'Правила користування',
@@ -1269,23 +1462,34 @@ export const t = {
         title: 'FAQ: Безкоштовний WordPress хостинг',
         sub: 'Відповіді на часті запитання щодо розгортання соціальних та благодійних проектів.',
         items: [
-          { q: 'Які ресурси виділяються для безкоштовного WordPress?', a: 'Ви отримуєте повноцінний тариф "Стартовий" з 3 ГБ простору на надшвидких NVMe SSD дисках та можливістю розміщення до 3 сайтів.' },
+          { q: 'Які ресурси виділяються для безкоштовного WordPress?', a: 'Ви отримуєте повноцінний тариф "Personal" з 1 ГБ простору на надшвидких NVMe SSD дисках та можливістю розміщення 1 сайту.' },
           { q: 'Чи можу я встановити іншу CMS замість WordPress?', a: 'Звісно. Хоча цей тариф оптимізовано для WordPress, ви можете встановити будь-яку іншу систему через Softaculous або вручну.' },
           { q: 'Як швидко активується безкоштовний хостинг?', a: 'Після ручної перевірки вашої заявки (зазвичай 1-2 робочих дні) ви отримаєте промо-код для миттєвої активації.' },
           { q: 'Чи входить у тариф безкоштовний SSL?', a: 'Так, кожен ваш домен і піддомен автоматично отримує безкоштовний сертифікат Let\'s Encrypt.' },
           { q: 'Як налаштувати пошту зі своїм доменом?', a: 'Ви можете створити поштові скриньки прямо в cPanel і користуватись ними через веб-інтерфейс або підключити до Gmail/Outlook.' },
           { q: 'Які версії PHP підтримуються для WordPress?', a: 'Ми підтримуємо всі актуальні версії, включаючи PHP 7.4, 8.0, 8.1, 8.2 та 8.3.' },
-          { q: 'Що робити після закінчення 6 безкоштовних місяців?', a: 'Ви зможете продовжити використання за стандартною ціною тарифу "Стартовий" або подати нову заявку на розгляд.' }
+          { q: 'Що робити після закінчення 6 безкоштовних місяців?', a: 'Ви зможете продовжити використання за стандартною ціною тарифу "Personal" або подати нову заявку на розгляд.' }
         ]
+      },
+      interlink: {
+        title: 'Потрібен хостинг для іншої CMS?',
+        desc: 'Розгляньте наш Безкоштовний PHP хостинг, який ідеально підійде для будь-яких некомерційних проектів.',
+        btn: 'Безкоштовний PHP хостинг →',
+        href: '/free-php-hosting'
       }
     },
     freeHostingHub: {
       title: 'Оберіть програму безкоштовного хостингу',
       sub: 'HostPro пропонує декілька варіантів безкоштовного розміщення для різних потреб. Оберіть той, що підходить вам найбільше.',
-      starter: {
-        title: 'Стартовий хостинг для НКО',
+      php: {
+        title: 'PHP хостинг для НКО',
         desc: '6 місяців безкоштовного хостингу для соціальних проектів. cPanel, PHP, будь-яка CMS.',
-        btn: 'Деталі Стартового тарифу →'
+        btn: 'Деталі PHP тарифу →'
+      },
+      personal: {
+        title: 'Personal хостинг для проектів',
+        desc: '6 місяців безкоштовного хостингу для персональних проектів. cPanel, PHP, будь-яка CMS.',
+        btn: 'Деталі Personal тарифу →'
       },
       wp: {
         title: 'WordPress хостинг для НКО',
@@ -1703,7 +1907,7 @@ export const t = {
         error: '❌ Что-то пошло не так. Попробуйте еще раз или напишите в поддержку.'
       }
     },
-    freeStarter: {
+    freePhp: {
       meta: 'Бесплатный Стартовый хостинг для некоммерческих проектов — 6 месяцев бесплатно от HostPro.',
       title: 'Бесплатный Стартовый хостинг',
       sub: 'Воспользуйтесь бесплатным хостингом от HostPro в течение 6 месяцев, без предоплат и обязательств.',
@@ -1714,7 +1918,7 @@ export const t = {
       },
       whatIsIncluded: {
         title: 'Что включено в такую услугу?',
-        text: 'В рамках данной бесплатной услуги вы можете получить услугу аналогичную тарифу "Стартовый" с панелью управления cPanel. Вы можете в 1 клик установить WordPress или любую другую систему, использовать собственное доменное имя или получить бесплатное в зоне *.apartner.pro.',
+        text: 'В рамках данной бесплатной услуги вы можете получить услугу аналогичную тарифу "Personal" с панелью управления cPanel. Вы можете в 1 клик установить WordPress или любую другую систему, использовать собственное доменное имя или получить бесплатное в зоне *.apartner.pro.',
         domains: 'Если у вас еще нет собственного доменного имени, и вы не хотите использовать домен в зоне *.apartner.pro – мы предлагаем зарегистрировать домен у нас. Регистрация доменного имени будет платной.',
       },
       conditions: {
@@ -1725,7 +1929,7 @@ export const t = {
       },
       application: {
         title: 'Заявка на бесплатный хостинг',
-        text: 'После одобрения заявки вам будет отправлен промо-код, который необходимо ввести при заказе тарифа "Стартовый", что дает 100% скидку на 6 месяцев.',
+        text: 'После одобрения заявки вам будет отправлен промо-код, который необходимо ввести при заказе тарифа "Personal", что дает 100% скидку на 6 месяцев.',
         form: {
           name: 'Ваше имя',
           email: 'Email',
@@ -1738,7 +1942,7 @@ export const t = {
       features: {
         title: 'Бесплатный хостинг включает:',
         text: 'Условия и ресурсы бесплатно предоставленного хостинга ничем не отличаются от условий платного тарифа: сайт будет размещен на мощных серверах, гарантирована профессиональная поддержка, резервное копирование, панель cPanel, бесплатный SSL.',
-        notice: 'Заметьте, мы оставляем за собой право отказать в бесплатном размещении без объяснения причин.',
+        notice: 'Заметьте, мы оставляем за собой право отказать в бесплатном размещении без объяснения причин. Количество бесплатных тарифов ограничено.',
       },
       restrictions: {
         title: 'Ограничения',
@@ -1780,6 +1984,97 @@ export const t = {
           { q: 'Можно ли изменить PHP, какие версии PHP доступны?', a: 'Конечно. Вы можете выбрать версии от 5.x до 8.x непосредственно в cPanel.' },
           { q: 'Что я могу разместить на сайте?', a: 'Любой законный контент для некоммерческих целей, не содержащий рекламы.' }
         ]
+      },
+      interlink: {
+        title: 'Ищете хостинг именно для WordPress?',
+        desc: 'Узнайте о нашем специальном предложении для социальных и волонтерских проектов, созданных на базе WordPress.',
+        btn: 'Бесплатный WordPress хостинг →',
+        href: '/free-wordpress-hosting'
+      }
+    },
+    freePersonal: {
+      meta: 'Бесплатный Personal хостинг для некоммерческих проектов — 6 месяцев бесплатно от HostPro.',
+      title: 'Бесплатный Personal хостинг',
+      sub: 'Воспользуйтесь бесплатным хостингом от HostPro в течение 6 месяцев, без предоплат и обязательств.',
+      whoCanGet: {
+        title: 'Кто может получить бесплатный хостинг?',
+        text: 'Это реальное предложение для размещения сайтов некоммерческих проектов. Наш проект HostPro может предоставить бесплатные услуги хостинга для сайтов, которые не преследуют цель получения прибыли, а также по определенным уважительным причинам не могут оплачивать стандартные услуги хостинга.',
+        target: 'Услуги предоставляются как некоммерческим организациям (благотворительным фондам, школам, университетам), так и частным лицам для поддержки социальных инициатив.',
+      },
+      whatIsIncluded: {
+        title: 'Что включено в такую услугу?',
+        text: 'В рамках данной бесплатной услуги вы можете получить услугу аналогичную тарифу "Personal" с панелью управления cPanel. Вы можете в 1 клик установить WordPress или любую другую систему, использовать собственное доменное имя или получить бесплатное в зоне *.apartner.pro.',
+        domains: 'Если у вас еще нет собственного доменного имени, и вы не хотите использовать домен в зоне *.apartner.pro – мы предлагаем зарегистрировать домен у нас. Регистрация доменного имени будет платной.',
+      },
+      conditions: {
+        title: 'Условия предоставления бесплатного хостинга',
+        text1: 'Для получения бесплатного хостинга в первую очередь отправьте запрос в свободной форме от некоммерческой организации с просьбой предоставить бесплатный хостинг через форму контактов ниже.',
+        text2: 'Частным лицам, которые имеют свои научные или учебно-образовательные проекты, можно также отправить запрос на предоставление бесплатного хостинга.',
+        text3: 'Опишите в двух словах Ваш проект и причины, по которым Вы не можете использовать платные услуги хостинга.',
+      },
+      application: {
+        title: 'Заявка на бесплатный хостинг',
+        text: 'После одобрения заявки вам будет отправлен промо-код, который необходимо ввести при заказе тарифа "Personal", что дает 100% скидку на 6 месяцев.',
+        form: {
+          name: 'Ваше имя',
+          email: 'Email',
+          project: 'Описание Вашего проекта',
+          submit: 'Отправить заявку →',
+          success: '✅ Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.',
+          error: '❌ Ошибка при отправке. Попробуйте позже или напишите нам на email.',
+        }
+      },
+      features: {
+        title: 'Бесплатный хостинг включает:',
+        text: 'Условия и ресурсы бесплатно предоставленного хостинга ничем не отличаются от условий платного тарифа: сайт будет размещен на мощных серверах, гарантирована профессиональная поддержка, резервное копирование, панель cPanel, бесплатный SSL.',
+        notice: 'Заметьте, мы оставляем за собой право отказать в бесплатном размещении без объяснения причин. Количество бесплатных тарифов ограничено.',
+      },
+      restrictions: {
+        title: 'Ограничения',
+        link: 'Услуга предоставляется на условиях, описанных в публичной оферте:',
+        list: [
+          'Сайт не должен размещать на своих страницах коммерческую рекламу в любом виде;',
+          'Сайт не должен размещать статьи и ссылки различных бирж;',
+          'С хостинг-аккаунта не должно быть сделано ни одной СПАМ-рассылки;',
+          'На перечисленных далее страницах: на главной, «о проекте» или «контакты», должен быть размещен логотип нашего проекта и упоминание о том, что хостинг предоставлен «HostPro».',
+        ],
+        footer: 'При нарушении любого из перечисленных условий мы оставляем за собой право на отказ от предоставления услуг без объяснений.',
+        note: 'Мы искренне болеем за людей, которые вкладывают свои силы, время и талант в развитие общественно полезных дел, поэтому с радостью предоставим описанную услугу хостинга бесплатно.',
+      },
+      benefits: [
+        { icon: '💰', title: 'Действительно за 0 грн', desc: 'Пользуйтесь бесплатно. Всё прозрачно, без скрытых условий.' },
+        { icon: '🛡️', title: 'Антивирусная проверка', desc: 'Регулярно проверяем ваши файлы антивирусом и оповещаем при необходимости.' },
+        { icon: '🔒', title: 'SSL бесплатно', desc: 'Бесплатный сертификат для всех ваших сайтов и поддоменов.' },
+        { icon: '⚙️', title: 'Personal на выбор', desc: 'В пару кликов меняйте версию Personal. Вам доступны версии 5.x - 8.x.' }
+      ],
+      promo: {
+        title: 'Воспользуйтесь акционными условиями',
+        text1: 'Вы также можете воспользоваться нашими акционными предложениями, чтобы приобрести услуги на выгодных условиях и отменить ограничения.',
+        text2: 'Мы регулярно проводим акции и распродажи, предлагаем бесплатные домены вместе с услугами хостинга.',
+        text3: 'Мы имеем также 30-дневную гарантию возврата денег. Просмотрите акции на хостинг и выберите свою.',
+      },
+      uniqueDomain: {
+        title: 'Уникальный домен для Вашего сайта',
+        text: 'Мы дарим домен .com.ua к заказам хостинга, при оплате на период от 1 года.',
+      },
+      faq: {
+        title: 'Вопросы и ответы о бесплатном хостинге',
+        sub: 'Мы верим, что качество - это основная составляющая любых услуг. Именно поэтому мы предлагаем Хостинг в оптимизированной технической среде.',
+        items: [
+          { q: 'Есть ли тестовый хостинг, какие ограничения?', a: 'Да, мы предоставляем бесплатный тестовый период. Во время тестирования могут быть ограничения на отправку почты.' },
+          { q: 'Подходит ли этот хостинг для WordPress?', a: 'Абсолютно. Наши серверы оптимизированы для быстрой работы Personal и баз данных.' },
+          { q: 'Есть ли какие-то дополнительные оптимизации?', a: 'Да, мы используем LiteSpeed и NVMe SSD накопители для максимальной скорости.' },
+          { q: 'SSL сертификат предоставляется?', a: 'Да, мы предоставляем бесплатные сертификаты Let\'s Encrypt.' },
+          { q: 'Какое программное обеспечение используется?', a: 'Мы используем CloudLinux, LiteSpeed, cPanel и Softaculous.' },
+          { q: 'Можно ли изменить Personal, какие версии Personal доступны?', a: 'Конечно. Вы можете выбрать версии от 5.x до 8.x непосредственно в cPanel.' },
+          { q: 'Что я могу разместить на сайте?', a: 'Любой законный контент для некоммерческих целей, не содержащий рекламы.' }
+        ]
+      },
+      interlink: {
+        title: 'Ищете хостинг именно для WordPress?',
+        desc: 'Узнайте о нашем специальном предложении для социальных и волонтерских проектов, созданных на базе WordPress.',
+        btn: 'Бесплатный WordPress хостинг →',
+        href: '/free-wordpress-hosting'
       }
     },
     freeWp: {
@@ -1793,7 +2088,7 @@ export const t = {
       },
       whatIsIncluded: {
         title: 'Технические возможности и установка WordPress',
-        text: 'Вы получаете полноценный доступ к тарифу "Стартовый" с интуитивной панелью cPanel. Благодаря установщику Softaculous, вы можете установить WordPress в 1 клик. Можно привязать собственный домен или получить субдомен *.apartner.pro.',
+        text: 'Вы получаете полноценный доступ к тарифу "Personal" с интуитивной панелью cPanel. Благодаря установщику Softaculous, вы можете установить WordPress в 1 клик. Можно привязать собственный домен или получить субдомен *.apartner.pro.',
         domains: 'Также у вас есть возможность приобрести и зарегистрировать уникальное доменное имя у нас по стандартным тарифам регистрации.',
       },
       conditions: {
@@ -1804,7 +2099,7 @@ export const t = {
       },
       application: {
         title: 'Запрос на бесплатный хостинг',
-        text: 'После быстрой проверки вашей заявки мы отправим вам уникальный промо-код. Используйте его при заказе тарифа "Стартовый".',
+        text: 'После быстрой проверки вашей заявки мы отправим вам уникальный промо-код. Используйте его при заказе тарифа "Personal".',
         form: {
           name: 'ФИО или Название организации',
           email: 'Контактний Email',
@@ -1817,7 +2112,7 @@ export const t = {
       features: {
         title: 'Преимущества нашего WP-хостинга:',
         text: 'Наш бесплатный тариф не является урезанной версией. Ваш WordPress-сайт будет работать на быстрых серверах с NVMe, вы получите круглосуточную поддержку, автоматические бекапы, cPanel и SSL.',
-        notice: 'HostPro оставляет за собой право отказать в участии в программе без объяснения причин.',
+        notice: 'HostPro оставляет за собой право отказать в участии в программе без объяснения причин. Количество бесплатных тарифов ограничено.',
       },
       restrictions: {
         title: 'Правила пользования',
@@ -1851,23 +2146,34 @@ export const t = {
         title: 'FAQ: Бесплатный WordPress хостинг',
         sub: 'Ответы на частые вопросы по развертыванию социальных проектов.',
         items: [
-          { q: 'Какие ресурсы выделяются для бесплатного WordPress?', a: 'Вы получаете полноценный тариф "Стартовый" с 3 ГБ пространства на сверхбыстрых NVMe SSD дисках и возможностью размещения до 3 сайтов.' },
+          { q: 'Какие ресурсы выделяются для бесплатного WordPress?', a: 'Вы получаете полноценный тариф "Personal" с 1 ГБ пространства на сверхбыстрых NVMe SSD дисках и возможностью размещения 1 сайта.' },
           { q: 'Могу ли я установить другую CMS вместо WordPress?', a: 'Конечно. Хотя этот тариф оптимизирован для WordPress, вы можете установить любую другую систему через Softaculous или вручную.' },
           { q: 'Как быстро активируется бесплатный хостинг?', a: 'После ручной проверки вашей заявки (обычно 1-2 рабочих дня) вы получите промо-код для мгновенной активации.' },
           { q: 'Входит ли в тариф бесплатный SSL?', a: 'Да, каждый ваш домен и поддомен автоматически получает бесплатный сертификат Let\'s Encrypt.' },
           { q: 'Как настроить почту со своим доменом?', a: 'Вы можете создать почтовые ящики прямо в cPanel и пользоваться ими через веб-интерфейс или подключить к Gmail/Outlook.' },
           { q: 'Какие версии PHP поддерживаются для WordPress?', a: 'Мы поддерживаем все актуальные версии, включая PHP 7.4, 8.0, 8.1, 8.2 и 8.3.' },
-          { q: 'Что делать после окончания 6 бесплатных месяцев?', a: 'Вы сможете продолжить использование по стандартной цене тарифа "Стартовый" или подать новую заявку на рассмотрение.' }
+          { q: 'Что делать после окончания 6 бесплатных месяцев?', a: 'Вы сможете продолжить использование по стандартной цене тарифа "Personal" или подать новую заявку на рассмотрение.' }
         ]
+      },
+      interlink: {
+        title: 'Нужен хостинг для другой CMS?',
+        desc: 'Рассмотрите наш Бесплатный PHP хостинг, который идеально подойдет для любых некоммерческих проектов.',
+        btn: 'Бесплатный PHP хостинг →',
+        href: '/free-php-hosting'
       }
     },
     freeHostingHub: {
       title: 'Выберите программу бесплатного хостинга',
       sub: 'HostPro предлагает несколько вариантов бесплатного размещения. Выберите тот, который подходит вам больше всего.',
-      starter: {
-        title: 'Стартовый хостинг для НКО',
+      php: {
+        title: 'PHP хостинг для НКО',
         desc: '6 месяцев бесплатного хостинга для социальных проектов. cPanel, PHP, любая CMS.',
-        btn: 'Детали Стартового тарифа →'
+        btn: 'Детали PHP тарифа →'
+      },
+      personal: {
+        title: 'Personal хостинг для проектов',
+        desc: '6 месяцев бесплатного хостинга для персональных проектов. cPanel, PHP, любая CMS.',
+        btn: 'Детали Personal тарифа →'
       },
       wp: {
         title: 'WordPress хостинг для НКО',

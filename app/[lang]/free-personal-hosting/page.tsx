@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
-import FreeStarterClient from '@/components/FreeStarterClient'
+import FreePersonalClient from '@/components/FreePersonalClient'
 import { Lang, getT, LANGS } from '@/lib/i18n'
 import { notFound } from 'next/navigation'
 
@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   const lang = params.lang as Lang
   const T = getT(lang)
   return {
-    title: T.freeStarter.title,
-    description: T.freeStarter.meta,
+    title: T.freePersonal.title,
+    description: T.freePersonal.meta,
   }
 }
 
@@ -22,8 +22,8 @@ export default function Page({ params }: { params: { lang: string } }) {
   if (!LANGS.includes(lang) || lang === 'en') notFound()
 
   return (
-    <PageWrapper lang={lang} slug="free-starter-hosting">
-      <FreeStarterClient lang={lang} />
+    <PageWrapper lang={lang} slug="free-personal-hosting">
+      <FreePersonalClient lang={lang} />
     </PageWrapper>
   )
 }
