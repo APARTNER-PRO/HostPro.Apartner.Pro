@@ -11,9 +11,20 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const lang = params.lang as Lang
   const T = getT(lang)
+  const { getAlternates } = await import('@/lib/i18n')
+  
   return {
     title: T.freeHostingHub.title,
     description: T.freeHostingHub.sub,
+    alternates: getAlternates(lang, 'free-hosting'),
+    openGraph: {
+      title: T.freeHostingHub.title,
+      description: T.freeHostingHub.sub,
+      url: `https://hostpro.apartner.pro/${lang}/free-hosting`,
+      siteName: 'HostPro',
+      locale: lang === 'uk' ? 'uk_UA' : 'ru_RU',
+      type: 'website',
+    },
   }
 }
 
@@ -23,6 +34,7 @@ export default function Page({ params }: { params: { lang: string } }) {
 
   return (
     <PageWrapper lang={lang} slug="free-hosting">
+      <JsonLd lang={lang} page="pricing" />
       <FreeHostingHubClient lang={lang} />
     </PageWrapper>
   )

@@ -11,9 +11,20 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const lang = params.lang as Lang
   const T = getT(lang)
+  const { getAlternates } = await import('@/lib/i18n')
+  
   return {
     title: T.kb.title,
     description: T.kb.meta,
+    alternates: getAlternates(lang, 'kb'),
+    openGraph: {
+      title: T.kb.title,
+      description: T.kb.meta,
+      url: `https://hostpro.apartner.pro/${lang}/kb`,
+      siteName: 'HostPro',
+      locale: lang === 'uk' ? 'uk_UA' : 'ru_RU',
+      type: 'website',
+    },
   }
 }
 
@@ -23,6 +34,7 @@ export default function Page({ params }: { params: { lang: string } }) {
   
   return (
     <PageWrapper lang={lang} slug="kb">
+      <JsonLd lang={lang} page="kb" />
       <KBClient lang={lang} />
     </PageWrapper>
   )
