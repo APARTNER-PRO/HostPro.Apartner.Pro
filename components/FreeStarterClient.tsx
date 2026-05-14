@@ -233,11 +233,8 @@ export default function FreeStarterClient({ lang }: { lang: Lang }) {
           <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: 700, margin: '0 auto' }}>{T.freeStarter.faq.sub}</p>
         </FadeIn>
         <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {T.freeStarter.faq.items.map((q: string, i: number) => (
-            <FadeIn key={i} delay={i * 50} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 20, padding: '20px 32px', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontSize: 16, fontWeight: 500, color: '#fff' }}>{q}</span>
-              <span style={{ fontSize: 20, color: 'rgba(255,255,255,0.3)' }}>+</span>
-            </FadeIn>
+          {T.freeStarter.faq.items.map((item: any, i: number) => (
+            <FaqItem key={i} item={item} i={i} />
           ))}
         </div>
       </section>
@@ -252,5 +249,22 @@ export default function FreeStarterClient({ lang }: { lang: Lang }) {
         }
       `}</style>
     </div>
+  )
+}
+
+function FaqItem({ item, i }: { item: { q: string, a: string }, i: number }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <FadeIn delay={i * 50} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 20, padding: '20px 32px', cursor: 'pointer' }}>
+      <div onClick={() => setOpen(!open)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontSize: 16, fontWeight: 500, color: '#fff', paddingRight: 20 }}>{item.q}</span>
+        <span style={{ fontSize: 20, color: 'rgba(255,255,255,0.3)', transform: open ? 'rotate(45deg)' : 'none', transition: 'transform .3s' }}>+</span>
+      </div>
+      {open && (
+        <div style={{ marginTop: 16, paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, fontSize: 15 }}>
+          {item.a}
+        </div>
+      )}
+    </FadeIn>
   )
 }

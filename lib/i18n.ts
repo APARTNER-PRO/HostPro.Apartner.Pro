@@ -612,13 +612,13 @@ export const t = {
         title: 'Questions and answers about free hosting',
         sub: 'We believe that quality is the main component of any service. That is why we offer Hosting in an optimized technical environment, ideal for installing WordPress or other systems.',
         items: [
-          'Is there a test hosting, what are the restrictions?',
-          'Is this hosting suitable for WordPress?',
-          'Are there any additional optimizations?',
-          'Is an SSL certificate provided?',
-          'What software is used?',
-          'Can I change PHP, what PHP versions are available?',
-          'What can I host on the site?'
+          { q: 'Is there a test hosting, what are the restrictions?', a: 'Yes, we provide a free trial period. During testing, there may be restrictions on sending mail.' },
+          { q: 'Is this hosting suitable for WordPress?', a: 'Absolutely. Our servers are optimized for fast PHP and database performance.' },
+          { q: 'Are there any additional optimizations?', a: 'Yes, we use LiteSpeed and NVMe SSD drives for maximum speed.' },
+          { q: 'Is an SSL certificate provided?', a: 'Yes, we provide free Let\'s Encrypt certificates.' },
+          { q: 'What software is used?', a: 'We use CloudLinux, LiteSpeed, cPanel, and Softaculous.' },
+          { q: 'Can I change PHP, what PHP versions are available?', a: 'Of course. You can choose versions from 5.x to 8.x directly in cPanel.' },
+          { q: 'What can I host on the site?', a: 'Any legal content for non-commercial purposes that does not contain advertising.' }
         ]
       }
     },
@@ -691,13 +691,13 @@ export const t = {
         title: 'FAQ: Free WordPress hosting',
         sub: 'Answers to frequently asked questions regarding the deployment of social and charitable projects.',
         items: [
-          'What resources are allocated for free WordPress?',
-          'Can I install another CMS instead of WordPress?',
-          'How fast is free hosting activated?',
-          'Is a free SSL included in the plan?',
-          'How to set up mail with your own domain?',
-          'What PHP versions are supported for WordPress?',
-          'What to do after the end of 6 free months?'
+          { q: 'What resources are allocated for free WordPress?', a: 'You get a full-fledged "Starter" plan with 3 GB of space on ultra-fast NVMe SSDs and the ability to host up to 3 websites.' },
+          { q: 'Can I install another CMS instead of WordPress?', a: 'Of course. Although this plan is optimized for WordPress, you can install any other system via Softaculous or manually.' },
+          { q: 'How fast is free hosting activated?', a: 'After manual review of your application (usually 1-2 business days), you will receive a promo code for instant activation.' },
+          { q: 'Is a free SSL included in the plan?', a: 'Yes, each of your domains and subdomains automatically receives a free Let\'s Encrypt certificate.' },
+          { q: 'How to set up mail with your own domain?', a: 'You can create mailboxes right in cPanel and use them via web interface or connect to Gmail/Outlook.' },
+          { q: 'What PHP versions are supported for WordPress?', a: 'We support all current versions, including PHP 7.4, 8.0, 8.1, 8.2, and 8.3.' },
+          { q: 'What to do after the end of 6 free months?', a: 'You will be able to continue using it at the standard price of the "Starter" plan or submit a new application for review.' }
         ]
       }
     },
@@ -1190,13 +1190,13 @@ export const t = {
         title: 'Питання та відповіді про безкоштовний хостинг',
         sub: 'Ми віримо, що якість - це основна складова будь-яких послуг. Саме тому ми пропонуємо Хостинг у оптимізованому технічному середовищі, ідеальному для встановлення WordPress або інших систем.',
         items: [
-          'Чи є тестовий хостинг, які обмеження?',
-          'Чи підходить цей хостинг для WordPress?',
-          'Чи є якісь додаткові оптимізації?',
-          'SSL сертифікат надається?',
-          'Яке програмне забезпечення використовується?',
-          'Чи можна змінити PHP, які версії PHP достуні?',
-          'Що я можу розмістити на сайті?'
+          { q: 'Чи є тестовий хостинг, які обмеження?', a: 'Так, ми надаємо безкоштовний тестовий період. Під час тестування можуть бути обмеження на відправку пошти.' },
+          { q: 'Чи підходить цей хостинг для WordPress?', a: 'Абсолютно. Наші сервери оптимізовані для швидкої роботи PHP та баз даних.' },
+          { q: 'Чи є якісь додаткові оптимізації?', a: 'Так, ми використовуємо LiteSpeed та NVMe SSD накопичувачі для максимальної швидкості.' },
+          { q: 'SSL сертифікат надається?', a: 'Так, ми надаємо безкоштовні сертифікати Let\'s Encrypt.' },
+          { q: 'Яке програмне забезпечення використовується?', a: 'Ми використовуємо CloudLinux, LiteSpeed, cPanel та Softaculous.' },
+          { q: 'Чи можна змінити PHP, які версії PHP достуні?', a: 'Звісно. Ви можете обрати версії від 5.x до 8.x безпосередньо у cPanel.' },
+          { q: 'Що я можу розмістити на сайті?', a: 'Будь-який законний контент для некомерційних цілей, що не містить реклами.' }
         ]
       }
     },
@@ -1269,13 +1269,13 @@ export const t = {
         title: 'FAQ: Безкоштовний WordPress хостинг',
         sub: 'Відповіді на часті запитання щодо розгортання соціальних та благодійних проектів.',
         items: [
-          'Які ресурси виділяються для безкоштовного WordPress?',
-          'Чи можу я встановити іншу CMS замість WordPress?',
-          'Як швидко активується безкоштовний хостинг?',
-          'Чи входить у тариф безкоштовний SSL?',
-          'Як налаштувати пошту зі своїм доменом?',
-          'Які версії PHP підтримуються для WordPress?',
-          'Що робити після закінчення 6 безкоштовних місяців?'
+          { q: 'Які ресурси виділяються для безкоштовного WordPress?', a: 'Ви отримуєте повноцінний тариф "Стартовий" з 3 ГБ простору на надшвидких NVMe SSD дисках та можливістю розміщення до 3 сайтів.' },
+          { q: 'Чи можу я встановити іншу CMS замість WordPress?', a: 'Звісно. Хоча цей тариф оптимізовано для WordPress, ви можете встановити будь-яку іншу систему через Softaculous або вручну.' },
+          { q: 'Як швидко активується безкоштовний хостинг?', a: 'Після ручної перевірки вашої заявки (зазвичай 1-2 робочих дні) ви отримаєте промо-код для миттєвої активації.' },
+          { q: 'Чи входить у тариф безкоштовний SSL?', a: 'Так, кожен ваш домен і піддомен автоматично отримує безкоштовний сертифікат Let\'s Encrypt.' },
+          { q: 'Як налаштувати пошту зі своїм доменом?', a: 'Ви можете створити поштові скриньки прямо в cPanel і користуватись ними через веб-інтерфейс або підключити до Gmail/Outlook.' },
+          { q: 'Які версії PHP підтримуються для WordPress?', a: 'Ми підтримуємо всі актуальні версії, включаючи PHP 7.4, 8.0, 8.1, 8.2 та 8.3.' },
+          { q: 'Що робити після закінчення 6 безкоштовних місяців?', a: 'Ви зможете продовжити використання за стандартною ціною тарифу "Стартовий" або подати нову заявку на розгляд.' }
         ]
       }
     },
@@ -1772,13 +1772,13 @@ export const t = {
         title: 'Вопросы и ответы о бесплатном хостинге',
         sub: 'Мы верим, что качество - это основная составляющая любых услуг. Именно поэтому мы предлагаем Хостинг в оптимизированной технической среде.',
         items: [
-          'Есть ли тестовый хостинг, какие ограничения?',
-          'Подходит ли этот хостинг для WordPress?',
-          'Есть ли какие-то дополнительные оптимизации?',
-          'SSL сертификат предоставляется?',
-          'Какое программное обеспечение используется?',
-          'Можно ли изменить PHP, какие версии PHP доступны?',
-          'Что я могу разместить на сайте?'
+          { q: 'Есть ли тестовый хостинг, какие ограничения?', a: 'Да, мы предоставляем бесплатный тестовый период. Во время тестирования могут быть ограничения на отправку почты.' },
+          { q: 'Подходит ли этот хостинг для WordPress?', a: 'Абсолютно. Наши серверы оптимизированы для быстрой работы PHP и баз данных.' },
+          { q: 'Есть ли какие-то дополнительные оптимизации?', a: 'Да, мы используем LiteSpeed и NVMe SSD накопители для максимальной скорости.' },
+          { q: 'SSL сертификат предоставляется?', a: 'Да, мы предоставляем бесплатные сертификаты Let\'s Encrypt.' },
+          { q: 'Какое программное обеспечение используется?', a: 'Мы используем CloudLinux, LiteSpeed, cPanel и Softaculous.' },
+          { q: 'Можно ли изменить PHP, какие версии PHP доступны?', a: 'Конечно. Вы можете выбрать версии от 5.x до 8.x непосредственно в cPanel.' },
+          { q: 'Что я могу разместить на сайте?', a: 'Любой законный контент для некоммерческих целей, не содержащий рекламы.' }
         ]
       }
     },
@@ -1851,13 +1851,13 @@ export const t = {
         title: 'FAQ: Бесплатный WordPress хостинг',
         sub: 'Ответы на частые вопросы по развертыванию социальных проектов.',
         items: [
-          'Какие ресурсы выделяются для бесплатного WordPress?',
-          'Могу ли я установить другую CMS вместо WordPress?',
-          'Как быстро активируется бесплатный хостинг?',
-          'Входит ли в тариф бесплатный SSL?',
-          'Как настроить почту со своим доменом?',
-          'Какие версии PHP поддерживаются для WordPress?',
-          'Что делать после окончания 6 бесплатных месяцев?'
+          { q: 'Какие ресурсы выделяются для бесплатного WordPress?', a: 'Вы получаете полноценный тариф "Стартовый" с 3 ГБ пространства на сверхбыстрых NVMe SSD дисках и возможностью размещения до 3 сайтов.' },
+          { q: 'Могу ли я установить другую CMS вместо WordPress?', a: 'Конечно. Хотя этот тариф оптимизирован для WordPress, вы можете установить любую другую систему через Softaculous или вручную.' },
+          { q: 'Как быстро активируется бесплатный хостинг?', a: 'После ручной проверки вашей заявки (обычно 1-2 рабочих дня) вы получите промо-код для мгновенной активации.' },
+          { q: 'Входит ли в тариф бесплатный SSL?', a: 'Да, каждый ваш домен и поддомен автоматически получает бесплатный сертификат Let\'s Encrypt.' },
+          { q: 'Как настроить почту со своим доменом?', a: 'Вы можете создать почтовые ящики прямо в cPanel и пользоваться ими через веб-интерфейс или подключить к Gmail/Outlook.' },
+          { q: 'Какие версии PHP поддерживаются для WordPress?', a: 'Мы поддерживаем все актуальные версии, включая PHP 7.4, 8.0, 8.1, 8.2 и 8.3.' },
+          { q: 'Что делать после окончания 6 бесплатных месяцев?', a: 'Вы сможете продолжить использование по стандартной цене тарифа "Стартовый" или подать новую заявку на рассмотрение.' }
         ]
       }
     },
