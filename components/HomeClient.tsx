@@ -89,7 +89,14 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
   const [paddleLoaded, setPaddleLoaded] = useState(false)
   
   useEffect(() => {
-    if ((window as any).Paddle) setPaddleLoaded(true);
+    const checkPaddle = () => {
+      if ((window as any).Paddle) {
+        setPaddleLoaded(true);
+      } else {
+        setTimeout(checkPaddle, 500);
+      }
+    };
+    checkPaddle();
   }, []);
 
   const searchParams = useSearchParams()
@@ -157,25 +164,41 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
     }
 
     if (plan && bParam) {
-      const validB = ['monthly', 'quarterly', 'yearly', 'threeYears'];
-      if (validB.includes(bParam)) {
-        setBilling(bParam);
-        const pid = getPriceId(plan, bParam);
+      const billingMap: Record<string, string> = {
+        'monthly': 'monthly',
+        'quarterly': 'quarterly',
+        'yearly': 'yearly',
+        'threeYears': 'threeYears',
+        'threeyears': 'threeYears',
+        'years3': 'threeYears',
+        '3years': 'threeYears'
+      };
+
+      const finalB = billingMap[bParam] || billingMap[bParam.toLowerCase()];
+      
+      if (finalB) {
+        setBilling(finalB);
+        const pid = getPriceId(plan, finalB);
         if (pid) {
-          // Ensure Paddle is initialized and ready
           const openCheckout = () => {
             if ((window as any).Paddle) {
               const Paddle = (window as any).Paddle;
-              Paddle.Initialize({
-                token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'live_5479fe94fca51b60d7791b81725'
-              });
-              Paddle.Checkout.open({
-                items: [{ priceId: pid, quantity: 1 }]
-              });
+              try {
+                Paddle.Initialize({
+                  token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'live_5479fe94fca51b60d7791b81725'
+                });
+                Paddle.Checkout.open({
+                  items: [{ priceId: pid, quantity: 1 }]
+                });
+                // Clean URL to prevent re-opening
+                const newUrl = window.location.pathname;
+                window.history.replaceState({}, '', newUrl);
+              } catch (e) {
+                console.error('Paddle open error:', e);
+              }
             }
           };
-          // Slight delay to ensure UI has settled
-          setTimeout(openCheckout, 500);
+          setTimeout(openCheckout, 800);
         }
       }
     }

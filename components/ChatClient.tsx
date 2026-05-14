@@ -370,6 +370,46 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
                   Перевірте налаштування API у файлі .env.local
                 </div>
               )}
+              {messages.length > 0 && messages[messages.length - 1].role === 'user' && (
+                <button
+                  onClick={async () => {
+                    setIsLoading(true);
+                    setError(null);
+                    try {
+                      const response = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ messages, lang }),
+                      });
+                      const data = await response.json();
+                      if (!response.ok) throw new Error(data.error || 'Failed to fetch response');
+                      setMessages((prev) => [...prev, data]);
+                    } catch (err: any) {
+                      setError(err.message || 'An error occurred.');
+                    } finally {
+                      setIsLoading(false);
+                    }
+                  }}
+                  style={{
+                    display: 'block',
+                    margin: '12px auto 0',
+                    background: 'rgba(239, 68, 68, 0.15)',
+                    color: '#FCA5A5',
+                    border: '1px solid rgba(239, 68, 68, 0.3)',
+                    borderRadius: '8px',
+                    padding: '6px 14px',
+                    fontSize: '13px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontWeight: 600
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.background = 'rgba(239, 68, 68, 0.25)'}
+                  onMouseOut={(e) => e.currentTarget.style.background = 'rgba(239, 68, 68, 0.15)'}
+                >
+                  {(T as any).tryAgain || 'Try again'}
+                </button>
+              )}
             </div>
           )}
           <div ref={messagesEndRef} />

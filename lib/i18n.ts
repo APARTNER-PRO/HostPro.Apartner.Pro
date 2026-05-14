@@ -749,6 +749,29 @@ export const t = {
         ]
       }
     },
+    chat: {
+      title: 'AI Chat Assistant',
+      sub: 'Powered by OpenRouter. Knows everything about HostPro!',
+      welcome: 'Hello! I am the HostPro AI assistant. How can I help you with our hosting?',
+      inputPlaceholder: 'Ask something about hosting...',
+      send: 'Send',
+      typing: 'HostPro AI is typing...',
+      error: 'Error',
+      apiError: 'All models are currently unavailable. Please try again shortly.',
+      tryAgain: 'Try again',
+      contactFormTitle: 'Leave your contact:',
+      contactFormPlaceholder: 'Email or Telegram...',
+      contactFormSubmit: 'Send',
+      contactFormPrefix: 'My contact for the manager: ',
+      homeTitle: 'Meet your AI Assistant',
+      homeSub: 'Get instant answers to technical questions, help with migration, or advice on choosing a plan. Available 24/7.',
+      homeBtn: 'Try AI Chat →',
+      chips: [
+        'How to migrate a site?',
+        'Help me choose a plan',
+        'Are there any discounts?',
+      ],
+    },
 
   // ── UKRAINIAN ──────────────────────────────────────────────────────────────
   uk: {
@@ -1156,6 +1179,8 @@ export const t = {
         send: 'Надіслати',
         typing: 'HostPro AI друкує...',
         error: 'Помилка',
+        apiError: 'Наразі всі моделі недоступні. Будь ласка, спробуйте пізніше.',
+        tryAgain: 'Спробувати ще раз',
         contactFormTitle: 'Залишіть ваш контакт:',
         contactFormPlaceholder: 'Email або Telegram...',
         contactFormSubmit: 'Відправити',
@@ -1559,6 +1584,8 @@ export const t = {
         send: 'Отправить',
         typing: 'HostPro AI печатает...',
         error: 'Ошибка',
+        apiError: 'На данный момент все модели недоступны. Пожалуйста, попробуйте позже.',
+        tryAgain: 'Попробовать еще раз',
         contactFormTitle: 'Оставьте ваш контакт:',
         contactFormPlaceholder: 'Email или Telegram...',
         contactFormSubmit: 'Отправить',

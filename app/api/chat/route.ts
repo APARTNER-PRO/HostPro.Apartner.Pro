@@ -16,14 +16,15 @@ interface OpenRouterResponse {
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const MODELS = [
-  'google/gemini-2.0-flash-001',
+  'google/gemini-2.0-flash-001', // Primary (will 402 if no credits)
   'qwen/qwen-2.5-72b-instruct:free',
   'google/gemini-2.0-flash-exp:free',
-  'meta-llama/llama-3.3-70b-instruct:free',
+  'deepseek/deepseek-v4-flash:free', // Great multi-lingual fallback
+  'meta-llama/llama-3.3-70b-instruct:free', // Good but often rate-limited
   'meta-llama/llama-3.2-3b-instruct:free',
   'google/gemma-2-9b-it:free',
-  'openrouter/auto', // Ultimate fallback: OpenRouter will pick any available model
-  'openrouter/free'
+  'openrouter/auto', // Will 402 if no credits
+  'openrouter/free' // Guaranteed free ultimate fallback
 ] as const;
 
 const MAX_TOKENS = 1000;
@@ -72,6 +73,8 @@ Goal: Convert visitors into customers.
 
 Format: \`[Link Text](URL)\`
 - URL: \`/${lang === 'en' ? '' : lang}?plan={planID}&billing={billingID}\`
+- Plan IDs: \`personal\`, \`starter\`, \`business\`, \`agency\`, \`agency-pro\`
+- Billing IDs: \`monthly\`, \`quarterly\`, \`yearly\`, \`threeYears\`
 - Link Text examples:
   - UK: \`[Купити Agency – Рік]\`
   - RU: \`[Купить Agency – Год]\`
@@ -189,8 +192,11 @@ export async function POST(req: Request) {
     }
   }
 
+  const { getT } = await import('@/lib/i18n');
+  const T = getT((lang || 'en') as any).chat;
+
   return NextResponse.json(
-    { error: 'All models are currently unavailable. Please try again shortly.' },
+    { error: T.apiError || 'All models are currently unavailable. Please try again shortly.' },
     { status: 502 },
   );
 }
