@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 
+import { getAlternates, LANG_META, LANGS } from '@/lib/i18n'
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://hostpro.apartner.pro'),
   title: {
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
   creator: 'HostPro',
   publisher: 'HostPro',
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  alternates: getAlternates('en'),
   openGraph: {
     type: 'website',
     siteName: 'HostPro',

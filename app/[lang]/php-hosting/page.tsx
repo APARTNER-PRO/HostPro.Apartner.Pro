@@ -11,9 +11,20 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const lang = params.lang as Lang
   const T = getT(lang)
+  const { getAlternates } = await import('@/lib/i18n')
+  
   return {
     title: T.footer.links.phpHosting,
     description: T.php.meta,
+    alternates: getAlternates(lang, 'php-hosting'),
+    openGraph: {
+      title: T.footer.links.phpHosting,
+      description: T.php.meta,
+      url: `https://hostpro.apartner.pro/${lang}/php-hosting`,
+      siteName: 'HostPro',
+      locale: lang === 'uk' ? 'uk_UA' : 'ru_RU',
+      type: 'website',
+    },
   }
 }
 
@@ -23,6 +34,7 @@ export default function Page({ params }: { params: { lang: string } }) {
 
   return (
     <PageWrapper lang={lang} slug="php-hosting">
+      <JsonLd lang={lang} page="pricing" />
       <PHPHostingClient lang={lang} />
     </PageWrapper>
   )
