@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   if (!LANGS.includes(lang) || lang === 'en') return {}
   const T = getT(lang)
   const { locale } = LANG_META[lang]
+  const { getAlternates } = await import('@/lib/i18n')
 
   const titles: Record<string, string> = {
     uk: 'HostPro - Швидкий та надійний хостинг від $1.99/міс',
@@ -28,15 +29,7 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   return {
     title: titles[lang],
     description: descs[lang],
-    alternates: {
-      canonical: `https://hostpro.apartner.pro/${lang}`,
-      languages: {
-        'en':        'https://hostpro.apartner.pro',
-        'uk':        'https://hostpro.apartner.pro/uk',
-        'ru':        'https://hostpro.apartner.pro/ru',
-        'x-default': 'https://hostpro.apartner.pro',
-      },
-    },
+    alternates: getAlternates(lang, ''),
     openGraph: {
       title: titles[lang],
       description: descs[lang],

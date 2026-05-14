@@ -19,6 +19,21 @@ export function getAlternateLangs(slug = '') {
   }))
 }
 
+export function getAlternates(lang: Lang, slug = '') {
+  const base = 'https://hostpro.apartner.pro'
+  const pathEn = slug ? `/${slug}` : ''
+  const canonicalPath = lang === 'en' ? pathEn : `/${lang}${pathEn}`
+  return {
+    canonical: `${base}${canonicalPath}`,
+    languages: {
+      'en': `${base}${pathEn}`,
+      'uk': `${base}/uk${pathEn}`,
+      'ru': `${base}/ru${pathEn}`,
+      'x-default': `${base}${pathEn}`,
+    },
+  }
+}
+
 // ─── TRANSLATIONS ─────────────────────────────────────────────────────────────
 
 export const t = {
