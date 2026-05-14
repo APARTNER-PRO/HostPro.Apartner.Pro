@@ -253,6 +253,20 @@ export default function FreePhpClient({ lang }: { lang: Lang }) {
         </FadeIn>
       </section>
 
+      {/* UPGRADE SECTION */}
+      <section style={{ textAlign: 'center', marginBottom: 120 }}>
+        <FadeIn>
+          <div style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.05))', border: '1px solid rgba(16,185,129,0.2)', borderRadius: 32, padding: 56, maxWidth: 800, margin: '0 auto' }}>
+            <div style={{ fontSize: 48, marginBottom: 24 }}>💼</div>
+            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16, color: '#fff' }}>{T.freePhp.upgrade.title}</h2>
+            <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 32, maxWidth: 560, margin: '0 auto 32px' }}>{T.freePhp.upgrade.desc}</p>
+            <Link href={`/${lang}${T.freePhp.upgrade.href}`} style={{ display: 'inline-block', padding: '16px 36px', background: 'linear-gradient(135deg, #10B981, #059669)', color: '#fff', borderRadius: 100, textDecoration: 'none', fontWeight: 700, fontSize: 16, boxShadow: '0 10px 30px rgba(16,185,129,0.3)', transition: 'transform .3s ease' }}>
+              {T.freePhp.upgrade.btn}
+            </Link>
+          </div>
+        </FadeIn>
+      </section>
+
       <style jsx>{`
         @media (max-width: 1000px) {
           div[style*="grid-template-columns: 1.2fr 1fr"],
