@@ -283,29 +283,53 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
                   {plan.desc}
                 </p>
 
-                <div style={{ marginBottom: 24 }}>
+                <div style={{ marginBottom: 16 }}>
+                  {billing !== 'monthly' && (
+                    <div style={{ fontSize: 13, color: 'rgba(240,244,255,.4)', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <span style={{ textDecoration: 'line-through' }}>${baseMonthlyAmount.toFixed(2)}</span>
+                      <span style={{ 
+                        background: 'rgba(110, 231, 183, 0.08)', 
+                        color: '#6EE7B7', 
+                        padding: '3px 10px', 
+                        borderRadius: '8px', 
+                        fontSize: '11px', 
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.04em',
+                        border: '1px solid rgba(110, 231, 183, 0.15)',
+                        backdropFilter: 'blur(4px)'
+                      }}>
+                        {billing === 'threeYears' ? (
+                          (plan.name === 'Agency' || plan.name === 'Agency Pro') ? (
+                            `${T.billing.savings} $${Math.round((baseMonthlyAmount * 36) - totalAmount)}`
+                          ) : (
+                            T.billing.save30
+                          )
+                        ) : (
+                          billing === 'yearly' ? T.billing.save20 : T.billing.save10
+                        )}
+                      </span>
+                    </div>
+                  )}
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
                     <span className="price-val">${monthlyPrice.toFixed(2)}</span>
-                    <span style={{ fontSize: 14, color: 'rgba(240,244,255,.4)', fontWeight: 300 }}>
-                      {T.pricing.mo}
-                    </span>
-                  </div>
-                  <div style={{ fontSize: 12, color: 'rgba(240,244,255,.5)', marginTop: 8, fontWeight: 300, lineHeight: 1.5 }}>
-                    {T.billing.for} {getBillingLabel()}. {T.billing.payToday} <span style={{fontWeight:600}}>${totalAmount.toFixed(2)}</span> {T.billing.today}
-                    {billing !== 'monthly' && (
-                      <div style={{ opacity: 0.7 }}>
-                        {T.billing.then} <span style={{fontWeight:600}}>${renewalAmount}</span> {T.billing.onRenewal}
-                      </div>
-                    )}
                   </div>
                 </div>
 
                 <button 
                   onClick={() => handleBuy(price.id)}
                   className={`hp-plan-btn ${isFeatured ? 'primary' : ''}`}
+                  style={{ marginBottom: 12 }}
                 >
                   {T.pricing.cta}
                 </button>
+
+                <div style={{ fontSize: 12, color: 'rgba(240,244,255,.5)', marginBottom: 24, fontWeight: 300, lineHeight: 1.6 }}>
+                  <div>{T.billing.payToday} <span style={{fontWeight:600}}>${totalAmount.toFixed(2)}</span> {T.billing.today}.</div>
+                  <div style={{ marginTop: 2, fontSize: 11, opacity: 0.8 }}>
+                    {T.billing.renewsAt} <span style={{fontWeight:600}}>${baseMonthlyAmount.toFixed(2)}{T.pricing.mo}</span>. {billing !== 'monthly' && `${T.billing.prepaidFor} ${months} ${T.billing.months}. `}{T.billing.exVat}
+                  </div>
+                </div>
 
                 <div className="features-list">
                   <p style={{ fontSize: 11, color: 'rgba(240,244,255,.35)', marginBottom: 12, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '.08em' }}>

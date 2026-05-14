@@ -84,7 +84,7 @@ interface HomeClientProps {
 export default function HomeClient({ lang, initialData }: HomeClientProps) {
   const T = getT(lang)
   const p = lang === 'en' ? '' : `/${lang}`
-  const [billing, setBilling] = useState('monthly')
+  const [billing, setBilling] = useState('yearly')
   const [order, setOrder] = useState<{ name: string; price: string } | null>(null)
   const [paddleLoaded, setPaddleLoaded] = useState(false)
   
@@ -265,21 +265,37 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
                     <h3 style={{ fontFamily:'Syne,sans-serif',fontSize:18,fontWeight:800 }}>{plan.name}</h3>
                   </div>
                   <p style={{ fontSize:12,color:'rgba(240,244,255,.45)',marginBottom:16,fontWeight:300 }}>{plan.desc}</p>
-                  <div style={{ marginBottom:24 }}>
+                  <div style={{ marginBottom:16 }}>
+                    {billing !== 'monthly' && (
+                      <div style={{ fontSize: 13, color: 'rgba(240,244,255,.4)', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <span style={{ textDecoration: 'line-through' }}>${plan.price}</span>
+                        <span style={{ 
+                          background: 'rgba(110, 231, 183, 0.08)', 
+                          color: '#6EE7B7', 
+                          padding: '3px 10px', 
+                          borderRadius: '8px', 
+                          fontSize: '11px', 
+                          fontWeight: 700,
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.04em',
+                          border: '1px solid rgba(110, 231, 183, 0.15)',
+                          backdropFilter: 'blur(4px)'
+                        }}>
+                          {billing === 'threeYears' ? (
+                            (plan.name === 'Agency' || plan.name === 'Agency Pro') ? (
+                              `${T.billing.savings} $${Math.round((plan.price * 36) - Number(getTotalPrice(plan.price)))}`
+                            ) : (
+                              T.billing.save30
+                            )
+                          ) : (
+                            billing === 'yearly' ? T.billing.save20 : T.billing.save10
+                          )}
+                        </span>
+                      </div>
+                    )}
                     <span style={{ fontFamily:'Syne,sans-serif',fontSize:34,fontWeight:800,color:plan.color }}>${getPrice(plan.price)}</span>
-                    <span style={{ fontSize:14,color:'rgba(240,244,255,.4)',fontWeight:300 }}>{T.pricing.mo}</span>
-                    <div style={{ fontSize:12,color:'rgba(240,244,255,.5)',marginTop:8,fontWeight:300 }}>
-                      {T.billing.for} {getBillingText().term}. {T.billing.payToday} <span style={{fontWeight:600}}>${getTotalPrice(plan.price)}</span> {T.billing.today}
-                      {billing !== 'monthly' && (
-                        <div style={{ marginTop:6,fontSize:11,color:'rgba(240,244,255,.4)' }}>
-                          {T.billing.then} <span style={{fontWeight:600}}>${getRenewalPrice(plan.price)}</span> {T.billing.onRenewal}
-                        </div>
-                      )}
-                    </div>
                   </div>
-                  {/* OLD BUTTON (order modal) — збережено для повернення:
-                  <button onClick={()=>setOrder({name:plan.name,price:getPrice(plan.price)})} className={`hp-plan-btn${plan.popular?' primary':''}`}>{T.pricing.cta}</button>
-                  */}
+
                   {(() => {
                     const priceId = getPriceId(plan.name)
                     if (priceId) {
@@ -287,22 +303,29 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
                         <button
                           onClick={() => handleBuy(priceId)}
                           className={`hp-plan-btn${plan.popular?' primary':''}`}
+                          style={{ marginBottom: 12 }}
                         >
                           {T.pricing.cta}
                         </button>
                       )
                     }
-                    // Fallback: redirect to /pricing/ page if no priceId available
                     return (
                       <Link
                         href={`${p}/pricing`}
                         className={`hp-plan-btn${plan.popular?' primary':''}`}
-                        style={{ display:'block',textAlign:'center',textDecoration:'none' }}
+                        style={{ display:'block',textAlign:'center',textDecoration:'none', marginBottom: 12 }}
                       >
                         {T.pricing.cta}
                       </Link>
                     )
                   })()}
+
+                  <div style={{ fontSize:12,color:'rgba(240,244,255,.5)',marginBottom:24,fontWeight:300, lineHeight: 1.6 }}>
+                    <div>{T.billing.payToday} <span style={{fontWeight:600}}>${getTotalPrice(plan.price)}</span> {T.billing.today}.</div>
+                    <div style={{ marginTop: 2, fontSize: 11, opacity: 0.8 }}>
+                      {T.billing.renewsAt} <span style={{fontWeight:600}}>${plan.price}{T.pricing.mo}</span>. {billing !== 'monthly' && `${T.billing.prepaidFor} ${billing === 'quarterly' ? 3 : billing === 'yearly' ? 12 : 36} ${T.billing.months}. `}{T.billing.exVat}
+                    </div>
+                  </div>
                   <div style={{ borderTop:'1px solid rgba(255,255,255,.07)',paddingTop:20 }}>
                     <p style={{ fontSize:11,color:'rgba(240,244,255,.35)',marginBottom:8,fontWeight:500,textTransform:'uppercase',letterSpacing:'.08em' }}>{T.pricing.featLabel}</p>
                     {plan.extras.map((ex,j)=>(

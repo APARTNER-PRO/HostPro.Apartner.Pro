@@ -34,7 +34,7 @@ const CONTENT = `# HostPro — llms.txt
 | Starter    | $4.99/mo | up to 5      | 5 GB NVMe SSD | 5             | 5               |
 | Business   | $9.99/mo | up to 10    | 10 GB NVMe SSD| 10            | 10              |
 | Agency     | $19.99/mo | up to 25    | 25 GB NVMe SSD| Unlimited     | 25              |
-| Agency Pro | $29.99/mo | Unlimited   | 50 GB NVMe SSD| Unlimited     | Unlimited       |
+| Agency Pro | $39.99/mo | Unlimited   | 50 GB NVMe SSD| Unlimited     | Unlimited       |
 
 All plans include: Free SSL, cPanel, Node.js, LiteSpeed WebServer, CloudLinux.
 Business and above include: Daily backups, Imunify360 Security.
