@@ -72,11 +72,10 @@ Goal: Convert visitors into customers.
 
 Format: \`[Link Text](URL)\`
 - URL: \`/${lang === 'en' ? '' : lang}?plan={planID}&billing={billingID}\`
-- Plan IDs: \`personal\`, \`starter\`, \`business\`, \`agency\`, \`agency-pro\`
-- Billing IDs: \`monthly\`, \`quarterly\`, \`yearly\`, \`threeYears\`
-
-Example (${langName}):
-\`[${isUk ? 'Оплатити Agency – 3 роки' : isRu ? 'Оплатить Agency – 3 года' : 'Pay Agency – 3 Years'}](/${lang === 'en' ? '' : lang}?plan=agency&billing=threeYears)\`
+- Link Text examples:
+  - UK: \`[Купити Agency – Рік]\`
+  - RU: \`[Купить Agency – Год]\`
+  - EN: \`[Buy Agency – Yearly]\`
 
 Closing sentence: "${closingSentence}"
 
@@ -87,16 +86,15 @@ End EVERY response with 3 chips:
 \`[CHIPS: "Option 1", "Option 2", "Option 3"]\`
 
 If recommending a plan (e.g. Agency), use:
-- "Pay Agency – Yearly"
-- "Pay Agency – 3 Years"
-- "Compare all plans" (or similar)
+- "${isUk ? 'Купити Agency – Рік' : isRu ? 'Купить Agency – Год' : 'Buy Agency – Yearly'}"
+- "${isUk ? 'Купити Agency – 3 роки' : isRu ? 'Купить Agency – 3 года' : 'Buy Agency – 3 Years'}"
+- "${isUk ? 'Порівняти всі тарифи' : isRu ? 'Сравнить все тарифы' : 'Compare all plans'}"
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ## ABSOLUTE RULES
 1. **Language:** ALWAYS ${langName}.
-2. **Length:** Max 6 sentences. Be concise.
-3. **No internal reasoning.**
-4. **Chips are mandatory.**
+2. **Length:** Max 6 sentences.
+3. **Chips are mandatory.**
 `;
 };
 
