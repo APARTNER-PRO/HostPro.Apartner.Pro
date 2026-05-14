@@ -835,6 +835,10 @@ export const t = {
         title: 'Partner Program',
         desc: 'Bring one client and get the same hosting for yourself absolutely free.',
         btn: 'How to become a partner →'
+      },
+      seo: {
+        title: 'Why Choose Our Free Hosting?',
+        text: 'HostPro offers reliable and fast free hosting for social, charitable, and non-profit projects. We believe that good initiatives deserve support, which is why we provide high-quality SSD servers, cPanel, and free SSL without hidden fees. Choose the plan that best fits your needs, whether it is WordPress, generic PHP hosting, or a personal project, and get started today.'
       }
     },
     kb: {
@@ -1515,6 +1519,10 @@ export const t = {
         title: 'Партнерська програма',
         desc: 'Приведіть одного клієнта та отримайте такий самий хостинг для себе абсолютно безкоштовно.',
         btn: 'Як стати партнером →'
+      },
+      seo: {
+        title: 'Чому варто обрати наш безкоштовний хостинг?',
+        text: 'HostPro пропонує надійний та швидкий безкоштовний хостинг для соціальних, благодійних та некомерційних проектів. Ми віримо, що хороші ініціативи заслуговують на підтримку, тому надаємо високоякісні SSD сервери, cPanel та безкоштовний SSL без прихованих платежів. Оберіть тариф, який найкраще підходить для ваших потреб, будь то WordPress, звичайний PHP хостинг або персональний проект, і починайте роботу вже сьогодні.'
       }
     },
     kb: {
@@ -2199,6 +2207,10 @@ export const t = {
         title: 'Партнерская программа',
         desc: 'Приведите одного клиента и получите такой же хостинг для себя абсолютно бесплатно.',
         btn: 'Как стать партнером →'
+      },
+      seo: {
+        title: 'Почему стоит выбрать наш бесплатный хостинг?',
+        text: 'HostPro предлагает надежный и быстрый бесплатный хостинг для социальных, благотворительных и некоммерческих проектов. Мы верим, что хорошие инициативы заслуживают поддержки, поэтому предоставляем высококачественные SSD серверы, cPanel и бесплатный SSL без скрытых платежей. Выберите тариф, который лучше всего подходит для ваших нужд, будь то WordPress, обычный PHP хостинг или персональный проект, и начинайте работу уже сегодня.'
       }
     },
     kb: {
