@@ -1575,5 +1575,10 @@ export const t = {
     }
   }
 
-export type Translations = typeof t.en
+export type Translations = typeof t.en & {
+  billing: {
+    savings: string;
+    onRenewal: string;
+  }
+}
 export function getT(lang: Lang): Translations { return t[lang] as Translations }
