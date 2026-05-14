@@ -3,6 +3,7 @@ import PageWrapper from '@/components/PageWrapper'
 import KBClient from '@/components/KBClient'
 import { Lang, getT, LANGS } from '@/lib/i18n'
 import { notFound } from 'next/navigation'
+import JsonLd from '@/components/JsonLd'
 
 export function generateStaticParams() {
   return LANGS.filter(l => l !== 'en').map(l => ({ lang: l }))
