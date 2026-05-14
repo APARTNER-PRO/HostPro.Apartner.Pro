@@ -14,11 +14,11 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   const { getAlternates } = await import('@/lib/i18n')
   
   return {
-    title: T.footer.links.vps,
+    title: T.footer.links.vpsHosting,
     description: 'Scalable VPS hosting with NVMe SSD, full root access and choice of OS.',
     alternates: getAlternates(lang, 'vps-hosting'),
     openGraph: {
-      title: T.footer.links.vps,
+      title: T.footer.links.vpsHosting,
       description: 'Scalable VPS hosting with NVMe SSD, full root access and choice of OS.',
       url: `https://hostpro.apartner.pro/${lang}/vps-hosting`,
       siteName: 'HostPro',
@@ -38,7 +38,7 @@ export default function Page({ params }: { params: { lang: string } }) {
       <JsonLd lang={lang} page="pricing" />
       <main style={{ padding: '120px 24px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
         <div>
-          <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 800, marginBottom: 16, textTransform: 'capitalize' }}>{T.footer.links.vps}</h1>
+          <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 800, marginBottom: 16, textTransform: 'capitalize' }}>{T.footer.links.vpsHosting}</h1>
           <p style={{ fontSize: 18, color: 'rgba(240,244,255,.5)' }}>{lang === 'uk' ? 'Контент незабаром...' : 'Контент скоро...'}</p>
         </div>
       </main>
