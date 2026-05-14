@@ -102,7 +102,8 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          messages: [...messages, userMessage]
+          messages: [...messages, userMessage],
+          lang: lang
         }),
       });
 

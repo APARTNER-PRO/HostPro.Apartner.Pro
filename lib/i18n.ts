@@ -150,6 +150,8 @@ export const t = {
       today: 'today',
       for: 'For',
       then: 'then',
+      onRenewal: 'on renewal',
+      savings: 'Save',
       renewsAt: 'Renews at',
       prepaidFor: 'Prepaid for',
       months: 'months',
