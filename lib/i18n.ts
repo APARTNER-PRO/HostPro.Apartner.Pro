@@ -641,6 +641,12 @@ export const t = {
         desc: 'Learn about our special offer for social and volunteer projects built on WordPress.',
         btn: 'Free WordPress Hosting →',
         href: '/free-wordpress-hosting'
+      },
+      upgrade: {
+        title: 'Need more resources?',
+        desc: 'If your project is growing and the free plan is no longer enough — upgrade to a paid plan and remove all limits. Starting from just $1.99/month.',
+        btn: 'See Paid Plans →',
+        href: '/#pricing'
       }
     },
     freePersonal: {
@@ -726,6 +732,12 @@ export const t = {
         desc: 'Learn about our special offer for social and volunteer projects built on WordPress.',
         btn: 'Free WordPress Hosting →',
         href: '/free-wordpress-hosting'
+      },
+      upgrade: {
+        title: 'Need more resources?',
+        desc: 'If your project is growing and the free plan is no longer enough — upgrade to a paid plan and remove all limits. Starting from just $1.99/month.',
+        btn: 'See Paid Plans →',
+        href: '/#pricing'
       }
     },
     freeWp: {
@@ -811,6 +823,12 @@ export const t = {
         desc: 'Consider our Free PHP hosting, perfect for any non-profit projects.',
         btn: 'Free PHP Hosting →',
         href: '/free-php-hosting'
+      },
+      upgrade: {
+        title: 'Need more resources?',
+        desc: 'If the free plan is not enough for your growing project — upgrade to a paid plan and get more websites, storage and databases. Starting from just $1.99/month.',
+        btn: 'See Paid Plans →',
+        href: '/#pricing'
       }
     },
     freeHostingHub: {
@@ -1325,6 +1343,12 @@ export const t = {
         desc: 'Дізнайтесь про нашу спеціальну пропозицію для соціальних та волонтерських проектів, створених на базі WordPress.',
         btn: 'Безкоштовний WordPress хостинг →',
         href: '/free-wordpress-hosting'
+      },
+      upgrade: {
+        title: 'Потрібно більше ресурсів?',
+        desc: 'Якщо ваш проект зростає і безкоштовного тарифу вже не вистачає — перейдіть на платний план та зніміть усі обмеження. Від $1.99/місяць.',
+        btn: 'Переглянути платні тарифи →',
+        href: '/#pricing'
       }
     },
     freePersonal: {
@@ -1410,6 +1434,12 @@ export const t = {
         desc: 'Дізнайтесь про нашу спеціальну пропозицію для соціальних та волонтерських проектів, створених на базі WordPress.',
         btn: 'Безкоштовний WordPress хостинг →',
         href: '/free-wordpress-hosting'
+      },
+      upgrade: {
+        title: 'Потрібно більше ресурсів?',
+        desc: 'Якщо ваш проект зростає і безкоштовного тарифу вже не вистачає — перейдіть на платний план та зніміть усі обмеження. Від $1.99/місяць.',
+        btn: 'Переглянути платні тарифи →',
+        href: '/#pricing'
       }
     },
     freeWp: {
@@ -1495,6 +1525,12 @@ export const t = {
         desc: 'Розгляньте наш Безкоштовний PHP хостинг, який ідеально підійде для будь-яких некомерційних проектів.',
         btn: 'Безкоштовний PHP хостинг →',
         href: '/free-php-hosting'
+      },
+      upgrade: {
+        title: 'Потрібно більше ресурсів?',
+        desc: 'Якщо ваш сайт на WordPress виріс і безкоштовного тарифу вже не вистачає — перейдіть на платний план та зніміть усі обмеження. Від $1.99/місяць.',
+        btn: 'Переглянути платні тарифи →',
+        href: '/#pricing'
       }
     },
     freeHostingHub: {
@@ -2013,6 +2049,12 @@ export const t = {
         desc: 'Узнайте о нашем специальном предложении для социальных и волонтерских проектов, созданных на базе WordPress.',
         btn: 'Бесплатный WordPress хостинг →',
         href: '/free-wordpress-hosting'
+      },
+      upgrade: {
+        title: 'Нужно больше ресурсов?',
+        desc: 'Если ваш проект растёт и бесплатного тарифа уже не хватает — перейдите на платный план и снимите все ограничения. От $1.99/месяц.',
+        btn: 'Посмотреть платные тарифы →',
+        href: '/#pricing'
       }
     },
     freePersonal: {
@@ -2098,6 +2140,12 @@ export const t = {
         desc: 'Узнайте о нашем специальном предложении для социальных и волонтерских проектов, созданных на базе WordPress.',
         btn: 'Бесплатный WordPress хостинг →',
         href: '/free-wordpress-hosting'
+      },
+      upgrade: {
+        title: 'Нужно больше ресурсов?',
+        desc: 'Если ваш проект растёт и бесплатного тарифа уже не хватает — перейдите на платный план и снимите все ограничения. От $1.99/месяц.',
+        btn: 'Посмотреть платные тарифы →',
+        href: '/#pricing'
       }
     },
     freeWp: {
@@ -2183,6 +2231,12 @@ export const t = {
         desc: 'Рассмотрите наш Бесплатный PHP хостинг, который идеально подойдет для любых некоммерческих проектов.',
         btn: 'Бесплатный PHP хостинг →',
         href: '/free-php-hosting'
+      },
+      upgrade: {
+        title: 'Нужно больше ресурсов?',
+        desc: 'Если ваш WordPress-сайт вырос и бесплатного тарифа уже не хватает — перейдите на платный план и снимите все ограничения. От $1.99/месяц.',
+        btn: 'Посмотреть платные тарифы →',
+        href: '/#pricing'
       }
     },
     freeHostingHub: {
