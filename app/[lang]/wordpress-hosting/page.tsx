@@ -3,6 +3,7 @@ import PageWrapper from '@/components/PageWrapper'
 import WPClient from '@/components/WPClient'
 import { Lang, getT, LANGS } from '@/lib/i18n'
 import { notFound } from 'next/navigation'
+import JsonLd from '@/components/JsonLd'
 
 
 export function generateStaticParams() {
