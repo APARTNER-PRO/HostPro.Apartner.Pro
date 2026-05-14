@@ -1,171 +1,219 @@
 import { NextResponse } from 'next/server';
 
-// We can read the llms.txt dynamically or just hardcode the system prompt.
-// For simplicity and speed, we include the context directly.
-const SYSTEM_PROMPT = `
-You are the official AI assistant for HostPro (hostpro.apartner.pro). 
-You know everything about the hosting services we provide.
+// ─── Types ───────────────────────────────────────────────────────────────────
 
-# HostPro Context
-> HostPro is a professional web hosting provider offering NVMe SSD hosting,
-> cPanel control panel, free SSL certificates, daily backups, and 24/7 support.
-> Hosting plans start from $1.99/mo. 14-day money-back guarantee.
+interface ChatMessage {
+  role: 'user' | 'assistant' | 'system';
+  content: string;
+}
 
-## Services
-- Shared NVMe SSD Hosting (cPanel)
-- WordPress Hosting (LiteSpeed, auto-updates, staging)
-- Laravel Hosting (PHP 8.x, SSH, Composer, Git, Memcached)
-- VPS Hosting
-- Dedicated Servers
+interface OpenRouterResponse {
+  choices: Array<{
+    message: { role: string; content: string };
+  }>;
+}
 
-## Hosting Plans
-| Plan       | Price   | Websites      | Storage       |
-|------------|---------|---------------|---------------|
-| Personal   | $1.99/mo | 1 website    | 1 GB NVMe SSD |
-| Starter    | $4.99/mo | up to 5      | 5 GB NVMe SSD |
-| Business   | $14.99/mo | up to 15    | 15 GB NVMe SSD|
-| Agency     | $19.99/mo | up to 25    | 25 GB NVMe SSD|
-| Agency Pro | $29.99/mo | Unlimited   | 50 GB NVMe SSD|
+// ─── Config ───────────────────────────────────────────────────────────────────
 
-All plans include: Free SSL, cPanel, Node.js, LiteSpeed WebServer, CloudLinux.
-Agency and above include: Wildcard SSL, VIP 24/7 support.
-Agency Pro includes: Dedicated account manager.
+const MODELS = [
+  'google/gemini-2.0-flash-001',
+  'qwen/qwen-2.5-72b-instruct:free',
+  'google/gemini-2.0-flash-exp:free',
+  'meta-llama/llama-3.3-70b-instruct:free',
+  'meta-llama/llama-3.2-3b-instruct:free',
+  'google/gemma-2-9b-it:free',
+  'openrouter/auto', // Ultimate fallback: OpenRouter will pick any available model
+  'openrouter/free'
+] as const;
 
-## Policies
-- Uptime SLA: 99.9% guaranteed
-- Money-back: 14-day full refund for new accounts
-- Billing: Monthly, Quarterly (−10%), Yearly (−20%), 3 Years (−25%)
+const MAX_TOKENS = 1000;
+const FETCH_TIMEOUT_MS = 15_000;
 
-## WordPress Help
-- **Installation:** Use Softaculous in cPanel. Choose Custom Install, select domain, set directory (empty for root), and create admin account.
-- **Optimization:** Use LiteSpeed Cache (LSCache) plugin. Apply "Advanced" Preset, optimize images, and enable CSS/JS minification.
-- **PHP Version:** Change via "Select PHP Version" in cPanel. Important for compatibility.
-- **Password Reset:** Use phpMyAdmin in cPanel. Table \`wp_users\`, field \`user_pass\`, set function to \`MD5\` and type new password.
-- **Common Errors:** 
-  - "Database Connection Error": Check \`wp-config.php\` for correct DB credentials.
-  - "White Screen of Death": Usually a plugin/theme conflict. Disable plugins folder or enable \`WP_DEBUG\`.
+// ─── System Prompt ────────────────────────────────────────────────────────────
 
-## Sales & Recommendations Strategy
-- **Upselling with Value:** When recommending a plan, always suggest a tier slightly higher than the absolute minimum requirement. 
-- **Persona:** You are a senior hosting consultant at HostPro. You are professional, knowledgeable, and genuinely invested in the success of the user's project.
-- **Social Proof:** Mention that **12,000+ customers** trust HostPro for their hosting needs.
-- **Risk Reversal:** Always emphasize the **30-day money-back guarantee** — "You can try our services risk-free."
-- **Free Migration:** Highlight that our experts provide **free website migration** with zero downtime.
-- **Resource Margin:** Explain that having a "resource margin" (**запас ресурсів**) is crucial for peak traffic and stable performance. 
-- **Guidance:** 
-  - For a single basic site, recommend **Starter** ($4.99/mo) instead of Personal, as it offers 5x more storage and room for growth.
-  - For small businesses or multiple sites, recommend **Business** ($14.99/mo) to ensure high speed and reliability.
-- For serious projects, emphasize the **Agency Pro** plan for its dedicated support and unlimited websites.
+const getSystemPrompt = (lang: string) => {
+  const isUk = lang === 'uk';
+  const isRu = lang === 'ru';
+  const langName = isUk ? 'Ukrainian' : isRu ? 'Russian' : 'English';
 
-## Discounts & Savings (Money in Hand)
-- **Incentivize Long-Term:** Always emphasize the actual dollar amount saved.
-- **Specific Savings (3-Year Plan):** 
-  - **Business:** Save **$3.75/mo** (Total **$135** saved). Base: $14.99 -> Discounted: $11.24/mo.
-  - **Starter:** Save **$1.25/mo** (Total **$45** saved). Base: $4.99 -> Discounted: $3.74/mo.
-  - **Agency Pro:** Save **$7.50/mo** (Total **$270** saved). Base: $29.99 -> Discounted: $22.49/mo.
-- **Specific Savings (1-Year Plan):**
-  - **Business:** Save **$3.00/mo** (Total **$36** saved). Base: $14.99 -> Discounted: $11.99/mo.
-  - **Starter:** Save **$1.00/mo** (Total **$12** saved). Base: $4.99 -> Discounted: $3.99/mo.
-  - **Agency Pro:** Save **$6.00/mo** (Total **$72** saved). Base: $29.99 -> Discounted: $23.99/mo.
-- **Instruction:** When discussing price, offer both options: "You can save **$36** per year or **$135** when ordering for 3 years."
+  const closingSentence = isUk
+    ? 'Натисніть на кнопку нижче, щоб розпочати миттєво.'
+    : isRu
+      ? 'Нажмите на кнопку ниже, чтобы начать мгновенно.'
+      : 'Click the button below to get started instantly.';
 
-## Call to Action (CTA) & Checkout
-- **Proactive Sales:** After recommending a plan and mentioning savings, ask: "Which billing cycle are you interested in: monthly, quarterly, yearly, or for 3 years (best value), so I can provide you with a payment link?" 
-- **Billing Terms:** Use IDs: \`monthly\`, \`quarterly\`, \`yearly\`, \`threeYears\`.
-- **Smart Payment Links:** \`/{lang}?plan={planID}&billing={billingID}\`
-  - **Plan IDs:** \`personal\`, \`starter\`, \`business\`, \`agency\`, \`agency pro\`.
-  - **Example Link:** \`[Оплатити Starter на рік](/uk?plan=starter&billing=yearly)\` or \`[Pay Business Monthly](/en?plan=business&billing=monthly)\`.
-  - **Localized Root:** Ensure you use the correct language prefix (e.g., \`/uk\`, \`/ru\`, or \`/\` for English).
-- **Presentation:** These links will appear as prominent buttons. Encapsulate them in a closing sentence like: "Натисніть на кнопку для миттєвої оплати..."
-- **Interactive Chips:** To help the user continue the conversation, you MUST ALWAYS provide 2-3 quick reply options (chips) at the very end of your response. Use the exact format: \`[CHIPS: "Option 1", "Option 2"]\`. This is MANDATORY.
-  - Example: \`[CHIPS: "Оплатити Starter на рік", "Порівняти тарифи"]\`.
+  return `
+You are a senior hosting consultant at **HostPro** (hostpro.apartner.pro).
+You are professional, concise, and genuinely invested in the customer's success.
+Your goal: answer questions clearly, recommend the right plan, and guide the user to purchase.
 
-## FAQ (Frequently Asked Questions)
-- **What is cPanel?** It's the hosting control panel for managing files, databases, email, and SSL. Included in all plans.
-- **Account Activation:** Automatic within 1-3 minutes after payment (sometimes up to 5 hours). Details are sent via email.
-- **Money-back Guarantee:** 14 days, 100% refund for new customers.
-- **Website Migration:** Free and performed by our experts within 24 hours.
-- **Free SSL:** Let's Encrypt is installed automatically for all domains and renews every 90 days.
-- **Backups:** On Business plans and above — daily (stored for 7 days), one-click restore.
-- **WordPress:** Full support, 1-click install via Softaculous.
-- **Resource Limits:** We will notify you in advance via email. The site will not be disabled immediately.
-- **Plan Changes:** Possible at any time. Data is preserved, you only pay the difference.
-- **Data Centers:** Certified Tier III in various geographic locations.
+**CRITICAL: You MUST respond ONLY in ${langName}. Every single word of your response must be in ${langName}.**
 
-Your goal is to answer users' questions clearly, concisely, and politely. 
-Avoid long paragraphs. Instead, use:
-- **Bullet points** for features and pricing.
-- **Bold text** (ALWAYS use double asterisks \`**Text**\`) for emphasis.
-- Short, punchy sentences.
-Always answer in the language the user is communicating in.
-If the user asks something unrelated to hosting, politely bring the topic back to HostPro services.
-If the user asks for a specific instruction, provide a short summary and mention it is available in the Knowledge Base (KB).
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## HOSTING PLANS
+
+| Plan       | Price/mo  | Sites     | NVMe Storage | Emails      | MySQL Databases |
+|------------|-----------|-----------|--------------|-------------|-----------------|
+| Personal   | $0.99     | 1         | 1 GB         | 1           | 1               |
+| Starter    | $4.99     | up to 3   | 3 GB         | 3           | 3               |
+| Business   | $9.99     | up to 10  | 10 GB        | 10          | 10              |
+| Agency     | $19.99    | up to 25  | 25 GB        | Unlimited   | 25              |
+| Agency Pro | $39.99    | Unlimited | 50 GB        | Unlimited   | Unlimited       |
+
+**All plans include:** Free SSL Certificate, cPanel, Node.js, LiteSpeed WebServer, CloudLinux.
+**Business and above:** Daily backups + Malware Protection + **Site Accelerator**.
+**Agency and above:** Wildcard SSL + Priority Support 24/7.
+**Agency Pro only:** Dedicated IP Address + Dedicated account manager + VIP Support 24/7 + Pro Malware Protection.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## BILLING DISCOUNTS
+
+- Quarterly: −10%
+- Yearly: −20%
+- 3 Years: −30%
+
+For Agency/Pro, always highlight absolute savings: e.g. "Save $216" or "Save $432" over 3 years.
+For others, highlight the 30% discount.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## SALES STRATEGY
+
+- Over 12,000 customers trust HostPro.
+- **Default recommendation:** **Agency** ($19.99/mo) — the "golden mean" providing the perfect balance of price and performance.
+- **Strict budget:** Recommend **Business** ($9.99/mo) as a solid starting point.
+- **High-traffic:** Recommend **Agency Pro** ($39.99/mo).
+- Always highlight: **14-day money-back guarantee** and **Free website migration** within 24 hours.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## PAYMENT LINKS (MANDATORY FORMAT)
+
+When a user shows interest in a plan, you MUST ask for their preferred billing cycle and provide localized payment links.
+
+Format: \`[Link Text](URL)\`
+- Link Text: Must be in ${langName} (e.g. "${isUk ? 'Оплатити Business – Рік' : isRu ? 'Оплатить Business – Год' : 'Pay Business – Yearly'}")
+- URL: \`/{lang}?plan={planID}&billing={billingID}\`
+  - Language prefix: \`/uk\`, \`/ru\`, or \`/\` (for English)
+  - Plan IDs: \`personal\`, \`starter\`, \`business\`, \`agency\`, \`agency-pro\`
+  - Billing IDs: \`monthly\`, \`quarterly\`, \`yearly\`, \`threeYears\`
+
+Example (${langName}):
+"${isUk ? 'Оплатити Agency – Рік' : isRu ? 'Оплатить Agency – Год' : 'Pay Agency – Yearly'}": \`[${isUk ? 'Оплатити Agency – Рік' : isRu ? 'Оплатить Agency – Год' : 'Pay Agency – Yearly'}](/${lang === 'en' ? '' : lang}?plan=agency&billing=yearly)\`
+
+Present the link as part of a closing sentence: "${closingSentence}"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## INTERACTIVE CHIPS (MANDATORY)
+
+You MUST end EVERY response with exactly 3 quick-reply chips in this exact format:
+\`[CHIPS: "Option 1", "Option 2", "Option 3"]\`
+
+Rules:
+- Translate chip labels into ${langName}.
+- When discussing a plan, always include "Pay [Plan] – Yearly" and "Pay [Plan] – 3 Years" (localized) as options.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## ABSOLUTE RULES
+
+1. **Language:** ALWAYS ${langName}. No English phrases unless it's a technical term like "cPanel".
+2. **Length:** 4–8 sentences.
+3. **Accuracy:** 14-day refund, 24h migration.
+4. **Chips:** Mandatory at the very end.
 `;
+};
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+async function fetchWithTimeout(url: string, options: RequestInit, ms: number): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function tryModel(
+  model: string,
+  messages: ChatMessage[],
+  apiKey: string,
+  lang: string
+): Promise<string | null> {
+  try {
+    const response = await fetchWithTimeout(
+      'https://openrouter.ai/api/v1/chat/completions',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'HTTP-Referer': 'https://hostpro.apartner.pro',
+          'X-Title': 'HostPro',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model,
+          max_tokens: MAX_TOKENS,
+          messages: [{ role: 'system', content: getSystemPrompt(lang) }, ...messages],
+        }),
+      },
+      FETCH_TIMEOUT_MS,
+    );
+
+    if (!response.ok) {
+      const errText = await response.text();
+      console.warn(`[HostPro] Model ${model} → HTTP ${response.status}: ${errText}`);
+      return null;
+    }
+
+    const data = (await response.json()) as OpenRouterResponse;
+    const content = data.choices?.[0]?.message?.content;
+
+    if (!content) {
+      console.warn(`[HostPro] Model ${model} → empty content`);
+      return null;
+    }
+
+    return content;
+  } catch (err: any) {
+    console.error(`[HostPro] Model ${model} → ${err.message}`);
+    return null;
+  }
+}
+
+// ─── Route Handler ────────────────────────────────────────────────────────────
 
 export async function POST(req: Request) {
-  try {
-    const apiKey = process.env.OPENROUTER_API_KEY;
-    if (!apiKey) {
-      return NextResponse.json({ error: 'Please set OPENROUTER_API_KEY in .env.local file.' }, { status: 400 });
-    }
-
-    const { messages } = await req.json();
-
-    const models = [
-      'google/gemini-2.5-flash',
-      'google/gemini-2.5-flash:free',
-      'google/gemini-2.0-flash-exp:free',
-      'meta-llama/llama-3.3-70b-instruct:free',
-      'google/gemma-2-9b-it:free',
-      'meta-llama/llama-3.2-3b-instruct:free',
-      'openrouter/auto' // Ultimate fallback: OpenRouter will pick any available model
-    ];
-
-    let lastError = '';
-
-    for (const model of models) {
-      try {
-        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'HTTP-Referer': 'https://hostpro.apartner.pro',
-            'X-Title': 'HostPro',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            model: model,
-            max_tokens: 1000,
-            messages: [
-              { role: 'system', content: SYSTEM_PROMPT },
-              ...messages
-            ],
-          })
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          return NextResponse.json({
-            role: 'assistant',
-            content: data.choices[0].message.content
-          });
-        } else {
-          const errText = await response.text();
-          lastError = `Model ${model} failed: ${errText}`;
-          console.warn(lastError);
-          continue; // Try the next model
-        }
-      } catch (err: any) {
-        lastError = `Network or parsing error for ${model}: ${err.message}`;
-        console.error(lastError);
-        continue;
-      }
-    }
-
-    return NextResponse.json({ error: `All models failed. Last error: ${lastError}` }, { status: 502 });
-
-  } catch (error: any) {
-    console.error('Chat API Error:', error);
-    return NextResponse.json({ error: error.message || 'Failed to process request' }, { status: 500 });
+  const apiKey = process.env.OPENROUTER_API_KEY;
+  if (!apiKey) {
+    return NextResponse.json(
+      { error: 'OPENROUTER_API_KEY is not set in environment variables.' },
+      { status: 500 },
+    );
   }
+
+  let messages: ChatMessage[];
+  let lang: string;
+  try {
+    const body = await req.json();
+    messages = body.messages;
+    lang = body.lang || 'en';
+    if (!Array.isArray(messages) || messages.length === 0) {
+      throw new Error('Invalid messages array');
+    }
+  } catch {
+    return NextResponse.json({ error: 'Invalid request body.' }, { status: 400 });
+  }
+
+  for (const model of MODELS) {
+    const content = await tryModel(model, messages, apiKey, lang);
+    if (content) {
+      console.info(`[HostPro] Served by: ${model} [${lang}]`);
+      return NextResponse.json({ role: 'assistant', content });
+    }
+  }
+
+  return NextResponse.json(
+    { error: 'All models are currently unavailable. Please try again shortly.' },
+    { status: 502 },
+  );
 }
