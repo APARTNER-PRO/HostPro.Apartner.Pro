@@ -27,7 +27,7 @@ function FadeIn({ children, delay = 0, className = '', style }: {
   )
 }
 
-const DISC: Record<string, number> = { monthly: 1, quarterly: 0.9, yearly: 0.8 }
+const DISC: Record<string, number> = { monthly: 1, quarterly: 0.9, yearly: 0.8, threeYears: 0.7 }
 
 const CSS = `
   .hp-feat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px;transition:transform .25s,background .25s;cursor:default}
@@ -70,13 +70,14 @@ export default function PrestashopClient({ lang }: { lang: Lang }) {
   const [order, setOrder] = useState<{ name: string; price: string } | null>(null)
   const getPrice = (base: number) => ((base + 1) * DISC[billing]).toFixed(2)
   const getTotalPrice = (base: number) => {
-    const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : 12
+    const months = billing === 'monthly' ? 1 : billing === 'quarterly' ? 3 : billing === 'yearly' ? 12 : 36
     return ((base + 1) * months * DISC[billing]).toFixed(2)
   }
   const getBillingText = () => {
     if (billing === 'monthly') return { term: T.billing.monthTerm }
     if (billing === 'quarterly') return { term: T.billing.quarterTerm }
-    return { term: T.billing.yearTerm }
+    if (billing === 'yearly') return { term: T.billing.yearTerm }
+    return { term: T.billing.threeYearTerm }
   }
 
   return (
@@ -152,11 +153,12 @@ export default function PrestashopClient({ lang }: { lang: Lang }) {
 
           <FadeIn style={{ display: 'flex', justifyContent: 'center', marginBottom: 60 }}>
             <div style={{ display: 'flex', background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.08)', borderRadius: 12, padding: 4, gap: 4 }}>
-              {(['monthly', 'quarterly', 'yearly'] as const).map((b) => (
+              {(['monthly', 'quarterly', 'yearly', 'threeYears'] as const).map((b) => (
                 <button key={b} onClick={() => setBilling(b)} className="hp-billing-btn" style={{ background: billing === b ? 'rgba(251,146,60,.2)' : 'transparent', color: billing === b ? '#FB923C' : 'rgba(240,244,255,.5)', border: billing === b ? '1px solid rgba(251,146,60,.3)' : '1px solid transparent' }}>
-                  {T.billing[b === 'monthly' ? 'monthly' : b === 'quarterly' ? 'quarterly' : 'yearly']}
+                  {T.billing[b]}
                   {b === 'quarterly' && <span style={{ fontSize: 11, background: 'rgba(251,146,60,.15)', color: '#FB923C', padding: '2px 6px', borderRadius: 4 }}>{T.billing.save10}</span>}
                   {b === 'yearly' && <span style={{ fontSize: 11, background: 'rgba(251,146,60,.15)', color: '#FB923C', padding: '2px 6px', borderRadius: 4 }}>{T.billing.save20}</span>}
+                  {b === 'threeYears' && <span style={{ fontSize: 11, background: 'rgba(244, 63, 94, 0.15)', color: '#F43F5E', padding: '2px 6px', borderRadius: 4, border: '1px solid rgba(244, 63, 94, 0.4)' }}>{T.billing.save30}</span>}
                 </button>
               ))}
             </div>

@@ -141,7 +141,7 @@ export const t = {
       threeYears: '3 Years',
       save10: '−10%',
       save20: '−20%',
-      save30: '−25%',
+      save30: '−30%',
       monthTerm: '1 month',
       quarterTerm: '3 months',
       yearTerm: '1 year',
@@ -170,7 +170,7 @@ export const t = {
         },
         {
           name: 'Starter', desc: 'For growing projects', price: 4.99, color: '#60A5FA', popular: false,
-          extras: ['Up to 5 Websites', '5 GB NVMe SSD', '5 Email Accounts', '5 MySQL Databases', 'Free SSL', 'cPanel', 'Node.js', 'Malware protection', 'Standard Backups', 'Standard Support']
+          extras: ['Up to 3 Websites', '3 GB NVMe SSD', '3 Email Accounts', '3 MySQL Databases', 'Free SSL', 'cPanel', 'Node.js', 'Malware protection', 'Standard Backups', 'Standard Support']
         },
         {
           name: 'Business', desc: 'For serious projects', price: 9.99, color: '#A78BFA', popular: false,
@@ -181,7 +181,7 @@ export const t = {
           extras: ['Up to 25 Websites', '25 GB NVMe SSD', 'Unlimited Email', '25 MySQL Databases', 'Wildcard SSL', 'cPanel', 'Advanced Malware Protection', 'Priority Backups', 'VIP 24/7 Support', 'Node.js']
         },
         {
-          name: 'Agency Pro', desc: 'Maximum resources & capabilities', price: 29.99, color: '#F472B6', popular: false,
+          name: 'Agency Pro', desc: 'Maximum resources & capabilities', price: 34.99, color: '#F472B6', popular: false,
           extras: ['Unlimited Websites', '50 GB NVMe SSD', 'Unlimited Email', 'Unlimited MySQL Databases', 'Wildcard SSL', 'Dedicated IP Address', 'Malware & Firewall Protection', 'Dedicated Manager', 'VIP 24/7 Support', 'Node.js', 'LiteSpeed Cache']
         },
       ],
@@ -782,15 +782,15 @@ export const t = {
         desc: 'Ми підтримуємо PHP (різні версії), Python та Node.js. Безкоштовні SSL з автооновленням для кожного акаунту.',
       }
     },
-    billing: { monthly: 'Щомісяця', quarterly: 'Щоквартально', yearly: 'Щорічно', threeYears: 'На 3 роки', save10: '−10%', save20: '−20%', save30: '−25%', monthTerm: '1 місяць', quarterTerm: '3 місяці', yearTerm: '1 рік', threeYearTerm: '3 роки', payToday: 'Оплатити', today: 'сьогодні', for: 'На', then: 'потім', onRenewal: 'при поновленні' },
+    billing: { monthly: 'Щомісяця', quarterly: 'Щоквартально', yearly: 'Щорічно', threeYears: 'На 3 роки', save10: '−10%', save20: '−20%', save30: '−30%', monthTerm: '1 місяць', quarterTerm: '3 місяці', yearTerm: '1 рік', threeYearTerm: '3 роки', payToday: 'Оплатити', today: 'сьогодні', for: 'На', then: 'потім', onRenewal: 'при поновленні' },
     pricing: {
       title: 'Прозорі тарифи', sub: 'Оберіть план і масштабуйтесь без обмежень', popular: 'Найпопулярніший', mo: '/міс', cta: 'Обрати план', featLabel: 'Включено:', customTitle: 'Не знайшли потрібний тариф?', customSub: 'Напишіть нам — ми підберемо індивідуальне рішення під ваші потреби та бюджет.', customBtn: '✉️ Написати нам',
       plans: [
         { name: 'Personal', desc: 'Ідеально для першого сайту', price: 0.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email акаунт', '1 база даних MySQL', 'Безкоштовний SSL', 'cPanel', 'Node.js', 'Захист від шкідливого ПЗ', 'Стандартні бекапи', 'Звичайна підтримка'] },
-        { name: 'Starter', desc: 'Для зростаючих проєктів', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 5 сайтів', '5 GB NVMe SSD', '5 Email акаунтів', '5 баз даних MySQL', 'Безкоштовний SSL', 'cPanel', 'Node.js', 'Захист від шкідливого ПЗ', 'Стандартні бекапи', 'Звичайна підтримка'] },
+        { name: 'Starter', desc: 'Для зростаючих проєктів', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 3 сайтів', '3 GB NVMe SSD', '3 Email акаунтів', '3 бази даних MySQL', 'Безкоштовний SSL', 'cPanel', 'Node.js', 'Захист від шкідливого ПЗ', 'Стандартні бекапи', 'Звичайна підтримка'] },
         { name: 'Business', desc: 'Для серйозних проєктів', price: 9.99, color: '#A78BFA', popular: false, extras: ['до 10 сайтів', '10 GB NVMe SSD', '10 Email акаунтів', '10 баз даних MySQL', 'Безкоштовний SSL', 'cPanel', 'Node.js', 'Захист від шкідливого ПЗ', 'Пріоритетний бекап', 'Пріоритетна підтримка'] },
         { name: 'Agency', desc: 'Для агентств і розробників', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтів', '25 GB NVMe SSD', 'Необмежено Email', '25 баз даних MySQL', 'Wildcard SSL', 'cPanel', 'Node.js', 'Розширений захист від шкідливого ПЗ', 'Пріоритетний бекап', 'VIP підтримка 24/7', 'LiteSpeed Cache'] },
-        { name: 'Agency Pro', desc: 'Максимум ресурсів і можливостей', price: 29.99, color: '#F472B6', popular: false, extras: ['Необмежено сайтів', '50 GB NVMe SSD', 'Необмежено Email', 'Необмежено баз даних MySQL', 'Wildcard SSL', 'Виділена IP-адреса', 'Захист від шкідливого ПЗ та Firewall', 'Виділений менеджер', 'VIP підтримка 24/7', 'Node.js', 'LiteSpeed Cache'] },
+        { name: 'Agency Pro', desc: 'Максимум ресурсів і можливостей', price: 34.99, color: '#F472B6', popular: false, extras: ['Необмежено сайтів', '50 GB NVMe SSD', 'Необмежено Email', 'Необмежено баз даних MySQL', 'Wildcard SSL', 'Виділена IP-адреса', 'Захист від шкідливого ПЗ та Firewall', 'Виділений менеджер', 'VIP підтримка 24/7', 'Node.js', 'LiteSpeed Cache'] },
       ],
     },
     who: {
@@ -1192,15 +1192,15 @@ export const t = {
         desc: 'Мы поддерживаем PHP (разные версии), Python и Node.js. Бесплатные SSL с автообновлением для каждого аккаунта.',
       }
     },
-    billing: { monthly: 'Ежемесячно', quarterly: 'Ежеквартально', yearly: 'Ежегодно', threeYears: 'На 3 года', save10: '−10%', save20: '−20%', save30: '−25%', monthTerm: '1 месяц', quarterTerm: '3 месяца', yearTerm: '1 год', threeYearTerm: '3 года', payToday: 'Оплатить', today: 'сегодня', for: 'На', then: 'затем', onRenewal: 'при возобновлении' },
+    billing: { monthly: 'Ежемесячно', quarterly: 'Ежеквартально', yearly: 'Ежегодно', threeYears: 'На 3 года', save10: '−10%', save20: '−20%', save30: '−30%', monthTerm: '1 месяц', quarterTerm: '3 месяца', yearTerm: '1 год', threeYearTerm: '3 года', payToday: 'Оплатить', today: 'сегодня', for: 'На', then: 'затем', onRenewal: 'при возобновлении' },
     pricing: {
       title: 'Прозрачные тарифы', sub: 'Выберите план и масштабируйтесь без ограничений', popular: 'Самый популярный', mo: '/мес', cta: 'Выбрать план', featLabel: 'Включено:', customTitle: 'Не нашли нужный тариф?', customSub: 'Напишите нам — мы подберём индивидуальное решение под ваши нужды и бюджет.', customBtn: '✉️ Написать нам',
       plans: [
         { name: 'Personal', desc: 'Идеально для первого сайта', price: 0.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email аккаунт', '1 база данных MySQL', 'Бесплатный SSL', 'cPanel', 'Node.js', 'Защита от вредоносного ПО', 'Стандартные бекапы', 'Обычная поддержка'] },
-        { name: 'Starter', desc: 'Для растущих проектов', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 5 сайтов', '5 GB NVMe SSD', '5 Email аккаунтов', '5 база данных MySQL', 'Бесплатный SSL', 'cPanel', 'Node.js', 'Защита от вредоносного ПО', 'Стандартные бекапы', 'Обычная поддержка'] },
+        { name: 'Starter', desc: 'Для растущих проектов', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 3 сайтов', '3 GB NVMe SSD', '3 Email аккаунтов', '3 базы данных MySQL', 'Бесплатный SSL', 'cPanel', 'Node.js', 'Защита от вредоносного ПО', 'Стандартные бекапы', 'Обычная поддержка'] },
         { name: 'Business', desc: 'Для серьёзных проектов', price: 9.99, color: '#A78BFA', popular: false, extras: ['до 10 сайтов', '10 GB NVMe SSD', '10 Email аккаунтов', '10 баз данных MySQL', 'Бесплатный SSL', 'cPanel', 'Node.js', 'Защита от вредоносного ПО', 'Приоритетный бекап', 'Приоритетная поддержка'] },
         { name: 'Agency', desc: 'Для агентств и разработчиков', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтов', '25 GB NVMe SSD', 'Безлимитный Email', '25 баз данных MySQL', 'Wildcard SSL', 'cPanel', 'Node.js', 'Продвинутая защита от вредоносного ПО', 'Приоритетный бекап', 'VIP поддержка 24/7', 'LiteSpeed Cache'] },
-        { name: 'Agency Pro', desc: 'Максимум ресурсов и возможностей', price: 29.99, color: '#F472B6', popular: false, extras: ['Безлимитно сайтов', '50 GB NVMe SSD', 'Безлимитный Email', 'Безлимитно баз данных MySQL', 'Wildcard SSL', 'Выделенный IP-адрес', 'Защита от вредоносного ПО и Firewall', 'Персональный менеджер', 'VIP поддержка 24/7', 'Node.js', 'LiteSpeed Cache'] },
+        { name: 'Agency Pro', desc: 'Максимум ресурсов и возможностей', price: 34.99, color: '#F472B6', popular: false, extras: ['Безлимитно сайтов', '50 GB NVMe SSD', 'Безлимитный Email', 'Безлимитно баз данных MySQL', 'Wildcard SSL', 'Выделенный IP-адрес', 'Защита от вредоносного ПО и Firewall', 'Персональный менеджер', 'VIP поддержка 24/7', 'Node.js', 'LiteSpeed Cache'] },
       ],
     },
     who: { title: 'Для кого подходит?', sub: 'Масштабируемое решение для любого размера бизнеса', items: [{ icon: '🏢', color: '#6EE7B7', bg: 'rgba(110,231,183,.1)', title: 'Бизнес', desc: 'Корпоративные сайты, лендинги, CRM. Надёжность и скорость для вашего бренда.' }, { icon: '👨‍💻', color: '#60A5FA', bg: 'rgba(96,165,250,.1)', title: 'Разработчики', desc: 'Перепродавайте хостинг клиентам под своим брендом. Мощная инфраструктура для вашего бизнеса.' }, { icon: '🛒', color: '#A78BFA', bg: 'rgba(167,139,250,.1)', title: 'Интернет-магазины', desc: 'WooCommerce, PrestaShop, OpenCart. Быстрый хостинг для e-commerce.' }, { icon: '🚀', color: '#FB923C', bg: 'rgba(251,146,60,.1)', title: 'Стартапы', desc: 'Начните малым и масштабируйтесь мгновенно. Без переездов и простоев.' }] },
