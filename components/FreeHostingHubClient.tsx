@@ -96,7 +96,7 @@ export default function FreeHostingHubClient({ lang }: { lang: Lang }) {
                 height: '100%',
                 transition: 'all .3s ease',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
               }}
               className="hp-hub-card"
             >
@@ -110,14 +110,6 @@ export default function FreeHostingHubClient({ lang }: { lang: Lang }) {
               <div style={{ color: card.color, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
                 {card.btn}
               </div>
-
-              <style jsx>{`
-                .hp-hub-card:hover {
-                  background: rgba(255,255,255,0.04);
-                  border-color: ${card.color}44;
-                  transform: translateY(-8px);
-                }
-              `}</style>
             </Link>
           </FadeIn>
         ))}
@@ -125,26 +117,26 @@ export default function FreeHostingHubClient({ lang }: { lang: Lang }) {
 
       {/* TESTIMONIALS */}
       <section style={{ padding: '120px 24px 80px', maxWidth: 1200, margin: '0 auto' }}>
-        <FadeIn style={{ textAlign:'center',marginBottom:60 }}>
-          <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,48px)',fontWeight:800,marginBottom:16 }}>{T.testimonials.title}</h2>
-          <p style={{ fontSize:18,color:'rgba(255,255,255,.5)' }}>{T.testimonials.sub}</p>
+        <FadeIn style={{ textAlign: 'center', marginBottom: 60 }}>
+          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(32px,5vw,48px)', fontWeight: 800, marginBottom: 16 }}>{T.testimonials.title}</h2>
+          <p style={{ fontSize: 18, color: 'rgba(255,255,255,.5)' }}>{T.testimonials.sub}</p>
         </FadeIn>
-        <div style={{ display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:24,marginBottom:48 }}>
-          {T.testimonials.items.slice(0, 3).map((t: any,i: number)=>(
-            <FadeIn key={i} delay={i*150} style={{ background:'rgba(255,255,255,0.02)',border:'1px solid rgba(255,255,255,0.05)',borderRadius:24,padding:32,display:'flex',flexDirection:'column',justifyContent:'space-between' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))', gap: 24, marginBottom: 48 }}>
+          {T.testimonials.items.slice(0, 3).map((t: any, i: number) => (
+            <FadeIn key={i} delay={i * 150} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 24, padding: 32, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ display:'flex',gap:4,marginBottom:20 }}>
-                  {[...Array(t.stars)].map((_,s)=>(
+                <div style={{ display: 'flex', gap: 4, marginBottom: 20 }}>
+                  {[...Array(t.stars)].map((_, s) => (
                     <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#FBBF24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                   ))}
                 </div>
-                <p style={{ fontSize:16,color:'rgba(255,255,255,.8)',lineHeight:1.7,fontStyle:'italic',marginBottom:24 }}>"{t.text}"</p>
+                <p style={{ fontSize: 16, color: 'rgba(255,255,255,.8)', lineHeight: 1.7, fontStyle: 'italic', marginBottom: 24 }}>"{t.text}"</p>
               </div>
-              <div style={{ display:'flex',alignItems:'center',gap:16 }}>
-                <div style={{ width:48,height:48,borderRadius:'50%',background:'linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.05))',display:'flex',alignItems:'center',justifyContent:'center',fontSize:20,border:'1px solid rgba(255,255,255,.1)' }}>👤</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.05))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, border: '1px solid rgba(255,255,255,.1)' }}>👤</div>
                 <div>
-                  <div style={{ fontWeight:700,fontSize:16,color:'#fff' }}>{t.name}</div>
-                  <div style={{ fontSize:13,color:'rgba(255,255,255,.45)' }}>{t.role}</div>
+                  <div style={{ fontWeight: 700, fontSize: 16, color: '#fff' }}>{t.name}</div>
+                  <div style={{ fontSize: 13, color: 'rgba(255,255,255,.45)' }}>{t.role}</div>
                 </div>
               </div>
             </FadeIn>
@@ -155,10 +147,10 @@ export default function FreeHostingHubClient({ lang }: { lang: Lang }) {
       {/* SEO TEXT */}
       <section style={{ padding: '40px 24px 80px', maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
         <FadeIn>
-          <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'24px',fontWeight:700,marginBottom:16,color:'#fff' }}>
+          <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: '24px', fontWeight: 700, marginBottom: 16, color: '#fff' }}>
             {T.freeHostingHub.seo.title}
           </h2>
-          <p style={{ fontSize:'16px',color:'rgba(255,255,255,.6)',lineHeight:1.8 }}>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,.6)', lineHeight: 1.8 }}>
             {T.freeHostingHub.seo.text}
           </p>
         </FadeIn>
@@ -176,6 +168,11 @@ export default function FreeHostingHubClient({ lang }: { lang: Lang }) {
           .hp-hub-grid {
             grid-template-columns: 1fr 1fr;
           }
+        }
+        .hp-hub-card:hover {
+          background: rgba(255,255,255,0.04) !important;
+          border-color: rgba(255,255,255,0.15) !important;
+          transform: translateY(-8px);
         }
       `}</style>
     </div>
