@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { LANGS } from '@/lib/i18n'
-
-
 import { LANGS, Lang, getT, LANG_META, getAlternates } from '@/lib/i18n'
 
 export function generateStaticParams() {
