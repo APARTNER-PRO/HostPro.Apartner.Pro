@@ -8,9 +8,11 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/api/', '/paddle-test/'],
       },
     ],
     sitemap: 'https://hostpro.apartner.pro/sitemap.xml',
     host: 'https://hostpro.apartner.pro',
   }
 }
+

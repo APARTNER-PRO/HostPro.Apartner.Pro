@@ -16,15 +16,11 @@ interface OpenRouterResponse {
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const MODELS = [
-  'google/gemini-2.0-flash-001', // Primary (will 402 if no credits)
-  'qwen/qwen-2.5-72b-instruct:free',
-  'google/gemini-2.0-flash-exp:free',
-  'deepseek/deepseek-v4-flash:free', // Great multi-lingual fallback
-  'meta-llama/llama-3.3-70b-instruct:free', // Good but often rate-limited
-  'meta-llama/llama-3.2-3b-instruct:free',
-  'google/gemma-2-9b-it:free',
-  'openrouter/auto', // Will 402 if no credits
-  'openrouter/free' // Guaranteed free ultimate fallback
+  'google/gemini-2.0-flash-001', 
+  'google/gemini-2.0-flash-lite-preview-02-05:free',
+  'meta-llama/llama-3.3-70b-instruct:free',
+  'openrouter/auto', 
+  'openrouter/free'
 ] as const;
 
 const MAX_TOKENS = 1000;
@@ -44,64 +40,51 @@ const getSystemPrompt = (lang: string) => {
       : 'Click the button below to get started instantly.';
 
   return `
-You are a senior hosting consultant at **HostPro**.
-Style: Professional, direct, sales-oriented. No unnecessary fluff.
-Goal: Convert visitors into customers.
-
-**CRITICAL: Respond ONLY in ${langName}. Every single word MUST be in ${langName}.**
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-## SALES STRATEGY
-- **Upsell to Agency ($19.99/mo):** Always recommend it as the best choice (Priority Support 24/7, Wildcard SSL, 25GB NVMe).
-- **Proactive Links:** If you mention a plan, immediately ask: "Which billing cycle do you prefer: monthly, yearly (-20%), or 3 years (-30% savings)?"
-- **Direct Pay Intent:** If the user says "Pay [Plan] - [Cycle]" (from a chip), respond immediately with the payment link and a brief confirmation of what they get.
-- **Urgency/Value:** Highlight **Free Migration (24h)** and **14-day Money-back Guarantee**.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-## HOSTING PLANS
-
-| Plan       | Price/mo  | Sites     | NVMe  | Key Features |
-|------------|-----------|-----------|-------|--------------|
-| Personal   | $0.99     | 1         | 1 GB  | Basic hosting |
-| Starter    | $4.99     | up to 3   | 3 GB  | Small projects |
-| Business   | $9.99     | up to 10  | 10 GB | **Site Accelerator**, Backups |
-| Agency     | $19.99    | up to 25  | 25 GB | **Priority Support 24/7**, Wildcard SSL |
-| Agency Pro | $39.99    | Unlimited | 50 GB | **VIP Support 24/7**, Dedicated IP |
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-## PAYMENT LINKS (MANDATORY FORMAT)
-
-Format: \`[Link Text](URL)\`
-- URL: \`/${lang === 'en' ? '' : lang}?plan={planID}&billing={billingID}\`
-- Plan IDs: \`personal\`, \`starter\`, \`business\`, \`agency\`, \`agency-pro\`
-- Billing IDs: \`monthly\`, \`quarterly\`, \`yearly\`, \`threeYears\`
-- Link Text examples:
-  - UK: \`[Купити Agency – Рік]\`
-  - RU: \`[Купить Agency – Год]\`
-  - EN: \`[Buy Agency – Yearly]\`
-
-Closing sentence: "${closingSentence}"
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-## INTERACTIVE CHIPS
-
-End EVERY response with 3 chips:
-\`[CHIPS: "Option 1", "Option 2", "Option 3"]\`
-
-If recommending a plan (e.g. Agency), use:
-- "${isUk ? 'Купити Agency – Рік' : isRu ? 'Купить Agency – Год' : 'Buy Agency – Yearly'}"
-- "${isUk ? 'Купити Agency – 3 роки' : isRu ? 'Купить Agency – 3 года' : 'Buy Agency – 3 Years'}"
-- "${isUk ? 'Порівняти всі тарифи' : isRu ? 'Сравнить все тарифы' : 'Compare all plans'}"
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-## ABSOLUTE RULES
-1. **Language:** ALWAYS ${langName}.
-2. **Length:** Max 6 sentences.
-3. **Chips are mandatory.**
-`;
+ You are HostPro AI, a professional hosting consultant.
+ Goal: Convert visitors into customers.
+ **Language:** ALWAYS ${langName}.
+ 
+ **STRICT RULE:** Output ONLY the final response to the user. DO NOT think out loud.
+ 
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ## PRICING & RECOMMENDATION
+ - **Support Email:** hostpro@apartner.pro
+ - **Personal:** $0.99/mo (1 site, 1GB NVMe)
+ - **Starter:** $4.99/mo (up to 3 sites, 3GB NVMe)
+ - **Business:** $9.99/mo (up to 10 sites, 10GB NVMe, Site Accelerator)
+ - **Agency (Recommended):** $19.99/mo (up to 25 sites, 25GB NVMe, **Priority Support 24/7**, Wildcard SSL)
+ - **Agency Pro:** $39.99/mo (Unlimited sites, 50GB NVMe, VIP Support 24/7)
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ## PAYMENT LINKS (MANDATORY)
+ If you recommend a plan, provide a clickable link.
+ **Format:** \`[Localized Text](URL)\`
+ 
+ - **URL:** \`/${lang === 'en' ? '' : lang}?plan={planID}&billing={billingID}\`
+ - **planID:** personal, starter, business, agency, agency-pro
+ - **billingID:** quarterly, yearly, threeYears
+ 
+ **Examples:**
+ - UK: \`[Купити Agency – Рік](/${lang === 'en' ? '' : lang}?plan=agency&billing=yearly)\`
+ - RU: \`[Купить Agency – Год](/${lang === 'en' ? '' : lang}?plan=agency&billing=yearly)\`
+ 
+ ${closingSentence}
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ## INTERACTIVE CHIPS
+ End EVERY response with exactly 3 chips:
+ \`[CHIPS: "Option 1", "Option 2", "Option 3"]\`
+ 
+ NEVER translate the word "CHIPS".
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ## ABSOLUTE RULES
+ 1. Be concise (max 5 sentences).
+ 2. Mention 24h Free Migration and 14-day Money-back Guarantee.
+ 3. Use ${langName} only.
+ `;
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
+
+const OLLAMA_TOKEN = process.env.OLLAMA_CLOUD_TOKEN;
 
 async function fetchWithTimeout(url: string, options: RequestInit, ms: number): Promise<Response> {
   const controller = new AbortController();
@@ -133,6 +116,8 @@ async function tryModel(
         body: JSON.stringify({
           model,
           max_tokens: MAX_TOKENS,
+          temperature: 0.1, // Fixed: low temperature for stability
+          top_p: 0.9,
           messages: [{ role: 'system', content: getSystemPrompt(lang) }, ...messages],
         }),
       },
@@ -148,14 +133,42 @@ async function tryModel(
     const data = (await response.json()) as OpenRouterResponse;
     const content = data.choices?.[0]?.message?.content;
 
-    if (!content) {
-      console.warn(`[HostPro] Model ${model} → empty content`);
-      return null;
-    }
-
+    if (!content) return null;
     return content;
   } catch (err: any) {
     console.error(`[HostPro] Model ${model} → ${err.message}`);
+    return null;
+  }
+}
+
+async function tryOllamaCloud(
+  messages: ChatMessage[],
+  lang: string
+): Promise<string | null> {
+  if (!OLLAMA_TOKEN) return null;
+  try {
+    const response = await fetchWithTimeout(
+      'https://api.ollama.cloud/v1/chat/completions',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${OLLAMA_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'llama3.3-70b',
+          messages: [{ role: 'system', content: getSystemPrompt(lang) }, ...messages],
+          temperature: 0.1,
+        }),
+      },
+      FETCH_TIMEOUT_MS,
+    );
+
+    if (!response.ok) return null;
+    const data = await response.json();
+    return data.choices?.[0]?.message?.content || null;
+  } catch (err) {
+    console.error(`[HostPro] Ollama Cloud Error:`, err);
     return null;
   }
 }
@@ -190,6 +203,13 @@ export async function POST(req: Request) {
       console.info(`[HostPro] Served by: ${model} [${lang}]`);
       return NextResponse.json({ role: 'assistant', content });
     }
+  }
+
+  // Final fallback: Ollama Cloud (using user's token)
+  const ollamaContent = await tryOllamaCloud(messages, lang);
+  if (ollamaContent) {
+    console.info(`[HostPro] Served by: Ollama Cloud [${lang}]`);
+    return NextResponse.json({ role: 'assistant', content: ollamaContent });
   }
 
   const { getT } = await import('@/lib/i18n');

@@ -14,6 +14,84 @@ type Message = {
 
 export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
   const T = useMemo(() => getT(lang).chat, [lang]);
+  const p = lang === 'en' ? '' : `/${lang}`;
+
+  // Smart chips based on conversation context - always reliable, never depends on AI output
+  const getSmartChips = (lastContent: string): string[] => {
+    const chipMatch = lastContent.match(/\[(?:CHIPS|ЧЕПС|CHIP|ЧИПС):\s*(.*)\]/i);
+    if (chipMatch) {
+      try {
+        const raw = chipMatch[1];
+        return raw.split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''));
+      } catch (e) {
+        console.error('Failed to parse chips', e);
+      }
+    }
+
+    const c = lastContent.toLowerCase();
+    const isUk = lang === 'uk';
+    const isRu = lang === 'ru';
+
+    if (c.includes('agency')) {
+      return isUk
+        ? ['Хочу купити Agency – Квартал', 'Хочу купити Agency – Рік', 'Хочу купити Agency – 3 роки']
+        : isRu
+        ? ['Хочу купить Agency – Квартал', 'Хочу купить Agency – Год', 'Хочу купить Agency – 3 года']
+        : ['Buy Agency – Quarterly', 'Buy Agency – Yearly', 'Buy Agency – 3 Years'];
+    }
+    if (c.includes('agency pro')) {
+      return isUk
+        ? ['Хочу купити Agency Pro – Квартал', 'Хочу купити Agency Pro – Рік', 'Хочу купити Agency Pro – 3 роки']
+        : isRu
+        ? ['Хочу купить Agency Pro – Квартал', 'Хочу купить Agency Pro – Год', 'Хочу купить Agency Pro – 3 года']
+        : ['Buy Agency Pro – Quarterly', 'Buy Agency Pro – Yearly', 'Buy Agency Pro – 3 Years'];
+    }
+    if (c.includes('business')) {
+      return isUk
+        ? ['Хочу купити Business – Квартал', 'Хочу купити Business – Рік', 'Хочу купити Business – 3 роки']
+        : isRu
+        ? ['Хочу купить Business – Квартал', 'Хочу купить Business – Год', 'Хочу купить Business – 3 года']
+        : ['Buy Business – Quarterly', 'Buy Business – Yearly', 'Buy Business – 3 Years'];
+    }
+    return isUk
+      ? ['Допоможи обрати тариф', 'Скільки коштує Agency?', 'Чи є знижки?']
+      : isRu
+      ? ['Помоги выбрать тариф', 'Сколько стоит Agency?', 'Есть ли скидки?']
+      : ['Help me choose a plan', 'How much is Agency?', 'Are there discounts?'];
+  };
+
+  const getChipUrl = (chip: string): string | null => {
+    const map: Record<string, string> = {
+      'Хочу купити Agency – Квартал': `${p}?plan=agency&billing=quarterly`,
+      'Хочу купити Agency – Рік': `${p}?plan=agency&billing=yearly`,
+      'Хочу купити Agency – 3 роки': `${p}?plan=agency&billing=threeYears`,
+      'Хочу купити Agency Pro – Квартал': `${p}?plan=agency-pro&billing=quarterly`,
+      'Хочу купити Agency Pro – Рік': `${p}?plan=agency-pro&billing=yearly`,
+      'Хочу купити Agency Pro – 3 роки': `${p}?plan=agency-pro&billing=threeYears`,
+      'Хочу купити Business – Квартал': `${p}?plan=business&billing=quarterly`,
+      'Хочу купити Business – Рік': `${p}?plan=business&billing=yearly`,
+      'Хочу купити Business – 3 роки': `${p}?plan=business&billing=threeYears`,
+      'Хочу купить Agency – Квартал': `${p}?plan=agency&billing=quarterly`,
+      'Хочу купить Agency – Год': `${p}?plan=agency&billing=yearly`,
+      'Хочу купить Agency – 3 года': `${p}?plan=agency&billing=threeYears`,
+      'Хочу купить Agency Pro – Квартал': `${p}?plan=agency-pro&billing=quarterly`,
+      'Хочу купить Agency Pro – Год': `${p}?plan=agency-pro&billing=yearly`,
+      'Хочу купить Agency Pro – 3 года': `${p}?plan=agency-pro&billing=threeYears`,
+      'Хочу купить Business – Квартал': `${p}?plan=business&billing=quarterly`,
+      'Хочу купить Business – Год': `${p}?plan=business&billing=yearly`,
+      'Хочу купить Business – 3 года': `${p}?plan=business&billing=threeYears`,
+      'Buy Agency – Quarterly': `${p}?plan=agency&billing=quarterly`,
+      'Buy Agency – Yearly': `${p}?plan=agency&billing=yearly`,
+      'Buy Agency – 3 Years': `${p}?plan=agency&billing=threeYears`,
+      'Buy Agency Pro – Quarterly': `${p}?plan=agency-pro&billing=quarterly`,
+      'Buy Agency Pro – Yearly': `${p}?plan=agency-pro&billing=yearly`,
+      'Buy Agency Pro – 3 Years': `${p}?plan=agency-pro&billing=threeYears`,
+      'Buy Business – Quarterly': `${p}?plan=business&billing=quarterly`,
+      'Buy Business – Yearly': `${p}?plan=business&billing=yearly`,
+      'Buy Business – 3 Years': `${p}?plan=business&billing=threeYears`,
+    };
+    return map[chip] || null;
+  };
   
   const [messages, setMessages] = useState<Message[]>([]);
 
@@ -233,30 +311,43 @@ export default function ChatClient({ lang = 'uk' }: { lang?: Lang }) {
                       }}
                     >
                       {(() => {
-                        const chipsRegex = /\[CHIPS:\s*(.*?)\]/i;
-                        const contactRegex = /\[CONTACT_FORM\]/i;
                         const content = msg.content || '';
-                        return content.replace(chipsRegex, '').replace(contactRegex, '').trim();
+                        return content
+                          .replace(/\[(CHIPS|ЧЕПС|ЧИПС|CHIP):[\s\S]*?\]/gi, '')
+                          .replace(/\[CONTACT_FORM\]/gi, '')
+                          .trim();
                       })()}
                     </ReactMarkdown>
                     {(() => {
                       const content = msg.content || '';
-                      const match = content.match(/\[CHIPS:\s*(.*?)\]/i);
-                      if (match) {
-                        const chips = match[1].split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+                      if (i === messages.length - 1 && msg.role === 'assistant' && !isLoading) {
+                        const chips = getSmartChips(content);
                         return (
                           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '12px' }}>
-                            {chips.map(chip => (
-                              <button 
-                                key={chip}
-                                onClick={() => {
-                                  handleSubmit({ preventDefault: () => {} } as any, chip);
-                                }}
-                                className="hp-chat-chip"
-                              >
-                                {chip}
-                              </button>
-                            ))}
+                            {chips.map(chip => {
+                              const url = getChipUrl(chip);
+                              return url ? (
+                                <a
+                                  key={chip}
+                                  href={url}
+                                  className="hp-chat-chip"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    window.location.href = url;
+                                  }}
+                                >
+                                  {chip}
+                                </a>
+                              ) : (
+                                <button
+                                  key={chip}
+                                  onClick={() => handleSubmit({ preventDefault: () => {} } as any, chip)}
+                                  className="hp-chat-chip"
+                                >
+                                  {chip}
+                                </button>
+                              );
+                            })}
                           </div>
                         );
                       }
