@@ -141,7 +141,14 @@ async function tryModel(
   }
 }
 
+const OLLAMA_MODELS = [
+  'qwen2.5-72b',
+  'llama3.3-70b',
+  'deepseek-v3'
+] as const;
+
 async function tryOllamaCloud(
+  model: string,
   messages: ChatMessage[],
   lang: string
 ): Promise<string | null> {
@@ -156,19 +163,23 @@ async function tryOllamaCloud(
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: 'llama3.3-70b',
+          model,
           messages: [{ role: 'system', content: getSystemPrompt(lang) }, ...messages],
           temperature: 0.1,
+          max_tokens: MAX_TOKENS,
         }),
       },
       FETCH_TIMEOUT_MS,
     );
 
-    if (!response.ok) return null;
+    if (!response.ok) {
+      console.warn(`[HostPro] Ollama Cloud [${model}] → HTTP ${response.status}`);
+      return null;
+    }
     const data = await response.json();
     return data.choices?.[0]?.message?.content || null;
   } catch (err) {
-    console.error(`[HostPro] Ollama Cloud Error:`, err);
+    console.error(`[HostPro] Ollama Cloud [${model}] Error:`, err);
     return null;
   }
 }
@@ -206,10 +217,12 @@ export async function POST(req: Request) {
   }
 
   // Final fallback: Ollama Cloud (using user's token)
-  const ollamaContent = await tryOllamaCloud(messages, lang);
-  if (ollamaContent) {
-    console.info(`[HostPro] Served by: Ollama Cloud [${lang}]`);
-    return NextResponse.json({ role: 'assistant', content: ollamaContent });
+  for (const oModel of OLLAMA_MODELS) {
+    const ollamaContent = await tryOllamaCloud(oModel, messages, lang);
+    if (ollamaContent) {
+      console.info(`[HostPro] Served by: Ollama Cloud [${oModel}] [${lang}]`);
+      return NextResponse.json({ role: 'assistant', content: ollamaContent });
+    }
   }
 
   const { getT } = await import('@/lib/i18n');
