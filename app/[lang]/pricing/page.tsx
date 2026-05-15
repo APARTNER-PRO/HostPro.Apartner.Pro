@@ -1,4 +1,5 @@
 import PricingTable from '@/components/PricingTable'
+import PricingFAQ from '@/components/PricingFAQ'
 import PageWrapper from '@/components/PageWrapper'
 import { Metadata } from 'next'
 import { Lang, getT } from '@/lib/i18n'
@@ -46,6 +47,7 @@ export default async function PricingPage({ params }: { params: { lang: Lang } }
             </p>
           </div>
           <PricingTable lang={params.lang} initialData={plansData} />
+          <PricingFAQ lang={params.lang} />
         </div>
       </main>
     </PageWrapper>
