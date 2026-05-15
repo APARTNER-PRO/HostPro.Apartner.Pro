@@ -125,10 +125,14 @@ body {
 }
 
 /* ── Layout ── */
+section {
+  position: relative;
+}
+
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 120px 0px 50px;
+  padding: 120px 15px 50px;
 }
 
 .page-container {
