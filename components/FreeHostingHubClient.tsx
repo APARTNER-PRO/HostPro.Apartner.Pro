@@ -83,7 +83,9 @@ export default function FreeHostingHubClient({ lang }: { lang: Lang }) {
       </div>
 
       {/* TESTIMONIALS */}
-      <TestimonialsSection lang={lang} />
+      <div style={{ marginTop: 80 }}>
+        <TestimonialsSection lang={lang} />
+      </div>
 
       {/* SEO TEXT */}
       <section style={{ padding: '40px 24px 80px', maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
