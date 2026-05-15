@@ -216,15 +216,15 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
 
       {/* PROMO & UNIQUE DOMAIN */}
       <div className="hp-grid-2-1" style={{ gap: 40, marginBottom: 120 }}>
-        <FadeIn style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 32, padding: 48 }}>
+        <FadeIn className="hp-card-glass-light">
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, marginBottom: 24 }}>{T.freeWp.promo.title}</h2>
           <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 16 }}>{T.freeWp.promo.text1}</p>
           <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 16 }}>{T.freeWp.promo.text2}</p>
           <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freeWp.promo.text3}</p>
         </FadeIn>
 
-        <FadeIn delay={200} style={{ background: 'rgba(168, 85, 247, 0.1)', border: '1px solid rgba(168, 85, 247, 0.2)', borderRadius: 32, padding: 48, display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'left' }}>
-          <div style={{ fontSize: 64, marginBottom: 24 }}>🎁</div>
+        <FadeIn delay={200} className="hp-card-glass-light" style={{ background: 'rgba(168, 85, 247, 0.1)', border: '1px solid rgba(168, 85, 247, 0.2)', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'left' }}>
+          <div className="hp-icon-box">🎁</div>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16 }}>{T.freeWp.uniqueDomain.title}</h2>
           <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 18, whiteSpace: 'pre-wrap' }}>{T.freeWp.uniqueDomain.text}</p>
         </FadeIn>
@@ -238,7 +238,7 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 40, fontWeight: 800, marginBottom: 16 }}>{T.freeWp.faq.title}</h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: 700, margin: '0 auto' }}>{T.freeWp.faq.sub}</p>
         </FadeIn>
-        <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div className="hp-faq-container">
           {T.freeWp.faq.items.map((item: any, i: number) => (
             <FaqItem key={i} item={item} i={i} />
           ))}
@@ -252,11 +252,11 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
       {/* UPGRADE SECTION */}
       <section style={{ textAlign: 'center', marginBottom: 120, paddingTop: 24 }}>
         <FadeIn>
-          <div style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.05))', border: '1px solid rgba(16,185,129,0.2)', borderRadius: 32, padding: 56, maxWidth: 800, margin: '0 auto' }}>
-            <div style={{ fontSize: 48, marginBottom: 24 }}>💼</div>
+          <div className="hp-card-upgrade">
+            <div className="hp-icon-box">💼</div>
             <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16, color: '#fff' }}>{T.freeWp.upgrade.title}</h2>
             <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 32, maxWidth: 560, margin: '0 auto 32px' }}>{T.freeWp.upgrade.desc}</p>
-            <Link href={`/${lang}${T.freeWp.upgrade.href}`} style={{ display: 'inline-block', padding: '16px 36px', background: 'linear-gradient(135deg, #10B981, #059669)', color: '#fff', borderRadius: 100, textDecoration: 'none', fontWeight: 700, fontSize: 16, boxShadow: '0 10px 30px rgba(16,185,129,0.3)', transition: 'transform .3s ease' }}>
+            <Link href={`/${lang}${T.freeWp.upgrade.href}`} className="hp-btn-upgrade">
               {T.freeWp.upgrade.btn}
             </Link>
           </div>
@@ -271,7 +271,7 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
 function FaqItem({ item, i }: { item: { q: string, a: string }, i: number }) {
   const [open, setOpen] = useState(false)
   return (
-    <FadeIn delay={i * 50} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 20, padding: '20px 32px', cursor: 'pointer' }}>
+    <FadeIn delay={i * 50} className="hp-faq-item">
       <div onClick={() => setOpen(!open)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <span style={{ fontSize: 16, fontWeight: 500, color: '#fff', paddingRight: 20 }}>{item.q}</span>
         <span style={{ fontSize: 20, color: 'rgba(255,255,255,0.3)', transform: open ? 'rotate(45deg)' : 'none', transition: 'transform .3s' }}>+</span>
