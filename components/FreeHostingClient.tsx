@@ -189,18 +189,7 @@ export default function FreeHostingClient({ lang }: { lang: Lang }) {
         </FadeIn>
       </div>
       
-      <style jsx>{`
-        .hp-grid-2 {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-        }
-        @media (max-width: 900px) {
-          .hp-grid-2 {
-            grid-template-columns: 1fr;
-            gap: 40px !important;
-          }
-        }
-      `}</style>
+
       <TestimonialsSection lang={lang} />
       
       <FreeOffersSection lang={lang} currentSlug="partner-free-hosting" />

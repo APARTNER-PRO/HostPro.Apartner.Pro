@@ -263,18 +263,7 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
         </FadeIn>
       </section>
 
-      <style jsx>{`
-        .hp-grid-2-1 {
-          display: grid;
-          grid-template-columns: 1.2fr 1fr;
-        }
-        @media (max-width: 1000px) {
-          .hp-grid-2-1 {
-            grid-template-columns: 1fr;
-            gap: 40px !important;
-          }
-        }
-      `}</style>
+
     </div>
   )
 }
