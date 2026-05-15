@@ -88,7 +88,7 @@ export default function LaravelClient({ lang }: { lang: Lang }) {
       </section>
 
       {/* FEATURES */}
-      <section style={{ padding:'100px 24px' }}>
+      <section id="laravel-features">
         <div className="section-container">
           <FadeIn style={{ textAlign:'center',marginBottom:72 }}>
             <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,48px)',fontWeight:800,letterSpacing:'-1px',marginBottom:16 }}>{T.features.title}</h2>
@@ -106,7 +106,7 @@ export default function LaravelClient({ lang }: { lang: Lang }) {
       </section>
 
       {/* PRICING */}
-      <section id="laravel-pricing" style={{ padding:'100px 24px',background:'rgba(255,255,255,.015)' }}>
+      <section id="laravel-pricing">
         <div className="section-container">
           <FadeIn style={{ textAlign:'center',marginBottom:48 }}>
             <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,48px)',fontWeight:800,letterSpacing:'-1px',marginBottom:16 }}>{T.pricing.title}</h2>

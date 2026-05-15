@@ -95,7 +95,7 @@ export default function PHPHostingClient({ lang }: { lang: Lang }) {
       </section>
 
       {/* FEATURES */}
-      <section style={{ padding: '100px 24px' }}>
+      <section id="php-features">
         <div className="section-container">
           <FadeIn style={{ textAlign: 'center', marginBottom: 72 }}>
             <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: 'clamp(32px,5vw,48px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>{T.features.title}</h2>
@@ -113,7 +113,7 @@ export default function PHPHostingClient({ lang }: { lang: Lang }) {
       </section>
 
       {/* PHP VERSIONS + FRAMEWORKS */}
-      <section style={{ padding: '80px 24px', background: 'rgba(139,92,246,.03)' }}>
+      <section id="php-versions">
         <div className="section-container">
           <FadeIn style={{ textAlign: 'center', marginBottom: 56 }}>
             <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: 'clamp(28px,4vw,40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>
@@ -147,7 +147,7 @@ export default function PHPHostingClient({ lang }: { lang: Lang }) {
       </section>
 
       {/* PRICING */}
-      <section id="php-pricing" style={{ padding: '100px 24px' }}>
+      <section id="php-pricing">
         <div className="section-container">
           <FadeIn style={{ textAlign: 'center', marginBottom: 48 }}>
             <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: 'clamp(32px,5vw,48px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>{T.pricing.title}</h2>

@@ -99,7 +99,7 @@ export default function PrestashopClient({ lang }: { lang: Lang }) {
       </section>
 
       {/* FEATURES */}
-      <section style={{ padding: '100px 24px' }}>
+      <section id="ps-features">
         <div className="section-container">
           <FadeIn style={{ textAlign: 'center', marginBottom: 72 }}>
             <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: 'clamp(32px,5vw,48px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>{T.features.title}</h2>
@@ -117,7 +117,7 @@ export default function PrestashopClient({ lang }: { lang: Lang }) {
       </section>
 
       {/* WHY PRESTASHOP + HOSTPRO */}
-      <section style={{ padding: '80px 24px', background: 'rgba(251,146,60,.03)' }}>
+      <section id="ps-why">
         <div className="section-container">
           <FadeIn style={{ textAlign: 'center', marginBottom: 56 }}>
             <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: 'clamp(28px,4vw,40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>
@@ -144,7 +144,7 @@ export default function PrestashopClient({ lang }: { lang: Lang }) {
       </section>
 
       {/* PRICING */}
-      <section id="ps-pricing" style={{ padding: '100px 24px' }}>
+      <section id="ps-pricing">
         <div className="section-container">
           <FadeIn style={{ textAlign: 'center', marginBottom: 48 }}>
             <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: 'clamp(32px,5vw,48px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>{T.pricing.title}</h2>
