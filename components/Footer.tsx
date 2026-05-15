@@ -17,6 +17,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
         { href: 'faq', label: T.footer.links.faq },
         { href: 'status', label: T.footer.links.status },
         { href: 'free-hosting', label: T.footer.links.freeHosting },
+        { href: 'hosting-types', label: T.footer.links.hostingTypes },
         { href: 'https://cpanel.apartner.pro', label: 'cPanel' },
       ]
     },
@@ -105,7 +106,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
                     return (
                       <Link key={j} href={href} className="hp-footer-link" {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                         {link.label}
-                        {link.href === 'ai-assistant' && <span className="hp-new-badge">NEW</span>}
+                        {(link.href === 'ai-assistant' || link.href === 'hosting-types') && <span className="hp-new-badge">NEW</span>}
                       </Link>
                     )
                   })}

@@ -86,5 +86,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   })
 
+  // 3. Process Hosting Types (Hub and Sub-pages)
+  // Hub
+  entries.push({
+    url: `${BASE}/hosting-types`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.9,
+    alternates: {
+      languages: {
+        en: `${BASE}/hosting-types`,
+        uk: `${BASE}/uk/hosting-types`,
+        ru: `${BASE}/ru/hosting-types`,
+      },
+    },
+  })
+
+  // Sub-pages from T.hostingTypes
+  T.hostingTypes.categories.forEach((cat: any) => {
+    cat.items.forEach((item: any) => {
+      entries.push({
+        url: `${BASE}/hosting-types/${item.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+        alternates: {
+          languages: {
+            en: `${BASE}/hosting-types/${item.slug}`,
+            uk: `${BASE}/uk/hosting-types/${item.slug}`,
+            ru: `${BASE}/ru/hosting-types/${item.slug}`,
+          },
+        },
+      })
+    })
+  })
+
   return entries
 }
