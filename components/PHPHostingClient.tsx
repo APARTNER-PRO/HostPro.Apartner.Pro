@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Lang, getT } from '@/lib/i18n'
 import OrderModal from './OrderModal'
+import PricingFAQ from './PricingFAQ'
 
 function useInView(ref: React.RefObject<HTMLElement>, threshold = 0.12) {
   const [inView, setInView] = useState(false)
@@ -235,6 +236,7 @@ export default function PHPHostingClient({ lang }: { lang: Lang }) {
               ))}
             </div>
           </FadeIn>
+          <PricingFAQ lang={lang} />
         </div>
       </section>
 

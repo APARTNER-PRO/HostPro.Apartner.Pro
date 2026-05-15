@@ -2,6 +2,7 @@
 
 import { Lang, getT } from '@/lib/i18n'
 import OrderModal from './OrderModal'
+import PricingFAQ from './PricingFAQ'
 import FadeIn from './FadeIn'
 
 const DISC: Record<string, number> = { monthly: 1, quarterly: 0.9, yearly: 0.8, threeYears: 0.7 }
@@ -310,6 +311,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
               <Link href={`${p}/contact`} className="btn-primary hp-cta-link">{T.pricing.customBtn}</Link>
             </div>
           </FadeIn>
+          <PricingFAQ lang={lang} />
         </div>
       </section>
 
