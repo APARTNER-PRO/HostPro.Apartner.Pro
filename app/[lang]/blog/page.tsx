@@ -25,7 +25,7 @@ export default function LangBlogPage({ params }: { params: { lang: string } }) {
 
   return (
     <PageWrapper lang={lang} slug="blog">
-      <JsonLd lang={lang} page="home" />
+      <JsonLd lang={lang} page="blog" />
       <BlogClient lang={lang} />
     </PageWrapper>
   )

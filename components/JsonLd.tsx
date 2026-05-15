@@ -4,7 +4,7 @@ const SITE_URL = 'https://hostpro.apartner.pro'
 
 interface JsonLdProps {
   lang: Lang
-  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing' | 'reviews' | 'kb' | 'free-php-hosting' | 'free-personal-hosting' | 'free-wordpress-hosting' | 'free-hosting' | 'partner-free-hosting' | 'wordpress-hosting' | 'laravel-hosting' | 'php-hosting' | 'prestashop-hosting' | 'vps-hosting' | 'dedicated-servers' | 'reseller-hosting'
+  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing' | 'reviews' | 'kb' | 'free-php-hosting' | 'free-personal-hosting' | 'free-wordpress-hosting' | 'free-hosting' | 'partner-free-hosting' | 'wordpress-hosting' | 'laravel-hosting' | 'php-hosting' | 'prestashop-hosting' | 'vps-hosting' | 'dedicated-servers' | 'reseller-hosting' | 'blog' | string
   article?: any
 }
 
@@ -191,22 +191,32 @@ export default function JsonLd({ lang, page = 'home', article }: JsonLdProps) {
     reviewBody: r.text,
   })) : null
 
-  const articleSchema = page === 'kb' && article ? {
+  const articleSchema = article ? {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: article.title,
-    description: article.title + ' — HostPro Knowledge Base.',
-    image: [`${SITE_URL}/icon-512.png`],
+    description: article.description || article.title,
+    image: [article.image || `${SITE_URL}/og-image.png`],
     author: {
       '@type': 'Organization',
-      name: 'HostPro',
+      name: article.author || 'HostPro',
     },
     publisher: { '@id': `${SITE_URL}/#organization` },
-    datePublished: '2025-01-01',
+    datePublished: article.datePublished || '2025-01-01',
+    dateModified: article.dateModified || article.datePublished || '2025-01-01',
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE_URL}${langPath}/kb/${article.catSlug}/${article.slug}`
+      '@id': `${SITE_URL}${langPath}${article.path || ''}`
     }
+  } : null
+
+  const blogSchema = page === 'blog' ? {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: T.blog.title,
+    description: T.blog.meta,
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    url: `${SITE_URL}${langPath}/blog`
   } : null
 
   const schemas = [
@@ -217,6 +227,7 @@ export default function JsonLd({ lang, page = 'home', article }: JsonLdProps) {
     localBusiness, 
     faqSchema, 
     articleSchema, 
+    blogSchema,
     ...(Array.isArray(reviewsSchema) ? reviewsSchema : [reviewsSchema])
   ].filter(Boolean)
 

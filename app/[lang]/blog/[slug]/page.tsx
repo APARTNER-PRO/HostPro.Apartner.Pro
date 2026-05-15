@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
 import BlogPostClient from '@/components/BlogPostClient'
+import JsonLd from '@/components/JsonLd'
 import { LANGS, Lang, getT } from '@/lib/i18n'
 
 export function generateStaticParams() {
@@ -37,6 +38,17 @@ export default function LangBlogPostPage({ params }: { params: { lang: string; s
 
   return (
     <PageWrapper lang={lang} slug={`blog/${params.slug}`}>
+      <JsonLd 
+        lang={lang} 
+        page="article" 
+        article={{
+          title: post.title,
+          description: post.desc,
+          path: `/blog/${post.slug}`,
+          datePublished: post.date,
+          author: 'HostPro'
+        }} 
+      />
       <BlogPostClient lang={lang} slug={params.slug} />
     </PageWrapper>
   )

@@ -104,7 +104,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
                     const isExternal = link.href.startsWith('http');
                     const href = isExternal ? link.href : link.href.startsWith('#') ? `${p || '/'}${link.href}` : `${p}/${link.href}`;
                     return (
-                      <Link key={j} href={href} className="hp-footer-link" {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                      <Link key={j} href={href} className="hp-footer-link" title={link.label} {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                         {link.label}
                         {(link.href === 'ai-assistant' || link.href === 'hosting-types') && <span className="hp-new-badge">NEW</span>}
                       </Link>
@@ -119,16 +119,16 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
             <p style={{ fontSize: 13, color: 'rgba(240,244,255,.2)' }}>{T.footer.copy}</p>
             
             <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-              <div className="hp-payment-icon" title="Visa">
+              <div className="hp-payment-icon" title="Visa" aria-label="Visa accepted">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.153 14.931c-.015-.015-.436-.454-1.127-.454-.645 0-1.291.439-1.306.454l-2.031 2.031 2.031 2.031c.015.015.661.454 1.306.454.691 0 1.112-.439 1.127-.454l2.031-2.031-2.031-2.031zm-6.153 1.069h-2v4h2v-4zm-11-2v4h2v-4h-2zm4 0v4h2v-4h-2zm4 0v4h2v-4h-2z" opacity=".2"/><path d="M22.75 6.25h-21.5c-.69 0-1.25.56-1.25 1.25v11c0 .69.56 1.25 1.25 1.25h21.5c.69 0 1.25-.56 1.25-1.25v-11c0-.69-.56-1.25-1.25-1.25zm-20 2h18.5v3h-18.5v-3zm18.5 10.25h-18.5v-5.75h18.5v5.75z"/></svg>
               </div>
-              <div className="hp-payment-icon" title="Mastercard">
+              <div className="hp-payment-icon" title="Mastercard" aria-label="Mastercard accepted">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="8.5" cy="12" r="5" opacity=".6"/><circle cx="15.5" cy="12" r="5" opacity=".6"/><path d="M12 12a4.99 4.99 0 0 0-1.5 3.5 4.99 4.99 0 0 0 1.5 3.5 4.99 4.99 0 0 0 1.5-3.5 4.99 4.99 0 0 0-1.5-3.5z"/></svg>
               </div>
-              <div className="hp-payment-icon" title="Apple Pay">
+              <div className="hp-payment-icon" title="Apple Pay" aria-label="Apple Pay accepted">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 10.3c-.02-2.14 1.74-3.17 1.82-3.22-1-1.46-2.55-1.66-3.1-1.68-1.31-.13-2.56.77-3.23.77-.67 0-1.7-.76-2.8-.74-1.45.02-2.78.84-3.53 2.14-1.51 2.62-.39 6.49 1.07 8.6 0.72 1.04 1.58 2.2 2.7 2.16 1.08-.04 1.49-.7 2.8-.7s1.68.7 2.82.68c1.15-.02 1.9-.1 2.62-2.14.73-1.06 1.07-2.1 1.09-2.15-.02-.01-2.11-.81-2.13-3.22zM14.65 4.75c.59-.71.98-1.7.87-2.69-.85.03-1.89.57-2.5 1.28-.55.63-.83 1.34-.73 2.31.95.07 1.88-.34 2.36-.9z"/></svg>
               </div>
-              <div className="hp-payment-icon" title="Google Pay">
+              <div className="hp-payment-icon" title="Google Pay" aria-label="Google Pay accepted">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.16 11.08v2.24h3.3c-.14 1-.95 2.17-3.3 2.17-2.02 0-3.66-1.67-3.66-3.74s1.64-3.74 3.66-3.74c1.15 0 1.92.49 2.36.91l1.77-1.7c-1.14-1.06-2.62-1.71-4.13-1.71-3.64 0-6.6 2.96-6.6 6.6s2.96 6.6 6.6 6.6c3.8 0 6.32-2.67 6.32-6.43 0-.43-.05-.76-.11-1.1h-6.21z"/></svg>
               </div>
             </div>
