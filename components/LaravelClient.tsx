@@ -114,7 +114,7 @@ export default function LaravelClient({ lang }: { lang: Lang }) {
           </FadeIn>
           
           <FadeIn style={{ display:'flex',justifyContent:'center',marginBottom:60 }}>
-            <div className="price__wrapper" style={{ display:'flex',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.08)',borderRadius:12,padding:4,gap:4 }}>
+            <div className="hp-billing-selector">
               {(['monthly','quarterly','yearly','threeYears'] as const).map((b)=>(
                 <button key={b} onClick={()=>setBilling(b)} className="hp-billing-btn" style={{ background:billing===b?'rgba(244,63,94,.2)':'transparent',color:billing===b?'#FB7185':'rgba(240,244,255,.5)',border:billing===b?'1px solid rgba(244,63,94,.3)':'1px solid transparent' }}>
                   {T.billing[b]}

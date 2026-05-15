@@ -920,6 +920,24 @@ select option {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.hp-billing-selector {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+  min-width: fit-content;
+}
+
+@media (max-width: 767px) {
+  .hp-billing-selector {
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 .hp-billing-btn {
   border-radius: 9px;
   cursor: pointer;

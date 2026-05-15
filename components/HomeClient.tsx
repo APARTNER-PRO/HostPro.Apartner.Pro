@@ -205,8 +205,8 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,52px)',fontWeight:800,letterSpacing:'-1px',marginBottom:16 }}>{T.pricing.title}</h2>
             <p style={{ fontSize:18,color:'rgba(240,244,255,.5)',fontWeight:300 }}>{T.pricing.sub}</p>
           </FadeIn>
-          <FadeIn style={{ display:'flex',justifyContent:'center',marginBottom:60,overflowX:'auto',WebkitOverflowScrolling:'touch',width:'100%' }}>
-            <div style={{ display:'flex',background:'rgba(255,255,255,0.05)',border:'1px solid rgba(255,255,255,0.08)',borderRadius:12,padding:4,gap:4,minWidth:'fit-content' }}>
+          <FadeIn style={{ display:'flex',justifyContent:'center',marginBottom:60,width:'100%' }}>
+            <div className="hp-billing-selector">
               {(['monthly','quarterly','yearly', 'threeYears'] as const).map((b)=>(
                 <button key={b} onClick={()=>setBilling(b)} className="hp-billing-btn" style={{ background:billing===b?'rgba(96,165,250,.2)':'transparent',color:billing===b?'#60A5FA':'rgba(240,244,255,.5)',border:billing===b?'1px solid rgba(96,165,250,.3)':'1px solid transparent',whiteSpace:'nowrap',flexShrink:0 }}>
                   {T.billing[b]}
