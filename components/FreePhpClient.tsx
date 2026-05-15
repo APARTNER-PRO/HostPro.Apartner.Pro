@@ -247,7 +247,7 @@ export default function FreePhpClient({ lang }: { lang: Lang }) {
 
 
       {/* UPGRADE SECTION */}
-      <section style={{ textAlign: 'center', marginBottom: 120 }}>
+      <section style={{ textAlign: 'center', marginBottom: 120, paddingTop: 24 }}>
         <FadeIn>
           <div style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.05))', border: '1px solid rgba(16,185,129,0.2)', borderRadius: 32, padding: 56, maxWidth: 800, margin: '0 auto' }}>
             <div style={{ fontSize: 48, marginBottom: 24 }}>💼</div>

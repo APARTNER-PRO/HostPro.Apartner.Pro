@@ -1,17 +1,20 @@
 import { Metadata } from 'next'
 import PageWrapper from '@/components/PageWrapper'
-import FreeHostingClient from '@/components/FreeHostingClient'
+import FreeHostingHubClient from '@/components/FreeHostingHubClient'
+import JsonLd from '@/components/JsonLd'
+import { getT } from '@/lib/i18n'
 
 export const metadata: Metadata = {
-  title: 'Free Hosting for Partners — HostPro Partner Program',
-  description: 'Get free hosting for your website by bringing a new client to HostPro. Our partner program rewards you with free hosting matching the plan and term of the client you refer.',
+  title: 'Free Hosting Programs | HostPro',
+  description: 'Choose from our range of free hosting offers for non-profits, volunteers, and partners. 6 months of free hosting with premium features.',
 }
 
 export default function Page() {
   const lang = 'en'
   return (
     <PageWrapper lang={lang} slug="free-hosting">
-      <FreeHostingClient lang={lang} />
+      <JsonLd lang={lang} page="pricing" />
+      <FreeHostingHubClient lang={lang} />
     </PageWrapper>
   )
 }
