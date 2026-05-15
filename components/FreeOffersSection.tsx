@@ -60,7 +60,7 @@ export default function FreeOffersSection({ lang, currentSlug }: { lang: Lang, c
         </p>
       </FadeIn>
 
-      <div className="hp-grid-2" style={{ maxWidth: 1200, margin: '0 auto' }}>
+      <div className="hp-grid-3" style={{ maxWidth: 1200, margin: '0 auto' }}>
         {otherOffers.map((card, i) => (
           <FadeIn key={i} delay={i * 100}>
             <Link 
