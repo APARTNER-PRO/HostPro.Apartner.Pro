@@ -223,7 +223,7 @@ export default function FreePersonalClient({ lang }: { lang: Lang }) {
         <FadeIn delay={200} style={{ background: 'rgba(168, 85, 247, 0.1)', border: '1px solid rgba(168, 85, 247, 0.2)', borderRadius: 32, padding: 48, display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
           <div style={{ fontSize: 64, marginBottom: 24 }}>🎁</div>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16 }}>{T.freePersonal.uniqueDomain.title}</h2>
-          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 18 }}>{T.freePersonal.uniqueDomain.text}</p>
+          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 18, whiteSpace: 'pre-wrap' }}>{T.freePersonal.uniqueDomain.text}</p>
         </FadeIn>
       </div>
 

@@ -621,7 +621,7 @@ export const t = {
       },
       uniqueDomain: {
         title: 'Unique domain for your site',
-        text: 'We give a .com.ua domain as a gift for hosting orders when paying for a period of 1 year or more.',
+        text: "Get for free\n✅ .pp.ua — free with any order!\n✅ .com.ua — as a gift when paying for a year (from Starter plan).",
       },
       faq: {
         title: 'Questions and answers about free hosting',
@@ -712,7 +712,7 @@ export const t = {
       },
       uniqueDomain: {
         title: 'Unique domain for your site',
-        text: 'We give a .com.ua domain as a gift for hosting orders when paying for a period of 1 year or more.',
+        text: "Get for free\n✅ .pp.ua — free with any order!\n✅ .com.ua — as a gift when paying for a year (from Starter plan).",
       },
       faq: {
         title: 'Questions and answers about free hosting',
@@ -803,7 +803,7 @@ export const t = {
       },
       uniqueDomain: {
         title: 'Domain as a gift (for commercial)',
-        text: 'Buy hosting for 1 year or more and get a .com.ua domain absolutely free.',
+        text: "Get for free\n✅ .pp.ua — free with any order!\n✅ .com.ua — as a gift when paying for a year (from Starter plan).",
       },
       faq: {
         title: 'FAQ: Free WordPress hosting',
@@ -1323,7 +1323,7 @@ export const t = {
       },
       uniqueDomain: {
         title: 'Унікальний домен для Вашого сайту',
-        text: 'Ми даруємо домен .com.ua до замовлень хостингу, при оплаті на період від 1 року.',
+        text: "Отримай безкоштовно\n✅ .pp.ua — безкоштовно до будь-якого замовлення!\n✅ .com.ua — у подарунок при оплаті за рік (від тарифу Starter).",
       },
       faq: {
         title: 'Питання та відповіді про безкоштовний хостинг',
@@ -1414,7 +1414,7 @@ export const t = {
       },
       uniqueDomain: {
         title: 'Унікальний домен для Вашого сайту',
-        text: 'Ми даруємо домен .com.ua до замовлень хостингу, при оплаті на період від 1 року.',
+        text: "Отримай безкоштовно\n✅ .pp.ua — безкоштовно до будь-якого замовлення!\n✅ .com.ua — у подарунок при оплаті за рік (від тарифу Starter).",
       },
       faq: {
         title: 'Питання та відповіді про безкоштовний хостинг',
@@ -1505,7 +1505,7 @@ export const t = {
       },
       uniqueDomain: {
         title: 'Домен у подарунок (для комерційних)',
-        text: 'Придбайте хостинг на 1 рік або більше та отримайте домен .com.ua абсолютно безкоштовно.',
+        text: "Отримай безкоштовно\n✅ .pp.ua — безкоштовно до будь-якого замовлення!\n✅ .com.ua — у подарунок при оплаті за рік (від тарифу Starter).",
       },
       faq: {
         title: 'FAQ: Безкоштовний WordPress хостинг',
@@ -2029,7 +2029,7 @@ export const t = {
       },
       uniqueDomain: {
         title: 'Уникальный домен для Вашего сайта',
-        text: 'Мы дарим домен .com.ua к заказам хостинга, при оплате на период от 1 года.',
+        text: "Получи бесплатно\n✅ .pp.ua — бесплатно к любому заказу!\n✅ .com.ua — в подарок при оплате за год (от тарифа Starter).",
       },
       faq: {
         title: 'Вопросы и ответы о бесплатном хостинге',
@@ -2120,7 +2120,7 @@ export const t = {
       },
       uniqueDomain: {
         title: 'Уникальный домен для Вашего сайта',
-        text: 'Мы дарим домен .com.ua к заказам хостинга, при оплате на период от 1 года.',
+        text: "Получи бесплатно\n✅ .pp.ua — бесплатно к любому заказу!\n✅ .com.ua — в подарок при оплате за год (от тарифа Starter).",
       },
       faq: {
         title: 'Вопросы и ответы о бесплатном хостинге',
@@ -2211,7 +2211,7 @@ export const t = {
       },
       uniqueDomain: {
         title: 'Домен в подарок (для коммерческих)',
-        text: 'Приобретите хостинг на 1 год или более и получите домен .com.ua абсолютно бесплатно.',
+        text: "Получи бесплатно\n✅ .pp.ua — бесплатно к любому заказу!\n✅ .com.ua — в подарок при оплате за год (от тарифа Starter).",
       },
       faq: {
         title: 'FAQ: Бесплатный WordPress хостинг',
