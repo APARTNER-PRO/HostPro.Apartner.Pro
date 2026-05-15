@@ -116,7 +116,7 @@ export default function FreePersonalClient({ lang }: { lang: Lang }) {
       </div>
 
       {/* FORM & CONDITIONS SECTION */}
-      <div id="application-form" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 80, alignItems: 'start', marginBottom: 120 }}>
+      <div id="application-form" className="hp-grid-2-1" style={{ gap: 80, alignItems: 'start', marginBottom: 120 }}>
         <FadeIn>
           <div style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 40, padding: 48 }}>
             <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 32, fontWeight: 800, marginBottom: 20 }}>{T.freePersonal.application.title}</h2>
@@ -214,7 +214,7 @@ export default function FreePersonalClient({ lang }: { lang: Lang }) {
       </section>
 
       {/* PROMO & UNIQUE DOMAIN */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 40, marginBottom: 120 }}>
+      <div className="hp-grid-2-1" style={{ gap: 40, marginBottom: 120 }}>
         <FadeIn style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 32, padding: 48 }}>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, marginBottom: 24 }}>{T.freePersonal.promo.title}</h2>
           <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 16 }}>{T.freePersonal.promo.text1}</p>
@@ -261,10 +261,13 @@ export default function FreePersonalClient({ lang }: { lang: Lang }) {
       </section>
 
       <style jsx>{`
+        .hp-grid-2-1 {
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+        }
         @media (max-width: 1000px) {
-          div[style*="grid-template-columns: 1.2fr 1fr"],
-          div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
+          .hp-grid-2-1 {
+            grid-template-columns: 1fr;
             gap: 40px !important;
           }
         }

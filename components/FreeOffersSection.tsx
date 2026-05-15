@@ -77,7 +77,7 @@ export default function FreeOffersSection({ lang, currentSlug }: { lang: Lang, c
   const otherOffers = allOffers.filter(o => o.slug !== currentSlug)
 
   return (
-    <section style={{ padding: '100px 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+    <section style={{ padding: '100px 0 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
       <FadeIn style={{ textAlign: 'center', marginBottom: 60 }}>
         <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, marginBottom: 16 }}>
           {lang === 'uk' ? 'Інші безкоштовні пропозиції' : 'Explore Other Free Offers'}
@@ -93,7 +93,6 @@ export default function FreeOffersSection({ lang, currentSlug }: { lang: Lang, c
         gap: 24,
         maxWidth: 1200,
         margin: '0 auto',
-        padding: '0 24px'
       }}>
         {otherOffers.map((card, i) => (
           <FadeIn key={i} delay={i * 100}>

@@ -109,7 +109,7 @@ body {
 }
 
 /* ── Layout ── */
-.section-container { max-width: 1200px; margin: 0 auto; padding: 0; }
+.section-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .page-container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
 
 /* ── Grid background ── */

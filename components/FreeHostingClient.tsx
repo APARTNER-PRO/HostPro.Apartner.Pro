@@ -91,7 +91,7 @@ export default function FreeHostingClient({ lang }: { lang: Lang }) {
         ))}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
+      <div className="hp-grid-2" style={{ gap: 60, alignItems: 'start' }}>
         {/* TERMS */}
         <FadeIn>
           <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: 32, fontWeight: 800, marginBottom: 32 }}>{T.freeHosting.termsTitle}</h2>
@@ -126,7 +126,7 @@ export default function FreeHostingClient({ lang }: { lang: Lang }) {
                 />
               </div>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+              <div className="hp-grid-2" style={{ gap: 20 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   <label style={{ fontSize: 14, color: 'rgba(240,244,255,.6)', fontWeight: 500 }}>{T.freeHosting.form.partnerEmail}</label>
                   <input 
@@ -189,9 +189,14 @@ export default function FreeHostingClient({ lang }: { lang: Lang }) {
       </div>
       
       <style jsx>{`
+        .hp-grid-2 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
         @media (max-width: 900px) {
-          div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
+          .hp-grid-2 {
+            grid-template-columns: 1fr;
+            gap: 40px !important;
           }
         }
       `}</style>

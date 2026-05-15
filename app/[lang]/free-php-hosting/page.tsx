@@ -6,7 +6,7 @@ import { Lang, getT, LANGS } from '@/lib/i18n'
 import { notFound } from 'next/navigation'
 
 export function generateStaticParams() {
-  return LANGS.filter(l => l !== 'en').map(l => ({ lang: l }))
+  return LANGS.map(l => ({ lang: l }))
 }
 
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: { lang: string } })
 
 export default function Page({ params }: { params: { lang: string } }) {
   const lang = params.lang as Lang
-  if (!LANGS.includes(lang) || lang === 'en') notFound()
+  if (!LANGS.includes(lang)) notFound()
 
   return (
     <PageWrapper lang={lang} slug="free-php-hosting">

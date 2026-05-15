@@ -6,13 +6,13 @@ import { notFound } from 'next/navigation'
 import JsonLd from '@/components/JsonLd'
 
 export function generateStaticParams() {
-  return LANGS.filter(l => l !== 'en').map(l => ({ lang: l }))
+  return LANGS.map(l => ({ lang: l }))
 }
 
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const lang = params.lang as Lang
   const T = getT(lang)
-  const { getAlternates } = await import('@/lib/i18n')
+  const { getAlternates, LANG_META } = await import('@/lib/i18n')
   
   return {
     title: T.freeHostingHub.title,
@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: { params: { lang: string } })
     openGraph: {
       title: T.freeHostingHub.title,
       description: T.freeHostingHub.sub,
-      url: `https://hostpro.apartner.pro/${lang}/free-hosting`,
+      url: getAlternates(lang, 'free-hosting').canonical,
       siteName: 'HostPro',
-      locale: lang === 'uk' ? 'uk_UA' : 'ru_RU',
+      locale: LANG_META[lang].locale,
       type: 'website',
     },
   }
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: { lang: string } })
 
 export default function Page({ params }: { params: { lang: string } }) {
   const lang = params.lang as Lang
-  if (!LANGS.includes(lang) || lang === 'en') notFound()
+  if (!LANGS.includes(lang)) notFound()
 
   return (
     <PageWrapper lang={lang} slug="free-hosting">
