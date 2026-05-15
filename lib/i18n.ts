@@ -189,7 +189,7 @@ export const t = {
           extras: [
             '1 Website', '1 GB NVMe SSD', '1 Email Account', '1 MySQL Database',
             'Free SSL Certificate', 'cPanel Control Panel', 'Node.js Support',
-            'Malware Protection', 'Standard Backups', 'Standard Support'
+            'Malware Protection', 'Standard Backups', 'Standard Support', '99.9% Uptime Guarantee'
           ]
         },
         {
@@ -197,7 +197,7 @@ export const t = {
           extras: [
             'Up to 3 Websites', '3 GB NVMe SSD', '3 Email Accounts', '3 MySQL Databases',
             'Free SSL Certificate', 'cPanel Control Panel', 'Node.js Support',
-            'Malware Protection', 'Standard Backups', 'Standard Support'
+            'Malware Protection', 'Standard Backups', 'Standard Support', '99.9% Uptime Guarantee'
           ]
         },
         {
@@ -205,7 +205,7 @@ export const t = {
           extras: [
             'Up to 10 Websites', '10 GB NVMe SSD', '10 Email Accounts', '10 MySQL Databases',
             'Free SSL Certificate', 'cPanel Control Panel', 'Site Accelerator', 'Node.js Support',
-            'Malware Protection', 'Priority Backups', 'Priority Support'
+            'Malware Protection', 'Priority Backups', 'Priority Support', '99.9% Uptime Guarantee'
           ]
         },
         {
@@ -213,7 +213,7 @@ export const t = {
           extras: [
             'Up to 25 Websites', '25 GB NVMe SSD', 'Unlimited Email Accounts', '25 MySQL Databases',
             'Wildcard SSL Certificate', 'cPanel Control Panel', 'Site Accelerator', 'Node.js Support',
-            'Malware Protection', 'Priority Backups', 'Priority Support 24/7'
+            'Malware Protection', 'Priority Backups', 'Priority Support 24/7', '99.9% Uptime Guarantee'
           ]
         },
         {
@@ -221,7 +221,7 @@ export const t = {
           extras: [
             'Unlimited Websites', '50 GB NVMe SSD', 'Unlimited Email Accounts', 'Unlimited MySQL Databases',
             'Wildcard SSL Certificate', 'Dedicated IP Address', 'cPanel Control Panel', 'Site Accelerator', 'Node.js Support',
-            'Pro Malware Protection', 'Dedicated Manager', 'VIP Support 24/7'
+            'Pro Malware Protection', 'Dedicated Manager', 'VIP Support 24/7', '99.9% Uptime Guarantee'
           ]
         },
       ],
@@ -1130,11 +1130,11 @@ export const t = {
     pricing: {
       title: 'Прозорі тарифи', sub: 'Оберіть план і масштабуйтесь без обмежень', popular: 'Найпопулярніший', mo: '/міс', cta: 'Обрати план', featLabel: 'Включено:', customTitle: 'Не знайшли потрібний тариф?', customSub: 'Напишіть нам — ми підберемо індивідуальне рішення під ваші потреби та бюджет.', customBtn: '✉️ Написати нам',
       plans: [
-        { name: 'Personal', desc: 'Ідеально для першого сайту', price: 0.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email акаунт', '1 база даних MySQL', 'Безкоштовний SSL сертифікат', 'Панель керування cPanel', 'Підтримка Node.js', 'Захист від шкідливого ПЗ', 'Стандартні бекапи', 'Звичайна підтримка'] },
-        { name: 'Starter', desc: 'Для кількох сайтів і росту', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 3 сайтів', '3 GB NVMe SSD', '3 Email акаунтів', '3 бази даних MySQL', 'Безкоштовний SSL сертифікат', 'Панель керування cPanel', 'Підтримка Node.js', 'Захист від шкідливого ПЗ', 'Стандартні бекапи', 'Звичайна підтримка'] },
-        { name: 'Business', desc: 'Для бізнес-сайтів і магазинів', price: 9.99, color: '#A78BFA', popular: false, extras: ['до 10 сайтів', '10 GB NVMe SSD', '10 Email акаунтів', '10 баз даних MySQL', 'Безкоштовний SSL сертифікат', 'Панель керування cPanel', 'Прискорювач сайту', 'Підтримка Node.js', 'Захист від шкідливого ПЗ', 'Пріоритетний бекап', 'Пріоритетна підтримка'] },
-        { name: 'Agency', desc: 'Для агентств та інтернет-магазинів', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтів', '25 GB NVMe SSD', 'Необмежено Email', '25 баз даних MySQL', 'Wildcard SSL сертифікат', 'Панель керування cPanel', 'Прискорювач сайту', 'Підтримка Node.js', 'Захист від шкідливого ПЗ', 'Пріоритетний бекап', 'Пріоритетна підтримка 24/7'] },
-        { name: 'Agency Pro', desc: 'Для масштабних проєктів і команд', price: 39.99, color: '#F472B6', popular: false, extras: ['Необмежено сайтів', '50 GB NVMe SSD', 'Необмежено Email', 'Необмежено баз даних MySQL', 'Wildcard SSL сертифікат', 'Виділена IP-адреса', 'Панель керування cPanel', 'Прискорювач сайту', 'Підтримка Node.js', 'Pro захист від шкідливого ПЗ', 'Виділений менеджер', 'VIP підтримка 24/7'] },
+        { name: 'Personal', desc: 'Ідеально для першого сайту', price: 0.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email акаунт', '1 база даних MySQL', 'Безкоштовний SSL сертифікат', 'Панель керування cPanel', 'Підтримка Node.js', 'Захист від шкідливого ПЗ', 'Стандартні бекапи', 'Звичайна підтримка', 'Гарантія аптайму 99.9%'] },
+        { name: 'Starter', desc: 'Для кількох сайтів і росту', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 3 сайтів', '3 GB NVMe SSD', '3 Email акаунтів', '3 бази даних MySQL', 'Безкоштовний SSL сертифікат', 'Панель керування cPanel', 'Підтримка Node.js', 'Захист від шкідливого ПЗ', 'Стандартні бекапи', 'Звичайна підтримка', 'Гарантія аптайму 99.9%'] },
+        { name: 'Business', desc: 'Для бізнес-сайтів і магазинів', price: 9.99, color: '#A78BFA', popular: false, extras: ['до 10 сайтів', '10 GB NVMe SSD', '10 Email акаунтів', '10 баз даних MySQL', 'Безкоштовний SSL сертифікат', 'Панель керування cPanel', 'Прискорювач сайту', 'Підтримка Node.js', 'Захист від шкідливого ПЗ', 'Пріоритетний бекап', 'Пріоритетна підтримка', 'Гарантія аптайму 99.9%'] },
+        { name: 'Agency', desc: 'Для агентств та інтернет-магазинів', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтів', '25 GB NVMe SSD', 'Необмежено Email', '25 баз даних MySQL', 'Wildcard SSL сертифікат', 'Панель керування cPanel', 'Прискорювач сайту', 'Підтримка Node.js', 'Захист від шкідливого ПЗ', 'Пріоритетний бекап', 'Пріоритетна підтримка 24/7', 'Гарантія аптайму 99.9%'] },
+        { name: 'Agency Pro', desc: 'Для масштабних проєктів і команд', price: 39.99, color: '#F472B6', popular: false, extras: ['Необмежено сайтів', '50 GB NVMe SSD', 'Необмежено Email', 'Необмежено баз даних MySQL', 'Wildcard SSL сертифікат', 'Виділена IP-адреса', 'Панель керування cPanel', 'Прискорювач сайту', 'Підтримка Node.js', 'Pro захист від шкідливого ПЗ', 'Виділений менеджер', 'VIP підтримка 24/7', 'Гарантія аптайму 99.9%'] },
       ],
     },
     who: {
@@ -1843,11 +1843,11 @@ export const t = {
     pricing: {
       title: 'Прозрачные тарифы', sub: 'Выберите план и масштабируйтесь без ограничений', popular: 'Самый популярный', mo: '/мес', cta: 'Выбрать план', featLabel: 'Включено:', customTitle: 'Не нашли нужный тариф?', customSub: 'Напишите нам — мы подберём индивидуальное решение под ваши нужды и бюджет.', customBtn: '✉️ Написать нам',
       plans: [
-        { name: 'Personal', desc: 'Идеально для первого сайта', price: 0.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email аккаунт', '1 база данных MySQL', 'Бесплатный SSL сертификат', 'Панель управления cPanel', 'Поддержка Node.js', 'Защита от вредоносного ПО', 'Стандартные бекапы', 'Обычная поддержка'] },
-        { name: 'Starter', desc: 'Для нескольких сайтов и роста', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 3 сайтов', '3 GB NVMe SSD', '3 Email аккаунтов', '3 базы данных MySQL', 'Бесплатный SSL сертификат', 'Панель управления cPanel', 'Поддержка Node.js', 'Защита от вредоносного ПО', 'Стандартные бекапы', 'Обычная поддержка'] },
-        { name: 'Business', desc: 'Для бизнес-сайтов и магазинов', price: 9.99, color: '#A78BFA', popular: false, extras: ['до 10 сайтов', '10 GB NVMe SSD', '10 Email аккаунтов', '10 баз данных MySQL', 'Бесплатный SSL сертификат', 'Панель управления cPanel', 'Ускоритель сайта', 'Поддержка Node.js', 'Защита от вредоносного ПО', 'Приоритетный бекап', 'Приоритетная поддержка'] },
-        { name: 'Agency', desc: 'Для агентств и интернет-магазинов', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтов', '25 GB NVMe SSD', 'Безлимитный Email', '25 баз данных MySQL', 'Wildcard SSL сертификат', 'Панель управления cPanel', 'Ускоритель сайта', 'Поддержка Node.js', 'Защита от вредоносного ПО', 'Приоритетный бекап', 'Приоритетная поддержка 24/7'] },
-        { name: 'Agency Pro', desc: 'Для масштабных проектов и команд', price: 39.99, color: '#F472B6', popular: false, extras: ['Безлимитно сайтов', '50 GB NVMe SSD', 'Безлимитный Email', 'Безлимитно баз данных MySQL', 'Wildcard SSL сертификат', 'Выделенный IP-адрес', 'Панель управления cPanel', 'Ускоритель сайта', 'Поддержка Node.js', 'Pro защита от вредоносного ПО', 'Персональный менеджер', 'VIP поддержка 24/7'] },
+        { name: 'Personal', desc: 'Идеально для первого сайта', price: 0.99, color: '#6EE7B7', popular: false, extras: ['1 сайт', '1 GB NVMe SSD', '1 Email аккаунт', '1 база данных MySQL', 'Бесплатный SSL сертификат', 'Панель управления cPanel', 'Поддержка Node.js', 'Защита от вредоносного ПО', 'Стандартные бекапы', 'Обычная поддержка', 'Гарантия аптайма 99.9%'] },
+        { name: 'Starter', desc: 'Для нескольких сайтов и роста', price: 4.99, color: '#60A5FA', popular: false, extras: ['до 3 сайтов', '3 GB NVMe SSD', '3 Email аккаунтов', '3 базы данных MySQL', 'Бесплатный SSL сертификат', 'Панель управления cPanel', 'Поддержка Node.js', 'Защита от вредоносного ПО', 'Стандартные бекапы', 'Обычная поддержка', 'Гарантия аптайма 99.9%'] },
+        { name: 'Business', desc: 'Для бизнес-сайтов и магазинов', price: 9.99, color: '#A78BFA', popular: false, extras: ['до 10 сайтов', '10 GB NVMe SSD', '10 Email аккаунтов', '10 базы данных MySQL', 'Бесплатный SSL сертификат', 'Панель управления cPanel', 'Ускоритель сайта', 'Поддержка Node.js', 'Защита от вредоносного ПО', 'Приоритетный бекап', 'Приоритетная поддержка', 'Гарантия аптайма 99.9%'] },
+        { name: 'Agency', desc: 'Для агентств и интернет-магазинов', price: 19.99, color: '#FB923C', popular: true, extras: ['до 25 сайтов', '25 GB NVMe SSD', 'Безлимитный Email', '25 баз данных MySQL', 'Wildcard SSL сертификат', 'Панель управления cPanel', 'Ускоритель сайта', 'Поддержка Node.js', 'Защита от вредоносного ПО', 'Приоритетный бекап', 'Приоритетная поддержка 24/7', 'Гарантия аптайма 99.9%'] },
+        { name: 'Agency Pro', desc: 'Для масштабных проектов и команд', price: 39.99, color: '#F472B6', popular: false, extras: ['Безлимитно сайтов', '50 GB NVMe SSD', 'Безлимитный Email', 'Безлимитно баз данных MySQL', 'Wildcard SSL сертификат', 'Выделенный IP-адрес', 'Панель управления cPanel', 'Ускоритель сайта', 'Поддержка Node.js', 'Pro защита от вредоносного ПО', 'Персональный менеджер', 'VIP поддержка 24/7', 'Гарантия аптайма 99.9%'] },
       ],
     },
     who: { title: 'Для кого подходит?', sub: 'Масштабируемое решение для любого размера бизнеса', items: [{ icon: '🏢', color: '#6EE7B7', bg: 'rgba(110,231,183,.1)', title: 'Бизнес', desc: 'Корпоративные сайты, лендинги, CRM. Надёжность и скорость для вашего бренда.' }, { icon: '👨‍💻', color: '#60A5FA', bg: 'rgba(96,165,250,.1)', title: 'Разработчики', desc: 'Перепродавайте хостинг клиентам под своим брендом. Мощная инфраструктура для вашего бизнеса.' }, { icon: '🛒', color: '#A78BFA', bg: 'rgba(167,139,250,.1)', title: 'Интернет-магазины', desc: 'WooCommerce, PrestaShop, OpenCart. Быстрый хостинг для e-commerce.' }, { icon: '🚀', color: '#FB923C', bg: 'rgba(251,146,60,.1)', title: 'Стартапы', desc: 'Начните малым и масштабируйтесь мгновенно. Без переездов и простоев.' }] },
