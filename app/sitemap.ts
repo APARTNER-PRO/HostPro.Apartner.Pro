@@ -103,8 +103,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   })
 
   // Sub-pages from T.hostingTypes
+  const rootSlugs = [
+    'wordpress-hosting', 'laravel-hosting', 'php-hosting', 
+    'prestashop-hosting', 'vps-hosting', 'dedicated-servers', 
+    'reseller-hosting', 'free-hosting', 'free-php-hosting', 
+    'free-personal-hosting', 'free-wordpress-hosting', 'partner-free-hosting'
+  ];
+
   T.hostingTypes.categories.forEach((cat: any) => {
     cat.items.forEach((item: any) => {
+      // If it's a root slug, it's already added in Step 1
+      if (rootSlugs.includes(item.slug)) return;
+
       entries.push({
         url: `${BASE}/hosting-types/${item.slug}`,
         lastModified: new Date(),
