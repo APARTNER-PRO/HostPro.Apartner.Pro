@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,8 +17,8 @@
   --pink: #F472B6;
   --grad: linear-gradient(135deg, #3B82F6, #8B5CF6);
   --grad-text: linear-gradient(135deg, #60A5FA 0%, #A78BFA 50%, #FB923C 100%);
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: var(--font-syne), 'Syne', sans-serif;
+  --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
 }
 
 .hp-chat-chip {
