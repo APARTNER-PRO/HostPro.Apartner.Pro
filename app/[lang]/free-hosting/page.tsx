@@ -35,7 +35,7 @@ export default function Page({ params }: { params: { lang: string } }) {
 
   return (
     <PageWrapper lang={lang} slug="free-hosting">
-      <JsonLd lang={lang} page="pricing" />
+      <JsonLd lang={lang} page="free-hosting" />
       <FreeHostingHubClient lang={lang} />
     </PageWrapper>
   )

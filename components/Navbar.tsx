@@ -56,6 +56,7 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
         <Link
           href={lang === 'en' ? '/' : `/${lang}`}
           style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: '#F0F4FF' }}
+          aria-label="HostPro Home"
         >
           <div style={{ width: 32, height: 32, borderRadius: 8, background: 'linear-gradient(135deg,#3B82F6,#8B5CF6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, flexShrink: 0 }}>⚡</div>
           <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 18, letterSpacing: '-.5px' }}>HostPro</span>
@@ -108,6 +109,8 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
             onClick={() => setMobileOpen(!mobileOpen)}
             style={{ background: 'rgba(255,255,255,.07)', border: 'none', color: '#F0F4FF', width: 36, height: 36, borderRadius: 8, cursor: 'pointer', fontSize: 18 }}
             className="show-mobile"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? '✕' : '☰'}
           </button>

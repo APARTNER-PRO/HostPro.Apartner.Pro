@@ -18,12 +18,12 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   const { getAlternates } = await import('@/lib/i18n')
 
   const titles: Record<string, string> = {
-    uk: 'HostPro - Швидкий та надійний хостинг від $1.99/міс',
-    ru: 'HostPro - Быстрый и надёжный хостинг от $1.99/мес',
+    uk: 'HostPro - Швидкий та надійний хостинг від $0.99/міс',
+    ru: 'HostPro - Быстрый и надёжный хостинг от $0.99/мес',
   }
   const descs: Record<string, string> = {
-    uk: 'Швидкий NVMe SSD хостинг з cPanel, безкоштовним SSL та підтримкою 24/7. Тарифи від $1.99/міс. 30-денна гарантія повернення.',
-    ru: 'Быстрый NVMe SSD хостинг с cPanel, бесплатным SSL и поддержкой 24/7. Тарифы от $1.99/мес. 30-дневная гарантия возврата.',
+    uk: 'Швидкий NVMe SSD хостинг з cPanel, безкоштовним SSL та підтримкою 24/7. Тарифи від $0.99/міс. 14-денна гарантія повернення.',
+    ru: 'Быстрый NVMe SSD хостинг с cPanel, бесплатным SSL и поддержкой 24/7. Тарифы от $0.99/мес. 14-дневная гарантия возврата.',
   }
 
   return {
@@ -37,7 +37,21 @@ export async function generateMetadata({ params }: { params: { lang: string } })
       siteName: 'HostPro',
       locale,
       type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: titles[lang],
+        }
+      ],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: titles[lang],
+      description: descs[lang],
+      images: ['/og-image.png'],
+    }
   }
 }
 

@@ -164,7 +164,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             <span className="grad-text" style={{ display:'block' }}>{T.hero.title2}</span>
           </h1>
           <p style={{ fontSize:'clamp(16px,2vw,20px)',color:'rgba(240,244,255,.6)',lineHeight:1.7,maxWidth:600,margin:'0 auto 40px',fontWeight:300 }}>{T.hero.sub}</p>
-          <Link href={`${p}/#pricing`} className="btn-primary hp-cta-link" style={{ boxShadow:'0 0 40px rgba(59,130,246,.3)',fontSize:17,padding:'16px 36px' }}>{T.hero.cta} →</Link>
+          <Link href={`${p}/#pricing`} className="btn-primary hp-cta-link" aria-label="Explore our hosting plans" style={{ boxShadow:'0 0 40px rgba(59,130,246,.3)',fontSize:17,padding:'16px 36px' }}>{T.hero.cta} →</Link>
           <p style={{ fontSize:13,color:'rgba(240,244,255,.35)',fontWeight:400,marginTop:16 }}>{T.hero.ctaSub}</p>
           <div className="hp-stats-flex">
             {[{val:'12K+',label:T.hero.stat1},{val:'0.3s',label:T.hero.stat2},{val:'99.9%',label:T.hero.stat3}].map((s,i)=>(
@@ -209,7 +209,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
           <FadeIn style={{ display:'flex',justifyContent:'center',marginBottom:60,width:'100%' }}>
             <div className="hp-billing-selector">
               {(['monthly','quarterly','yearly', 'threeYears'] as const).map((b)=>(
-                <button key={b} onClick={()=>setBilling(b)} className="hp-billing-btn" style={{ background:billing===b?'rgba(96,165,250,.2)':'transparent',color:billing===b?'#60A5FA':'rgba(240,244,255,.5)',border:billing===b?'1px solid rgba(96,165,250,.3)':'1px solid transparent',whiteSpace:'nowrap',flexShrink:0 }}>
+                <button key={b} onClick={()=>setBilling(b)} className="hp-billing-btn" aria-label={`Select ${b} billing`} style={{ background:billing===b?'rgba(96,165,250,.2)':'transparent',color:billing===b?'#60A5FA':'rgba(240,244,255,.5)',border:billing===b?'1px solid rgba(96,165,250,.3)':'1px solid transparent',whiteSpace:'nowrap',flexShrink:0 }}>
                   {T.billing[b]}
                   {b==='quarterly'&&<span style={{ background:'rgba(251,146,60,.2)',color:'#FB923C',fontSize:11,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save10}</span>}
                   {b==='yearly'&&<span style={{ background:'rgba(110,231,183,.2)',color:'#6EE7B7',fontSize:11,padding:'1px 6px',borderRadius:100,fontWeight:700 }}>{T.billing.save20}</span>}

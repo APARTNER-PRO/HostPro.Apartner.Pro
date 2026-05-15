@@ -65,7 +65,7 @@ export default function Page({ params }: { params: { lang: string; slug: string 
 
   return (
     <PageWrapper lang={lang} slug={`hosting-types/${params.slug}`}>
-      <JsonLd lang={lang} page="pricing" />
+      <JsonLd lang={lang} page={params.slug as any} />
       <HostingLandingClient lang={lang} title={itemName} slug={params.slug} />
     </PageWrapper>
   )

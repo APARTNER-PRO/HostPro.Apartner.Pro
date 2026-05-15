@@ -20,24 +20,42 @@ export async function generateMetadata({ params }: { params: { lang: string } })
       template: `%s - HostPro`,
     },
     description: T.hero.sub,
-    keywords: ['web hosting', 'NVMe SSD hosting', 'cPanel hosting', 'cheap hosting', 'WordPress hosting'],
+    keywords: [
+      'web hosting', 'NVMe SSD hosting', 'cPanel hosting', 'cheap hosting', 'WordPress hosting',
+      'PHP hosting', 'Laravel hosting', 'SSD servers', 'free SSL', 'Node.js hosting',
+      'hosting in Poland', 'fast hosting', 'shared hosting', 'VPS', 'dedicated servers'
+    ],
     authors: [{ name: 'HostPro' }],
     creator: 'HostPro',
     publisher: 'HostPro',
-    robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    robots: { 
+      index: true, 
+      follow: true, 
+      googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 } 
+    },
     alternates: getAlternates(lang),
     openGraph: {
       type: 'website',
       siteName: 'HostPro',
       locale,
       alternateLocale: LANGS.filter(l => l !== lang).map(l => LANG_META[l].locale),
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'HostPro - Modern Hosting Solutions',
+        }
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       site: '@hostpro',
+      images: ['/og-image.png'],
     },
     verification: {
-      google: 'your-google-verification-code',
+      google: 'your-google-verification-code', // User should replace this
+      yandex: 'yandex-verification-code',
     },
   }
 }

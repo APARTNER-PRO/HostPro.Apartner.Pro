@@ -36,7 +36,7 @@ export default function Page({ params }: { params: { lang: string } }) {
   
   return (
     <PageWrapper lang={lang} slug="wordpress-hosting">
-      <JsonLd lang={lang} page="pricing" />
+      <JsonLd lang={lang} page="wordpress-hosting" />
       <WPClient lang={lang} />
     </PageWrapper>
   )

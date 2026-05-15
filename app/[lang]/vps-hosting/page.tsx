@@ -35,7 +35,7 @@ export default function Page({ params }: { params: { lang: string } }) {
   
   return (
     <PageWrapper lang={lang} slug="vps-hosting">
-      <JsonLd lang={lang} page="pricing" />
+      <JsonLd lang={lang} page="vps-hosting" />
       <main style={{ padding: '120px 24px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
         <div>
           <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 800, marginBottom: 16, textTransform: 'capitalize' }}>{T.footer.links.vpsHosting}</h1>
