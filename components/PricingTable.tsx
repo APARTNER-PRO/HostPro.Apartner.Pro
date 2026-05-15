@@ -313,6 +313,7 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
                   )}
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
                     <span className="price-val">${monthlyPrice.toFixed(2)}</span>
+                    <span style={{ fontSize: 14, color: 'rgba(240,244,255,0.4)', fontWeight: 400 }}>{T.pricing.mo}</span>
                   </div>
                 </div>
 

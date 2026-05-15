@@ -256,7 +256,10 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
                         </span>
                       </div>
                     )}
-                    <span style={{ fontFamily:'Syne,sans-serif',fontSize:34,fontWeight:800,color:plan.color }}>${getPrice(plan.price)}</span>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
+                      <span style={{ fontFamily:'Syne,sans-serif',fontSize:34,fontWeight:800,color:plan.color }}>${getPrice(plan.price)}</span>
+                      <span style={{ fontSize:14, color:'rgba(240,244,255,.4)', fontWeight:400 }}>{T.pricing.mo}</span>
+                    </div>
                   </div>
 
                   {(() => {

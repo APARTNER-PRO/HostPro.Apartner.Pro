@@ -170,7 +170,10 @@ export default function WPClient({ lang }: { lang: Lang }) {
                         </span>
                       </div>
                     )}
-                    <span style={{ fontFamily:'Syne,sans-serif',fontSize:34,fontWeight:800,color:i===1?'#4ADE80':plan.color }}>${getPrice(plan.price + 2)}</span>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
+                      <span style={{ fontFamily:'Syne,sans-serif',fontSize:34,fontWeight:800,color:i===1?'#4ADE80':plan.color }}>${getPrice(plan.price + 2)}</span>
+                      <span style={{ fontSize:14, color:'rgba(240,244,255,.4)', fontWeight:400 }}>{T.pricing.mo}</span>
+                    </div>
                   </div>
                   <button onClick={()=>setOrder({name:plan.name + ' WP',price:getPrice(plan.price + 2)})} className={`hp-plan-btn${i===1?' primary':''}`} style={{ background: i===1?'linear-gradient(135deg,#22C55E,#3B82F6)':'', marginBottom: 12 }}>{T.pricing.cta}</button>
                   <div style={{ fontSize:12,color:'rgba(240,244,255,.5)',marginBottom:24,fontWeight:300, lineHeight: 1.6 }}>

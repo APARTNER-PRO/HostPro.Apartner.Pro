@@ -206,7 +206,10 @@ export default function PHPHostingClient({ lang }: { lang: Lang }) {
                         </span>
                       </div>
                     )}
-                    <span style={{ fontFamily: 'Syne,sans-serif', fontSize: 34, fontWeight: 800, color: i === 1 ? '#A78BFA' : plan.color }}>${getPrice(plan.price)}</span>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
+                      <span style={{ fontFamily: 'Syne,sans-serif', fontSize: 34, fontWeight: 800, color: i === 1 ? '#A78BFA' : plan.color }}>${getPrice(plan.price)}</span>
+                      <span style={{ fontSize: 14, color: 'rgba(240,244,255,0.4)', fontWeight: 400 }}>{T.pricing.mo}</span>
+                    </div>
                   </div>
                   <button onClick={() => setOrder({ name: plan.name + ' PHP', price: getPrice(plan.price) })} className={`hp-plan-btn${i === 1 ? ' primary' : ''}`} style={{ marginBottom: 12 }}>{T.pricing.cta}</button>
                   <div style={{ fontSize: 12, color: 'rgba(240,244,255,.5)', marginBottom: 24, fontWeight: 300, lineHeight: 1.6 }}>
