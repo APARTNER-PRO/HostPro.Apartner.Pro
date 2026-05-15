@@ -45,7 +45,7 @@ export default function FreeHostingHubClient({ lang }: { lang: Lang }) {
   ]
 
   return (
-    <div className="section-container" style={{ paddingTop: 100, paddingBottom: 120 }}>
+    <div className="section-container">
       <FadeIn style={{ textAlign: 'center', marginBottom: 80 }}>
         <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 800, marginBottom: 24, color: '#fff' }}>
           {T.freeHostingHub.title}

@@ -177,7 +177,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
       </section>
 
       {/* FEATURES */}
-      <section id="features" style={{ padding:'120px 24px' }}>
+      <section id="features">
         <div className="section-container">
           <FadeIn style={{ textAlign:'center',marginBottom:72 }}>
             <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,52px)',fontWeight:800,letterSpacing:'-1px',marginBottom:16 }}>{T.features.title}</h2>
@@ -314,7 +314,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
       </section>
 
       {/* TECH STACK */}
-      <section id="tech-stack" style={{ padding:'120px 24px', background:'rgba(255,255,255,.01)', position:'relative', overflow:'hidden' }}>
+      <section id="tech-stack" style={{ background:'rgba(255,255,255,.01)', position:'relative', overflow:'hidden' }}>
         <div className="orb" style={{ width:400,height:400,background:'radial-gradient(circle,rgba(59,130,246,.08),transparent)',top:'20%',left:'-10%' }} />
         <div className="section-container" style={{ position:'relative', zIndex:1 }}>
           <FadeIn style={{ textAlign:'center', marginBottom:72 }}>
@@ -382,8 +382,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section id="testimonials" style={{ padding:'120px 24px', position: 'relative', overflow: 'hidden' }}>
+      <section id="testimonials" style={{ position: 'relative', overflow: 'hidden' }}>
         <div className="orb" style={{ width:400,height:400,background:'radial-gradient(circle,rgba(59,130,246,.1),transparent)',bottom:'-10%',left:'-10%' }} />
         <div className="section-container">
           <FadeIn style={{ textAlign:'center',marginBottom:72 }}>
@@ -425,7 +424,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
       </section>
 
       {/* WHO */}
-      <section id="who" style={{ padding:'120px 24px' }}>
+      <section id="who">
         <div className="section-container">
           <FadeIn style={{ textAlign:'center',marginBottom:72 }}>
             <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,5vw,52px)',fontWeight:800,letterSpacing:'-1px',marginBottom:16 }}>{T.who.title}</h2>

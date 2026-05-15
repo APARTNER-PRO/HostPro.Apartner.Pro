@@ -18,7 +18,7 @@ export default function AboutClient({ lang }: { lang: Lang }) {
           <p className="page-sub">{A.sub}</p>
         </div>
       </div>
-      <div className="page-container" style={{ paddingBottom:80 }}>
+      <div className="page-container" style={{ paddingBottom: 50 }}>
         <FadeIn>
           <div className="hp-grid-3" style={{ gap:14, marginBottom:20 }}>
             {A.stats.map((s,i) => (

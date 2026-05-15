@@ -30,7 +30,7 @@ export default function TermsClient({ lang }: { lang: Lang }) {
           <p style={{ fontSize:12,color:'rgba(240,244,255,.28)',fontWeight:300,marginTop:6 }}>{D.date}</p>
         </div>
       </div>
-      <div className="page-container" style={{ paddingBottom:80 }}>
+      <div className="page-container" style={{ paddingBottom: 50 }}>
         <FadeIn>
           <div className="legal-toc"><h4>Contents</h4><ol id="toc" style={{ paddingLeft:16 }}></ol></div>
         </FadeIn>

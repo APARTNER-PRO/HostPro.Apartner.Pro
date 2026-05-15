@@ -17,7 +17,7 @@ export default function FaqClient({ lang }: { lang: Lang }) {
           <p className="page-sub">{F.sub}</p>
         </div>
       </div>
-      <div className="page-container" style={{ paddingBottom:80 }}>
+      <div className="page-container" style={{ paddingBottom: 50 }}>
         <FadeIn>
           {F.items.map((item, i) => (
             <div key={i} style={{ border:`1px solid ${open===i?'rgba(96,165,250,.3)':'rgba(255,255,255,.07)'}`,borderRadius:12,marginBottom:8,overflow:'hidden',transition:'border-color .2s' }}>
