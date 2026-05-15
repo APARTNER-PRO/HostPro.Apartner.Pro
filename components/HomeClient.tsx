@@ -198,7 +198,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" style={{ padding:'120px 24px',background:'rgba(255,255,255,.015)',position:'relative' }}>
+      <section id="pricing">
         <div className="orb" style={{ width:500,height:500,background:'radial-gradient(circle,rgba(139,92,246,.12),transparent)',top:0,right:0,zIndex:0 }} />
         <div className="section-container" style={{ position:'relative',zIndex:1 }}>
           <FadeIn style={{ textAlign:'center',marginBottom:48 }}>
@@ -314,7 +314,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
       </section>
 
       {/* TECH STACK */}
-      <section id="tech-stack" style={{ background:'rgba(255,255,255,.01)', position:'relative', overflow:'hidden' }}>
+      <section id="tech-stack">
         <div className="orb" style={{ width:400,height:400,background:'radial-gradient(circle,rgba(59,130,246,.08),transparent)',top:'20%',left:'-10%' }} />
         <div className="section-container" style={{ position:'relative', zIndex:1 }}>
           <FadeIn style={{ textAlign:'center', marginBottom:72 }}>
@@ -382,7 +382,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
         </div>
       </section>
 
-      <section id="testimonials" style={{ position: 'relative', overflow: 'hidden' }}>
+      <section id="testimonials">
         <div className="orb" style={{ width:400,height:400,background:'radial-gradient(circle,rgba(59,130,246,.1),transparent)',bottom:'-10%',left:'-10%' }} />
         <div className="section-container">
           <FadeIn style={{ textAlign:'center',marginBottom:72 }}>
