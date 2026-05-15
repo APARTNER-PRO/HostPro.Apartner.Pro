@@ -4,29 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Lang, getT } from '@/lib/i18n'
 import FreeOffersSection from './FreeOffersSection'
 import TestimonialsSection from './TestimonialsSection'
-
-
-function useInView(ref: React.RefObject<HTMLElement>, threshold = 0.12) {
-  const [inView, setInView] = useState(false)
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true) }, { threshold })
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [ref, threshold])
-  return inView
-}
-
-function FadeIn({ children, delay = 0, className = '', style }: {
-  children: React.ReactNode; delay?: number; className?: string; style?: React.CSSProperties
-}) {
-  const ref = useRef<HTMLDivElement>(null!)
-  const inView = useInView(ref)
-  return (
-    <div ref={ref} className={className} style={{ opacity: inView ? 1 : 0, transform: inView ? 'translateY(0)' : 'translateY(24px)', transition: `opacity .6s ease ${delay}ms, transform .6s ease ${delay}ms`, ...style }}>
-      {children}
-    </div>
-  )
-}
+import FadeIn from './FadeIn'
 
 export default function FreeHostingClient({ lang }: { lang: Lang }) {
   const T = getT(lang)

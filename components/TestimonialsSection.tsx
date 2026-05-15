@@ -1,33 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React from 'react'
 import { getT, Lang } from '@/lib/i18n'
-
-function FadeIn({ children, delay = 0, className = '', style }: {
-  children: React.ReactNode; delay?: number; className?: string; style?: React.CSSProperties
-}) {
-  const ref = useRef(null)
-  const [inView, setInView] = useState(false)
-  
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true) }, { threshold: 0.1 })
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
-
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? 'translateY(0)' : 'translateY(20px)',
-        transition: `opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) ${delay}ms, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) ${delay}ms`,
-        ...style
-      }}
-    >
-      {children}
-    </div>
-  )
-}
+import FadeIn from './FadeIn'
 
 interface TestimonialsSectionProps {
   lang: Lang
