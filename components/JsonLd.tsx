@@ -4,7 +4,7 @@ const SITE_URL = 'https://hostpro.apartner.pro'
 
 interface JsonLdProps {
   lang: Lang
-  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing' | 'reviews' | 'kb' | 'free-php-hosting' | 'free-personal-hosting' | 'free-wordpress-hosting'
+  page?: 'home' | 'about' | 'contact' | 'faq' | 'pricing' | 'reviews' | 'kb' | 'free-php-hosting' | 'free-personal-hosting' | 'free-wordpress-hosting' | 'free-hosting' | 'partner-free-hosting'
   article?: any
 }
 
