@@ -37,6 +37,13 @@ export default function HostingLandingClient({ lang, title, slug }: HostingLandi
   const T = getT(lang)
   const [billing, setBilling] = useState('monthly')
   const [order, setOrder] = useState<{ name: string; price: string } | null>(null)
+
+  // Find SEO text for this item
+  let seoData = { title: '', text: '' }
+  T.hostingTypes.categories.forEach((cat: any) => {
+    const found = cat.items.find((i: any) => i.slug === slug)
+    if (found && found.seo) seoData = found.seo
+  })
   
   const getPrice = (base: number) => (base * DISC[billing]).toFixed(2)
   const getTotalPrice = (base: number) => {
@@ -135,6 +142,22 @@ export default function HostingLandingClient({ lang, title, slug }: HostingLandi
           <PricingFAQ lang={lang} />
         </div>
       </section>
+
+      {/* SEO SECTION */}
+      {seoData.title && (
+        <section style={{ padding: '80px 24px', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.01)' }}>
+          <div className="section-container" style={{ maxWidth: 900 }}>
+            <FadeIn>
+              <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, marginBottom: 24, color: '#fff' }}>
+                {seoData.title}
+              </h2>
+              <div style={{ fontSize: 16, color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, fontWeight: 300 }}>
+                {seoData.text}
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
 
       {order&&<OrderModal lang={lang} planName={order.name} planPrice={order.price} onClose={()=>setOrder(null)}/>}
     </>
