@@ -1,13 +1,7 @@
 'use client'
 import { useRef } from 'react'
 import { Lang, getT } from '@/lib/i18n'
-import { useFadeIn } from './useFadeIn'
-
-function FadeIn({ children, delay=0, style }: { children: React.ReactNode; delay?: number; style?: React.CSSProperties }) {
-  const ref = useRef<HTMLDivElement>(null!)
-  const inView = useFadeIn(ref)
-  return <div ref={ref} style={{ opacity: inView?1:0, transform: inView?'translateY(0)':'translateY(24px)', transition: `opacity .6s ease ${delay}ms, transform .6s ease ${delay}ms`, ...style }}>{children}</div>
-}
+import FadeIn from './FadeIn'
 
 const SG = ['linear-gradient(135deg,#60A5FA,#A78BFA)','linear-gradient(135deg,#A78BFA,#F472B6)','linear-gradient(135deg,#6EE7B7,#60A5FA)','linear-gradient(135deg,#FB923C,#F472B6)']
 
@@ -26,7 +20,7 @@ export default function AboutClient({ lang }: { lang: Lang }) {
       </div>
       <div className="page-container" style={{ paddingBottom:80 }}>
         <FadeIn>
-          <div style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:14,marginBottom:20 }}>
+          <div className="hp-grid-3" style={{ gap:14, marginBottom:20 }}>
             {A.stats.map((s,i) => (
               <div key={i} style={{ background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.07)',borderRadius:14,padding:22,textAlign:'center' }}>
                 <div style={{ fontFamily:'Syne,sans-serif',fontSize:36,fontWeight:800,background:SG[i],WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',marginBottom:5 }}>{s.val}</div>
@@ -56,7 +50,7 @@ export default function AboutClient({ lang }: { lang: Lang }) {
         <FadeIn delay={200}><div className="card" style={{ marginBottom:0 }}>
           <div className="section-label">{A.teamLabel}</div>
           <h3 style={{ marginBottom:16 }}>{A.teamTitle}</h3>
-          <div style={{ display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:12 }}>
+          <div className="hp-grid-3" style={{ gap:12 }}>
             {A.team.map((m,i) => (
               <div key={i} style={{ background:'rgba(255,255,255,.03)',border:'1px solid rgba(255,255,255,.07)',borderRadius:13,padding:20,textAlign:'center' }}>
                 <div style={{ fontSize:32,marginBottom:9 }}>{m.avatar}</div>

@@ -1,15 +1,9 @@
 'use client'
 import { useState, useRef, FormEvent } from 'react'
 import { Lang, getT } from '@/lib/i18n'
-import { useFadeIn } from './useFadeIn'
+import FadeIn from './FadeIn'
 
 const WEB3FORMS_KEY = '9c436dd7-6fe7-4bd4-b50f-db97b5fe5473'
-
-function FadeIn({ children, delay=0, style }: { children: React.ReactNode; delay?: number; style?: React.CSSProperties }) {
-  const ref = useRef<HTMLDivElement>(null!)
-  const inView = useFadeIn(ref)
-  return <div ref={ref} style={{ opacity:inView?1:0,transform:inView?'translateY(0)':'translateY(24px)',transition:`opacity .6s ease ${delay}ms,transform .6s ease ${delay}ms`,...style }}>{children}</div>
-}
 
 const INP: React.CSSProperties = { width:'100%',background:'rgba(255,255,255,.04)',border:'1px solid rgba(255,255,255,.1)',borderRadius:8,padding:'11px 13px',fontSize:14,color:'#F0F4FF',fontFamily:'DM Sans,sans-serif',outline:'none' }
 
@@ -54,7 +48,7 @@ export default function ContactClient({ lang }: { lang: Lang }) {
       </div>
       <div className="page-container" style={{ paddingBottom:80 }}>
         <FadeIn>
-          <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:18 }}>
+          <div className="hp-grid-2" style={{ gap:14, marginBottom:18 }}>
             {C.channels.map((ch,i) => {
               const isChat = ch.title === 'Live Chat';
               const handleClick = (e: React.MouseEvent) => {
@@ -107,7 +101,7 @@ export default function ContactClient({ lang }: { lang: Lang }) {
                 {/* Honeypot */}
                 <input type="checkbox" name="botcheck" style={{ display:'none' }} />
 
-                <div style={{ display:'grid',gridTemplateColumns:'1fr 1fr',gap:12,marginBottom:14 }}>
+                <div className="hp-grid-2" style={{ gap:12, marginBottom:14 }}>
                   <div>
                     <label style={{ display:'block',fontSize:12,fontWeight:600,marginBottom:5,color:'rgba(240,244,255,.65)' }}>{C.nameLbl}</label>
                     <input name="name" required style={INP} placeholder={C.namePh}/>

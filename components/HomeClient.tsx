@@ -1,75 +1,15 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import Link from 'next/link'
-import Script from 'next/script'
-import { useSearchParams } from 'next/navigation'
 import { Lang, getT } from '@/lib/i18n'
 import OrderModal from './OrderModal'
-
-function useInView(ref: React.RefObject<HTMLElement>, threshold = 0.12) {
-  const [inView, setInView] = useState(false)
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true) }, { threshold })
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [ref, threshold])
-  return inView
-}
-
-function FadeIn({ children, delay = 0, className = '', style }: {
-  children: React.ReactNode; delay?: number; className?: string; style?: React.CSSProperties
-}) {
-  const ref = useRef<HTMLDivElement>(null!)
-  const inView = useInView(ref)
-  return (
-    <div ref={ref} className={className} style={{ opacity: inView ? 1 : 0, transform: inView ? 'translateY(0)' : 'translateY(24px)', transition: `opacity .6s ease ${delay}ms, transform .6s ease ${delay}ms`, ...style }}>
-      {children}
-    </div>
-  )
-}
+import FadeIn from './FadeIn'
 
 const DISC: Record<string, number> = { monthly: 1, quarterly: 0.9, yearly: 0.8, threeYears: 0.7 }
 
-const CSS = `
-  .hp-feat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px;transition:transform .25s,background .25s;cursor:default}
-  .hp-feat-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.055)}
-  .hp-plan-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:22px 18px;position:relative;transition:transform .3s;cursor:default}
-  .hp-plan-card:hover{transform:translateY(-8px)}
-  .hp-plan-card.popular{background:linear-gradient(160deg,rgba(96,165,250,.1),rgba(139,92,246,.08));border-color:rgba(96,165,250,.35);box-shadow:0 0 60px rgba(59,130,246,.12)}
-  .hp-plan-btn{width:100%;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.07);color:#fff;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;margin-bottom:24px}
-  .hp-plan-btn:hover{background:rgba(255,255,255,.14);transform:scale(1.02)}
-  .hp-plan-btn.primary{background:linear-gradient(135deg,#3B82F6,#8B5CF6);border:none}
-  .hp-plan-btn.primary:hover{filter:brightness(1.1);transform:scale(1.02)}
-  .hp-who-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:32px 28px;text-align:center;transition:transform .25s;cursor:default}
-  .hp-who-card:hover{transform:translateY(-4px)}
-  .hp-billing-btn{border-radius:9px;cursor:pointer;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:8px;transition:all .2s;padding:10px 20px}
-  .hp-cta-link{display:inline-block;text-decoration:none;transition:all .2s}
-  .hp-cta-link:hover{transform:scale(1.04);filter:brightness(1.1)}
-  @keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-  @keyframes pulseGlow{0%,100%{opacity:.4}50%{opacity:.9}}
-  .hp-badge{animation:floatBadge 3s ease-in-out infinite}
-  .hp-orb-pulse{animation:pulseGlow 4s ease-in-out infinite}
-
-  @media (max-width: 767px) {
-    .price__wrapper { display: flex; flex-direction: column; }
-    .hp-features-grid, .hp-who-grid, .hp-stats-flex { grid-template-columns: 1fr !important; }
-    .hp-stats-flex { flex-direction: column !important; align-items: center !important; gap: 32px !important; }
-  }
-
-  .hp-plans-grid { display: grid; gap: 14px; grid-template-columns: repeat(5, 1fr); }
-  @media (max-width: 1100px) { .hp-plans-grid { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 720px)  { .hp-plans-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px)  { .hp-plans-grid { grid-template-columns: 1fr; } }
-
-  .hp-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-  .hp-who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-  .hp-stats-flex { display: flex; gap: 48px; justify-content: center; margin-top: 64px; flex-wrap: wrap; }
-  .hp-ai-promo { background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.06); border-radius:32px; padding:60px; display:flex; align-items:center; gap:60px; position:relative; overflow:hidden; flex-wrap:wrap; }
-  @media (max-width: 767px) {
-    .hp-ai-promo { padding: 32px 20px; gap: 40px; border-radius: 24px; }
-  }
-`
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Script from 'next/script'
+import { useSearchParams } from 'next/navigation'
 
 interface HomeClientProps {
   lang: Lang
@@ -210,7 +150,6 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
         src="https://cdn.paddle.com/paddle/v2/paddle.js"
         onLoad={() => setPaddleLoaded(true)}
       />
-      <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       {/* HERO */}
       <section id="hero" className="grid-bg" style={{ position:'relative',minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden' }}>
@@ -218,7 +157,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
         <div className="orb" style={{ width:300,height:300,background:'radial-gradient(circle,rgba(139,92,246,.18),transparent)',bottom:'20%',right:'10%' }} />
         <div className="orb" style={{ width:200,height:200,background:'radial-gradient(circle,rgba(251,146,60,.13),transparent)',top:'30%',left:'5%' }} />
         <div style={{ textAlign:'center',maxWidth:820,padding:'0 24px',position:'relative',zIndex:2 }}>
-          <div className="hp-badge" style={{ display:'inline-flex',alignItems:'center',gap:8,background:'rgba(96,165,250,.1)',border:'1px solid rgba(96,165,250,.25)',borderRadius:100,padding:'6px 16px',fontSize:13,color:'#93C5FD',marginBottom:32,fontWeight:500 }}>{T.hero.badge}</div>
+          <div className="hp-badge animate-float" style={{ display:'inline-flex',alignItems:'center',gap:8,background:'rgba(96,165,250,.1)',border:'1px solid rgba(96,165,250,.25)',borderRadius:100,padding:'6px 16px',fontSize:13,color:'#93C5FD',marginBottom:32,fontWeight:500 }}>{T.hero.badge}</div>
           <h1 style={{ fontFamily:'Syne,sans-serif',fontWeight:800,fontSize:'clamp(48px,8vw,88px)',lineHeight:1.05,letterSpacing:'-2px',marginBottom:24 }}>
             <span style={{ display:'block',color:'#F0F4FF' }}>{T.hero.title1}</span>
             <span className="grad-text" style={{ display:'block' }}>{T.hero.title2}</span>
@@ -267,7 +206,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             <p style={{ fontSize:18,color:'rgba(240,244,255,.5)',fontWeight:300 }}>{T.pricing.sub}</p>
           </FadeIn>
           <FadeIn style={{ display:'flex',justifyContent:'center',marginBottom:60,overflowX:'auto',WebkitOverflowScrolling:'touch',width:'100%' }}>
-            <div className="price__wrapper" style={{ display:'flex',background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.08)',borderRadius:12,padding:4,gap:4,minWidth:'fit-content' }}>
+            <div style={{ display:'flex',background:'rgba(255,255,255,0.05)',border:'1px solid rgba(255,255,255,0.08)',borderRadius:12,padding:4,gap:4,minWidth:'fit-content' }}>
               {(['monthly','quarterly','yearly', 'threeYears'] as const).map((b)=>(
                 <button key={b} onClick={()=>setBilling(b)} className="hp-billing-btn" style={{ background:billing===b?'rgba(96,165,250,.2)':'transparent',color:billing===b?'#60A5FA':'rgba(240,244,255,.5)',border:billing===b?'1px solid rgba(96,165,250,.3)':'1px solid transparent',whiteSpace:'nowrap',flexShrink:0 }}>
                   {T.billing[b]}
@@ -476,28 +415,8 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
           <FadeIn style={{ textAlign:'center' }}>
             <Link 
               href={`${p}/reviews`} 
-              style={{ 
-                fontSize: 16, 
-                color: 'rgba(96,165,250,1)', 
-                fontWeight: 600, 
-                textDecoration: 'none', 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                gap: 8,
-                transition: 'all 0.3s ease',
-                padding: '10px 20px',
-                borderRadius: '12px',
-                background: 'rgba(59,130,246,.05)',
-                border: '1px solid rgba(59,130,246,.1)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(59,130,246,.1)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(59,130,246,.05)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
+              className="hp-btn-outline"
+              style={{ padding: '10px 24px', borderRadius: 12 }}
             >
               {T.testimonials.reviewsLink}
             </Link>
