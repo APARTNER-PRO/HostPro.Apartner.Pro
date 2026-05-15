@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Lang, getT } from '@/lib/i18n'
 import FreeOffersSection from './FreeOffersSection'
+import TestimonialsSection from './TestimonialsSection'
 
 
 function useInView(ref: React.RefObject<HTMLElement>, threshold = 0.12) {
@@ -200,6 +201,8 @@ export default function FreeHostingClient({ lang }: { lang: Lang }) {
           }
         }
       `}</style>
+      <TestimonialsSection lang={lang} />
+      
       <FreeOffersSection lang={lang} currentSlug="partner-free-hosting" />
     </div>
   )

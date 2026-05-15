@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Lang, getT } from '@/lib/i18n'
 import Link from 'next/link'
 import FreeOffersSection from './FreeOffersSection'
+import TestimonialsSection from './TestimonialsSection'
 
 
 function useInView(ref: React.RefObject<HTMLElement>, threshold = 0.1) {
@@ -228,6 +229,8 @@ export default function FreePersonalClient({ lang }: { lang: Lang }) {
           <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 18, whiteSpace: 'pre-wrap' }}>{T.freePersonal.uniqueDomain.text}</p>
         </FadeIn>
       </div>
+
+      <TestimonialsSection lang={lang} />
 
       {/* FAQ SECTION */}
       <section style={{ marginBottom: 120 }}>

@@ -12,7 +12,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const lang = params.lang as Lang
   const T = getT(lang)
-  const { getAlternates } = await import('@/lib/i18n')
+  const { getAlternates, LANG_META } = await import('@/lib/i18n')
   return {
     title: T.freePhp.title,
     description: T.freePhp.meta,
@@ -21,6 +21,8 @@ export async function generateMetadata({ params }: { params: { lang: string } })
       title: T.freePhp.title,
       description: T.freePhp.meta,
       url: getAlternates(lang, 'free-php-hosting').canonical,
+      siteName: 'HostPro',
+      locale: LANG_META[lang].locale,
       type: 'website',
     }
   }

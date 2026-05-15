@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Lang, getT } from '@/lib/i18n'
 import Link from 'next/link'
 import FreeOffersSection from './FreeOffersSection'
+import TestimonialsSection from './TestimonialsSection'
 
 
 function useInView(ref: React.RefObject<HTMLElement>, threshold = 0.1) {
@@ -229,6 +230,8 @@ export default function FreePhpClient({ lang }: { lang: Lang }) {
         </FadeIn>
       </div>
 
+      <TestimonialsSection lang={lang} />
+      
       {/* FAQ SECTION */}
       <section style={{ marginBottom: 120 }}>
         <FadeIn style={{ textAlign: 'center', marginBottom: 60 }}>

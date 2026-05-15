@@ -48,7 +48,7 @@ export default function JsonLd({ lang, page = 'home', article }: JsonLdProps) {
     ],
   } : null
 
-  const hosting = page === 'home' || page === 'pricing' || page === 'reviews' ? {
+  const hosting = page === 'home' || page === 'pricing' || page === 'reviews' || page.startsWith('free-') || page === 'partner-free-hosting' ? {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: 'HostPro Web Hosting',
