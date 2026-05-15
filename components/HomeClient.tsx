@@ -336,7 +336,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             <FadeIn delay={200} className="hp-feat-card">
               <h4 style={{ fontSize:11, color:'rgba(240,244,255,.4)', fontWeight:700, letterSpacing:'.15em', marginBottom:24, textTransform:'uppercase' }}>{T.tech.features.title}</h4>
               <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
-                {T.tech.features.items.map((item, i) => (
+                {T.tech.features.items.map((item: any, i: number) => (
                   <div key={i}>
                     <div style={{ fontWeight:600, color:'#F0F4FF', fontSize:15, marginBottom:4 }}>{item.title}</div>
                     <div style={{ fontSize:13, color:'rgba(240,244,255,.5)', fontWeight:300, lineHeight:1.5 }}>{item.desc}</div>
@@ -349,7 +349,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             <FadeIn delay={300} className="hp-feat-card">
               <h4 style={{ fontSize:11, color:'rgba(240,244,255,.4)', fontWeight:700, letterSpacing:'.15em', marginBottom:24, textTransform:'uppercase' }}>{T.tech.server.title}</h4>
               <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
-                {T.tech.server.items.map((item, i) => (
+                {T.tech.server.items.map((item: any, i: number) => (
                   <div key={i}>
                     <div style={{ fontWeight:600, color:'#F0F4FF', fontSize:15, marginBottom:4 }}>{item.title}</div>
                     <div style={{ fontSize:13, color:'rgba(240,244,255,.5)', fontWeight:300, lineHeight:1.5 }}>{item.desc}</div>
@@ -362,7 +362,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
             <FadeIn delay={400} className="hp-feat-card">
               <h4 style={{ fontSize:11, color:'rgba(240,244,255,.4)', fontWeight:700, letterSpacing:'.15em', marginBottom:24, textTransform:'uppercase' }}>{T.tech.databases.title}</h4>
               <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
-                {T.tech.databases.items.map((item, i) => (
+                {T.tech.databases.items.map((item: any, i: number) => (
                   <div key={i}>
                     <div style={{ fontWeight:600, color:'#F0F4FF', fontSize:15, marginBottom:4 }}>{item.title}</div>
                     <div style={{ fontSize:13, color:'rgba(240,244,255,.5)', fontWeight:300, lineHeight:1.5 }}>{item.desc}</div>
@@ -370,17 +370,27 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
                 ))}
               </div>
             </FadeIn>
-          </div>
 
-          <FadeIn style={{ textAlign:'center' }}>
-            <div style={{ display:'inline-flex', alignItems:'center', flexWrap:'wrap', justifyContent:'center', gap:16, padding:'20px 32px', background:'rgba(255,255,255,.03)', border:'1px solid rgba(255,255,255,.07)', borderRadius:20, maxWidth:800 }}>
-              <span style={{ fontSize:24 }}>🛠️</span>
-              <div style={{ textAlign:'left' }}>
-                <div style={{ fontSize:15, color:'#F0F4FF', fontWeight:700, marginBottom:2 }}>{T.tech.dev.title}</div>
-                <div style={{ fontSize:14, color:'rgba(240,244,255,.5)', fontWeight:300 }}>{T.tech.dev.desc}</div>
+            {/* Email Features */}
+            <FadeIn delay={500} className="hp-feat-card">
+              <h4 style={{ fontSize:11, color:'rgba(240,244,255,.4)', fontWeight:700, letterSpacing:'.15em', marginBottom:24, textTransform:'uppercase' }}>{T.tech.email.title}</h4>
+              <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
+                {T.tech.email.items.map((item: any, i: number) => (
+                  <div key={i}>
+                    <div style={{ fontWeight:600, color:'#F0F4FF', fontSize:15, marginBottom:4 }}>{item.title}</div>
+                    <div style={{ fontSize:13, color:'rgba(240,244,255,.5)', fontWeight:300, lineHeight:1.5 }}>{item.desc}</div>
+                  </div>
+                ))}
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+
+            {/* Dev Block moved inside grid */}
+            <FadeIn delay={600} className="hp-feat-card" style={{ display:'flex', flexDirection:'column', justifyContent:'center', background:'rgba(255,255,255,.02)' }}>
+              <div style={{ fontSize:32, marginBottom:20 }}>🛠️</div>
+              <h3 style={{ fontFamily:'Syne,sans-serif', fontSize:20, fontWeight:700, marginBottom:12, color:'#F0F4FF' }}>{T.tech.dev.title}</h3>
+              <p style={{ fontSize:14, color:'rgba(240,244,255,.5)', lineHeight:1.6, fontWeight:300 }}>{T.tech.dev.desc}</p>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
