@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { Lang, getT } from '@/lib/i18n'
 import Link from 'next/link'
+import FreeOffersSection from './FreeOffersSection'
+
 
 function useInView(ref: React.RefObject<HTMLElement>, threshold = 0.1) {
   const [inView, setInView] = useState(false)
@@ -220,7 +222,7 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
           <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.7 }}>{T.freeWp.promo.text3}</p>
         </FadeIn>
 
-        <FadeIn delay={200} style={{ background: 'rgba(168, 85, 247, 0.1)', border: '1px solid rgba(168, 85, 247, 0.2)', borderRadius: 32, padding: 48, display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
+        <FadeIn delay={200} style={{ background: 'rgba(168, 85, 247, 0.1)', border: '1px solid rgba(168, 85, 247, 0.2)', borderRadius: 32, padding: 48, display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'left' }}>
           <div style={{ fontSize: 64, marginBottom: 24 }}>🎁</div>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16 }}>{T.freeWp.uniqueDomain.title}</h2>
           <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 18, whiteSpace: 'pre-wrap' }}>{T.freeWp.uniqueDomain.text}</p>
@@ -240,18 +242,9 @@ export default function FreeWpClient({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* INTERLINK SECTION */}
-      <section style={{ textAlign: 'center', marginBottom: 120 }}>
-        <FadeIn>
-          <div style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 32, padding: 48, maxWidth: 800, margin: '0 auto' }}>
-            <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 800, marginBottom: 16 }}>{T.freeWp.interlink.title}</h2>
-            <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: 32 }}>{T.freeWp.interlink.desc}</p>
-            <Link href={`/${lang}${T.freeWp.interlink.href}`} style={{ display: 'inline-block', padding: '16px 32px', background: 'rgba(255,255,255,0.1)', color: '#fff', borderRadius: 100, textDecoration: 'none', fontWeight: 600, border: '1px solid rgba(255,255,255,0.2)', transition: 'background .3s' }}>
-              {T.freeWp.interlink.btn}
-            </Link>
-          </div>
-        </FadeIn>
-      </section>
+      {/* OTHER OFFERS */}
+      <FreeOffersSection lang={lang} currentSlug="free-wordpress-hosting" />
+
 
       {/* UPGRADE SECTION */}
       <section style={{ textAlign: 'center', marginBottom: 120 }}>
