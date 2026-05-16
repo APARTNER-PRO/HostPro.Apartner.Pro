@@ -1,17 +1,20 @@
 import './globals.css'
 import ScrollProgress from '@/components/ScrollProgress'
+import Preloader from '@/components/Preloader'
 import { Syne, DM_Sans } from 'next/font/google'
 
 const syne = Syne({
   subsets: ['latin'],
   weight: ['400', '600', '700', '800'],
   variable: '--font-syne',
+  display: 'swap',
 })
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '700'],
   variable: '--font-dm-sans',
+  display: 'swap',
 })
 
 export default function RootLayout({
@@ -29,6 +32,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#050810" />
       </head>
       <body>
+        <Preloader />
         <ScrollProgress />
         {children}
       </body>
