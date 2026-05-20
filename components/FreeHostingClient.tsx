@@ -13,8 +13,6 @@ export default function FreeHostingClient({ lang }: { lang: Lang }) {
   const [formData, setFormData] = useState({
     partnerName: '',
     partnerEmail: '',
-    clientEmail: '',
-    partnerDomain: '',
     notes: ''
   })
 
@@ -32,7 +30,7 @@ export default function FreeHostingClient({ lang }: { lang: Lang }) {
 
       if (res.ok) {
         setStatus('success')
-        setFormData({ partnerName: '', partnerEmail: '', clientEmail: '', partnerDomain: '', notes: '' })
+        setFormData({ partnerName: '', partnerEmail: '', notes: '' })
       } else {
         setStatus('error')
       }
@@ -105,37 +103,13 @@ export default function FreeHostingClient({ lang }: { lang: Lang }) {
                 />
               </div>
               
-              <div className="hp-grid-2" style={{ gap: 20 }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  <label style={{ fontSize: 14, color: 'rgba(240,244,255,.6)', fontWeight: 500 }}>{T.freeHosting.form.partnerEmail}</label>
-                  <input 
-                    required
-                    type="email" 
-                    value={formData.partnerEmail}
-                    onChange={(e) => setFormData({...formData, partnerEmail: e.target.value})}
-                    style={{ background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 12, padding: '12px 16px', color: '#fff', fontSize: 15, outline: 'none' }} 
-                  />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  <label style={{ fontSize: 14, color: 'rgba(240,244,255,.6)', fontWeight: 500 }}>{T.freeHosting.form.clientEmail}</label>
-                  <input 
-                    required
-                    type="email" 
-                    value={formData.clientEmail}
-                    onChange={(e) => setFormData({...formData, clientEmail: e.target.value})}
-                    style={{ background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 12, padding: '12px 16px', color: '#fff', fontSize: 15, outline: 'none' }} 
-                  />
-                </div>
-              </div>
-
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <label style={{ fontSize: 14, color: 'rgba(240,244,255,.6)', fontWeight: 500 }}>{T.freeHosting.form.partnerDomain}</label>
+                <label style={{ fontSize: 14, color: 'rgba(240,244,255,.6)', fontWeight: 500 }}>{T.freeHosting.form.partnerEmail}</label>
                 <input 
                   required
-                  type="text" 
-                  value={formData.partnerDomain}
-                  onChange={(e) => setFormData({...formData, partnerDomain: e.target.value})}
-                  placeholder="yourdomain.com"
+                  type="email" 
+                  value={formData.partnerEmail}
+                  onChange={(e) => setFormData({...formData, partnerEmail: e.target.value})}
                   style={{ background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 12, padding: '12px 16px', color: '#fff', fontSize: 15, outline: 'none' }} 
                 />
               </div>
@@ -168,8 +142,9 @@ export default function FreeHostingClient({ lang }: { lang: Lang }) {
       </div>
       
 
-      <TestimonialsSection lang={lang} />
-      
+      <div style={{ marginTop: 120 }}>
+        <TestimonialsSection lang={lang} />
+      </div>
       <FreeOffersSection lang={lang} currentSlug="partner-free-hosting" />
     </div>
   )

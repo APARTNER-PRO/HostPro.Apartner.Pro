@@ -2,9 +2,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
-    const { partnerName, partnerEmail, clientEmail, partnerDomain, notes } = await req.json();
+    const { partnerName, partnerEmail, notes } = await req.json();
 
-    if (!partnerName || !partnerEmail || !clientEmail || !partnerDomain) {
+    if (!partnerName || !partnerEmail) {
       return NextResponse.json({ error: 'All required fields must be filled' }, { status: 400 });
     }
 
@@ -12,19 +12,17 @@ export async function POST(req: Request) {
     const chatId = process.env.TELEGRAM_CHAT_ID;
 
     if (!botToken || !chatId) {
-      console.log('Free hosting application (Telegram not configured):', { partnerName, partnerEmail, clientEmail, partnerDomain });
+      console.log('Partner program application (Telegram not configured):', { partnerName, partnerEmail, notes });
       return NextResponse.json({ success: true, warning: 'Telegram credentials missing' });
     }
 
-    let messageText = `🎁 <b>Нова заявка на БЕЗКОШТОВНИЙ ХОСТИНГ (Партнерська програма)</b>\n\n`;
-    messageText += `<b>👤 Партнер:</b> ${partnerName}\n`;
-    messageText += `<b>📧 Email партнера:</b> ${partnerEmail}\n`;
-    messageText += `<b>🌐 Домен партнера:</b> ${partnerDomain}\n\n`;
-    messageText += `<b>🔍 Email клієнта для верифікації:</b> ${clientEmail}\n\n`;
+    let messageText = `🎁 <b>Нова заявка на участь в ПАРТНЕРСЬКІЙ ПРОГРАМІ</b>\n\n`;
+    messageText += `<b>👤 Ім'я:</b> ${partnerName}\n`;
+    messageText += `<b>📧 Email:</b> ${partnerEmail}\n\n`;
     if (notes) {
-      messageText += `<b>📝 Нотатки:</b> ${notes}\n\n`;
+      messageText += `<b>📝 Де планує розміщувати посилання:</b> ${notes}\n\n`;
     }
-    messageText += `⚠️ <i>Перевірте: клієнт має замовити хостинг від 1 року та мінімум 14 днів тому. Нагорода = тариф і термін клієнта. Самореферали заборонені.</i>`;
+    messageText += `⚠️ <i>Надайте партнеру унікальне реферальне посилання для залучення клієнтів.</i>`;
 
     const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
