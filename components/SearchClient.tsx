@@ -146,6 +146,7 @@ export default function SearchClient({ lang }: { lang: 'en' | 'uk' | 'ru' }) {
                   padding: '20px 24px',
                   textDecoration: 'none',
                   transition: 'all 0.2s',
+                  cursor: 'pointer'
                 }}
                 className="hp-feat-card"
               >
