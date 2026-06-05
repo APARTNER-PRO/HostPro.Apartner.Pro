@@ -1087,6 +1087,35 @@ export const t = {
   <li><code>https://your-server-ip:2083</code></li>
 </ul>
 <p>Enter your cPanel username and password provided in your welcome email to log in.</p>`
+        },
+        {
+          slug: 'setting-up-email-on-iphone',
+          title: 'Setting up email on iPhone',
+          cat: 'Email Setup',
+          content: `<p>Follow these steps to set up your HostPro email account on your iPhone:</p>
+<ol>
+  <li>Go to <strong>Settings</strong> > <strong>Mail</strong> > <strong>Accounts</strong>.</li>
+  <li>Tap <strong>Add Account</strong>, then select <strong>Other</strong>.</li>
+  <li>Tap <strong>Add Mail Account</strong> and enter your Name, Email, Password, and a Description. Tap <strong>Next</strong>.</li>
+  <li>Select <strong>IMAP</strong> at the top.</li>
+  <li><strong>Incoming Mail Server:</strong>
+    <ul>
+      <li>Host Name: <code>mail.yourdomain.com</code> (or your server's hostname)</li>
+      <li>User Name: Your full email address</li>
+      <li>Password: Your email password</li>
+    </ul>
+  </li>
+  <li><strong>Outgoing Mail Server (SMTP):</strong>
+    <ul>
+      <li>Host Name: <code>mail.yourdomain.com</code></li>
+      <li>User Name: Your full email address</li>
+      <li>Password: Your email password</li>
+    </ul>
+  </li>
+  <li>Tap <strong>Next</strong>. Your iPhone will verify the settings.</li>
+  <li>Make sure <strong>Mail</strong> is toggled on, then tap <strong>Save</strong>.</li>
+</ol>
+<p>If you encounter an SSL certificate warning, you can usually tap <strong>Continue</strong> or <strong>Trust</strong>. For best security, ensure you have a valid SSL installed for your mail subdomain in cPanel.</p>`
         }
       ],
     },
@@ -1885,6 +1914,35 @@ export const t = {
   <li><code>https://your-server-ip:2083</code></li>
 </ul>
 <p>Введіть ім'я користувача та пароль cPanel, які ви отримали в листі про відкриття хостингу, щоб увійти.</p>`
+        },
+        {
+          slug: 'setting-up-email-on-iphone',
+          title: 'Налаштування пошти на iPhone',
+          cat: 'Налаштування пошти',
+          content: `<p>Виконайте ці кроки, щоб налаштувати ваш електронний обліковий запис HostPro на iPhone:</p>
+<ol>
+  <li>Перейдіть у <strong>Параметри</strong> > <strong>Пошта</strong> > <strong>Облікові записи</strong>.</li>
+  <li>Натисніть <strong>Додати обліковий запис</strong>, потім виберіть <strong>Інше</strong>.</li>
+  <li>Натисніть <strong>Додати поштовий обліковий запис</strong> і введіть ваше Ім'я, Email, Пароль та Опис. Натисніть <strong>Далі</strong>.</li>
+  <li>Виберіть <strong>IMAP</strong> вгорі.</li>
+  <li><strong>Сервер вхідної пошти:</strong>
+    <ul>
+      <li>Ім'я хоста: <code>mail.yourdomain.com</code> (або ім'я хоста вашого сервера)</li>
+      <li>Ім'я користувача: Ваша повна електронна адреса</li>
+      <li>Пароль: Ваш пароль від пошти</li>
+    </ul>
+  </li>
+  <li><strong>Сервер вихідної пошти (SMTP):</strong>
+    <ul>
+      <li>Ім'я хоста: <code>mail.yourdomain.com</code></li>
+      <li>Ім'я користувача: Ваша повна електронна адреса</li>
+      <li>Пароль: Ваш пароль від пошти</li>
+    </ul>
+  </li>
+  <li>Натисніть <strong>Далі</strong>. Ваш iPhone перевірить налаштування.</li>
+  <li>Переконайтеся, що <strong>Пошта</strong> увімкнена, потім натисніть <strong>Зберегти</strong>.</li>
+</ol>
+<p>Якщо ви зіткнетеся з попередженням про сертифікат SSL, ви зазвичай можете натиснути <strong>Продовжити</strong> або <strong>Довіряти</strong>. Для найкращої безпеки переконайтеся, що у вас встановлено дійсний SSL для вашого поштового субдомену в cPanel.</p>`
         }
       ],
     },
@@ -2686,6 +2744,35 @@ export const t = {
   <li><code>https://your-server-ip:2083</code></li>
 </ul>
 <p>Введите имя пользователя и пароль cPanel, которые вы получили в приветственном письме, чтобы войти.</p>`
+        },
+        {
+          slug: 'setting-up-email-on-iphone',
+          title: 'Настройка почты на iPhone',
+          cat: 'Настройка почты',
+          content: `<p>Выполните эти шаги, чтобы настроить вашу электронную почту HostPro на iPhone:</p>
+<ol>
+  <li>Перейдите в <strong>Настройки</strong> > <strong>Почта</strong> > <strong>Учетные записи</strong>.</li>
+  <li>Нажмите <strong>Добавить учетную запись</strong>, затем выберите <strong>Другое</strong>.</li>
+  <li>Нажмите <strong>Добавить учетную запись почты</strong> и введите ваше Имя, Email, Пароль и Описание. Нажмите <strong>Далее</strong>.</li>
+  <li>Выберите <strong>IMAP</strong> вверху.</li>
+  <li><strong>Сервер входящей почты:</strong>
+    <ul>
+      <li>Имя хоста: <code>mail.yourdomain.com</code> (или имя хоста вашего сервера)</li>
+      <li>Имя пользователя: Ваш полный email адрес</li>
+      <li>Пароль: Ваш пароль от почты</li>
+    </ul>
+  </li>
+  <li><strong>Сервер исходящей почты (SMTP):</strong>
+    <ul>
+      <li>Имя хоста: <code>mail.yourdomain.com</code></li>
+      <li>Имя пользователя: Ваш полный email адрес</li>
+      <li>Пароль: Ваш пароль от почты</li>
+    </ul>
+  </li>
+  <li>Нажмите <strong>Далее</strong>. Ваш iPhone проверит настройки.</li>
+  <li>Убедитесь, что <strong>Почта</strong> включена, затем нажмите <strong>Сохранить</strong>.</li>
+</ol>
+<p>Если вы столкнетесь с предупреждением о сертификате SSL, вы обычно можете нажать <strong>Продолжить</strong> или <strong>Доверять</strong>. Для лучшей безопасности убедитесь, что у вас установлен действительный SSL для вашего почтового субдомена в cPanel.</p>`
         }
       ],
     },
