@@ -22,9 +22,9 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
     { href: `${p}/#features`, label: T.nav.features },
     { href: `${p}/#pricing`, label: T.nav.pricing },
     { href: `${p}/#testimonials`, label: T.nav.reviews },
-    { href: `${p}/blog`, label: T.footer.links.blog },
-    { href: `${p}/ai-assistant`, label: T.nav.chat, isSpecial: true },
-    { href: `${p}/contact`, label: T.nav.contact },
+    { href: `${p}/blog/`, label: T.footer.links.blog },
+    { href: `${p}/ai-assistant/`, label: T.nav.chat, isSpecial: true },
+    { href: `${p}/contact/`, label: T.nav.contact },
   ]
 
   const langLinks = (
@@ -54,7 +54,7 @@ export default function Navbar({ lang, slug = '' }: NavProps) {
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
         {/* Logo */}
         <Link
-          href={lang === 'en' ? '/' : `/${lang}`}
+          href={lang === 'en' ? '/' : `/${lang}/`}
           style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', color: '#F0F4FF' }}
           aria-label="HostPro Home"
         >

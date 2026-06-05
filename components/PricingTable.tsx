@@ -360,7 +360,7 @@ export default function PricingTable({ lang, initialData }: PricingTableProps) {
               {T.pricing.customSub}
             </p>
             <a 
-              href={lang === 'en' ? '/contact' : `/${lang}/contact`}
+              href={lang === 'en' ? '/contact/' : `/${lang}/contact/`}
               className="hp-plan-btn"
               style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 'auto', marginBottom: 0 }}
             >

@@ -277,7 +277,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
                     }
                     return (
                       <Link
-                        href={`${p}/pricing`}
+                        href={`${p}/pricing/`}
                         className={`hp-plan-btn${plan.popular?' primary':''}`}
                         style={{ display:'block',textAlign:'center',textDecoration:'none', marginBottom: 12 }}
                       >
@@ -311,7 +311,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
               <div style={{ fontSize:28,marginBottom:12 }}>💬</div>
               <h3 style={{ fontFamily:'Syne,sans-serif',fontSize:22,fontWeight:800,marginBottom:8 }}>{T.pricing.customTitle}</h3>
               <p style={{ fontSize:14,color:'rgba(240,244,255,.5)',marginBottom:24,fontWeight:300,lineHeight:1.6 }}>{T.pricing.customSub}</p>
-              <Link href={`${p}/contact`} className="btn-primary hp-cta-link">{T.pricing.customBtn}</Link>
+              <Link href={`${p}/contact/`} className="btn-primary hp-cta-link">{T.pricing.customBtn}</Link>
             </div>
           </FadeIn>
           <PricingFAQ lang={lang} />
@@ -428,7 +428,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
 
           <FadeIn style={{ textAlign:'center' }}>
             <Link 
-              href={`${p}/reviews`} 
+              href={`${p}/reviews/`} 
               className="hp-btn-outline"
               style={{ padding: '10px 24px', borderRadius: 12 }}
             >
@@ -469,7 +469,7 @@ export default function HomeClient({ lang, initialData }: HomeClientProps) {
               <div style={{ display:'inline-flex',alignItems:'center',gap:8,background:'rgba(139,92,246,.1)',border:'1px solid rgba(139,92,246,.2)',borderRadius:100,padding:'6px 14px',fontSize:12,color:'#C084FC',marginBottom:24,fontWeight:600 }}>✨ AI Powered</div>
               <h2 style={{ fontFamily:'Syne,sans-serif',fontSize:'clamp(32px,4vw,48px)',fontWeight:800,letterSpacing:'-1.5px',marginBottom:20,lineHeight:1.1 }}>{T.chat.homeTitle}</h2>
               <p style={{ fontSize:17,color:'rgba(240,244,255,.5)',marginBottom:32,fontWeight:300,lineHeight:1.6 }}>{T.chat.homeSub}</p>
-              <Link href={`${p}/ai-assistant`} className="btn-primary hp-cta-link" style={{ background:'linear-gradient(135deg,#8B5CF6,#D946EF)', boxShadow:'0 0 40px rgba(139,92,246,.3)' }}>{T.chat.homeBtn}</Link>
+              <Link href={`${p}/ai-assistant/`} className="btn-primary hp-cta-link" style={{ background:'linear-gradient(135deg,#8B5CF6,#D946EF)', boxShadow:'0 0 40px rgba(139,92,246,.3)' }}>{T.chat.homeBtn}</Link>
             </div>
 
             <div style={{ flex: 1, minWidth: 300, position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'center' }}>

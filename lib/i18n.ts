@@ -9,7 +9,8 @@ export const LANG_META: Record<Lang, { label: string; flag: string; locale: stri
 
 export function getLangPath(lang: Lang, slug = '') {
   const base = lang === 'en' ? '' : `/${lang}`
-  return slug ? `${base}/${slug}` : base || '/'
+  const path = slug ? `${base}/${slug}` : base || '/'
+  return path.endsWith('/') ? path : `${path}/`
 }
 
 export function getAlternateLangs(slug = '') {
@@ -21,7 +22,7 @@ export function getAlternateLangs(slug = '') {
 
 export function getAlternates(lang: Lang, slug = '') {
   const base = 'https://hostpro.apartner.pro'
-  const pathEn = slug ? `/${slug}` : ''
+  const pathEn = slug ? `/${slug}/` : '/'
   const canonicalPath = lang === 'en' ? pathEn : `/${lang}${pathEn}`
   return {
     canonical: `${base}${canonicalPath}`,

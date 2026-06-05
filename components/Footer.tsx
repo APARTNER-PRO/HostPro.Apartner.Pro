@@ -102,7 +102,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {col.links.map((link, j) => {
                     const isExternal = link.href.startsWith('http');
-                    const href = isExternal ? link.href : link.href.startsWith('#') ? `${p || '/'}${link.href}` : `${p}/${link.href}`;
+                    const href = isExternal ? link.href : link.href.startsWith('#') ? `${p || '/'}${link.href}` : `${p}/${link.href}/`;
                     return (
                       <Link key={j} href={href} className="hp-footer-link" title={link.label} {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                         {link.label}

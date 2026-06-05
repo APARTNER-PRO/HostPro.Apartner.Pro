@@ -16,7 +16,7 @@ export default function BlogPostClient({ lang, slug }: { lang: Lang, slug: strin
       <section style={{ padding: '160px 24px 60px', position: 'relative', overflow: 'hidden' }}>
         <div className="orb" style={{ width: 600, height: 600, background: 'radial-gradient(circle,rgba(59,130,246,.12),transparent)', top: '-20%', left: '50%', transform: 'translateX(-50%)' }} />
         <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
-          <Link href={`${p}/blog`} style={{ color: 'rgba(240,244,255,.5)', textDecoration: 'none', fontSize: 14, display: 'inline-block', marginBottom: 32, fontWeight: 500, transition: 'color 0.2s' }}>
+          <Link href={`${p}/blog/`} style={{ color: 'rgba(240,244,255,.5)', textDecoration: 'none', fontSize: 14, display: 'inline-block', marginBottom: 32, fontWeight: 500, transition: 'color 0.2s' }}>
             {T.blog.backToBlog}
           </Link>
           <div style={{ maxWidth: 800 }}>

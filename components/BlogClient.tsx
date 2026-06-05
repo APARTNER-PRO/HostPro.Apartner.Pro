@@ -60,7 +60,7 @@ export default function BlogClient({ lang }: { lang: Lang }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 32 }}>
             {T.blog.posts.map((post, i) => (
               <FadeIn key={i} delay={i * 100}>
-                <Link href={`${p}/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                <Link href={`${p}/blog/${post.slug}/`} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
                   <div className="hp-feat-card" style={{ 
                     display: 'flex', 
                     flexDirection: 'column', 

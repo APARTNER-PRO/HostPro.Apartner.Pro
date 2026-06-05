@@ -42,7 +42,7 @@ export default function CookieBanner({ lang }: { lang: Lang }) {
         </p>
         <p style={{ fontSize: 13, color: 'rgba(240,244,255,.5)', lineHeight: 1.6, fontWeight: 300 }}>
           {T.cookies.desc}{' '}
-          <Link href={`${p}/privacy`} style={{ color: '#60A5FA', textDecoration: 'none' }}>
+          <Link href={`${p}/privacy/`} style={{ color: '#60A5FA', textDecoration: 'none' }}>
             {T.cookies.more}
           </Link>
         </p>

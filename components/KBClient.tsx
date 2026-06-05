@@ -91,7 +91,7 @@ export default function KBClient({ lang }: { lang: Lang }) {
                     searchResults.map((res: any, idx: number) => (
                       <Link 
                         key={idx} 
-                        href={`${p}/kb/${T.kb?.categories?.find((c: any) => c.title === res.cat)?.slug || 'general'}/${res.slug}`} 
+                        href={`${p}/kb/${T.kb?.categories?.find((c: any) => c.title === res.cat)?.slug || 'general'}/${res.slug}/`} 
                         className="kb-search-item"
                       >
                         <div style={{ fontWeight: 700, color: '#fff', marginBottom: 4 }}>{res.title}</div>
@@ -116,7 +116,7 @@ export default function KBClient({ lang }: { lang: Lang }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, marginBottom: 80 }}>
             {T.kb.categories.map((cat: any, i: number) => (
               <FadeIn key={i} delay={i * 50}>
-                <Link href={`${p}/kb/${cat.slug}`} className="kb-cat-card">
+                <Link href={`${p}/kb/${cat.slug}/`} className="kb-cat-card">
                   <div style={{ fontSize: 32, marginBottom: 24 }}>{cat.icon}</div>
                   <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 20, fontWeight: 700, marginBottom: 8 }}>{cat.title}</h3>
                   <div style={{ fontSize: 14, color: 'rgba(240,244,255,.4)', fontWeight: 300 }}>{cat.count} {T.kb.articleCount}</div>
@@ -131,7 +131,7 @@ export default function KBClient({ lang }: { lang: Lang }) {
               {T.kb?.popularItems?.map((item: any, i: number) => {
                 const catSlug = T.kb?.categories?.find((c: any) => c.title === item.cat)?.slug || 'general'
                 return (
-                  <Link key={i} href={`${p}/kb/${catSlug}/${item.slug}`} className="kb-article-link">
+                  <Link key={i} href={`${p}/kb/${catSlug}/${item.slug}/`} className="kb-article-link">
                     <span style={{ opacity: 0.3 }}>📄</span>
                     {item.title}
                   </Link>
@@ -144,7 +144,7 @@ export default function KBClient({ lang }: { lang: Lang }) {
                 <div style={{ fontSize: 40, marginBottom: 20 }}>💬</div>
                 <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 22, fontWeight: 800, marginBottom: 12 }}>{T.kb.supportTitle}</h3>
                 <p style={{ fontSize: 15, color: 'rgba(240,244,255,.5)', marginBottom: 24, lineHeight: 1.6 }}>{T.kb.supportSub}</p>
-                <Link href={`${p}/contact`} className="btn-primary" style={{ alignSelf: 'center' }}>{T.kb.supportBtn}</Link>
+                <Link href={`${p}/contact/`} className="btn-primary" style={{ alignSelf: 'center' }}>{T.kb.supportBtn}</Link>
               </div>
             </FadeIn>
           </div>
