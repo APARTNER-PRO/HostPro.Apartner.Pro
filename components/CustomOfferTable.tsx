@@ -20,17 +20,17 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
 
   const handleBuy = (priceId: string) => {
     if (!priceId) return
-    
+
     if (!(window as any).Paddle) {
       alert('Paddle is still loading...')
       return
     }
 
     const Paddle = (window as any).Paddle
-    Paddle.Initialize({ 
-      token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'live_5479fe94fca51b60d7791b81725' 
+    Paddle.Initialize({
+      token: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || 'live_5479fe94fca51b60d7791b81725'
     })
-    
+
     Paddle.Checkout.open({
       items: [{ priceId, quantity: 1 }]
     })
@@ -60,12 +60,13 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
 
   return (
     <>
-      <Script 
-        src="https://cdn.paddle.com/paddle/v2/paddle.js" 
+      <Script
+        src="https://cdn.paddle.com/paddle/v2/paddle.js"
         onLoad={() => setPaddleLoaded(true)}
       />
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .pricing-section {
           max-width: 1400px;
           margin: 0 auto;
@@ -143,7 +144,6 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
           border: none;
           padding: 14px;
           font-size: 15px;
-          margin-top: auto;
           background: rgba(255,255,255,0.07);
           color: #fff;
           border: 1px solid rgba(255,255,255,0.1);
@@ -200,11 +200,11 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
                 >
                   {getBillingLabel(period)}
                   {discount && (
-                    <span style={{ 
-                      fontSize: period === 'threeYears' ? 11 : 10, 
-                      background: period === 'threeYears' ? 'rgba(244, 63, 94, 0.15)' : (billing === period ? 'rgba(244,63,94,0.2)' : 'rgba(110,231,183,0.1)'), 
-                      color: period === 'threeYears' ? '#F43F5E' : (billing === period ? '#FB7185' : '#6EE7B7'), 
-                      padding: '2px 8px', 
+                    <span style={{
+                      fontSize: period === 'threeYears' ? 11 : 10,
+                      background: period === 'threeYears' ? 'rgba(244, 63, 94, 0.15)' : (billing === period ? 'rgba(244,63,94,0.2)' : 'rgba(110,231,183,0.1)'),
+                      color: period === 'threeYears' ? '#F43F5E' : (billing === period ? '#FB7185' : '#6EE7B7'),
+                      padding: '2px 8px',
                       borderRadius: 6,
                       fontWeight: 800,
                       border: period === 'threeYears' ? '1px solid rgba(244, 63, 94, 0.4)' : (billing === period ? '1px solid rgba(244,63,94,0.3)' : '1px solid rgba(110,231,183,0.2)'),
@@ -236,12 +236,35 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
 
             // Override specific features for the custom offer
             const customExtras = [...plan.extras];
-            if (customExtras.length >= 5 && plan.name === 'Business') {
-               customExtras[0] = lang === 'uk' ? 'До 3 сайтів' : (lang === 'ru' ? 'До 3 сайтов' : 'Up to 3 Websites');
-               customExtras[1] = '10 GB NVMe SSD';
-               customExtras[2] = '1 GB RAM, 2 CPU 40%';
-               customExtras[3] = lang === 'uk' ? '3 Email акаунтів' : (lang === 'ru' ? '3 Email аккаунтов' : '3 Email Accounts');
-               customExtras[4] = lang === 'uk' ? '3 баз даних MySQL' : (lang === 'ru' ? '3 баз данных MySQL' : '3 MySQL Databases');
+            if (customExtras.length >= 5) {
+              if (plan.name === 'Business') {
+                customExtras[0] = lang === 'uk' ? 'До 3 сайтів' : (lang === 'ru' ? 'До 3 сайтов' : 'Up to 3 Websites');
+                customExtras[1] = '10 GB NVMe SSD';
+                customExtras[2] = '1 GB RAM, 2 CPU 40%';
+                customExtras[3] = lang === 'uk' ? '3 Email акаунтів' : (lang === 'ru' ? '3 Email аккаунтов' : '3 Email Accounts');
+                customExtras[4] = lang === 'uk' ? '3 баз даних MySQL' : (lang === 'ru' ? '3 баз данных MySQL' : '3 MySQL Databases');
+              } else if (plan.name === 'Agency') {
+                customExtras[0] = lang === 'uk' ? 'До 5 сайтів' : (lang === 'ru' ? 'До 5 сайтов' : 'Up to 5 Websites');
+                customExtras[1] = '15 GB NVMe SSD';
+                customExtras[2] = '1.5 GB RAM, 2 CPU 80%';
+                customExtras[3] = lang === 'uk' ? '5 Email акаунтів' : (lang === 'ru' ? '5 Email аккаунтов' : '5 Email Accounts');
+                customExtras[4] = lang === 'uk' ? '5 баз даних MySQL' : (lang === 'ru' ? '5 баз данных MySQL' : '5 MySQL Databases');
+              } else if (plan.name === 'Agency Pro') {
+                customExtras[0] = lang === 'uk' ? 'До 10 сайтів' : (lang === 'ru' ? 'До 10 сайтов' : 'Up to 10 Websites');
+                customExtras[1] = '20 GB NVMe SSD';
+                customExtras[3] = lang === 'uk' ? '10 Email акаунтів' : (lang === 'ru' ? '10 Email аккаунтов' : '10 Email Accounts');
+                customExtras[4] = lang === 'uk' ? '10 баз даних MySQL' : (lang === 'ru' ? '10 баз данных MySQL' : '10 MySQL Databases');
+              }
+
+              if (plan.name === 'Business' || plan.name === 'Agency') {
+                const ipString = lang === 'uk' ? 'Загальна IP-адреса' : (lang === 'ru' ? 'Общий IP-адрес' : 'Shared IP Address');
+                const cpanelIndex = customExtras.findIndex((ex: string) => ex.toLowerCase().includes('cpanel'));
+                if (cpanelIndex !== -1) {
+                  customExtras.splice(cpanelIndex, 0, ipString);
+                } else {
+                  customExtras.splice(6, 0, ipString);
+                }
+              }
             }
 
             return (
@@ -251,28 +274,28 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
                     {T.pricing.popular}
                   </div>
                 )}
-                
-                <div style={{ marginBottom: 6 }}>
+
+                <div style={{ marginBottom: 6, minHeight: 48, display: 'flex', alignItems: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <div style={{ width: 10, height: 10, borderRadius: '50%', background: color, boxShadow: `0 0 12px ${color}` }} />
-                    <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 18, fontWeight: 800 }}>
+                    <div style={{ width: 10, height: 10, borderRadius: '50%', background: color, boxShadow: `0 0 12px ${color}`, flexShrink: 0 }} />
+                    <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 18, fontWeight: 800, margin: 0, lineHeight: 1.2 }}>
                       {price.description}
                     </h3>
                   </div>
                 </div>
-                <p style={{ fontSize: 12, color: 'rgba(240,244,255,0.45)', marginBottom: 16, fontWeight: 300 }}>
+                <p style={{ fontSize: 12, color: 'rgba(240,244,255,0.45)', marginBottom: 16, fontWeight: 300, minHeight: 36, lineHeight: 1.5 }}>
                   {plan.desc}
                 </p>
 
                 <div style={{ marginBottom: 16 }}>
                   <div style={{ fontSize: 13, color: 'rgba(240,244,255,.4)', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span style={{ textDecoration: 'line-through' }}>${plan.price.toFixed(2)}</span>
-                    <span style={{ 
-                      background: 'rgba(110, 231, 183, 0.08)', 
-                      color: '#6EE7B7', 
-                      padding: '3px 10px', 
-                      borderRadius: '8px', 
-                      fontSize: '11px', 
+                    <span style={{
+                      background: 'rgba(110, 231, 183, 0.08)',
+                      color: '#6EE7B7',
+                      padding: '3px 10px',
+                      borderRadius: '8px',
+                      fontSize: '11px',
                       fontWeight: 700,
                       textTransform: 'uppercase',
                       letterSpacing: '0.04em',
@@ -288,7 +311,7 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
                   </div>
                 </div>
 
-                <button 
+                <button
                   onClick={() => handleBuy(price.id)}
                   className={`hp-plan-btn ${isFeatured ? 'primary' : ''}`}
                   style={{ marginBottom: 12 }}
@@ -297,9 +320,10 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
                 </button>
 
                 <div style={{ fontSize: 12, color: 'rgba(240,244,255,.5)', marginBottom: 24, fontWeight: 300, lineHeight: 1.6 }}>
-                  <div>{T.billing.payToday} <span style={{fontWeight:600}}>${totalAmount.toFixed(2)}</span> {T.billing.today}.</div>
+                  <div>{T.billing.payToday} <span style={{ fontWeight: 600 }}>${totalAmount.toFixed(2)}</span> {T.billing.today}.</div>
                   <div style={{ marginTop: 2, fontSize: 11, opacity: 0.8 }}>
-                    {T.billing.renewsAt} <span style={{fontWeight:600}}>${plan.price.toFixed(2)}{T.pricing.mo}</span>. {T.billing.prepaidFor} {months} {T.billing.months}. {T.billing.exVat}
+                    <div>{T.billing.renewsAt} <span style={{ fontWeight: 600 }}>${plan.price.toFixed(2)}{T.pricing.mo}</span>.</div>
+                    <div>{T.billing.prepaidFor} {months} {T.billing.months}. {T.billing.exVat}</div>
                   </div>
                 </div>
 
@@ -310,8 +334,8 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
                   {customExtras.map((ex: string, j: number) => (
                     <div key={j} className="feature-item">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <circle cx="7" cy="7" r="7" fill={color} fillOpacity="0.15"/>
-                        <path d="M4 7l2 2 4-4" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <circle cx="7" cy="7" r="7" fill={color} fillOpacity="0.15" />
+                        <path d="M4 7l2 2 4-4" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <span>{ex}</span>
                     </div>
@@ -320,6 +344,12 @@ export default function CustomOfferTable({ lang, initialData }: CustomOfferTable
               </div>
             )
           })}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: 40, fontSize: 13, color: 'rgba(240,244,255,0.4)', maxWidth: 600, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.6 }}>
+          {lang === 'uk' ? '* Зверніть увагу: об’єм ресурсів у цих персональних тарифах зменшено порівняно з основними тарифами нашого хостингу.' :
+           lang === 'ru' ? '* Обратите внимание: объем ресурсов в этих персональных тарифах уменьшен по сравнению с основными тарифами нашего хостинга.' :
+           '* Please note: the volume of resources in these personalized plans is reduced compared to our main hosting plans.'}
         </div>
       </div>
     </>
