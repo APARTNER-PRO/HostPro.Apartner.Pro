@@ -1116,6 +1116,25 @@ export const t = {
   <li>Make sure <strong>Mail</strong> is toggled on, then tap <strong>Save</strong>.</li>
 </ol>
 <p>If you encounter an SSL certificate warning, you can usually tap <strong>Continue</strong> or <strong>Trust</strong>. For best security, ensure you have a valid SSL installed for your mail subdomain in cPanel.</p>`
+        },
+        {
+          slug: 'changing-your-nameservers',
+          title: 'Changing your nameservers',
+          cat: 'Domains & DNS',
+          content: `<p>To point your domain to your hosting account, you need to update its nameservers. Follow these steps:</p>
+<ol>
+  <li>Log in to your domain registrar's control panel (the company where you purchased your domain).</li>
+  <li>Find the domain management section and select the domain you want to update.</li>
+  <li>Look for an option labeled "Nameservers", "DNS Management", or "Custom DNS".</li>
+  <li>Replace the existing nameservers with the ones provided by HostPro (usually sent in your welcome email). They typically look like this:
+    <ul>
+      <li><code>ns1.hostpro.apartner.pro</code></li>
+      <li><code>ns2.hostpro.apartner.pro</code></li>
+    </ul>
+  </li>
+  <li>Save your changes.</li>
+</ol>
+<p><strong>Note:</strong> DNS changes can take anywhere from a few hours up to 48 hours to fully propagate across the internet. During this time, your website may not be accessible to everyone.</p>`
         }
       ],
     },
@@ -1943,6 +1962,25 @@ export const t = {
   <li>Переконайтеся, що <strong>Пошта</strong> увімкнена, потім натисніть <strong>Зберегти</strong>.</li>
 </ol>
 <p>Якщо ви зіткнетеся з попередженням про сертифікат SSL, ви зазвичай можете натиснути <strong>Продовжити</strong> або <strong>Довіряти</strong>. Для найкращої безпеки переконайтеся, що у вас встановлено дійсний SSL для вашого поштового субдомену в cPanel.</p>`
+        },
+        {
+          slug: 'changing-your-nameservers',
+          title: 'Як змінити DNS сервери',
+          cat: 'Домени та DNS',
+          content: `<p>Щоб спрямувати ваш домен на обліковий запис хостингу, вам потрібно оновити його DNS сервери (неймсервери). Виконайте ці кроки:</p>
+<ol>
+  <li>Увійдіть в панель керування вашого реєстратора домену (компанії, де ви придбали домен).</li>
+  <li>Знайдіть розділ керування доменами та виберіть домен, який потрібно оновити.</li>
+  <li>Знайдіть опцію з назвою "Nameservers", "DNS сервери", або "Керування DNS".</li>
+  <li>Замініть існуючі сервери на ті, що надані HostPro (зазвичай вони вказані у листі про відкриття послуги). Зазвичай вони виглядають так:
+    <ul>
+      <li><code>ns1.hostpro.apartner.pro</code></li>
+      <li><code>ns2.hostpro.apartner.pro</code></li>
+    </ul>
+  </li>
+  <li>Збережіть зміни.</li>
+</ol>
+<p><strong>Примітка:</strong> Зміни DNS можуть тривати від кількох годин до 48 годин для повного оновлення по всьому світу. Протягом цього часу ваш сайт може бути недоступний для деяких користувачів.</p>`
         }
       ],
     },
@@ -2773,6 +2811,25 @@ export const t = {
   <li>Убедитесь, что <strong>Почта</strong> включена, затем нажмите <strong>Сохранить</strong>.</li>
 </ol>
 <p>Если вы столкнетесь с предупреждением о сертификате SSL, вы обычно можете нажать <strong>Продолжить</strong> или <strong>Доверять</strong>. Для лучшей безопасности убедитесь, что у вас установлен действительный SSL для вашего почтового субдомена в cPanel.</p>`
+        },
+        {
+          slug: 'changing-your-nameservers',
+          title: 'Как изменить DNS серверы',
+          cat: 'Домены и DNS',
+          content: `<p>Чтобы направить ваш домен на аккаунт хостинга, вам нужно обновить его DNS серверы (неймсерверы). Выполните эти шаги:</p>
+<ol>
+  <li>Войдите в панель управления вашего регистратора домена (компании, где вы приобрели домен).</li>
+  <li>Найдите раздел управления доменами и выберите домен, который нужно обновить.</li>
+  <li>Найдите опцию с названием "Nameservers", "DNS серверы", или "Управление DNS".</li>
+  <li>Замените существующие серверы на предоставленные HostPro (обычно они указаны в приветственном письме). Обычно они выглядят так:
+    <ul>
+      <li><code>ns1.hostpro.apartner.pro</code></li>
+      <li><code>ns2.hostpro.apartner.pro</code></li>
+    </ul>
+  </li>
+  <li>Сохраните изменения.</li>
+</ol>
+<p><strong>Примечание:</strong> Изменения DNS могут занять от нескольких часов до 48 часов для полного обновления по всему миру. В течение этого времени ваш сайт может быть недоступен для некоторых пользователей.</p>`
         }
       ],
     },
