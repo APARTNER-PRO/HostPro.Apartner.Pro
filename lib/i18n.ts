@@ -1068,6 +1068,25 @@ export const t = {
   <li>Make your changes on the staging site. Once satisfied, go back to Softaculous and click <strong>"Push to Live"</strong> next to the staging installation.</li>
 </ol>
 <p>This ensures your live site stays functional while you experiment with new features or designs.</p>`
+        },
+        {
+          slug: 'how-to-login-to-cpanel',
+          title: 'How to login to cPanel',
+          cat: 'cPanel & Hosting',
+          content: `<p>Logging into your cPanel is the first step to managing your hosting environment, databases, emails, and files. Here is how to do it:</p>
+<h3>Method 1: Via the Direct URL (Recommended)</h3>
+<p>You can access cPanel directly by appending the cPanel port to your domain name or using the cPanel shortcut:</p>
+<ul>
+  <li><code>https://yourdomain.com:2083</code> (secure encrypted connection)</li>
+  <li><code>https://yourdomain.com/cpanel</code></li>
+</ul>
+<p>Simply replace <code>yourdomain.com</code> with your actual domain name.</p>
+<h3>Method 2: Via Server IP Address</h3>
+<p>If your domain is new or hasn't fully propagated yet, you can use the IP address of your server:</p>
+<ul>
+  <li><code>https://your-server-ip:2083</code></li>
+</ul>
+<p>Enter your cPanel username and password provided in your welcome email to log in.</p>`
         }
       ],
     },
@@ -1844,9 +1863,28 @@ export const t = {
   <li>Знайдіть вашу установку WordPress і натисніть іконку <strong>"Create Staging"</strong> (схожа на два аркуші).</li>
   <li>Оберіть URL для стейджингу (наприклад, <code>staging.yourdomain.com</code>).</li>
   <li>Натисніть <strong>"Create Staging"</strong>.</li>
-  <li>Робіть зміни на тестовому сайті. Коли все буде готово, поверніться в Softaculous і натисніть <strong>"Push to Live"</strong> поруч із цією установкою.</li>
+  <li>Робіть зміни на тестовом сайті. Коли все буде готово, поверніться в Softaculous і натисніть <strong>"Push to Live"</strong> поруч із цією установкою.</li>
 </ol>
 <p>Це гарантує стабільну роботу основного сайту, поки ви експериментуєте з новим дизайном чи функціями.</p>`
+        },
+        {
+          slug: 'how-to-login-to-cpanel',
+          title: 'Як увійти в cPanel',
+          cat: 'cPanel та хостинг',
+          content: `<p>Вхід у cPanel — це перший крок до керування вашим хостинг-середовищем, базами даних, електронною поштою та файлами. Ось як це зробити:</p>
+<h3>Спосіб 1: Через пряму URL-адресу (Рекомендовано)</h3>
+<p>Ви можете отримати доступ до cPanel безпосередньо, додавши порт cPanel до свого доменного імені або скориставшись швидким посиланням:</p>
+<ul>
+  <li><code>https://yourdomain.com:2083</code> (безпечне зашифроване з'єднання)</li>
+  <li><code>https://yourdomain.com/cpanel</code></li>
+</ul>
+<p>Просто замініть <code>yourdomain.com</code> на ваше реальне доменне ім'я.</p>
+<h3>Спосіб 2: Через IP-адресу сервера</h3>
+<p>Якщо ваш домен новий або ще не оновився в DNS, ви можете використовувати IP-адресу сервера:</p>
+<ul>
+  <li><code>https://your-server-ip:2083</code></li>
+</ul>
+<p>Введіть ім'я користувача та пароль cPanel, які ви отримали в листі про відкриття хостингу, щоб увійти.</p>`
         }
       ],
     },
@@ -2629,6 +2667,25 @@ export const t = {
   <li>Делайте изменения на тестовом сайте. Когда всё будет готово, повернитесь в Softaculous и нажмите <strong>"Push to Live"</strong> рядом с этой установкой.</li>
 </ol>
 <p>Это гарантирует стабильную работу основного сайта, пока вы экспериментируете с новым дизайном или функциями.</p>`
+        },
+        {
+          slug: 'how-to-login-to-cpanel',
+          title: 'Как войти в cPanel',
+          cat: 'cPanel и хостинг',
+          content: `<p>Вход в cPanel — это первый шаг к управлению вашей хостинг-средой, базами данных, электронной почтой и файлами. Вот как это сделать:</p>
+<h3>Способ 1: Через прямой URL-адрес (Рекомендуется)</h3>
+<p>Вы можете получить доступ к cPanel напрямую, добавив порт cPanel к вашему доменному имени или воспользовавшись быстрым переходом:</p>
+<ul>
+  <li><code>https://yourdomain.com:2083</code> (безопасное зашифрованное соединение)</li>
+  <li><code>https://yourdomain.com/cpanel</code></li>
+</ul>
+<p>Просто замените <code>yourdomain.com</code> на ваше реальное доменное имя.</p>
+<h3>Способ 2: Через IP-адрес сервера</h3>
+<p>Если ваш домен новый или еще не обновился в DNS, вы можете использовать IP-адрес сервера:</p>
+<ul>
+  <li><code>https://your-server-ip:2083</code></li>
+</ul>
+<p>Введите имя пользователя и пароль cPanel, которые вы получили в приветственном письме, чтобы войти.</p>`
         }
       ],
     },
