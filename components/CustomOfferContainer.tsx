@@ -18,8 +18,8 @@ export default function CustomOfferContainer({ lang, initialData }: CustomOfferC
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const now = new Date();
-    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-    if (code.trim().toLowerCase() === 'bundes-mebli' && now <= endOfMonth) {
+    const endOfSeptember = new Date(2026, 8, 30, 23, 59, 59);
+    if (code.trim().toLowerCase() === 'bundes-mebli' && now <= endOfSeptember) {
       setIsUnlocked(true);
       setError(false);
     } else {
