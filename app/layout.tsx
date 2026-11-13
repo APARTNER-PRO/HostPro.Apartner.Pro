@@ -8,6 +8,8 @@ const syne = Syne({
   weight: ['400', '600', '700', '800'],
   variable: '--font-syne',
   display: 'swap',
+  preload: false,
+  fallback: ['system-ui', 'sans-serif'],
 })
 
 const dmSans = DM_Sans({
@@ -15,6 +17,8 @@ const dmSans = DM_Sans({
   weight: ['300', '400', '500', '700'],
   variable: '--font-dm-sans',
   display: 'swap',
+  preload: false,
+  fallback: ['system-ui', 'sans-serif'],
 })
 
 export default function RootLayout({
