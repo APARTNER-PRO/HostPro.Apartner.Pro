@@ -24,6 +24,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
     {
       title: T.footer.cols?.services || 'Services',
       links: [
+        { href: 'email-hosting', label: T.footer.links.emailHosting },
         { href: 'laravel-hosting', label: T.footer.links.laravelHosting },
         { href: 'wordpress-hosting', label: T.footer.links.wpHosting },
         { href: 'php-hosting', label: T.footer.links.phpHosting },
@@ -106,7 +107,7 @@ export default function Footer({ lang, slug = '' }: FooterProps) {
                     return (
                       <Link key={j} href={href} className="hp-footer-link" title={link.label} {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                         {link.label}
-                        {(link.href === 'ai-assistant' || link.href === 'hosting-types') && <span className="hp-new-badge">NEW</span>}
+                        {(link.href === 'ai-assistant' || link.href === 'hosting-types' || link.href === 'email-hosting') && <span className="hp-new-badge">NEW</span>}
                       </Link>
                     )
                   })}

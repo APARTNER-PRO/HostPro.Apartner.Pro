@@ -3,7 +3,7 @@ import { LANGS, getT } from '@/lib/i18n'
 
 const BASE = 'https://hostpro.apartner.pro'
 const STATIC_PAGES = ['', 'about', 'faq', 'contact', 'status', 'terms', 'privacy', 'refund', 'pricing', 'reviews', 'ai-assistant', 'blog']
-const SERVICE_PAGES = ['wordpress-hosting', 'laravel-hosting', 'php-hosting', 'prestashop-hosting', 'free-hosting', 'free-wordpress-hosting', 'free-php-hosting', 'free-personal-hosting', 'partner-free-hosting', 'vps-hosting', 'dedicated-servers', 'reseller-hosting']
+const SERVICE_PAGES = ['wordpress-hosting', 'laravel-hosting', 'php-hosting', 'prestashop-hosting', 'free-hosting', 'free-wordpress-hosting', 'free-php-hosting', 'free-personal-hosting', 'partner-free-hosting', 'vps-hosting', 'dedicated-servers', 'reseller-hosting', 'email-hosting']
 
 export const dynamic = 'force-static'
 
@@ -106,7 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const rootSlugs = [
     'wordpress-hosting', 'laravel-hosting', 'php-hosting', 
     'prestashop-hosting', 'vps-hosting', 'dedicated-servers', 
-    'reseller-hosting', 'free-hosting', 'free-php-hosting', 
+    'reseller-hosting', 'email-hosting', 'free-hosting', 'free-php-hosting', 
     'free-personal-hosting', 'free-wordpress-hosting', 'partner-free-hosting'
   ];
 

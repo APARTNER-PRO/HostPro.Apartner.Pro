@@ -69,6 +69,7 @@ export default function JsonLd({ lang, page = 'home', article }: JsonLdProps) {
     'vps-hosting': T.footer.links.vpsHosting,
     'dedicated-servers': T.footer.links.dedicated,
     'reseller-hosting': T.footer.links.resellerHosting,
+    'email-hosting': T.footer.links.emailHosting,
   }
 
   const breadcrumb = page !== 'home' ? {

@@ -3,6 +3,7 @@
 import { Lang, getT } from '@/lib/i18n'
 import FadeIn from './FadeIn'
 import Link from 'next/link'
+import Breadcrumbs from './Breadcrumbs'
 
 export default function HostingTypesClient({ lang }: { lang: Lang }) {
   const T = getT(lang)
@@ -10,6 +11,7 @@ export default function HostingTypesClient({ lang }: { lang: Lang }) {
 
   return (
     <div className="section-container" style={{ paddingTop: 80, paddingBottom: 100 }}>
+      <Breadcrumbs lang={lang} page="hosting-types" />
       <FadeIn style={{ textAlign: 'center', marginBottom: 80 }}>
         <h1 style={{ fontFamily: 'Syne, sans-serif', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 800, marginBottom: 24, color: '#fff' }}>
           {T.hostingTypes.title}
@@ -32,11 +34,15 @@ export default function HostingTypesClient({ lang }: { lang: Lang }) {
                   const rootSlugs = [
                     'wordpress-hosting', 'laravel-hosting', 'php-hosting', 
                     'prestashop-hosting', 'vps-hosting', 'dedicated-servers', 
-                    'reseller-hosting', 'free-hosting', 'free-php-hosting', 
+                    'reseller-hosting', 'email-hosting', 'free-hosting', 'free-php-hosting', 
                     'free-personal-hosting', 'free-wordpress-hosting', 'partner-free-hosting'
                   ];
                   const isRoot = rootSlugs.includes(item.slug);
-                  const href = isRoot ? `${p}/${item.slug}` : `${p}/hosting-types/${item.slug}`;
+                  const href = isRoot ? `${p}/${item.slug}/` : `${p}/hosting-types/${item.slug}/`;
+                  const isFree = item.slug.includes('free') || item.slug === 'charity-hosting';
+                  const priceText = isFree
+                    ? (lang === 'uk' ? 'Безкоштовно' : lang === 'ru' ? 'Бесплатно' : 'Free')
+                    : (lang === 'uk' ? 'від $0.69 / міс.' : lang === 'ru' ? 'от $0.69 / мес.' : 'from $0.69 / mo.');
                   
                   return (
                     <Link 
@@ -44,7 +50,12 @@ export default function HostingTypesClient({ lang }: { lang: Lang }) {
                       href={href}
                       className="hosting-type-link"
                     >
-                      {item.name}
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <span style={{ fontWeight: 600 }}>{item.name}</span>
+                        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', fontWeight: 400 }}>
+                          {priceText}
+                        </span>
+                      </div>
                       <span className="arrow">→</span>
                     </Link>
                   )

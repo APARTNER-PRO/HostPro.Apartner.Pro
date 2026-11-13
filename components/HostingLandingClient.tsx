@@ -6,6 +6,7 @@ import { Lang, getT } from '@/lib/i18n'
 import OrderModal from './OrderModal'
 import PricingFAQ from './PricingFAQ'
 import FadeIn from './FadeIn'
+import Breadcrumbs from './Breadcrumbs'
 
 const DISC: Record<string, number> = { monthly: 1, quarterly: 0.9, yearly: 0.8, threeYears: 0.7 }
 
@@ -65,6 +66,7 @@ export default function HostingLandingClient({ lang, title, slug }: HostingLandi
       {/* HERO */}
       <section className="grid-bg" style={{ position:'relative',minHeight:'70vh',display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden', paddingTop: 100, paddingBottom: 60 }}>
         <div style={{ textAlign:'center',maxWidth:900,padding:'0 24px',position:'relative',zIndex:2 }}>
+          <Breadcrumbs lang={lang} page={slug} pageName={title} />
           <div style={{ display:'inline-flex',alignItems:'center',gap:8,background:'rgba(96,165,250,.1)',border:'1px solid rgba(96,165,250,.25)',borderRadius:100,padding:'6px 16px',fontSize:13,color:'#60A5FA',marginBottom:32,fontWeight:500 }}>{T.hero.badge}</div>
           <h1 style={{ fontFamily:'Syne,sans-serif',fontWeight:800,fontSize:'clamp(36px,6vw,64px)',lineHeight:1.1,letterSpacing:'-2px',marginBottom:24, color: '#fff' }}>
             {title}

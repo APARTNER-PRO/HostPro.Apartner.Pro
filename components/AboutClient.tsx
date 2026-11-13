@@ -2,6 +2,7 @@
 import { useRef } from 'react'
 import { Lang, getT } from '@/lib/i18n'
 import FadeIn from './FadeIn'
+import Breadcrumbs from './Breadcrumbs'
 
 const SG = ['linear-gradient(135deg,#60A5FA,#A78BFA)','linear-gradient(135deg,#A78BFA,#F472B6)','linear-gradient(135deg,#6EE7B7,#60A5FA)','linear-gradient(135deg,#FB923C,#F472B6)']
 
@@ -13,6 +14,7 @@ export default function AboutClient({ lang }: { lang: Lang }) {
       <div className="page-hero">
         <div className="orb" style={{ width:500,height:500,background:'radial-gradient(circle,rgba(59,130,246,.15),transparent)',top:-100,left:'50%',transform:'translateX(-50%)' }}/>
         <div className="page-container" style={{ position:'relative',zIndex:1 }}>
+          <Breadcrumbs lang={lang} page="about" />
           <div className="section-label">{A.label}</div>
           <h1 className="page-title">{A.h1p1} <span className="grad-text">{A.h1p2}</span></h1>
           <p className="page-sub">{A.sub}</p>
